@@ -46,8 +46,7 @@ class CustomStyleChartComposer  {
             .categories(colorsNameArr)
             .colorsTheme(colorsArr)
             .stacking(AAChartStackingType.Percent)
-            .series(
-                arrayOf(
+            .series(arrayOf(
                     AASeriesElement()
                         .name("Tokyo")
                         .data(arrayOf(149.9, 171.5, 106.4, 129.2, 144.0, 176.0, 135.6, 188.5, 276.4, 214.1, 95.6, 54.4))
@@ -118,8 +117,7 @@ class CustomStyleChartComposer  {
             .colorsTheme(gradientColorArr)
             .yAxisTitle("gradient color")
             .stacking(AAChartStackingType.Percent)
-            .series(
-                arrayOf(
+            .series(arrayOf(
                     AASeriesElement()
                         .name("Tokyo")
                         .data(arrayOf(149.9, 171.5, 106.4, 129.2, 144.0, 176.0, 135.6, 188.5, 276.4, 214.1, 95.6, 54.4))

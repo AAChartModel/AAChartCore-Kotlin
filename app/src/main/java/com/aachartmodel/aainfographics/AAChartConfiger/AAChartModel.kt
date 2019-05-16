@@ -54,6 +54,7 @@ enum class AAChartType(val value: String) {
     Areasplinerange ("areasplinerange"),
     Boxplot         ("boxplot"),
     Waterfall       ("waterfall"),
+    Polygon         ("polygon")
 }
 
 enum class AAChartAlighType(val value: String) {
@@ -201,8 +202,8 @@ class AAChartModel {
         return this
     }
 
-    fun symbol(prop: String): AAChartModel {
-        this.symbol = prop
+    fun symbol(prop: AAChartSymbolType): AAChartModel {
+        this.symbol = prop.toString()
         return this
     }
 
