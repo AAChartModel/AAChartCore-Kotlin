@@ -159,10 +159,6 @@ class AAChartModel {
     var legendAlign: String? = null            //设定图例在图表区中的水平对齐方式，合法值有left，center 和 right。
     var legendVerticalAlign: String? = null    //设定图例在图表区中的垂直对齐方式，合法值有 top，middle 和 bottom。垂直位置可以通过 y 选项做进一步设定。
     var backgroundColor: String? = null        //图表背景色
-    var options3dEnable: Boolean? = null       //是否3D化图形(仅对条形图,柱状图有效)
-    var options3dAlphaInt: Int? = null
-    var options3dBetaInt: Int? = null
-    var options3dDepth: Int? = null        //3D图形深度
     var borderRadius: Int? = null          //柱状图长条图头部圆角半径(可用于设置头部的形状,仅对条形图,柱状图有效)
     var markerRadius: Int? = null          //折线连接点的半径长度
     var series: Array<AASeriesElement>? = null
@@ -173,263 +169,209 @@ class AAChartModel {
 
 
     fun animationType(prop: AAChartAnimationType): AAChartModel {
-        this.animationType = prop.toString()
+        animationType = prop.toString()
         return this
     }
 
     fun animationDuration(prop: Int?): AAChartModel {
-        this.animationDuration = prop
+        animationDuration = prop
         return this
     }
 
     fun title(prop: String): AAChartModel {
-        this.title = prop
+        title = prop
         return this
     }
 
     fun subtitle(prop: String): AAChartModel {
-        this.subtitle = prop
+        subtitle = prop
         return this
     }
 
     fun chartType(prop: AAChartType): AAChartModel {
-        this.chartType = prop.toString()
+        chartType = prop.toString()
         return this
     }
 
     fun stacking(prop: AAChartStackingType): AAChartModel {
-        this.stacking = prop.toString()
+        stacking = prop.toString()
         return this
     }
 
     fun symbol(prop: AAChartSymbolType): AAChartModel {
-        this.symbol = prop.toString()
+        symbol = prop.toString()
         return this
     }
 
     fun symbolStyle(prop: AAChartSymbolStyleType): AAChartModel {
-        this.symbolStyle = prop.toString()
+        symbolStyle = prop.toString()
         return this
     }
 
     fun zoomType(prop: String): AAChartModel {
-        this.zoomType = prop
+        zoomType = prop
         return this
     }
 
     fun pointHollow(prop: Boolean?): AAChartModel {
-        this.pointHollow = prop
+        pointHollow = prop
         return this
     }
 
     fun inverted(prop: Boolean?): AAChartModel {
-        this.inverted = prop
+        inverted = prop
         return this
     }
 
     fun xAxisReversed(prop: Boolean?): AAChartModel {
-        this.xAxisReversed = prop
+        xAxisReversed = prop
         return this
     }
 
     fun yAxisReversed(prop: Boolean?): AAChartModel {
-        this.yAxisReversed = prop
+        yAxisReversed = prop
         return this
     }
 
     fun tooltipEnabled(prop: Boolean?): AAChartModel {
-        this.tooltipEnabled = prop
+        tooltipEnabled = prop
         return this
     }
 
     fun tooltipCrosshairs(prop: Boolean?): AAChartModel {
-        this.tooltipCrosshairs = prop
+        tooltipCrosshairs = prop
         return this
     }
 
     fun gradientColorEnable(prop: Boolean?): AAChartModel {
-        this.gradientColorEnable = prop
+        gradientColorEnable = prop
         return this
     }
 
     fun polar(prop: Boolean?): AAChartModel {
-        this.polar = prop
+        polar = prop
         return this
     }
 
     fun dataLabelEnabled(prop: Boolean?): AAChartModel {
-        this.dataLabelEnabled = prop
+        dataLabelEnabled = prop
         return this
     }
 
     fun xAxisLabelsEnabled(prop: Boolean?): AAChartModel {
-        this.xAxisLabelsEnabled = prop
+        xAxisLabelsEnabled = prop
         return this
     }
 
     fun categories(prop: Array<String>): AAChartModel {
-        this.categories = prop
+        categories = prop
         return this
     }
 
     fun xAxisGridLineWidth(prop: Int?): AAChartModel {
-        this.xAxisGridLineWidth = prop
+        xAxisGridLineWidth = prop
         return this
     }
 
     fun xAxisVisible(prop: Boolean?): AAChartModel {
-        this.xAxisVisible = prop
+        xAxisVisible = prop
         return this
     }
 
     fun yAxisVisible(prop: Boolean?): AAChartModel {
-        this.yAxisVisible = prop
+        yAxisVisible = prop
         return this
     }
 
     fun yAxisGridLineWidth(prop: Int?): AAChartModel {
-        this.yAxisGridLineWidth = prop
+        yAxisGridLineWidth = prop
         return this
     }
 
     fun yAxisLabelsEnabled(prop: Boolean?): AAChartModel {
-        this.yAxisLabelsEnabled = prop
+        yAxisLabelsEnabled = prop
         return this
     }
 
     fun yAxisTitle(prop: String): AAChartModel {
-        this.yAxisTitle = prop
+        yAxisTitle = prop
         return this
     }
 
     fun yAxisLineWidth(prop:Float): AAChartModel {
-        this.yAxisLineWidth = prop
+        yAxisLineWidth = prop
         return this
     }
 
     fun colorsTheme(prop: Array<Any>): AAChartModel {
-        this.colorsTheme = prop
+        colorsTheme = prop
         return this
     }
 
     fun legendEnabled(prop: Boolean?): AAChartModel {
-        this.legendEnabled = prop
+        legendEnabled = prop
         return this
     }
 
     fun legendLayout(prop: String): AAChartModel {
-        this.legendLayout = prop
-
+        legendLayout = prop
         return this
     }
 
     fun legendAlign(prop: String): AAChartModel {
-        this.legendAlign = prop
+        legendAlign = prop
         return this
     }
 
     fun legendVerticalAlign(prop: AAChartLegendVerticalAlignType): AAChartModel {
-        this.legendVerticalAlign = prop.toString()
+        legendVerticalAlign = prop.toString()
         return this
     }
 
     fun backgroundColor(prop: String): AAChartModel {
-        this.backgroundColor = prop
-        return this
-    }
-
-    fun options3dEnable(prop: Boolean?): AAChartModel {
-        this.options3dEnable = prop
-        return this
-    }
-
-    fun options3dAlphaInt(prop: Int?): AAChartModel {
-        this.options3dAlphaInt = prop
-        return this
-    }
-
-    fun options3dBetaInt(prop: Int?): AAChartModel {
-        this.options3dBetaInt = prop
-        return this
-    }
-
-    fun options3dDepth(prop: Int?): AAChartModel {
-        this.options3dDepth = prop
+        backgroundColor = prop
         return this
     }
 
     fun borderRadius(prop: Int?): AAChartModel {
-        this.borderRadius = prop
+        borderRadius = prop
         return this
     }
 
     fun markerRadius(prop: Int?): AAChartModel {
-        this.markerRadius = prop
+        markerRadius = prop
         return this
     }
 
     fun series(prop: Array<AASeriesElement>): AAChartModel {
-        this.series = prop
+        series = prop
         return this
     }
 
-    // 构造函数(亦即是初始化函数)
     init {
-
-        //        this.animationType = AAChartAnimationType.EaseInBack;
-        //        this.animationDuration = 800;//以毫秒为单位
-        //        this.chartType = AAChartType.Column;
-        //        this.inverted = false;
-        //        this.stacking = AAChartStackingType.False;
-        //        //this.symbol = AAChartSymbolType.Square.rawValue//默认的折线连接点类型
-        //        this.xAxisReversed = false;
-        //        this.yAxisReversed = false;
-        //        this.zoomType = AAChartZoomType.X;
-        //        this.pointHollow = false;//默认折线或者曲线的连接点不为空
-        //        this.colorsTheme = new String[]{"#b5282a","#e7a701","#50c18d","#fd4800","#f1c6c5"};
-        //        this.gradientColorEnable = false;
-        //        this.polar = false;
-        //        this.dataLabelEnabled = true;
-        //        this.options3dEnable = false;
-        //        this.crosshairs = true;
-        //        this.xAxisLabelsEnabled = true;
-        //        this.xAxisGridLineWidth = 0;
-        //        this.yAxisLabelsEnabled = true;
-        //        this.yAxisGridLineWidth = 1;
-        //        this.legendEnabled = true;
-        //        this.legendLayout = AAchartLegendlLayoutType.Horizontal;
-        //        this.legendAlign = AAChartLegendAlignType.Center;
-        //        this.legendVerticalAlign = AAChartLegendVerticalAlignType.Bottom;
-        //        this.borderRadius = 0;//柱状图长条图头部圆角半径(可用于设置头部的形状,仅对条形图,柱状图有效,设置为1000时,柱形图或者条形图头部为楔形)
-        //        this.markerRadius = 5;//折线连接点的半径长度,设置默认值为0,这样就相当于不显示了
-
-        this.animationType = AAChartAnimationType.EaseInBack.toString()
-        this.animationDuration = 800//以毫秒为单位
-        this.pointHollow = false
-        this.inverted = false
-        this.stacking = AAChartStackingType.False.toString()
-        this.xAxisReversed = false
-        this.yAxisReversed = false
-        this.zoomType = "x"
-        //        this.colorsTheme = new String[]{"#b5282a","#e7a701","#50c18d","#fd4800","#f1c6c5"};
-        this.colorsTheme = arrayOf<Any>("#fe117c", "#ffc069", "#06caf4", "#7dffc0")//默认的颜色数组(必须要添加默认数组,否则就会出错)
-
-        this.tooltipCrosshairs = true
-
-        this.gradientColorEnable = false
-        this.polar = false
-        this.options3dEnable = false
-        this.xAxisLabelsEnabled = true
-        this.xAxisGridLineWidth = 0
-        this.yAxisLabelsEnabled = true
-        this.yAxisGridLineWidth = 1
-        this.legendEnabled = true
-        this.legendLayout = "horizontal"
-        this.legendAlign = "center"
-        this.legendVerticalAlign = "bottom"
-        this.backgroundColor = "#ffffff"
-        this.borderRadius = 0//柱状图长条图头部圆角半径(可用于设置头部的形状,仅对条形图,柱状图有效,设置为1000时,柱形图或者条形图头部为楔形)
-        this.markerRadius = 6//折线连接点的半径长度,如果值设置为0,这样就相当于不显示了
+        animationType = AAChartAnimationType.EaseInBack.toString()
+        animationDuration = 800//以毫秒为单位
+        pointHollow = false
+        inverted = false
+        stacking = AAChartStackingType.False.toString()
+        xAxisReversed = false
+        yAxisReversed = false
+        zoomType = "x"
+        colorsTheme = arrayOf<Any>("#fe117c", "#ffc069", "#06caf4", "#7dffc0")//默认的颜色数组(必须要添加默认数组,否则就会出错)
+        tooltipCrosshairs = true
+        gradientColorEnable = false
+        polar = false
+        xAxisLabelsEnabled = true
+        xAxisGridLineWidth = 0
+        yAxisLabelsEnabled = true
+        yAxisGridLineWidth = 1
+        legendEnabled = true
+        legendLayout = "horizontal"
+        legendAlign = "center"
+        legendVerticalAlign = "bottom"
+        backgroundColor = "#ffffff"
+        borderRadius = 0//柱状图长条图头部圆角半径(可用于设置头部的形状,仅对条形图,柱状图有效,设置为1000时,柱形图或者条形图头部为楔形)
+        markerRadius = 6//折线连接点的半径长度,如果值设置为0,这样就相当于不显示了
 
     }
 }

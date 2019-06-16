@@ -29,27 +29,27 @@ class AASeriesElement {
 
 
     fun type(prop: AAChartType): AASeriesElement {
-        this.type = prop.toString()
+        type = prop.toString()
         return this
     }
 
     fun name(prop: String): AASeriesElement {
-        this.name = prop
+        name = prop
         return this
     }
 
     fun data(prop: Array<Any>): AASeriesElement {
-        this.data = prop
+        data = prop
         return this
     }
 
     fun lineWidth(prop: Float?): AASeriesElement {
-        this.lineWidth = prop
+        lineWidth = prop
         return this
     }
 
     fun color(prop: Any): AASeriesElement {
-        this.color = prop
+        color = prop
         return this
     }
 
@@ -59,47 +59,47 @@ class AASeriesElement {
     }
 
     fun fillOpacity(prop: Float?): AASeriesElement {
-        this.fillOpacity = prop
+        fillOpacity = prop
         return this
     }
 
     fun threshold(prop: Float?): AASeriesElement {
-        this.threshold = prop
+        threshold = prop
         return this
     }
 
     fun negativeColor(prop: String): AASeriesElement {
-        this.negativeColor = prop
+        negativeColor = prop
         return this
     }
 
     fun dashStyle(prop: AAChartLineDashSyleType): AASeriesElement {
-        this.dashStyle = prop.toString()
+        dashStyle = prop.toString()
         return this
     }
 
     fun dataLabels(prop: Dictionary<*, *>): AASeriesElement {
-        this.dataLabels = prop
+        dataLabels = prop
         return this
     }
 
     fun marker(prop: Dictionary<*, *>): AASeriesElement {
-        this.marker = prop
+        marker = prop
         return this
     }
 
     fun step(prop: Any): AASeriesElement {
-        this.step = prop
+        step = prop
         return this
     }
 
     fun colorByPoint(prop: Boolean?): AASeriesElement {
-        this.colorByPoint = prop
+        colorByPoint = prop
         return this
     }
 
     fun zIndex(prop: Int?): AASeriesElement {
-        this.zIndex = prop
+        zIndex = prop
         return this
     }
 

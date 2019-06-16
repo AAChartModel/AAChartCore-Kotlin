@@ -222,9 +222,11 @@ class CustomStyleChartComposer  {
             arrayOf(0.50, "#FF14d4"),
             arrayOf(1.00, "#0bf8f5")
         )//颜色字符串设置支持十六进制类型和 rgba 类型
-        val gradientColorMap = HashMap<String, Any>()
-        gradientColorMap["linearGradient"] = linearGradientColorMap
-        gradientColorMap["stops"] = stopsArr
+
+        val gradientColorMap = mapOf(
+            "linearGradient" to linearGradientColorMap,
+            "stops" to stopsArr
+        )
 
         return AAChartModel()
             .chartType(AAChartType.Areaspline)
@@ -261,9 +263,11 @@ class CustomStyleChartComposer  {
             arrayOf(0.75, "#F33c52"),
             arrayOf(1.00, "#1904dd")
         )//颜色字符串设置支持十六进制类型和 rgba 类型
-        val gradientColorMap = HashMap<String, Any>()
-        gradientColorMap["linearGradient"] = linearGradientColorMap
-        gradientColorMap["stops"] = stopsArr
+
+        val gradientColorMap = mapOf(
+            "linearGradient" to linearGradientColorMap,
+            "stops" to stopsArr
+        )
 
         return AAChartModel()
             .chartType(AAChartType.Spline)
@@ -295,12 +299,13 @@ class CustomStyleChartComposer  {
         )
         val stopsArr = arrayOf(
             arrayOf(0, "rgba(2255,20,147,1)"), //深粉色, alpha 透明度 1
-            arrayOf(1, "rgba(255,105,180,0.1)")
-        )//热情的粉红, alpha 透明度 0.1
-        //颜色字符串设置支持十六进制类型和 rgba 类型
-        val gradientColorMap = HashMap<String, Any>()
-        gradientColorMap["linearGradient"] = linearGradientColorMap
-        gradientColorMap["stops"] = stopsArr
+            arrayOf(1, "rgba(255,105,180,0.1)")//热情的粉红, alpha 透明度 0.1
+        ) //颜色字符串设置支持十六进制类型和 rgba 类型
+
+        val gradientColorMap = mapOf(
+            "linearGradient" to linearGradientColorMap,
+            "stops" to stopsArr
+        )
 
         return AAChartModel()
             .chartType(AAChartType.Areaspline)
