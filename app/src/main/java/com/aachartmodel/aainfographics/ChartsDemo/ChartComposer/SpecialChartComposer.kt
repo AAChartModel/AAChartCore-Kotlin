@@ -1,7 +1,5 @@
-package com.example.chartcorekotlin
+package com.aachartmodel.aainfographics.ChartsDemo.ChartComposer
 
-import android.support.v7.app.AppCompatActivity
-import android.os.Bundle
 import com.example.chartcorekotlin.AAChartConfiger.*
 
 object SpecialChartComposer{

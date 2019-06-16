@@ -1,4 +1,4 @@
-package com.example.chartcorekotlin
+package com.aachartmodel.aainfographics.ChartsDemo.ChartComposer
 
 import com.example.chartcorekotlin.AAChartConfiger.*
 import java.util.HashMap
@@ -154,8 +154,7 @@ class CustomStyleChartComposer  {
             .title("Colorful Column Chart")
             .subtitle("single data array colorful column chart")
             .colorsTheme(arrayOf("#febc0f", "#FF14d4", "#0bf8f5", "#F33c52", "#1904dd"))
-            .series(
-                arrayOf(
+            .series(arrayOf(
                     AASeriesElement()
                         .name("东京")
                         .data(arrayOf(149.9, 171.5, 106.4, 129.2, 144.0, 176.0, 135.6, 188.5, 276.4, 214.1, 95.6, 54.4))
@@ -176,8 +175,7 @@ class CustomStyleChartComposer  {
             .categories(arrayOf("一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"))
             .dataLabelEnabled(true)
             .polar(true)//极地化图形
-            .series(
-                arrayOf(
+            .series(arrayOf(
                     AASeriesElement()
                         .name("东京")
                         .data(arrayOf(7.0, 6.9, 9.5, 9.6, 13.9, 14.5, 18.3, 18.2, 21.5, 25.2, 26.5, 23.3))
@@ -249,11 +247,12 @@ class CustomStyleChartComposer  {
 
 
     internal fun configureColorfulGradientSplineChart(): AAChartModel {
-        val linearGradientColorMap = HashMap<String, Int>()
-        linearGradientColorMap["x1"] = 0
-        linearGradientColorMap["y1"] = 0
-        linearGradientColorMap["x2"] = 1
-        linearGradientColorMap["y2"] = 0
+        val linearGradientColorMap = mapOf(
+            "x1" to 0,
+            "y1" to 0,
+            "x2" to 1,
+            "y2" to 0
+        )
         val stopsArr = arrayOf(
             arrayOf(0.00, "#febc0f"),
             arrayOf(0.25, "#FF14d4"),
@@ -275,8 +274,7 @@ class CustomStyleChartComposer  {
             .yAxisLineWidth(0f)
             .yAxisGridLineWidth(0)
             .legendEnabled(false)
-            .series(
-                arrayOf(
+            .series(arrayOf(
                     AASeriesElement()
                         .name("Tokyo Hot")
                         .lineWidth(15.0f)

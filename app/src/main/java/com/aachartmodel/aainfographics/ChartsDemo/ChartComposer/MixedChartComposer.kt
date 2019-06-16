@@ -1,4 +1,4 @@
-package com.example.chartcorekotlin
+package com.aachartmodel.aainfographics.ChartsDemo.ChartComposer
 
 import com.example.chartcorekotlin.AAChartConfiger.*
 

@@ -6,7 +6,7 @@
  * Description:
  * History:
  */
-package com.aachartmodel.aainfographics
+package com.aachartmodel.aainfographics.ChartsDemo.ChartComposer
 
 import com.aachartmodel.aainfographics.AAInfographicsLib.AAOptionsModel.*
 import com.example.chartcorekotlin.AAChartConfiger.*
@@ -18,8 +18,7 @@ class ChartOptionsComposer {
             .chartType(AAChartType.Spline)//图形类型
             .dataLabelEnabled(false)
             .markerRadius(0)
-            .series(
-                arrayOf(
+            .series(arrayOf(
                     AASeriesElement()
                         .name("Tokyo")
                         .data(arrayOf(7.0, 6.9, 2.5, 14.5, 18.2, 21.5, 5.2, 26.5, 23.3, 45.3, 13.9, 9.6))
@@ -78,8 +77,7 @@ class ChartOptionsComposer {
         val aaChartModel = AAChartModel()
             .chartType(AAChartType.Areaspline)//图形类型
             .dataLabelEnabled(false)
-            .series(
-                arrayOf(
+            .series(arrayOf(
                     AASeriesElement()
                         .name("Tokyo")
                         .data(arrayOf(7.0, 6.9, 2.5, 14.5, 18.2, 21.5, 5.2, 26.5, 23.3, 45.3, 13.9, 9.6))
@@ -97,11 +95,9 @@ class ChartOptionsComposer {
                 .width(1f) //标示线粗细
                 .value(12f) //所在位置
                 .zIndex(1) //层叠,标示线在图表中显示的层叠级别，值越大，显示越向前
-                .label(
-                    AALabel()
+                .label(AALabel()
                         .text("PLOT LINES ONE")
-                        .style(
-                            AAStyle()
+                        .style(AAStyle()
                                 .color("#1e90ff")
                                 .fontWeight("bold")
                         )
@@ -111,11 +107,9 @@ class ChartOptionsComposer {
                 .width(1f) //标示线粗细
                 .value(24f) //所在位置
                 .zIndex(1) //层叠,标示线在图表中显示的层叠级别，值越大，显示越向前
-                .label(
-                    AALabel()
+                .label(AALabel()
                         .text("PLOT LINES TWO")
-                        .style(
-                            AAStyle()
+                        .style(AAStyle()
                                 .color("#ef476f")
                                 .fontWeight("bold")
                         )
@@ -125,11 +119,9 @@ class ChartOptionsComposer {
                 .width(1f) //标示线粗细
                 .value(36f) //所在位置
                 .zIndex(1) //层叠,标示线在图表中显示的层叠级别，值越大，显示越向前
-                .label(
-                    AALabel()
+                .label(AALabel()
                         .text("PLOT LINES THREE")
-                        .style(
-                            AAStyle()
+                        .style(AAStyle()
                                 .color("#04d69f")
                                 .fontWeight("bold")
                         )
@@ -172,8 +164,7 @@ function () {
             .valueDecimals(2)//设置取值精确到小数点后几位//设置取值精确到小数点后几位
             .backgroundColor("#000000")
             .borderColor("#000000")
-            .style(
-                AAStyle()
+            .style(AAStyle()
                 .color("#FFD700")
                 .fontSize("12 px")
             )
@@ -185,47 +176,45 @@ function () {
     internal fun customXAxisCrosshairStyle(): HashMap<*, *> {
         val aaChartModel = AAChartModel()
             .chartType(AAChartType.Line)//图表类型
-            .series(
-                arrayOf(
-                    AASeriesElement()
-                        .name("2020")
-                        .color(AAGradientColor.deepSeaColor())
-                        .data(
-                            arrayOf(
-                                arrayOf(12464064, 21.5),
-                                arrayOf(12464928, 22.1),
-                                arrayOf(12465792, 23.2),
-                                arrayOf(12466656, 23.8),
-                                arrayOf(12467520, 21.4),
-                                arrayOf(12468384, 21.3),
-                                arrayOf(12469248, 18.3),
-                                arrayOf(12470112, 15.4),
-                                arrayOf(12470976, 16.4),
-                                arrayOf(12471840, 17.7),
-                                arrayOf(12472704, 17.5),
-                                arrayOf(12473568, 17.6),
-                                arrayOf(12474432, 17.7),
-                                arrayOf(12475296, 16.8),
-                                arrayOf(12476160, 17.7),
-                                arrayOf(12477024, 16.3),
-                                arrayOf(12477888, 17.8),
-                                arrayOf(12478752, 18.1),
-                                arrayOf(12479616, 17.2),
-                                arrayOf(12480480, 14.4),
-                                arrayOf(12481344, 13.7),
-                                arrayOf(12482208, 15.7),
-                                arrayOf(12483072, 14.6),
-                                arrayOf(12483936, 15.3),
-                                arrayOf(12484800, 15.3),
-                                arrayOf(12485664, 15.8),
-                                arrayOf(12486528, 15.2),
-                                arrayOf(12487392, 14.8),
-                                arrayOf(12488256, 14.4),
-                                arrayOf(12489120, 15.5),
-                                arrayOf(12489984, 13.6)
-                            )
-                        )
-                )
+            .series(arrayOf(
+                AASeriesElement()
+                    .name("2020")
+                    .color(AAGradientColor.deepSeaColor())
+                    .data(arrayOf(
+                        arrayOf(12464064, 21.5),
+                        arrayOf(12464928, 22.1),
+                        arrayOf(12465792, 23.2),
+                        arrayOf(12466656, 23.8),
+                        arrayOf(12467520, 21.4),
+                        arrayOf(12468384, 21.3),
+                        arrayOf(12469248, 18.3),
+                        arrayOf(12470112, 15.4),
+                        arrayOf(12470976, 16.4),
+                        arrayOf(12471840, 17.7),
+                        arrayOf(12472704, 17.5),
+                        arrayOf(12473568, 17.6),
+                        arrayOf(12474432, 17.7),
+                        arrayOf(12475296, 16.8),
+                        arrayOf(12476160, 17.7),
+                        arrayOf(12477024, 16.3),
+                        arrayOf(12477888, 17.8),
+                        arrayOf(12478752, 18.1),
+                        arrayOf(12479616, 17.2),
+                        arrayOf(12480480, 14.4),
+                        arrayOf(12481344, 13.7),
+                        arrayOf(12482208, 15.7),
+                        arrayOf(12483072, 14.6),
+                        arrayOf(12483936, 15.3),
+                        arrayOf(12484800, 15.3),
+                        arrayOf(12485664, 15.8),
+                        arrayOf(12486528, 15.2),
+                        arrayOf(12487392, 14.8),
+                        arrayOf(12488256, 14.4),
+                        arrayOf(12489120, 15.5),
+                        arrayOf(12489984, 13.6)
+                    )
+                    )
+            )
             )
 
         val aaOptions = AAOptionsConstructor.configureChartOptions(aaChartModel)
