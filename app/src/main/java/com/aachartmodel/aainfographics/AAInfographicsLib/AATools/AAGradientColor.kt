@@ -104,12 +104,16 @@ object AAGradientColor {
 
     private fun configureGradientColor(startColor: String,
                                        endColor: String): HashMap<String, Any> {
-        val linearGradientColorMap = HashMap<String, Int>()
-        linearGradientColorMap["x1"] = 0
-        linearGradientColorMap["y1"] = 1
-        linearGradientColorMap["x2"] = 0
-        linearGradientColorMap["y2"] = 0
-        val stopsArr = arrayOf<Any>(arrayOf(0, startColor), arrayOf(1, endColor))
+        val linearGradientColorMap = mapOf(
+            "x1" to 0,
+            "y1" to 1,
+            "x2" to 0,
+            "y2" to 0
+        )
+        val stopsArr = arrayOf<Any>(
+            arrayOf(0, startColor),
+            arrayOf(1, endColor)
+        )
         val gradientColorMap = HashMap<String, Any>()
         gradientColorMap["linearGradient"] = linearGradientColorMap
         gradientColorMap["stops"] = stopsArr

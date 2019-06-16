@@ -61,18 +61,23 @@ class ChartOptionsComposer {
     }
 
     internal fun configureAAPlotLinesForChart(): HashMap<String, Any?> {
-        val map1 = HashMap<String,Any>()
-        map1["value"] = 12
-        map1["color"] = "#1e90ff"
-        val map2 = HashMap<String,Any>()
-        map2["value"] = 24
-        map2["color"] = "#ef476f"
-        val map3 = HashMap<String,Any>()
-        map3["value"] = 36
-        map3["color"] = "#04d69f"
-        val map4 = HashMap<String,Any>()
-        map4["color"] = "#ffd066"
-        val zonesArr = arrayOf(map1, map2, map3, map4)
+        val zonesArr = arrayOf(
+            mapOf(
+                "value" to 12,
+                "color" to "#1e90ff"
+            ),
+            mapOf(
+                "value" to 24,
+                "color" to "#ef476f"
+            ),
+            mapOf(
+                "value" to 36,
+                "color" to "#04d69f"
+            ),
+            mapOf(
+                "color" to "#ffd066"
+            )
+            )
 
         val aaChartModel = AAChartModel()
             .chartType(AAChartType.Areaspline)//图形类型

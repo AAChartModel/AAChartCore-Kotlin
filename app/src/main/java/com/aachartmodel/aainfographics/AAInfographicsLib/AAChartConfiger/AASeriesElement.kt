@@ -2,7 +2,6 @@ package com.example.chartcorekotlin.AAChartConfiger
 
 
 import java.util.Dictionary
-import java.util.HashMap
 
 /**
  * Created by anan on 2018/4/16.
@@ -104,7 +103,7 @@ class AASeriesElement {
         return this
     }
 
-    fun zones(prop: Array<HashMap<String, Any>>): AASeriesElement {
+    fun zones(prop: Array<Map<String, Any>>): AASeriesElement {
         zones = arrayOf(prop)
         return this
     }

@@ -211,11 +211,12 @@ class CustomStyleChartComposer  {
     }
 
     internal fun configureColorfulGradientAreaChart(): AAChartModel {
-        val linearGradientColorMap = HashMap<String, Int>()
-        linearGradientColorMap["x1"] = 0
-        linearGradientColorMap["y1"] = 0
-        linearGradientColorMap["x2"] = 1
-        linearGradientColorMap["y2"] = 0
+        val linearGradientColorMap = mapOf(
+            "x1" to 0,
+            "y1" to 0,
+            "x2" to 1,
+            "y2" to 0
+        )
         val stopsArr = arrayOf(
             arrayOf(0.00, "#febc0f"),
             arrayOf(0.50, "#FF14d4"),
@@ -286,11 +287,12 @@ class CustomStyleChartComposer  {
 
 
     internal fun configureGradientColorAreasplineChart(): AAChartModel {
-        val linearGradientColorMap = HashMap<String, Int>()
-        linearGradientColorMap["x1"] = 0
-        linearGradientColorMap["y1"] = 0
-        linearGradientColorMap["x2"] = 0
-        linearGradientColorMap["y2"] = 1
+        val linearGradientColorMap = mapOf(
+            "x1" to 0,
+            "y1" to 0,
+            "x2" to 0,
+            "y2" to 1
+        )
         val stopsArr = arrayOf(
             arrayOf(0, "rgba(2255,20,147,1)"), //深粉色, alpha 透明度 1
             arrayOf(1, "rgba(255,105,180,0.1)")
