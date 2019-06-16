@@ -41,7 +41,7 @@ enum class AAChartType(val value: String) {
     Column          ("column"),
     Bar             ("bar"),
     Area            ("area"),
-    AreaSpline      ("areaspline"),
+    Areaspline      ("areaspline"),
     Line            ("line"),
     Spline          ("spline"),
     Scatter         ("scatter"),
@@ -277,6 +277,16 @@ class AAChartModel {
         return this
     }
 
+    fun xAxisVisible(prop: Boolean?): AAChartModel {
+        this.xAxisVisible = prop
+        return this
+    }
+
+    fun yAxisVisible(prop: Boolean?): AAChartModel {
+        this.yAxisVisible = prop
+        return this
+    }
+
     fun yAxisGridLineWidth(prop: Int?): AAChartModel {
         this.yAxisGridLineWidth = prop
         return this
@@ -289,6 +299,11 @@ class AAChartModel {
 
     fun yAxisTitle(prop: String): AAChartModel {
         this.yAxisTitle = prop
+        return this
+    }
+
+    fun yAxisLineWidth(prop:Float): AAChartModel {
+        this.yAxisLineWidth = prop
         return this
     }
 

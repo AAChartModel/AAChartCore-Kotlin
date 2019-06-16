@@ -118,7 +118,7 @@ object AAOptionsConstructor {
         val chartType = aaChartModel.chartType
         //数据点标记相关配置，只有线性图(折线图、曲线图、折线区域填充图、曲线区域填充图,散点图)才有数据点标记
         if (chartType === AAChartType.Area.toString()
-            || chartType === AAChartType.AreaSpline.toString()
+            || chartType === AAChartType.Areaspline.toString()
             || chartType === AAChartType.Line.toString()
             || chartType === AAChartType.Spline.toString()
             || chartType === AAChartType.Scatter.toString()) {
