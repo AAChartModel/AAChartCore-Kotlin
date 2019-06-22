@@ -57,7 +57,7 @@ enum class AAChartType(val value: String) {
     Polygon         ("polygon")
 }
 
-enum class AAChartAlighType(val value: String) {
+enum class AAChartAlignType(val value: String) {
     Left   ("left"),
     Center ("center"),
     Right  ("right"),
@@ -315,6 +315,7 @@ class AAChartModel {
 
     fun legendLayout(prop: String): AAChartModel {
         legendLayout = prop
+
         return this
     }
 
