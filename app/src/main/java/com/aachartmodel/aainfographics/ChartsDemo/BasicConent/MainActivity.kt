@@ -1,42 +1,231 @@
 package com.aachartmodel.aainfographics
 
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
+import android.widget.ListView
+import com.aachartmodel.aainfographics.ChartsDemo.AdditionalContent.CustomTooltipWithJSFunctionActivity
+import com.aachartmodel.aainfographics.ChartsDemo.AdditionalContent.DrawChartWithAAOptionsActivity
+import com.aachartmodel.aainfographics.ChartsDemo.AdditionalContent.HideOrShowChartSeriesActivity
+import com.aachartmodel.aainfographics.ChartsDemo.BasicConent.CommonChartActivity
+import com.aachartmodel.aainfographics.ChartsDemo.BasicConent.CustomStyleChartActivity
+import com.aachartmodel.aainfographics.ChartsDemo.BasicConent.MixedChartActivity
+import com.aachartmodel.aainfographics.ChartsDemo.BasicConent.SpecialChartActivity
 import com.example.chartcorekotlin.AAChartConfiger.*
 import com.google.gson.Gson
 
 class MainActivity : AppCompatActivity() {
 
+    private val data = arrayOf(
+        /*基础类型图表*/
+        "/*基础类型图表*/Column Chart---柱形图--------------",
+        "Bar Chart---条形图",
+        "Area Chart---折线填充图",
+        "Areaspline Chart---曲线填充图",
+        "Step Area Chart--- 直方折线填充图",
+        "Step Line Chart--- 直方折线图",
+        "Line Chart---折线图",
+        "Spline Chart---曲线图",
+        /*特殊类型图表*/
+        "/*特殊类型图表*/Polar Chart---极地图图-------------",
+        "Pie Chart---扇形图",
+        "Bubble Chart---气泡图",
+        "Scatter Chart---散点图",
+        "Arearange Chart---区域范围图",
+        "Columnrange Chart--- 柱形范围图",
+        "Step Line Chart--- 直方折线图",
+        "Step Area Chart--- 直方折线填充图",
+        "Boxplot Chart--- 箱线图",
+        "Waterfall Chart--- 瀑布图",
+        "Pyramid Chart---金字塔图",
+        "Funnel Chart---漏斗图",
+        /*Mixed Chart---混合图*/
+        "/*Mixed Chart---混合图*/arearangeMixedLine-----------------",
+        "columnrangeMixedLine",
+        "stackingColumnMixedLine",
+        "dashStyleTypeMixed",
+        "negativeColorMixed",
+        "scatterMixedLine",
+        "negativeColorMixedBubble",
+        "polygonMixedScatter",
+        "polarChartMixed",
+        /*自定义样式图表*/
+        "/*自定义样式图表*/colorfulChart-----------------",
+        "gradientColorfulChart",
+        "discontinuousDataChart",
+        "colorfulColumnChart",
+        "nightingaleRoseChart",
+        "chartWithShadowStyle",
+        "colorfulGradientAreaChart",
+        "colorfulGradientSplineChart",
+        "gradientColorAreasplineChart",
+        /*使用AAOptions绘制图表*/
+        "/*使用AAOptions绘制图表*/drawChartWithOptionsOne-----------------",
+        "configureAAPlotLinesForChart",
+        "customAATooltipWithJSFuntion",
+        "customXAxisCrosshairStyle",
+        /*隐藏或显示内容*/
+        "/*隐藏或显示内容*/Column Chart---柱形图--------------",
+        "Bar Chart---条形图",
+        "Area Chart---折线填充图",
+        "Areaspline Chart---曲线填充图",
+        "Step Area Chart--- 直方折线填充图",
+        "Step Line Chart--- 直方折线图",
+        "Line Chart---折线图",
+        "Spline Chart---曲线图",
+        "简单字符串拼接",
+        "自定义不同单位后缀",
+        "值为0时,在tooltip中不显示",
+        "自定义多彩颜色文字",
+        "自定义箱线图的浮动提示框头部内容"
+    )
+
+    private var chartTypeArr = arrayOf(
+        /*基础类型图表*/
+        AAChartType.Column.toString(),
+        AAChartType.Bar.toString(),
+        AAChartType.Area.toString(),
+        AAChartType.Areaspline.toString(),
+        AAChartType.Area.toString(),
+        AAChartType.Line.toString(),
+        AAChartType.Line.toString(),
+        AAChartType.Spline.toString(),
+        /*特殊类型图表*/
+        AAChartType.Column.toString(),
+        AAChartType.Pie.toString(),
+        AAChartType.Bubble.toString(),
+        AAChartType.Scatter.toString(),
+        AAChartType.Arearange.toString(),
+        AAChartType.Columnrange.toString(),
+        AAChartType.Line.toString(),
+        AAChartType.Area.toString(),
+        AAChartType.Boxplot.toString(),
+        AAChartType.Waterfall.toString(),
+        AAChartType.Pyramid.toString(),
+        AAChartType.Funnel.toString(),
+
+        /*Mixed Chart---混合图*/
+        "arearangeMixedLine",
+        "columnrangeMixedLine",
+        "stackingColumnMixedLine",
+        "dashStyleTypeMixed",
+        "negativeColorMixed",
+        "scatterMixedLine",
+        "negativeColorMixedBubble",
+        "polygonMixedScatter",
+        "polarChartMixed",
+        /*自定义样式图表*/
+        "colorfulChart",
+        "gradientColorfulChart",
+        "discontinuousDataChart",
+        "colorfulColumnChart",
+        "nightingaleRoseChart",
+        "chartWithShadowStyle",
+        "colorfulGradientAreaChart",
+        "colorfulGradientSplineChart",
+        "gradientColorAreasplineChart",
+        /*使用AAOptions绘制图表*/
+        "configureAAPlotBandsForChart",
+        "configureAAPlotLinesForChart",
+        "customAATooltipWithJSFuntion",
+        "customXAxisCrosshairStyle",
+        /*隐藏或显示内容*/
+        AAChartType.Column.toString(),
+        AAChartType.Bar.toString(),
+        AAChartType.Area.toString(),
+        AAChartType.Areaspline.toString(),
+        AAChartType.Area.toString(),
+        AAChartType.Line.toString(),
+        AAChartType.Line.toString(),
+        AAChartType.Spline.toString(),
+        "formatterFunction1",
+        "formatterFunction2",
+        "formatterFunction3",
+        "formatterFunction4",
+        "formatterFunction5"
+    )
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val aaChartModel = AAChartModel()
-            .chartType(AAChartType.Line)
-            .title("title")
-            .subtitle("this is the subtitle of chart")
-            .backgroundColor("#ffffff")
-            .dataLabelEnabled(true)
-            .yAxisGridLineWidth(0)
-            .legendVerticalAlign(AAChartLegendVerticalAlignType.Bottom)
-            .series(arrayOf(
-                AASeriesElement()
-                    .name("Tokyo")
-                    .data(arrayOf(7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6)),
-                AASeriesElement()
-                    .name("New York")
-                    .data(arrayOf(0.2, 0.8, 5.7, 11.3, 17.0, 22.0, 24.8, 24.1, 20.10, 14.1, 8.6, 2.5)),
-                AASeriesElement()
-                    .name("Berlin")
-                    .data(arrayOf(0.9, 0.6, 3.5, 8.40, 13.5, 17.0, 18.6, 17.9, 14.30, 9.0, 3.90, 1.0)),
-                AASeriesElement()
-                    .name("London")
-                    .data(arrayOf(3.9, 4.2, 5.7, 8.50, 11.9, 15.2, 17.0, 16.6, 14.20, 10.3, 6.6, 4.8))
-            )
-            )
+        val adapter = ArrayAdapter(
+            this@MainActivity, android.R.layout.simple_list_item_1, data
+        )
+        val listView = findViewById<View>(R.id.list) as ListView
+        listView.adapter = adapter
 
-        val aaOptions = AAOptionsConstructor.configureChartOptions(aaChartModel)
 
-        print(Gson().toJson(aaOptions))
+        listView.onItemClickListener = AdapterView.OnItemClickListener { adapter, view, position, id ->
+            println(position)
+            when {
+                position <= 7 -> goToCommonChartActivity(position)
+                position in 8..19 -> goToSpecialChartActivity(position)
+                position in 20..28 -> goToMixedChartActivity(position)
+                position in 29..37 -> goToCustomStyleChartActivity(position)
+                position in 38..41 -> goToDrawChartWithAAOptionsActivity(position)
+                position in 42..49 -> goToHideOrShowChartSeriesActivity(position)
+                position > 49 -> goToCustomTooltipWithJSFunctionActivity(position)
+            }
+        }
     }
+
+    private fun goToCommonChartActivity(position: Int) {
+        val intent = Intent(this, CommonChartActivity::class.java)
+        intent.putExtra("chartType", chartTypeArr[position])
+        intent.putExtra("position", position)
+
+        startActivity(intent)
+    }
+
+    private fun goToSpecialChartActivity(position: Int) {
+        val intent = Intent(this, SpecialChartActivity::class.java)
+        intent.putExtra("chartType", chartTypeArr[position])
+
+        startActivity(intent)
+    }
+
+    private fun goToCustomStyleChartActivity(position: Int) {
+        val intent = Intent(this, CustomStyleChartActivity::class.java)
+        intent.putExtra("chartType", chartTypeArr[position])
+
+        startActivity(intent)
+    }
+
+    private fun goToMixedChartActivity(position: Int) {
+        val intent = Intent(this, MixedChartActivity::class.java)
+        intent.putExtra("chartType", chartTypeArr[position])
+
+        startActivity(intent)
+    }
+
+    private fun goToDrawChartWithAAOptionsActivity(position: Int) {
+        val intent = Intent(this, DrawChartWithAAOptionsActivity::class.java)
+        intent.putExtra("chartType", chartTypeArr[position])
+
+        startActivity(intent)
+    }
+
+    private fun goToHideOrShowChartSeriesActivity(position: Int) {
+        val intent = Intent(this, HideOrShowChartSeriesActivity::class.java)
+        intent.putExtra("chartType", chartTypeArr[position])
+
+        startActivity(intent)
+    }
+
+    private fun goToCustomTooltipWithJSFunctionActivity(position: Int) {
+        val intent = Intent(this, CustomTooltipWithJSFunctionActivity::class.java)
+        intent.putExtra("chartType", chartTypeArr[position])
+
+        startActivity(intent)
+    }
+
+
 }
+
+
+

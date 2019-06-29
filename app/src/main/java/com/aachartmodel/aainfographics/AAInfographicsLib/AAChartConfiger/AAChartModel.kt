@@ -169,7 +169,7 @@ class AAChartModel {
 
 
     fun animationType(prop: AAChartAnimationType): AAChartModel {
-        animationType = prop.toString()
+        animationType = prop.toString().toLowerCase()
         return this
     }
 
@@ -189,22 +189,22 @@ class AAChartModel {
     }
 
     fun chartType(prop: AAChartType): AAChartModel {
-        chartType = prop.toString()
+        chartType = prop.toString().toLowerCase()
         return this
     }
 
     fun stacking(prop: AAChartStackingType): AAChartModel {
-        stacking = prop.toString()
+        stacking = prop.toString().toLowerCase()
         return this
     }
 
     fun symbol(prop: AAChartSymbolType): AAChartModel {
-        symbol = prop.toString()
+        symbol = prop.toString().toLowerCase()
         return this
     }
 
     fun symbolStyle(prop: AAChartSymbolStyleType): AAChartModel {
-        symbolStyle = prop.toString()
+        symbolStyle = prop.toString().toLowerCase()
         return this
     }
 
@@ -325,7 +325,7 @@ class AAChartModel {
     }
 
     fun legendVerticalAlign(prop: AAChartLegendVerticalAlignType): AAChartModel {
-        legendVerticalAlign = prop.toString()
+        legendVerticalAlign = prop.toString().toLowerCase()
         return this
     }
 
@@ -350,15 +350,15 @@ class AAChartModel {
     }
 
     init {
-        animationType = AAChartAnimationType.EaseInBack.toString()
+        animationType = AAChartAnimationType.EaseInBack.toString().toLowerCase()
         animationDuration = 800//以毫秒为单位
         pointHollow = false
         inverted = false
-        stacking = AAChartStackingType.False.toString()
+        stacking = AAChartStackingType.False.toString().toLowerCase()
         xAxisReversed = false
         yAxisReversed = false
         zoomType = "x"
-        colorsTheme = arrayOf<Any>("#fe117c", "#ffc069", "#06caf4", "#7dffc0")//默认的颜色数组(必须要添加默认数组,否则就会出错)
+        colorsTheme = arrayOf("#fe117c", "#ffc069", "#06caf4", "#7dffc0")//默认的颜色数组(必须要添加默认数组,否则就会出错)
         tooltipCrosshairs = true
         gradientColorEnable = false
         polar = false
