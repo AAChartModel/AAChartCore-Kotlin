@@ -13,7 +13,9 @@ import com.example.chartcorekotlin.AAChartConfiger.*
 import java.util.HashMap
 
 class ChartOptionsComposer {
-    internal fun configureAAPlotBandsForChart(): HashMap<String, Any?> {
+    companion object {
+
+     fun configureAAPlotBandsForChart(): HashMap<String, Any?> {
         val aaChartModel = AAChartModel()
             .chartType(AAChartType.Spline)//图形类型
             .dataLabelEnabled(false)
@@ -60,7 +62,7 @@ class ChartOptionsComposer {
         return aaOptions
     }
 
-    internal fun configureAAPlotLinesForChart(): HashMap<String, Any?> {
+     fun configureAAPlotLinesForChart(): HashMap<String, Any?> {
         val zonesArr = arrayOf(
             mapOf(
                 "value" to 12,
@@ -138,7 +140,7 @@ class ChartOptionsComposer {
         return aaOptions
     }
 
-    internal fun customAATooltipWithJSFuntion():HashMap<*, *> {
+     fun customAATooltipWithJSFuntion():HashMap<*, *> {
         val aaChartModel = AAChartModel()
             .chartType(AAChartType.Area)//图形类型
             .title("近三个月金价起伏周期图")//图表主标题
@@ -194,7 +196,7 @@ function () {
         return aaOptions
     }
 
-    internal fun customXAxisCrosshairStyle(): HashMap<*, *> {
+     fun customXAxisCrosshairStyle(): HashMap<*, *> {
         val aaChartModel = AAChartModel()
             .chartType(AAChartType.Line)//图表类型
             .series(arrayOf(
@@ -248,5 +250,5 @@ function () {
         return aaOptions
     }
 
-
+    }
 }

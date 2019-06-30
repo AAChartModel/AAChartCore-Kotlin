@@ -1,30 +1,11 @@
 package com.aachartmodel.aainfographics.ChartsDemo.ChartComposer
 
+import com.aachartmodel.aainfographics.AAInfographicsLib.AAOptionsModel.AAWaterfallChart
 import com.example.chartcorekotlin.AAChartConfiger.*
+import java.util.HashMap
 
 object SpecialChartComposer{
 
-    internal fun configureChartModelWithChartType(chartType: AAChartType): AAChartModel? {
-        when (chartType) {
-            AAChartType.Column -> return configurePolarColumnChart()
-            AAChartType.Pie -> return configurePieChart()
-            AAChartType.Bubble -> return configureBubbleChart()
-            AAChartType.Scatter -> return configureScatterChart()
-            AAChartType.Arearange -> return configureArearangeChart()
-            AAChartType.Areasplinerange -> return configureAreasplinerangeChart()
-            AAChartType.Columnrange -> return configureColumnrangeChart()
-            AAChartType.Line -> return configureStepLineChart()
-            AAChartType.Area -> return configureStepAreaChart()
-            AAChartType.Boxplot -> return configureBoxplotChart()
-            AAChartType.Waterfall -> return configureWaterfallChart()
-            AAChartType.Pyramid -> return configurePyramidChart()
-            AAChartType.Funnel -> return configureFunnelChart()
-            else -> {
-            }
-        }
-
-        return null
-    }
 
 
     fun configurePolarColumnChart(): AAChartModel  {
@@ -828,43 +809,57 @@ object SpecialChartComposer{
     }
 
     internal fun configureWaterfallChart(): AAChartModel {
+        val dataElement1 = HashMap<String, Any>()
+        dataElement1["name"] = "启动资金"
+        dataElement1["y"] = 120000
+
+        val dataElement2 = HashMap<String, Any>()
+        dataElement2["name"] = "产品收入"
+        dataElement2["y"] = 569000
+
+        val dataElement3 = HashMap<String, Any>()
+        dataElement3["name"] = "服务收入"
+        dataElement3["y"] = 231000
+
+        val dataElement4 = HashMap<String, Any>()
+        dataElement4["name"] = "正平衡"
+        dataElement4["isIntermediateSum"] = true
+        dataElement4["color"] = "#ffd066"
+
+        val dataElement5 = HashMap<String, Any>()
+        dataElement5["name"] = "固定成本"
+        dataElement5["y"] = -342000
+
+        val dataElement6 = HashMap<String, Any>()
+        dataElement6["name"] = "可变成本"
+        dataElement6["y"] = -233000
+
+        val dataElement7 = HashMap<String, Any>()
+        dataElement7["name"] = "余额"
+        dataElement7["isSum"] = true
+        dataElement7["color"] = "#04d69f"
+
+        val seriesElement = AAWaterfallChart()
+            .upColor("#9b43b4")
+            .color("#ef476f")
+            .borderWidth(0f)
+            .data(arrayOf(
+                    dataElement1,
+                    dataElement2,
+                    dataElement3,
+                    dataElement4,
+                    dataElement5,
+                    dataElement6,
+                    dataElement7
+                )
+            )
+
         return AAChartModel()
             .chartType(AAChartType.Waterfall)
             .title("WATERFALL CHART")
             .subtitle("virtual data")
-        //                        .series(
-        //                                new AASeriesElement[]{{
-        //                                        "upColor":"#9b43b4",
-        //                    "color": "#ef476f",
-        //                    "data": {{
-        //                "name": "启动资金",
-        //                        "y": 120000
-        //            }, {
-        //                "name": "产品收入",
-        //                        "y": 569000
-        //            }, {
-        //                "name": "服务收入",
-        //                        "y": 231000
-        //            }, {
-        //                "name": "正平衡",
-        //                        "isIntermediateSum": true,
-        //                        "color": "#ffd066"
-        //            }, {
-        //                "name": "固定成本",
-        //                        "y": -342000
-        //            }, {
-        //                "name": "可变成本",
-        //                        "y": -233000
-        //            }, {
-        //                "name": "余额",
-        //                        "isSum": true,
-        //                        "color": "#04d69f"
-        //            }},
-        //            "pointPadding": 0
-        //                        }}
-        //            );
+//            .series(arrayOf(seriesElement))
     }
-
     fun configurePyramidChart(): AAChartModel  {
         return AAChartModel()
             .chartType(AAChartType.Pyramid)

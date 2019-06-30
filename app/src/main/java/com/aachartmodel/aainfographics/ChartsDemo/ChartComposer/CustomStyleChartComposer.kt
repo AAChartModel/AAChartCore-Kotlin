@@ -5,6 +5,8 @@ import java.util.HashMap
 
 class CustomStyleChartComposer  {
 
+    companion object {
+
      fun configureColorfulChart(): AAChartModel {
         val colorsNameArr = arrayOf(
             "red",
@@ -58,7 +60,7 @@ class CustomStyleChartComposer  {
     }
 
 
-    internal fun configureColorfulGradientColorChart(): AAChartModel {
+     fun configureColorfulGradientColorChart(): AAChartModel {
 
         val gradientColorNamesArr = arrayOf(
             "oceanBlue",
@@ -128,7 +130,7 @@ class CustomStyleChartComposer  {
 
     }
 
-    internal fun configureDiscontinuousDataChart(): AAChartModel {
+     fun configureDiscontinuousDataChart(): AAChartModel {
         return AAChartModel()
             .chartType(AAChartType.Column)
             .title("Discontinuous Data Chart")
@@ -148,7 +150,7 @@ class CustomStyleChartComposer  {
 
     }
 
-    internal fun configureColorfulColumnChart(): AAChartModel {
+     fun configureColorfulColumnChart(): AAChartModel {
         return AAChartModel()
             .chartType(AAChartType.Column)
             .title("Colorful Column Chart")
@@ -163,7 +165,7 @@ class CustomStyleChartComposer  {
             )
     }
 
-    internal fun configureNightingaleRoseChart(): AAChartModel {
+     fun configureNightingaleRoseChart(): AAChartModel {
         return AAChartModel()
             .title("南丁格尔玫瑰图")
             .subtitle("极地图中的一种")
@@ -183,7 +185,7 @@ class CustomStyleChartComposer  {
             )
     }
 
-    internal fun configureChartWithShadowStyle(): AAChartModel {
+     fun configureChartWithShadowStyle(): AAChartModel {
         return AAChartModel()
             .chartType(AAChartType.Areaspline)
             .title("")
@@ -210,7 +212,7 @@ class CustomStyleChartComposer  {
             )
     }
 
-    internal fun configureColorfulGradientAreaChart(): AAChartModel {
+     fun configureColorfulGradientAreaChart(): AAChartModel {
         val linearGradientColorMap = mapOf(
             "x1" to 0,
             "y1" to 0,
@@ -249,7 +251,7 @@ class CustomStyleChartComposer  {
     }
 
 
-    internal fun configureColorfulGradientSplineChart(): AAChartModel {
+     fun configureColorfulGradientSplineChart(): AAChartModel {
         val linearGradientColorMap = mapOf(
             "x1" to 0,
             "y1" to 0,
@@ -290,7 +292,7 @@ class CustomStyleChartComposer  {
     }
 
 
-    internal fun configureGradientColorAreasplineChart(): AAChartModel {
+     fun configureGradientColorAreasplineChart(): AAChartModel {
         val linearGradientColorMap = mapOf(
             "x1" to 0,
             "y1" to 0,
@@ -331,5 +333,5 @@ class CustomStyleChartComposer  {
 
     }
 
-
+    }
 }

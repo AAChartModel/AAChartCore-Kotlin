@@ -14,7 +14,8 @@ import com.example.chartcorekotlin.AAChartConfiger.*
 import java.util.HashMap
 
 class CustomTooltipComposer {
-    internal fun customAreaChartTooltipStyleWithFormatterFunction1(): HashMap<*, *> {
+    companion object {
+     fun customAreaChartTooltipStyleWithFormatterFunction1(): HashMap<*, *> {
         val aaChartModel = AAChartModel()
             .chartType(AAChartType.Area)//图形类型
             .title("近三个月金价起伏周期图")//图表主标题
@@ -75,7 +76,7 @@ function () {
         return aaOptions
     }
 
-    internal fun customAreaChartTooltipStyleWithFormatterFunction2():HashMap<*, *> {
+     fun customAreaChartTooltipStyleWithFormatterFunction2():HashMap<*, *> {
         val aaChartModel = AAChartModel()
             .chartType(AAChartType.Area)//图形类型
             .title("2014 ~ 2020 汪星人生存指数")//图表主标题
@@ -105,10 +106,10 @@ function () {
                 """
 function () {
         var s = '第' + '<b>' +  this.x + '</b>' + '年' + '<br/>';
-        let colorDot1 = '<span style=\"' + 'color:#1e90ff; font-size:13px\"' + '>◉</span> ';
-        let colorDot2 = '<span style=\"' + 'color:#ef476f; font-size:13px\"' + '>◉</span> ';
-        let s1 = colorDot1  + this.points[0].series.name + ': ' + this.points[0].y + '只' + '<br/>';
-        let s2 =  colorDot2 + this.points[1].series.name + ': ' + this.points[1].y + '棵';
+        var colorDot1 = '<span style=\"' + 'color:#1e90ff; font-size:13px\"' + '>◉</span> ';
+        var colorDot2 = '<span style=\"' + 'color:#ef476f; font-size:13px\"' + '>◉</span> ';
+        var s1 = colorDot1  + this.points[0].series.name + ': ' + this.points[0].y + '只' + '<br/>';
+        var s2 =  colorDot2 + this.points[1].series.name + ': ' + this.points[1].y + '棵';
         s += s1 + s2;
         return s;
     }
@@ -119,7 +120,7 @@ function () {
         return aaOptions
     }
 
-    internal fun customAreaChartTooltipStyleWithFormatterFunction3():HashMap<*, *> {
+     fun customAreaChartTooltipStyleWithFormatterFunction3():HashMap<*, *> {
         val aaChartModel = AAChartModel()
             .chartType(AAChartType.Area)//图形类型
             .title("2014 ~ 2020 汪星人生存指数")//图表主标题
@@ -147,16 +148,16 @@ function () {
             .formatter(
                 """
 function () {
-        let colorDot0 = '<span style=\"' + 'color:red; font-size:13px\"' + '>◉</span> ';
-        let colorDot1 = '<span style=\"' + 'color:mediumspringgreen; font-size:13px\"' + '>◉</span> ';
-        let colorDot2 = '<span style=\"' + 'color:deepskyblue; font-size:13px\"' + '>◉</span> ';
-        let colorDot3 = '<span style=\"' + 'color:sandybrown; font-size:13px\"' + '>◉</span> ';
-        let colorDotArr = [colorDot0, colorDot1, colorDot2, colorDot3];
-        let wholeContentString = this.points[0].x + '<br/>';
-        for (let i = 0;i < 4;i++) {
-            let yValue = this.points[i].y;
+        var colorDot0 = '<span style=\"' + 'color:red; font-size:13px\"' + '>◉</span> ';
+        var colorDot1 = '<span style=\"' + 'color:mediumspringgreen; font-size:13px\"' + '>◉</span> ';
+        var colorDot2 = '<span style=\"' + 'color:deepskyblue; font-size:13px\"' + '>◉</span> ';
+        var colorDot3 = '<span style=\"' + 'color:sandybrown; font-size:13px\"' + '>◉</span> ';
+        var colorDotArr = [colorDot0, colorDot1, colorDot2, colorDot3];
+        var wholeContentString = this.points[0].x + '<br/>';
+        for (var i = 0;i < 4;i++) {
+            var yValue = this.points[i].y;
             if (yValue != 0) {
-                let prefixStr = colorDotArr[i];
+                var prefixStr = colorDotArr[i];
                 wholeContentString += prefixStr + this.points[i].series.name + ': ' + this.points[i].y + '<br/>';
             }
         }
@@ -169,7 +170,7 @@ function () {
         return aaOptions
     }
 
-    internal fun customAreaChartTooltipStyleWithFormatterFunction4():HashMap<*, *> {
+     fun customAreaChartTooltipStyleWithFormatterFunction4():HashMap<*, *> {
         val aaChartModel = AAChartModel()
             .chartType(AAChartType.Areaspline)//图形类型
             .title("")//图表主标题
@@ -211,14 +212,16 @@ function () {
             .formatter(
                 """
 function () {
-        let colorsArr = ["mediumspringgreen", "deepskyblue", "red", "sandybrown"];
-        let wholeContentString ='<span style=\"' + 'color:lightGray; font-size:13px\"' + '>◉ Time: ' + this.x + ' year</span><br/>';
-        for (let i = 0;i < 4;i++) {
-            let thisPoint = this.points[i];
-            let yValue = thisPoint.y;
+
+
+        var colorsArr = ["mediumspringgreen", "deepskyblue", "red", "sandybrown"];
+        var wholeContentString ='<span style=\"' + 'color:lightGray; font-size:13px\"' + '>◉ Time: ' + this.x + ' year</span><br/>';
+        for (var i = 0;i < 4;i++) {
+            var thisPoint = this.points[i];
+            var yValue = thisPoint.y;
             if (yValue != 0) {
-                let spanStyleStartStr = '<span style=\"' + 'color:'+ colorsArr[i] + '; font-size:13px\"' + '>◉ ';
-                let spanStyleEndStr = '</span> <br/>';
+                var spanStyleStartStr = '<span style=\"' + 'color:'+ colorsArr[i] + '; font-size:13px\"' + '>◉ ';
+                var spanStyleEndStr = '</span> <br/>';
                 wholeContentString += spanStyleStartStr + thisPoint.series.name + ': ' + thisPoint.y + '℃' + spanStyleEndStr;
             }
         }
@@ -233,7 +236,7 @@ function () {
         return aaOptions
     }
 
-    internal fun customBoxplotTooltipContent(): HashMap<*, *> {
+     fun customBoxplotTooltipContent(): HashMap<*, *> {
         val aaChartModel = AAChartModel()
             .chartType(AAChartType.Boxplot)
             .title("BOXPLOT CHART")
@@ -279,5 +282,5 @@ function () {
         aaOptions["tooltip"] = aaTooltip
         return aaOptions
     }
-
+    }
 }

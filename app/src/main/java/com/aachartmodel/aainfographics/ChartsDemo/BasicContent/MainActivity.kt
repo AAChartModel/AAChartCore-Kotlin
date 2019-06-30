@@ -10,12 +10,11 @@ import android.widget.ListView
 import com.aachartmodel.aainfographics.ChartsDemo.AdditionalContent.CustomTooltipWithJSFunctionActivity
 import com.aachartmodel.aainfographics.ChartsDemo.AdditionalContent.DrawChartWithAAOptionsActivity
 import com.aachartmodel.aainfographics.ChartsDemo.AdditionalContent.HideOrShowChartSeriesActivity
-import com.aachartmodel.aainfographics.ChartsDemo.BasicConent.CommonChartActivity
-import com.aachartmodel.aainfographics.ChartsDemo.BasicConent.CustomStyleChartActivity
-import com.aachartmodel.aainfographics.ChartsDemo.BasicConent.MixedChartActivity
-import com.aachartmodel.aainfographics.ChartsDemo.BasicConent.SpecialChartActivity
+import com.aachartmodel.aainfographics.ChartsDemo.BasicContent.CommonChartActivity
+import com.aachartmodel.aainfographics.ChartsDemo.BasicContent.CustomStyleChartActivity
+import com.aachartmodel.aainfographics.ChartsDemo.BasicContent.MixedChartActivity
+import com.aachartmodel.aainfographics.ChartsDemo.BasicContent.SpecialChartActivity
 import com.example.chartcorekotlin.AAChartConfiger.*
-import com.google.gson.Gson
 
 class MainActivity : AppCompatActivity() {
 
@@ -160,7 +159,7 @@ class MainActivity : AppCompatActivity() {
         listView.adapter = adapter
 
 
-        listView.onItemClickListener = AdapterView.OnItemClickListener { adapter, view, position, id ->
+        listView.onItemClickListener = AdapterView.OnItemClickListener { _, _, position, _ ->
             println(position)
             when {
                 position <= 7 -> goToCommonChartActivity(position)

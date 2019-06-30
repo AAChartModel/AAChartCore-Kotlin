@@ -350,6 +350,7 @@ class AAChartModel {
     }
 
     init {
+        chartType = AAChartType.Line.toString()
         animationType = AAChartAnimationType.EaseInBack.toString().toLowerCase()
         animationDuration = 800//以毫秒为单位
         pointHollow = false

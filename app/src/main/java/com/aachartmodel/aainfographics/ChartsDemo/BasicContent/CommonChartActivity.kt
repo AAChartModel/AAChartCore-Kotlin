@@ -1,4 +1,4 @@
-package com.aachartmodel.aainfographics.ChartsDemo.BasicConent
+package com.aachartmodel.aainfographics.ChartsDemo.BasicContent
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -6,14 +6,13 @@ import android.widget.CompoundButton
 import android.widget.RadioGroup
 import android.widget.Switch
 import com.aachartmodel.aainfographics.R
-import com.example.anan.chartcore_slim.AAChartCoreLib.AAChartConfiger.AAChartView
-import com.example.anan.chartcore_slim.AAChartCoreLib.AAChartConfiger.AAMoveOverEventMessageModel
+import com.aachartmodel.aainfographics.aainfographicsLib.aachartConfiger.AAChartView
+import com.aachartmodel.aainfographics.aainfographicsLib.aachartConfiger.AAMoveOverEventMessageModel
 import com.example.chartcorekotlin.AAChartConfiger.*
 import com.google.gson.Gson
 
 class CommonChartActivity : AppCompatActivity(), RadioGroup.OnCheckedChangeListener,
     CompoundButton.OnCheckedChangeListener, AAChartView.AAChartViewCallBack {
-
 
     private var aaChartModel: AAChartModel? = null
     private var aaChartView: AAChartView? = null

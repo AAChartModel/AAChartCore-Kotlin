@@ -8,20 +8,26 @@
  */
 package com.aachartmodel.aainfographics.AAInfographicsLib.AAChartConfiger
 
+import com.example.chartcorekotlin.AAChartConfiger.AAChartType
+
 
 object AAEasyTool {
 
     fun pureJavaScriptFunctionString(jsFunctionStr: String): String {
         var pureJSFunctionStr = jsFunctionStr
         pureJSFunctionStr = pureJSFunctionStr.replace("'", "\"")
-        pureJSFunctionStr = pureJSFunctionStr.replace(" ", "")
+        pureJSFunctionStr = pureJSFunctionStr.replace("\u0000", "")
+        pureJSFunctionStr = pureJSFunctionStr.replace("\n", "")
+        pureJSFunctionStr = pureJSFunctionStr.replace("\\", "\\\\")
         pureJSFunctionStr = pureJSFunctionStr.replace("\"", "\\\"")
-        pureJSFunctionStr = pureJSFunctionStr.replace("\'", "\\\'")
+//        pureJSFunctionStr = pureJSFunctionStr.replace("\'", "\\\'");
         pureJSFunctionStr = pureJSFunctionStr.replace("\n", "\\n")
         pureJSFunctionStr = pureJSFunctionStr.replace("\r", "\\r")
+//        pureJSFunctionStr = pureJSFunctionStr.replace("\f", "\\f")
         pureJSFunctionStr = pureJSFunctionStr.replace("\u2028", "\\u2028")
         pureJSFunctionStr = pureJSFunctionStr.replace("\u2029", "\\u2029")
 
         return pureJSFunctionStr
     }
+
 }

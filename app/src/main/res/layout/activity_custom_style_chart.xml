@@ -5,6 +5,13 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ChartsDemo.BasicConent.CustomStyleChartActivity">
+        tools:context=".ChartsDemo.BasicContent.CustomStyleChartActivity">
+
+
+    <com.aachartmodel.aainfographics.aainfographicsLib.aachartConfiger.AAChartView
+            android:id="@+id/AAChartView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
 
 </android.support.constraint.ConstraintLayout>

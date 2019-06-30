@@ -31,7 +31,7 @@
 
  */
 
-package com.example.anan.chartcore_slim.AAChartCoreLib.AAChartConfiger
+package com.aachartmodel.aainfographics.aainfographicsLib.aachartConfiger
 
 import android.content.Context
 import android.content.DialogInterface

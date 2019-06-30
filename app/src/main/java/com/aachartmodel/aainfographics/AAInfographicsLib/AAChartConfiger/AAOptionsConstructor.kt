@@ -144,7 +144,7 @@ object AAOptionsConstructor {
     private fun configureAAPlotOptionsDataLabels(aaPlotOptions: HashMap<String, Any?>,
                                                  aaChartModel: AAChartModel): HashMap<String, Any?> {
 
-        val chartType = aaChartModel.chartType!!
+        val chartType = aaChartModel.chartType
         val aaDataLabels = HashMap<String, Any?>()
         aaDataLabels["enabled"] = aaChartModel.xAxisLabelsEnabled
         val aaSomeTypeChart = HashMap<String, Any?>()
@@ -166,7 +166,9 @@ object AAOptionsConstructor {
         } else {
             aaSomeTypeChart["dataLabels"] = aaDataLabels
         }
-        aaPlotOptions[chartType] = aaSomeTypeChart
+        if (chartType != null) {
+            aaPlotOptions[chartType] = aaSomeTypeChart
+        }
 
         return aaPlotOptions
     }

@@ -2,23 +2,8 @@ package com.aachartmodel.aainfographics.ChartsDemo.ChartComposer
 
 import com.example.chartcorekotlin.AAChartConfiger.*
 
-object MixedChartComposer {
-
-    private fun configureTheAAChartModel(chartType: String): AAChartModel? {
-        when (chartType) {
-            "arearangeMixedLine" -> return arearangeMixedLine()
-            "columnrangeMixedLine" -> return configureColumnrangeMixedLineChart()
-            "stackingColumnMixedLine" -> return configurestackingColumnMixedLineChart()
-            "dashStyleTypeMixed" -> return dashStyleTypeMixedChart()
-            "negativeColorMixed" -> return negativeColorMixedChart()
-            "scatterMixedLine" -> return scatterMixedLine()
-            "negativeColorMixedBubble" -> return negativeColorMixedBubble()
-            "polygonMixedScatter" -> return polygonMixedScatter()
-            "polarChartMixed" -> return polarChartMixedChart()
-        }
-        return null
-    }
-
+class MixedChartComposer {
+companion object {
     internal fun arearangeMixedLine(): AAChartModel {
         return AAChartModel()
             .title("LANGUAGE MARKET SHARES JANUARY,2020 TO MAY")
@@ -580,5 +565,6 @@ object MixedChartComposer {
                     .data(arrayOf(1, 8, 2, 7, 3, 6, 4, 5))
             )
             )
+    }
     }
 }

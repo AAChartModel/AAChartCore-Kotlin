@@ -105,6 +105,11 @@ class AATooltip {
         return this
     }
 
+    init {
+        shared = true
+        enabled = true
+        crosshairs = true
+    }
 
 }
 
