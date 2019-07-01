@@ -26,7 +26,7 @@ class DrawChartWithAAOptionsActivity : AppCompatActivity() {
 
     }
 
-    internal fun configureTheChartOptions(chartType: String): HashMap<*, *> {
+    private fun configureTheChartOptions(chartType: String): HashMap<*, *> {
         when (chartType) {
             "configureAAPlotBandsForChart" -> return configureAAPlotBandsForChart()
             "configureAAPlotLinesForChart" -> return configureAAPlotLinesForChart()

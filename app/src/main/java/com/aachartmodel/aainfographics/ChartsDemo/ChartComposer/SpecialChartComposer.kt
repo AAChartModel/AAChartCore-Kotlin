@@ -808,7 +808,7 @@ object SpecialChartComposer{
             )
     }
 
-    internal fun configureWaterfallChart(): AAChartModel {
+     fun configureWaterfallChart(): AAChartModel {
         val dataElement1 = HashMap<String, Any>()
         dataElement1["name"] = "启动资金"
         dataElement1["y"] = 120000

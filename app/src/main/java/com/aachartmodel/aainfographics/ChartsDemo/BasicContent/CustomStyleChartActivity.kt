@@ -25,17 +25,17 @@ class CustomStyleChartActivity : AppCompatActivity() {
     }
 
     private fun configureTheAAChartModel(chartType: String): AAChartModel {
-        when (chartType) {
-            "colorfulChart" -> return CustomStyleChartComposer.configureColorfulChart()
-            "gradientColorfulChart" -> return CustomStyleChartComposer.configureColorfulGradientColorChart()
-            "discontinuousDataChart" -> return CustomStyleChartComposer.configureDiscontinuousDataChart()
-            "colorfulColumnChart" -> return CustomStyleChartComposer.configureColorfulColumnChart()
-            "nightingaleRoseChart" -> return CustomStyleChartComposer.configureNightingaleRoseChart()
-            "chartWithShadowStyle" -> return CustomStyleChartComposer.configureChartWithShadowStyle()
-            "colorfulGradientAreaChart" -> return CustomStyleChartComposer.configureColorfulGradientAreaChart()
-            "colorfulGradientSplineChart" -> return CustomStyleChartComposer.configureColorfulGradientSplineChart()
-            "gradientColorAreasplineChart" -> return CustomStyleChartComposer.configureGradientColorAreasplineChart()
-        }
-        return CustomStyleChartComposer.configureColorfulChart()
+       return when (chartType) {
+            "colorfulChart" -> CustomStyleChartComposer.configureColorfulChart()
+            "gradientColorfulChart" -> CustomStyleChartComposer.configureColorfulGradientColorChart()
+            "discontinuousDataChart" -> CustomStyleChartComposer.configureDiscontinuousDataChart()
+            "colorfulColumnChart" -> CustomStyleChartComposer.configureColorfulColumnChart()
+            "nightingaleRoseChart" -> CustomStyleChartComposer.configureNightingaleRoseChart()
+            "chartWithShadowStyle" -> CustomStyleChartComposer.configureChartWithShadowStyle()
+            "colorfulGradientAreaChart" -> CustomStyleChartComposer.configureColorfulGradientAreaChart()
+            "colorfulGradientSplineChart" -> CustomStyleChartComposer.configureColorfulGradientSplineChart()
+            "gradientColorAreasplineChart" -> CustomStyleChartComposer.configureGradientColorAreasplineChart()
+           else -> CustomStyleChartComposer.configureColorfulChart()
+       }
     }
 }

@@ -212,8 +212,6 @@ function () {
             .formatter(
                 """
 function () {
-
-
         var colorsArr = ["mediumspringgreen", "deepskyblue", "red", "sandybrown"];
         var wholeContentString ='<span style=\"' + 'color:lightGray; font-size:13px\"' + '>◉ Time: ' + this.x + ' year</span><br/>';
         for (var i = 0;i < 4;i++) {

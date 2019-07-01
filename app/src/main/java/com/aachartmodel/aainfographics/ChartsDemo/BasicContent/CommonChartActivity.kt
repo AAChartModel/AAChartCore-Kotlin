@@ -69,12 +69,12 @@ class CommonChartActivity : AppCompatActivity(), RadioGroup.OnCheckedChangeListe
                     AASeriesElement()
                         .name("Tokyo")
                         .step(true)
-                        .data(arrayOf(149.9, 171.5, 106.4, 129.2, 144.0, 176.0, 135.6, 188.5, 276.4, 214.1, 95.6, 54.4)
-                        ), AASeriesElement()
+                        .data(arrayOf(149.9, 171.5, 106.4, 129.2, 144.0, 176.0, 135.6, 188.5, 276.4, 214.1, 95.6, 54.4)),
+                AASeriesElement()
                         .name("NewYork")
                         .step(true)
-                        .data(arrayOf(83.6, 78.8, 188.5, 93.4, 106.0, 84.5, 105.0, 104.3, 131.2, 153.5, 226.6, 192.3)
-                        ), AASeriesElement()
+                        .data(arrayOf(83.6, 78.8, 188.5, 93.4, 106.0, 84.5, 105.0, 104.3, 131.2, 153.5, 226.6, 192.3)),
+                AASeriesElement()
                         .name("London")
                         .step(true)
                         .data(arrayOf(48.9, 38.8, 19.3, 41.4, 47.0, 28.3, 59.0, 69.6, 52.4, 65.2, 53.3, 72.2))
