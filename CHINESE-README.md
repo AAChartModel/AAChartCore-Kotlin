@@ -1,9 +1,10 @@
-https://raw.githubusercontent.com/AAChartModel/loadHtmlCssJsDemo-master/master/AAInfographics/AAInfographics-LOGO.png
+![](https://raw.githubusercontent.com/AAChartModel/loadHtmlCssJsDemo-master/master/AAInfographics/AAInfographics-LOGO.png
+)
 
 # AAInfographics
 
  
-[![Support](https://img.shields.io/badge/support-Android 4.0-blue.svg?style=flat)](https://www.apple.com/nl/ios/) 
+[![Support](https://img.shields.io/badge/support-Android4.0-blue.svg?style=flat)](https://www.apple.com/nl/ios/) 
 [![](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://github.com/AAChartModel/AAChartKit-Swift/blob/master/LICENSE)
 [![](https://img.shields.io/badge/language-Kotlin-green.svg)](https://github.com/AAChartModel/AAChartKit-Swift) 
 [![](https://img.shields.io/badge/support-Animation-yellow.svg)](https://github.com/AAChartModel/AAChartCore-Kotlin/blob/master/CHINESE-README.md#当前已支持的图表渲染动画类型有三十种以上说明如下)
@@ -22,16 +23,16 @@ https://raw.githubusercontent.com/AAChartModel/loadHtmlCssJsDemo-master/master/A
 
 ## 前言
 
- ***AAInfographics***,是 [AAChartKit](https://github.com/AAChartModel/AAChartKit) 的 `Kotlin`语言版本,是在流行的开源前端图表框架的基础上,封装的面向对象的,一组简单易用,极其精美的图表绘制控件.可能是这个星球上 UI 最精致的第三方 Android 开源图表框架了(✟我以无神论者的名义向上帝起誓🖐,我真的没有在说鬼话✟)
+ ***AAInfographics***,是 [AAChartKit](https://github.com/AAChartModel/AAChartKit) 的 `Kotlin`语言版本,是在流行的开源前端图表框架的基础上,封装的面向对象的,一组简单易用,极其精美的图表绘制组件.可能是这个星球上 UI 最精致的第三方 Android 开源图表框架了(✟我以无神论者的名义向上帝起誓🖐,我真的没有在说鬼话✟)
 
 ***
 ## 功能特性
 
-1. **环境友好,兼容性强**. 支持 `Kotlin`语言,配置简单.同时更有 `Objective-C` 版本[AAChartKit](https://github.com/AAChartModel/AAChartKit)、`Swift` 版本[AAChartKit-Swift](https://github.com/AAChartModel/AAChartKit-Swift)、`Java` 版本[AAChartCore](https://github.com/AAChartModel/AAChartCore)、等其他各种主流语言版本可供使用.
+1. **环境友好,兼容性强**. 支持 `Kotlin`语言,配置简单.同时更有苹果公司的 iOS 端 Objective-C 版本 [AAChartKit](https://github.com/AAChartModel/AAChartKit)、Swift 版本 [AAChartKit-Swift](https://github.com/AAChartModel/AAChartKit-Swift)、谷歌公司的 Android 端 Java 版本 [AAChartCore](https://github.com/AAChartModel/AAChartCore)、等其他各种移动平台主流语言版本可供使用.
 1. **功能强大,类型多样**. 支持`柱状图` 、`条形图` 、`折线图` 、`曲线图` 、`折线填充图` 、`曲线填充图`、`雷达图`、`极地图`、`扇形图`、`气泡图`、`散点图`、`区域范围图`、`柱形范围图`、`面积范围图`、`面积范围均线图`、`直方折线图`、`直方折线填充图`、`箱线图`、`瀑布图`、`热力图`、`桑基图`、`金字塔图`、`漏斗图`、等二十几种类型的图形,不可谓之不多.
 1. **交互式图形动画**. 有着清晰和充满细节的用户交互方式,与此同时,图形渲染`动画`效果细腻精致,流畅优美.有三十多种以上渲染动画效果可供选择,用户可自由设置渲染图形时的动画时间和动画类型,关于图形渲染动画类型,具体参见[ AAInfographics 动画类型](https://github.com/AAChartModel/AAChartCore-Kotlin/blob/master/CHINESE-README.md#当前已支持的图表渲染动画类型有三十种以上说明如下).
 1. **支持手势缩放**.支持图表的手势缩放和拖动阅览,手势缩放类型具体参见[ AAInfographics 手势缩放类型](https://github.com/AAChartModel/AAChartCore-Kotlin/blob/master/CHINESE-README.md#当前已支持的图表手势缩放类型共有三种说明如下),默认禁用手势缩放功能.
-1. **极简主义**. `AAChartView + AAChartModel = Chart`,在 ***AAInfographics*** 数据可视化图形框架当中,遵循这样一个极简主义公式:`图表视图控件 + 图表模型 = 你想要的图表`.同其他几款强大、精美而又易用的开源图形框架 [AAChartKit](https://github.com/AAChartModel/AAChartKit)、[AAChartKit-Swift](https://github.com/AAChartModel/AAChartKit-Swift)、[AAChartCore](https://github.com/AAChartModel/AAChartCore)完全一致.
+1. **极简主义**. `AAChartView + AAChartModel = Chart`,在 ***AAInfographics*** 数据可视化图形框架当中,遵循这样一个极简主义公式:`图表视图控件 + 图表模型 = 你想要的图表`.同其他几款强大、精美而又易用的开源图形框架 [AAChartKit](https://github.com/AAChartModel/AAChartKit)、[AAChartKit-Swift](https://github.com/AAChartModel/AAChartKit-Swift)、[AAChartCore](https://github.com/AAChartModel/AAChartCore) 完全一致.
 1. **链式编程语法**. 支持系统类推荐的 `链式编程语法`,一行代码即可配置完成 `AAChartModel`模型对象实例.
 1. **简洁清晰,轻便易用**. 最少仅仅需要 **五行代码** 即可完成整个图表的绘制工作(使用链式编程语法配置 `AAChartModel` 实例对象时,无论你写多少行代码,理论上只能算作是一行). 😜😜😜
 
@@ -311,7 +312,7 @@ enum class AAChartAnimationType(val value :String){
 title |  图表主标题 | 任意有效的字符串 | 
 subtitle | 图表副标题  | 任意有效的字符串 |
 chartType |  图表类型,可以为`AAChartType`枚举字符串当中指定的任意有效类型.其中有支持`柱状图` 、`条形图` 、`折线图` 、`曲线图` 、`折线填充图` 、`曲线填充图`、`雷达图`、`扇形图`、`气泡图`、`散点图`、`金字塔图`、`漏斗图`、`区域范围图`、`柱形范围图`等多种图形  | AAChartType.Column, <br/> AAChartType.Bar,<br/>  AAChartType.Area, <br/> AAChartType.AreaSpline,<br/>  AAChartType.Line,<br/>  AAChartType.Spline,<br/>  AAChartType.Pie,<br/>  AAChartType.Bubble, <br/> AAChartType.Scatter,<br/>  AAChartType.Pyramid, <br/> AAChartType.Funnel,<br/>  AAChartType.Arearange, <br/> AAChartType.Columnrange |  
-stacking| 是否将图表每个数据列的值叠加在一起。 默认的值为`.none`， 即禁用堆叠样式效果.另有常规堆叠样式和百分比堆叠样式可供选择 | AAChartStackingType.None<br/>,  AAChartStackingType.Normal<br/>,  AAChartStackingType.Percent | 
+stacking| 是否将图表每个数据列的值叠加在一起。 默认的值为`.none`， 即禁用堆叠样式效果.另有常规堆叠样式和百分比堆叠样式可供选择 | AAChartStackingType.None,<br/>AAChartStackingType.Normal,<br/>  AAChartStackingType.Percent | 
 symbol | 图表曲线连接点的样式类型.其可供选择的值有`圆`、`正方形`、`钻石`、`常规三角形`和`倒三角形`,默认为混合样式 | AAChartSymbolType.Circle,<br/>  AAChartSymbolType.Square,<br/>  AAChartSymbolType.Diamond, <br/> AAChartSymbolType.Triangle,<br/>  AAChartSymbolType.TriangleDown | 
 colorsTheme | 图表显示的颜色主题效果 |类似此 `new String[]{"#fe117c","#ffc069","#06caf4","#7dffc0"}` 有效十六进制颜色字符串数组 | 
 series | 图表的数据列 | AASeriesElement实例对象组成的有效数组,其中每个AASeriesElement都有与之对应的数据、类型、颜色、透明度等具体的值 | 
@@ -337,8 +338,8 @@ series | 图表的数据列 | AASeriesElement实例对象组成的有效数组,�
     var tooltipCrosshairs: Boolean? = null     //是否显示准星线(默认显示)
     var gradientColorEnable: Boolean? = null   //是否要为渐变色
     var polar: Boolean? = null                 //是否极化图形(变为雷达图)
-    var marginLeft: Float? = null
-    var marginRight: Float? = null
+    var marginLeft: Float? = null              //左部外边距
+    var marginRight: Float? = null             //右边外边距
     var dataLabelEnabled: Boolean? = null      //是否显示数据
     var xAxisLabelsEnabled: Boolean? = null    //x轴是否显示数据
     var categories: Array<String>? = null      //x轴是否显示数据
@@ -348,7 +349,6 @@ series | 图表的数据列 | AASeriesElement实例对象组成的有效数组,�
     var yAxisLabelsEnabled: Boolean? = null    //y轴是否显示数据
     var yAxisTitle: String? = null             //y轴标题
     var yAxisLineWidth: Float? = null          //y 轴轴线的宽度
-
     var yAxisGridLineWidth: Int? = null        //y轴网格线的宽度
     var colorsTheme: Array<Any>? = null        //图表主题颜色数组
     var legendEnabled: Boolean? = null         //是否显示图例
@@ -413,7 +413,7 @@ C# |  AACharts-Xamarin | iOS<br/>Android | https://github.com/AAChartModel/AACha
 
 ![](https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/License_icon-mit-88x31-2.svg/128px-License_icon-mit-88x31-2.svg.png)
 
-本项目 `AAChartCore`使用 MIT许可证,详情请点击[MIT LICENSE](https://github.com/AAChartModel/AAChartKit-Swift/blob/master/LICENSE)
+本项目 `AAChartCore`使用 MIT许可证,详情请点击[MIT LICENSE](https://github.com/AAChartModel/AAChartKit-Swift/blob/master/LICENSE),框架所依赖的非框架原有的其他内容仍旧遵循其原有的许可证.
 
 ## 联系方式
 
