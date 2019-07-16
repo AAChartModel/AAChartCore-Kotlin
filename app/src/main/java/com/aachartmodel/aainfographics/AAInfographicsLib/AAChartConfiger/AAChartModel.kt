@@ -123,8 +123,8 @@ enum class AAChartLineDashSyleType(val value: String) {
 class AAChartModel {
 
     var animationType: String? = null          //动画类型
-    var animationDuration: Int? = null     //动画时间
-    var title: String? = null                 //标题内容
+    var animationDuration: Int? = null         //动画时间
+    var title: String? = null                  //标题内容
     var subtitle: String? = null               //副标题内容
     var chartType: String? = null              //图表类型
     var stacking: String? = null               //堆积样式
@@ -135,8 +135,8 @@ class AAChartModel {
     var inverted: Boolean? = null              //x 轴是否翻转(垂直)
     var xAxisReversed: Boolean? = null         //x 轴翻转
     var yAxisReversed: Boolean? = null         //y 轴翻转
-    var tooltipEnabled: Boolean? = null      //是否显示浮动提示框(默认显示)
-    var tooltipValueSuffix: String? = null  //浮动提示框单位后缀
+    var tooltipEnabled: Boolean? = null        //是否显示浮动提示框(默认显示)
+    var tooltipValueSuffix: String? = null     //浮动提示框单位后缀
     var tooltipCrosshairs: Boolean? = null     //是否显示准星线(默认显示)
     var gradientColorEnable: Boolean? = null   //是否要为渐变色
     var polar: Boolean? = null                 //是否极化图形(变为雷达图)
@@ -144,27 +144,27 @@ class AAChartModel {
     var marginRight: Float? = null
     var dataLabelEnabled: Boolean? = null      //是否显示数据
     var xAxisLabelsEnabled: Boolean? = null    //x轴是否显示数据
-    var categories: Array<String>? = null             //x轴是否显示数据
-    var xAxisGridLineWidth: Int? = null    //x轴网格线的宽度
-    var xAxisVisible: Boolean? = null        //x 轴是否显示
-    var yAxisVisible: Boolean? = null        //y 轴是否显示
+    var categories: Array<String>? = null      //x轴是否显示数据
+    var xAxisGridLineWidth: Int? = null        //x轴网格线的宽度
+    var xAxisVisible: Boolean? = null          //x 轴是否显示
+    var yAxisVisible: Boolean? = null          //y 轴是否显示
     var yAxisLabelsEnabled: Boolean? = null    //y轴是否显示数据
     var yAxisTitle: String? = null             //y轴标题
-    var yAxisLineWidth: Float? = null       //y 轴轴线的宽度
+    var yAxisLineWidth: Float? = null          //y 轴轴线的宽度
 
-    var yAxisGridLineWidth: Int? = null    //y轴网格线的宽度
-    var colorsTheme: Array<Any>? = null            //图表主题颜色数组
+    var yAxisGridLineWidth: Int? = null        //y轴网格线的宽度
+    var colorsTheme: Array<Any>? = null        //图表主题颜色数组
     var legendEnabled: Boolean? = null         //是否显示图例
     var legendLayout: String? = null           //图例数据项的布局。布局类型： "horizontal" 或 "vertical" 即水平布局和垂直布局 默认是：horizontal.
     var legendAlign: String? = null            //设定图例在图表区中的水平对齐方式，合法值有left，center 和 right。
     var legendVerticalAlign: String? = null    //设定图例在图表区中的垂直对齐方式，合法值有 top，middle 和 bottom。垂直位置可以通过 y 选项做进一步设定。
     var backgroundColor: String? = null        //图表背景色
-    var borderRadius: Int? = null          //柱状图长条图头部圆角半径(可用于设置头部的形状,仅对条形图,柱状图有效)
-    var markerRadius: Int? = null          //折线连接点的半径长度
+    var borderRadius: Int? = null              //柱状图长条图头部圆角半径(可用于设置头部的形状,仅对条形图,柱状图有效)
+    var markerRadius: Int? = null              //折线连接点的半径长度
     var series: Array<AASeriesElement>? = null
-    var titleColor: String? = null//标题颜色
-    var subTitleColor: String? = null//副标题颜色
-    var axisColor: String? = null//x 轴和 y 轴文字颜色
+    var titleColor: String? = null             //标题颜色
+    var subTitleColor: String? = null          //副标题颜色
+    var axisColor: String? = null              //x 轴和 y 轴文字颜色
 
 
 
