@@ -1,11 +1,11 @@
  ![AAInfographics-LOGO](https://raw.githubusercontent.com/AAChartModel/loadHtmlCssJsDemo-master/master/AAInfographics/AAInfographics-LOGO.png)
 # AAInfographics
  
-[![Support](https://img.shields.io/badge/support-iOS%208%2B%20-blue.svg?style=flat)](https://www.apple.com/nl/ios/) </br>
+[![Support](https://img.shields.io/badge/Support-Android-brightgreen.svg)](https://github.com/AAChartModel/AAChartCore-Kotlin) </br>
 [![](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://github.com/AAChartModel/AAChartCore-Kotlin/blob/master/LICENSE)</br>
-[![](https://img.shields.io/badge/language-Swift-green.svg)](https://github.com/AAChartModel/AAChartCore-Kotlin) </br>
+[![](https://img.shields.io/badge/language-Kotlin-green.svg)](https://github.com/AAChartModel/AAChartCore-Kotlin) </br>
+[![](https://img.shields.io/badge/support-Java-orange.svg)](https://github.com/AAChartModel/AAChartCore)</br>
 [![](https://img.shields.io/badge/support-Animation-yellow.svg)](https://github.com/AAChartModel/AAChartCore-Kotlin#supported-animation-type-for-now)</br>
-[![](https://img.shields.io/badge/support-OC-orange.svg)](https://github.com/AAChartModel/AAChartKit)</br>
 [![](https://jaywcjlove.github.io/sb/lang/chinese.svg)](https://github.com/AAChartModel/AAChartCore-Kotlin/blob/master/CHINESE-README.md)</br>
 [![](https://jaywcjlove.github.io/sb/lang/english.svg)](https://github.com/AAChartModel/AAChartCore-Kotlin)</br>
 [![Average time to resolve an issue](http://isitmaintained.com/badge/resolution/AAChartModel/AAChartCore-Kotlin.svg)](http://isitmaintained.com/project/AAChartModel/AAChartCore-Kotlin "Average time to resolve an issue")</br>
@@ -13,7 +13,7 @@
 
 ## [ **English Document 🇬🇧** ](https://github.com/AAChartModel/AAChartCore-Kotlin)  |  [ **简体中文文档 🇨🇳** ](https://github.com/AAChartModel/AAChartCore-Kotlin/blob/master/CHINESE-README.md)| [ **繁體中文文檔 🇭🇰** ](https://github.com/AAChartModel/AAChartCore-Kotlin/blob/master/TRADITIONAL-CHINESE-README.md)
 
-### There is the link of **Objective-C version** of  `AAChartKit` as follow
+### There is the link of **Java version** of  `AAChartKit` as follow
 #### *https://github.com/AAChartModel/AAChartKit*
  
 ## Preface
@@ -27,7 +27,7 @@
 2. Powerful,support the  `column chart`、`bar chart`、`area chart`、`areaspline chart`、`line chart`、`spline chart`、`radar chart`、`polar chart`、`pie chart`、`bubble chart`、`pyramid chart`、`funnel chart`、`columnrange chart`and other graphics.
 3. Interactive、animated, the `animation` effect is exquisite 、delicate、 smooth and beautiful.
 4. Support `chain programming syntax` like system framework.
-5. `AAChartView + AAChartModel = Chart`  In the AAInfographics,it follows a minimalist formula: ` Chart view + Chart model = The chart you want`. Like the powerful charts lib [AAChartKit](https://github.com/AAChartModel/AAChartKit).
+5. `AAChartView + AAChartModel = Chart`  In the AAInfographics,it follows a minimalist formula: ` Chart view + Chart model = The chart you want`. Just like the other powerful charts framework [AAChartKit](https://github.com/AAChartModel/AAChartKit)、[AAChartKit-Swift](https://github.com/AAChartModel/AAChartKit-Swift)、[AAChartCore](https://github.com/AAChartModel/AAChartCore).
 ***
 
 ## Appreciation
@@ -369,9 +369,13 @@ Property name | Property type | Description | Value Range |
 ------------ | ------------- | ------------- | ------------- |
 title | String | The chart title | Any valid string | 
 subtitle | String |The chart subtitle  | Any valid string |
-chartType | AAChartType | The default series type for the chart. Can be any of the chart types listed under `AAChartType`.  | .column,  .bar,  .area,  .areaSpline,  .line,  .spline,  .pie,  .bubble,  .scatter,  .pyramid,  .funnel,  .areaRange,  .columnRange |  
-stacking| AAChartStackingType | Whether to stack the values of each series on top of each other. Possible values are null to disable, "normal" to stack by value or "percent". When stacking is enabled, data must be sorted in ascending X order | .none,  .normal,  .percent | 
-symbol | AAChartSymbolType | A predefined shape or symbol for the marker. When null, the symbol is pulled from options.symbols. Other possible values are "circle", "square", "diamond", "triangle" and "triangle-down" | .circle,  .square,  .diamond,  .triangle,  .triangleDown |
+chartType | AAChartType | The default series type for the chart. Can be any of the chart types listed under `AAChartType`.  | AAChartType.Column, <br/> AAChartType.Bar,<br/>  AAChartType.Area, <br/> AAChartType.AreaSpline,<br/>  AAChartType.Line,<br/>  AAChartType.Spline,<br/>  AAChartType.Pie,<br/>  AAChartType.Bubble, <br/> AAChartType.Scatter,<br/>  AAChartType.Pyramid, <br/> AAChartType.Funnel,<br/>  AAChartType.Arearange, <br/> AAChartType.Columnrange |   
+stacking| AAChartStackingType | Whether to stack the values of each series on top of each other. Possible values are null to disable, "normal" to stack by value or "percent". When stacking is enabled, data must be sorted in ascending X order  | AAChartStackingType.None,<br/>AAChartStackingType.Normal,<br/>  AAChartStackingType.Percent | 
+symbol | AAChartSymbolType | A predefined shape or symbol for the marker. When null, the symbol is pulled from options.symbols. Other possible values are "circle", "square", "diamond", "triangle" and "triangle-down" | AAChartSymbolType.Circle,<br/>  AAChartSymbolType.Square,<br/>  AAChartSymbolType.Diamond, <br/> AAChartSymbolType.Triangle,<br/>  AAChartSymbolType.TriangleDown | 
+colorsTheme | the colors theme of chart style |default value is `new String[]{"#fe117c","#ffc069","#06caf4","#7dffc0"}`  | 
+series | the series data of chart |  a list made of AASeriesElement instance objects ,every AASeriesElement has its own type 、name、data、color、opacity value ect | 
+
+
 
 
 * ### AAChartModel:chart all properties list
@@ -482,10 +486,11 @@ to be
 
 Language Version | Project Name | Source Code Link |
 ------------ | ------------- | ------------- |
-Swift | AAInfographics | https://github.com/AAChartModel/AAChartKit-Swift |
-Objective C | AAChartKit | https://github.com/AAChartModel/AAChartKit |
 Kotlin | AAInfographics | https://github.com/AAChartModel/AAChartCore-Kotlin |
 Java | AAChartCore | https://github.com/AAChartModel/AAChartCore |
+Swift | AAInfographics | https://github.com/AAChartModel/AAChartKit-Swift |
+Objective C | AAChartKit | https://github.com/AAChartModel/AAChartKit |
+
 
 ## LICENSE
 

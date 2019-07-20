@@ -4,15 +4,15 @@
 # AAInfographics
 
  
-[![Support](https://img.shields.io/badge/support-Android4.0-blue.svg?style=flat)](https://www.apple.com/nl/ios/) 
-[![](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://github.com/AAChartModel/AAChartKit-Swift/blob/master/LICENSE)
-[![](https://img.shields.io/badge/language-Kotlin-green.svg)](https://github.com/AAChartModel/AAChartKit-Swift) 
-[![](https://img.shields.io/badge/support-Animation-yellow.svg)](https://github.com/AAChartModel/AAChartCore-Kotlin/blob/master/CHINESE-README.md#当前已支持的图表渲染动画类型有三十种以上说明如下)
-[![](https://img.shields.io/badge/support-Kotlin-orange.svg)](https://github.com/AAChartModel/AAChartCore-Kotlin)
+[![Support](https://img.shields.io/badge/Support-Android-brightgreen.svg)](https://github.com/AAChartModel/AAChartCore-Kotlin) </br>
+[![](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://github.com/AAChartModel/AAChartCore-Kotlin/blob/master/LICENSE)</br>
+[![](https://img.shields.io/badge/language-Kotlin-green.svg)](https://github.com/AAChartModel/AAChartCore-Kotlin) </br>
+[![](https://img.shields.io/badge/support-Java-orange.svg)](https://github.com/AAChartModel/AAChartCore)</br>
+[![](https://img.shields.io/badge/support-Animation-yellow.svg)](https://github.com/AAChartModel/AAChartCore-Kotlin/blob/master/CHINESE-README.md#当前已支持的图表渲染动画类型有三十种以上说明如下)</br>
 [![](https://jaywcjlove.github.io/sb/lang/chinese.svg)](https://github.com/AAChartModel/AAChartCore-Kotlin/blob/master/CHINESE-README.md)</br>
-[![](https://jaywcjlove.github.io/sb/lang/english.svg)](https://github.com/AAChartModel/AAChartCore-Kotlin)
-[![Average time to resolve an issue](http://isitmaintained.com/badge/resolution/AAChartModel/AAChartKit-Swift.svg)](http://isitmaintained.com/project/AAChartModel/AAChartKit-Swift "Average time to resolve an issue")
-[![Percentage of issues still open](http://isitmaintained.com/badge/open/AAChartModel/AAChartKit-Swift.svg)](http://isitmaintained.com/project/AAChartModel/AAChartKit-Swift "Percentage of issues still open")
+[![](https://jaywcjlove.github.io/sb/lang/english.svg)](https://github.com/AAChartModel/AAChartCore-Kotlin)</br>
+[![Average time to resolve an issue](http://isitmaintained.com/badge/resolution/AAChartModel/AAChartCore-Kotlin.svg)](http://isitmaintained.com/project/AAChartModel/AAChartCore-Kotlin "Average time to resolve an issue")</br>
+[![Percentage of issues still open](http://isitmaintained.com/badge/open/AAChartModel/AAChartCore-Kotlin.svg)](http://isitmaintained.com/project/AAChartModel/AAChartCore-Kotlin "Percentage of issues still open")
 
 
 ## [ **English Document 🇬🇧** ](https://github.com/AAChartModel/AAChartCore-Kotlin)  |  [ **简体中文文档 🇨🇳** ](https://github.com/AAChartModel/AAChartCore-Kotlin/blob/master/CHINESE-README.md)| [ **繁體中文文檔 🇭🇰** ](https://github.com/AAChartModel/AAChartCore-Kotlin/blob/master/TRADITIONAL-CHINESE-README.md)
@@ -474,8 +474,6 @@ Kotlin | AAInfographics | Android | https://github.com/AAChartModel/AAChartKit-K
 Java | AAChartCore | Android | https://github.com/AAChartModel/AAChartKit |
 Swift | AAInfographics |  iOS |https://github.com/AAChartModel/AAChartKit-Swift |
 Objective C | AAChartKit | iOS | https://github.com/AAChartModel/AAChartKit |
-Dart | AACharts-Flutter | iOS<br/>Android  | https://github.com/AAChartModel/AACharts-Flutter |
-C# |  AACharts-Xamarin | iOS<br/>Android | https://github.com/AAChartModel/AACharts-Xamarin |
 
 
 ## 许可证
