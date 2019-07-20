@@ -13,8 +13,8 @@
 
 ## [ **English Document 🇬🇧** ](https://github.com/AAChartModel/AAChartCore-Kotlin)  |  [ **简体中文文档 🇨🇳** ](https://github.com/AAChartModel/AAChartCore-Kotlin/blob/master/CHINESE-README.md)| [ **繁體中文文檔 🇭🇰** ](https://github.com/AAChartModel/AAChartCore-Kotlin/blob/master/TRADITIONAL-CHINESE-README.md)
 
-### There is the link of **Java version** of  `AAChartKit` as follow
-#### *https://github.com/AAChartModel/AAChartKit*
+### There is the link of **Java version** of  `AAChartCore-Kotlin` as follow
+#### *https://github.com/AAChartModel/AAChartCore*
  
 ## Preface
  
