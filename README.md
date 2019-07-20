@@ -365,13 +365,13 @@ Here are the ten concrete animation types of **AAInfographics**
 
 * ### AAChartModel:chart basic properties instruction
 
-Property name | Property type | Description | Value Range | 
------------- | ------------- | ------------- | ------------- |
-title | String | The chart title | Any valid string | 
-subtitle | String |The chart subtitle  | Any valid string |
-chartType | AAChartType | The default series type for the chart. Can be any of the chart types listed under `AAChartType`.  | AAChartType.Column, <br/> AAChartType.Bar,<br/>  AAChartType.Area, <br/> AAChartType.AreaSpline,<br/>  AAChartType.Line,<br/>  AAChartType.Spline,<br/>  AAChartType.Pie,<br/>  AAChartType.Bubble, <br/> AAChartType.Scatter,<br/>  AAChartType.Pyramid, <br/> AAChartType.Funnel,<br/>  AAChartType.Arearange, <br/> AAChartType.Columnrange |   
-stacking| AAChartStackingType | Whether to stack the values of each series on top of each other. Possible values are null to disable, "normal" to stack by value or "percent". When stacking is enabled, data must be sorted in ascending X order  | AAChartStackingType.None,<br/>AAChartStackingType.Normal,<br/>  AAChartStackingType.Percent | 
-symbol | AAChartSymbolType | A predefined shape or symbol for the marker. When null, the symbol is pulled from options.symbols. Other possible values are "circle", "square", "diamond", "triangle" and "triangle-down" | AAChartSymbolType.Circle,<br/>  AAChartSymbolType.Square,<br/>  AAChartSymbolType.Diamond, <br/> AAChartSymbolType.Triangle,<br/>  AAChartSymbolType.TriangleDown | 
+Property name |  Description | Value Range | 
+------------ |  ------------- | ------------- |
+title |  The chart title | Any valid string | 
+subtitle | The chart subtitle  | Any valid string |
+chartType |  The default series type for the chart. Can be any of the chart types listed under `AAChartType`.  | AAChartType.Column, <br/> AAChartType.Bar,<br/>  AAChartType.Area, <br/> AAChartType.AreaSpline,<br/>  AAChartType.Line,<br/>  AAChartType.Spline,<br/>  AAChartType.Pie,<br/>  AAChartType.Bubble, <br/> AAChartType.Scatter,<br/>  AAChartType.Pyramid, <br/> AAChartType.Funnel,<br/>  AAChartType.Arearange, <br/> AAChartType.Columnrange |   
+stacking|  Whether to stack the values of each series on top of each other. Possible values are null to disable, "normal" to stack by value or "percent". When stacking is enabled, data must be sorted in ascending X order  | AAChartStackingType.None,<br/>AAChartStackingType.Normal,<br/>  AAChartStackingType.Percent | 
+symbol |  A predefined shape or symbol for the marker. When null, the symbol is pulled from options.symbols. Other possible values are "circle", "square", "diamond", "triangle" and "triangle-down" | AAChartSymbolType.Circle,<br/>  AAChartSymbolType.Square,<br/>  AAChartSymbolType.Diamond, <br/> AAChartSymbolType.Triangle,<br/>  AAChartSymbolType.TriangleDown | 
 colorsTheme | the colors theme of chart style |default value is `new String[]{"#fe117c","#ffc069","#06caf4","#7dffc0"}`  | 
 series | the series data of chart |  a list made of AASeriesElement instance objects ,every AASeriesElement has its own type 、name、data、color、opacity value ect | 
 
