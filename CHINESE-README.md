@@ -383,7 +383,7 @@ subtitle | 图表副标题  | 任意有效的字符串 |
 chartType |  图表类型,可以为`AAChartType`枚举字符串当中指定的任意有效类型.其中有支持`柱状图` 、`条形图` 、`折线图` 、`曲线图` 、`折线填充图` 、`曲线填充图`、`雷达图`、`扇形图`、`气泡图`、`散点图`、`金字塔图`、`漏斗图`、`区域范围图`、`柱形范围图`等多种图形  | AAChartType.Column, <br/> AAChartType.Bar,<br/>  AAChartType.Area, <br/> AAChartType.AreaSpline,<br/>  AAChartType.Line,<br/>  AAChartType.Spline,<br/>  AAChartType.Pie,<br/>  AAChartType.Bubble, <br/> AAChartType.Scatter,<br/>  AAChartType.Pyramid, <br/> AAChartType.Funnel,<br/>  AAChartType.Arearange, <br/> AAChartType.Columnrange |  
 stacking| 是否将图表每个数据列的值叠加在一起。 默认的值为`.none`， 即禁用堆叠样式效果.另有常规堆叠样式和百分比堆叠样式可供选择 | AAChartStackingType.None,<br/>AAChartStackingType.Normal,<br/>  AAChartStackingType.Percent | 
 symbol | 图表曲线连接点的样式类型.其可供选择的值有`圆`、`正方形`、`钻石`、`常规三角形`和`倒三角形`,默认为混合样式 | AAChartSymbolType.Circle,<br/>  AAChartSymbolType.Square,<br/>  AAChartSymbolType.Diamond, <br/> AAChartSymbolType.Triangle,<br/>  AAChartSymbolType.TriangleDown | 
-colorsTheme | 图表显示的颜色主题效果 |类似此 `new String[]{"#fe117c","#ffc069","#06caf4","#7dffc0"}` 有效十六进制颜色字符串数组 | 
+colorsTheme | 图表显示的颜色主题效果 |类似此 `arrayOf("#fe117c", "#ffc069", "#06caf4", "#7dffc0")` 有效十六进制颜色字符串数组 | 
 series | 图表的数据列 | AASeriesElement实例对象组成的有效数组,其中每个AASeriesElement都有与之对应的数据、类型、颜色、透明度等具体的值 | 
 
 
