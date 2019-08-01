@@ -169,7 +169,7 @@ class AAChartModel {
 
 
     fun animationType(prop: AAChartAnimationType): AAChartModel {
-        animationType = prop.toString().toLowerCase()
+        animationType = prop.value
         return this
     }
 
@@ -189,22 +189,22 @@ class AAChartModel {
     }
 
     fun chartType(prop: AAChartType): AAChartModel {
-        chartType = prop.toString().toLowerCase()
+        chartType = prop.value
         return this
     }
 
     fun stacking(prop: AAChartStackingType): AAChartModel {
-        stacking = prop.toString().toLowerCase()
+        stacking = prop.value
         return this
     }
 
     fun symbol(prop: AAChartSymbolType): AAChartModel {
-        symbol = prop.toString().toLowerCase()
+        symbol = prop.value
         return this
     }
 
     fun symbolStyle(prop: AAChartSymbolStyleType): AAChartModel {
-        symbolStyle = prop.toString().toLowerCase()
+        symbolStyle = prop.value
         return this
     }
 
@@ -325,7 +325,7 @@ class AAChartModel {
     }
 
     fun legendVerticalAlign(prop: AAChartLegendVerticalAlignType): AAChartModel {
-        legendVerticalAlign = prop.toString().toLowerCase()
+        legendVerticalAlign = prop.value
         return this
     }
 
@@ -351,11 +351,11 @@ class AAChartModel {
 
     init {
         chartType = AAChartType.Line.toString()
-        animationType = AAChartAnimationType.EaseInBack.toString().toLowerCase()
+        animationType = AAChartAnimationType.EaseInBack.value
         animationDuration = 800//以毫秒为单位
         pointHollow = false
         inverted = false
-        stacking = AAChartStackingType.False.toString().toLowerCase()
+        stacking = AAChartStackingType.False.value
         xAxisReversed = false
         yAxisReversed = false
         zoomType = "x"
@@ -363,6 +363,7 @@ class AAChartModel {
         tooltipCrosshairs = true
         gradientColorEnable = false
         polar = false
+        dataLabelEnabled = false
         xAxisLabelsEnabled = true
         xAxisGridLineWidth = 0
         yAxisLabelsEnabled = true

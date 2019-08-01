@@ -117,20 +117,20 @@ object AAOptionsConstructor {
     ): HashMap<String, Any?> {
         val chartType = aaChartModel.chartType
         //数据点标记相关配置，只有线性图(折线图、曲线图、折线区域填充图、曲线区域填充图,散点图)才有数据点标记
-        if (chartType === AAChartType.Area.toString()
-            || chartType === AAChartType.Areaspline.toString()
-            || chartType === AAChartType.Line.toString()
-            || chartType === AAChartType.Spline.toString()
-            || chartType === AAChartType.Scatter.toString()) {
+        if (chartType === AAChartType.Area.value
+            || chartType === AAChartType.Areaspline.value
+            || chartType === AAChartType.Line.value
+            || chartType === AAChartType.Spline.value
+            || chartType === AAChartType.Scatter.value) {
             val aaMarker = HashMap<String, Any?>()
             aaMarker["radius"] = aaChartModel.markerRadius//曲线连接点半径，默认是4
             aaMarker["symbol"] = aaChartModel.symbol//曲线连接点类型："circle", "square", "diamond", "triangle","triangle-down"，默认是"circle"
             //设置曲线连接点风格样式
-            if (aaChartModel.symbolStyle === AAChartSymbolStyleType.InnerBlank.toString()) {
+            if (aaChartModel.symbolStyle === AAChartSymbolStyleType.InnerBlank.value) {
                 aaMarker["fillColor"] = "#FFFFFF"//点的填充色(用来设置折线连接点的填充色)
                 aaMarker["lineWidth"] = 2//外沿线的宽度(用来设置折线连接点的轮廓描边的宽度)
                 aaMarker["lineColor"] = ""//外沿线的颜色(用来设置折线连接点的轮廓描边颜色，当值为空字符串时，默认取数据点或数据列的颜色。)
-            } else if (aaChartModel.symbolStyle === AAChartSymbolStyleType.BorderBlank.toString()) {
+            } else if (aaChartModel.symbolStyle === AAChartSymbolStyleType.BorderBlank.value) {
                 aaMarker["lineWidth"] = 2//外沿线的宽度(用来设置折线连接点的轮廓描边的宽度)
                 aaMarker["lineColor"] = aaChartModel.backgroundColor//外沿线的颜色(用来设置折线连接点的轮廓描边颜色，当值为空字符串时，默认取数据点或数据列的颜色。)
             }
@@ -146,10 +146,10 @@ object AAOptionsConstructor {
 
         val chartType = aaChartModel.chartType
         val aaDataLabels = HashMap<String, Any?>()
-        aaDataLabels["enabled"] = aaChartModel.xAxisLabelsEnabled
+        aaDataLabels["enabled"] = aaChartModel.dataLabelEnabled
         val aaSomeTypeChart = HashMap<String, Any?>()
 
-        if (chartType === AAChartType.Column.toString() || chartType === AAChartType.Bar.toString()) {
+        if (chartType === AAChartType.Column.value || chartType === AAChartType.Bar.value) {
             aaSomeTypeChart["borderWidth"] = 0
             aaSomeTypeChart["borderRadius"] = aaChartModel.borderRadius
             aaSomeTypeChart["dataLabels"] = aaDataLabels
@@ -157,7 +157,7 @@ object AAOptionsConstructor {
                 aaSomeTypeChart["pointPadding"] = 0
                 aaSomeTypeChart["groupPadding"] = 0.005
             }
-        } else if (chartType === AAChartType.Pie.toString()) {
+        } else if (chartType === AAChartType.Pie.value) {
             aaSomeTypeChart["allowPointSelect"] = true
             aaSomeTypeChart["cursor"] = "pointer"
             aaSomeTypeChart["showInLegend"] = aaChartModel.legendEnabled
@@ -176,9 +176,9 @@ object AAOptionsConstructor {
     private fun configureAxisContentAndStyle(aaOptions: HashMap<String, Any?>,
                                              aaChartModel: AAChartModel) {
 
-        if (aaChartModel.chartType !== AAChartType.Pie.toString()
-            && aaChartModel.chartType !== AAChartType.Pyramid.toString()
-            && aaChartModel.chartType !== AAChartType.Funnel.toString()) {
+        if (aaChartModel.chartType !== AAChartType.Pie.value
+            && aaChartModel.chartType !== AAChartType.Pyramid.value
+            && aaChartModel.chartType !== AAChartType.Funnel.value) {
             val aaAxisLabel = HashMap<String, Any?>()
             aaAxisLabel["enabled"] = aaChartModel.xAxisLabelsEnabled
 

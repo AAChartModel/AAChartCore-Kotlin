@@ -100,7 +100,6 @@ class AAChartView : WebView {
         // Do some initialize work.
         this.contentWidth = 320f
         this.contentHeight = 350f
-        //        //设置WebView支持JavaScript(这一句是十分关键的一句)
         this.settings.javaScriptEnabled = true
 //        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
 //            this.setWebContentsDebuggingEnabled(true)

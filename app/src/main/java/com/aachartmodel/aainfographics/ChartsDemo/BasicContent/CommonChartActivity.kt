@@ -45,7 +45,7 @@ class CommonChartActivity : AppCompatActivity(), RadioGroup.OnCheckedChangeListe
             .title("title")
             .subtitle("subtitle")
             .backgroundColor("#4b2b7f")
-            .dataLabelEnabled(true)
+            .dataLabelEnabled(false)
             .yAxisGridLineWidth(0)
             .legendVerticalAlign(AAChartLegendVerticalAlignType.Bottom)
             .series(arrayOf(
@@ -66,27 +66,26 @@ class CommonChartActivity : AppCompatActivity(), RadioGroup.OnCheckedChangeListe
 
         if (position == 4 || position == 5) {
             aaChartModel.series(arrayOf(
-                    AASeriesElement()
-                        .name("Tokyo")
-                        .step(true)
-                        .data(arrayOf(149.9, 171.5, 106.4, 129.2, 144.0, 176.0, 135.6, 188.5, 276.4, 214.1, 95.6, 54.4)),
                 AASeriesElement()
-                        .name("NewYork")
-                        .step(true)
-                        .data(arrayOf(83.6, 78.8, 188.5, 93.4, 106.0, 84.5, 105.0, 104.3, 131.2, 153.5, 226.6, 192.3)),
+                    .name("Tokyo")
+                    .step(true)
+                    .data(arrayOf(149.9, 171.5, 106.4, 129.2, 144.0, 176.0, 135.6, 188.5, 276.4, 214.1, 95.6, 54.4)),
                 AASeriesElement()
-                        .name("London")
-                        .step(true)
-                        .data(arrayOf(48.9, 38.8, 19.3, 41.4, 47.0, 28.3, 59.0, 69.6, 52.4, 65.2, 53.3, 72.2))
-                )
+                    .name("NewYork")
+                    .step(true)
+                    .data(arrayOf(83.6, 78.8, 188.5, 93.4, 106.0, 84.5, 105.0, 104.3, 131.2, 153.5, 226.6, 192.3)),
+                AASeriesElement()
+                    .name("London")
+                    .step(true)
+                    .data(arrayOf(48.9, 38.8, 19.3, 41.4, 47.0, 28.3, 59.0, 69.6, 52.4, 65.2, 53.3, 72.2))
+            )
             )
 
         } else {
             aaChartModel.series(arrayOf(
                     AASeriesElement()
                         .name("Tokyo")
-                        .data(arrayOf(7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6)),
-                    AASeriesElement()
+                        .data(arrayOf(7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6)),                    AASeriesElement()
                         .name("NewYork")
                         .data(arrayOf(0.2, 0.8, 5.7, 11.3, 17.0, 22.0, 24.8, 24.1, 20.1, 14.1, 8.6, 2.5)),
                     AASeriesElement()
@@ -100,11 +99,11 @@ class CommonChartActivity : AppCompatActivity(), RadioGroup.OnCheckedChangeListe
 
         }
 
-        if (chartType == AAChartType.Area.toString()
-            || chartType == AAChartType.Arearange.toString()) {
+        if (chartType == AAChartType.Area.value
+            || chartType == AAChartType.Arearange.value) {
             aaChartModel.symbolStyle(AAChartSymbolStyleType.InnerBlank)
-        } else if (chartType == AAChartType.Line.toString()
-            || chartType == AAChartType.Spline.toString()) {
+        } else if (chartType == AAChartType.Line.value
+            || chartType == AAChartType.Spline.value) {
             aaChartModel.symbolStyle(AAChartSymbolStyleType.BorderBlank)
         }
 
