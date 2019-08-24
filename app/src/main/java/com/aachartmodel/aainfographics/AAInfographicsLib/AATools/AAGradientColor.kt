@@ -139,28 +139,40 @@ object AAGradientColor {
         return gradientColorMap("#93278F", "#00A99D")
     }
 
-    private fun gradientColorMap(startColor: String,
-                                 endColor: String): HashMap<String, Any> {
+     fun gradientColorMap(
+         startColor: String,
+         endColor: String
+     ): HashMap<String, Any> {
         return gradientColorMap(
             AALinearGradientDirection.ToTop,
             startColor,
             endColor)
     }
 
-    private fun gradientColorMap(
+     fun gradientColorMap(
         direction: AALinearGradientDirection,
         startColor: String,
-        endColor: String): HashMap<String, Any> {
-        val linearGradientColorMap = linearGradientMap(direction)
+        endColor: String
+     ): HashMap<String, Any> {
         val stopsArr = arrayOf<Any>(
             arrayOf(0, startColor),
             arrayOf(1, endColor)
         )
+        return gradientColorMap(direction,stopsArr)
+     }
+
+    fun gradientColorMap(
+        direction: AALinearGradientDirection,
+        stopsArr: Array<Any>
+    ): HashMap<String, Any> {
+        val linearGradientColorMap = linearGradientMap(direction)
         val gradientColorMap = HashMap<String, Any>()
         gradientColorMap["linearGradient"] = linearGradientColorMap
         gradientColorMap["stops"] = stopsArr
         return gradientColorMap
     }
+
+
 
     /**
     (0,0) ----------- (1,0)
@@ -171,7 +183,9 @@ object AAGradientColor {
     |                   |
     (0,1) ----------- (1,1)
      */
-    private fun linearGradientMap(direction: AALinearGradientDirection):Map<String,Int> {
+    private fun linearGradientMap(
+        direction: AALinearGradientDirection
+    ):Map<String,Int> {
         when (direction) {
             AALinearGradientDirection.ToTop ->
                 return mapOf("x1" to 0, "y1" to 1, "x2" to 0, "y2" to 0)

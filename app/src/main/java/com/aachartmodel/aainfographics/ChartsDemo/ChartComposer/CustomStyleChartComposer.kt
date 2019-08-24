@@ -240,22 +240,16 @@ class CustomStyleChartComposer  {
     }
 
      fun configureColorfulGradientAreaChart(): AAChartModel {
-        val linearGradientColorMap = mapOf(
-            "x1" to 0,
-            "y1" to 0,
-            "x2" to 1,
-            "y2" to 0
-        )
-        val stopsArr = arrayOf(
+        val stopsArr: Array<Any> = arrayOf(
             arrayOf(0.00, "#febc0f"),
             arrayOf(0.50, "#FF14d4"),
             arrayOf(1.00, "#0bf8f5")
         )//颜色字符串设置支持十六进制类型和 rgba 类型
 
-        val gradientColorMap = mapOf(
-            "linearGradient" to linearGradientColorMap,
-            "stops" to stopsArr
-        )
+         val linearGradientColor = AAGradientColor.gradientColorMap(
+             AALinearGradientDirection.ToLeft,
+             stopsArr
+         )
 
         return AAChartModel()
             .chartType(AAChartType.Areaspline)
@@ -271,7 +265,7 @@ class CustomStyleChartComposer  {
                     AASeriesElement()
                         .name("Tokyo Hot")
                         .lineWidth(15.0f)
-                        .color(gradientColorMap)
+                        .color(linearGradientColor)
                         .data(arrayOf(7.0, 6.9, 2.5, 14.5, 18.2, 21.5, 5.2, 26.5, 23.3, 45.3, 13.9, 9.6))
                 )
             )
@@ -279,24 +273,17 @@ class CustomStyleChartComposer  {
 
 
      fun configureColorfulGradientSplineChart(): AAChartModel {
-        val linearGradientColorMap = mapOf(
-            "x1" to 0,
-            "y1" to 0,
-            "x2" to 1,
-            "y2" to 0
-        )
-        val stopsArr = arrayOf(
+        val stopsArr:Array<Any> = arrayOf(
             arrayOf(0.00, "#febc0f"),
             arrayOf(0.25, "#FF14d4"),
             arrayOf(0.50, "#0bf8f5"),
             arrayOf(0.75, "#F33c52"),
             arrayOf(1.00, "#1904dd")
         )//颜色字符串设置支持十六进制类型和 rgba 类型
-
-        val gradientColorMap = mapOf(
-            "linearGradient" to linearGradientColorMap,
-            "stops" to stopsArr
-        )
+         val linearGradientColor = AAGradientColor.gradientColorMap(
+             AALinearGradientDirection.ToLeft,
+             stopsArr
+         )
 
         return AAChartModel()
             .chartType(AAChartType.Spline)
@@ -311,8 +298,8 @@ class CustomStyleChartComposer  {
             .series(arrayOf(
                     AASeriesElement()
                         .name("Tokyo Hot")
-                        .lineWidth(15.0f)
-                        .color(gradientColorMap)
+                        .lineWidth(3f)
+                        .color(linearGradientColor)
                         .data(arrayOf(7.0, 6.9, 2.5, 14.5, 18.2, 21.5, 5.2, 26.5, 23.3, 45.3, 13.9, 9.6))
                 )
             )
@@ -320,21 +307,15 @@ class CustomStyleChartComposer  {
 
 
      fun configureGradientColorAreasplineChart(): AAChartModel {
-        val linearGradientColorMap = mapOf(
-            "x1" to 0,
-            "y1" to 0,
-            "x2" to 0,
-            "y2" to 1
-        )
-        val stopsArr = arrayOf(
+        val stopsArr:Array<Any> = arrayOf(
             arrayOf(0, "rgba(2255,20,147,1)"), //深粉色, alpha 透明度 1
             arrayOf(1, "rgba(255,105,180,0.1)")//热情的粉红, alpha 透明度 0.1
         ) //颜色字符串设置支持十六进制类型和 rgba 类型
 
-        val gradientColorMap = mapOf(
-            "linearGradient" to linearGradientColorMap,
-            "stops" to stopsArr
-        )
+         val linearGradientColor = AAGradientColor.gradientColorMap(
+             AALinearGradientDirection.ToBottom,
+             stopsArr
+         )
 
         return AAChartModel()
             .chartType(AAChartType.Areaspline)
@@ -353,11 +334,10 @@ class CustomStyleChartComposer  {
                         .name("Tokyo Hot")
                         .lineWidth(5.0f)
                         .color("rgba(220,20,60,1)")//猩红色, alpha 透明度 1
-                        .fillColor(gradientColorMap)
+                        .fillColor(linearGradientColor)
                         .data(arrayOf(7.0, 6.9, 2.5, 14.5, 18.2, 21.5, 5.2, 26.5, 23.3, 45.3, 13.9, 9.6))
                 )
             )
-
     }
 
     }
