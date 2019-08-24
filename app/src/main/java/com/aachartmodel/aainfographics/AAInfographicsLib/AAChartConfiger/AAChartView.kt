@@ -1,25 +1,27 @@
-//
+/**
 //  AAChartModel.java
-//  ChartCore-Slim
+//  AAChartCore-Kotlin
 //
 //  Created by AnAn on 2017/9/8..
 //  Copyright © 2018年 An An. All rights reserved.
-//*************** ...... SOURCE CODE ...... ***************
-//***...................................................***
-//*** https://github.com/AAChartModel/ChartCore         ***
-//*** https://github.com/AAChartModel/ChartCore-Slim    ***
-//***...................................................***
-//*************** ...... SOURCE CODE ...... ***************
+*/
+/**
+ * ◉◉◉◉◉◉◉◉◉◉◉◉◉◉◉◉◉◉◉ ...... SOURCE CODE ......◉◉◉◉◉◉◉◉◉◉◉◉◉◉◉◉◉◉◉
+ * ◉◉◉...................................................       ◉◉◉
+ * ◉◉◉   https://github.com/AAChartModel/AAChartCore            ◉◉◉
+ * ◉◉◉   https://github.com/AAChartModel/AAChartCore-Kotlin     ◉◉◉
+ * ◉◉◉...................................................       ◉◉◉
+ * ◉◉◉◉◉◉◉◉◉◉◉◉◉◉◉◉◉◉◉ ...... SOURCE CODE ......◉◉◉◉◉◉◉◉◉◉◉◉◉◉◉◉◉◉◉
+ */
 
-
-/*
+/**
 
  * -------------------------------------------------------------------------------
  *
  *  🌕 🌖 🌗 🌘  ❀❀❀   WARM TIPS!!!   ❀❀❀ 🌑 🌒 🌓 🌔
  *
  * Please contact me on GitHub,if there are any problems encountered in use.
- * GitHub Issues : https://github.com/AAChartModel/ChartCore-Slim/issues
+ * GitHub Issues : https://github.com/AAChartModel/AAChartCore-Kotlin/issues
  * -------------------------------------------------------------------------------
  * And if you want to contribute for this project, please contact me as well
  * GitHub        : https://github.com/AAChartModel
