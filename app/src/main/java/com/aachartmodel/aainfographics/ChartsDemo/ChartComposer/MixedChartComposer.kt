@@ -126,7 +126,7 @@ companion object {
             .title("")//图形标题
             .subtitle("")//图形副标题
             .chartType(AAChartType.Line)
-            .dataLabelEnabled(false)
+            .dataLabelsEnabled(false)
             .symbolStyle(AAChartSymbolStyleType.BorderBlank)
             .series(arrayOf(
                 AASeriesElement()
@@ -194,7 +194,7 @@ companion object {
     fun dashStyleTypeMixedChart(): AAChartModel {
         return AAChartModel()
             .chartType(AAChartType.Spline)//图形类型
-            .dataLabelEnabled(false)//是否显示数字
+            .dataLabelsEnabled(false)//是否显示数字
             .stacking(AAChartStackingType.Normal)
             .markerRadius(0)
             .series(arrayOf(
@@ -228,7 +228,7 @@ companion object {
 
     fun negativeColorMixedChart(): AAChartModel {
         return AAChartModel()
-            .dataLabelEnabled(false)//是否显示数字
+            .dataLabelsEnabled(false)//是否显示数字
             .series(arrayOf(
                 AASeriesElement()
                     .name("Column")
@@ -248,7 +248,7 @@ companion object {
 
     internal fun scatterMixedLine(): AAChartModel {
         return AAChartModel()
-            .dataLabelEnabled(false)//是否显示数字
+            .dataLabelsEnabled(false)//是否显示数字
             .chartType(AAChartType.Scatter)
             .symbolStyle(AAChartSymbolStyleType.InnerBlank)
             .symbol(AAChartSymbolType.Circle)

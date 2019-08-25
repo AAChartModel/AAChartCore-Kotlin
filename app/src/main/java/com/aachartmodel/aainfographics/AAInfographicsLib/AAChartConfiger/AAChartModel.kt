@@ -281,7 +281,7 @@ class AAChartModel {
         return this
     }
 
-    fun dataLabelEnabled(prop: Boolean?): AAChartModel {
+    fun dataLabelsEnabled(prop: Boolean?): AAChartModel {
         dataLabelEnabled = prop
         return this
     }

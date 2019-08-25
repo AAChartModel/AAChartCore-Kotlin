@@ -45,7 +45,7 @@ class ChartOptionsComposer {
      fun configureAAPlotBandsForChart(): HashMap<String, Any?> {
         val aaChartModel = AAChartModel()
             .chartType(AAChartType.Spline)//图形类型
-            .dataLabelEnabled(false)
+            .dataLabelsEnabled(false)
             .markerRadius(0)
             .series(arrayOf(
                     AASeriesElement()
@@ -110,7 +110,7 @@ class ChartOptionsComposer {
 
         val aaChartModel = AAChartModel()
             .chartType(AAChartType.Areaspline)//图形类型
-            .dataLabelEnabled(false)
+            .dataLabelsEnabled(false)
             .series(arrayOf(
                     AASeriesElement()
                         .name("Tokyo")
@@ -173,7 +173,7 @@ class ChartOptionsComposer {
             .title("近三个月金价起伏周期图")//图表主标题
             .subtitle("金价(元/克)")//图表副标题
             .symbolStyle(AAChartSymbolStyleType.BorderBlank)//折线连接点样式为外边缘空白
-            .dataLabelEnabled(false)
+            .dataLabelsEnabled(false)
             .categories(arrayOf(
                 "10-01", "10-02", "10-03", "10-04", "10-05", "10-06", "10-07", "10-08", "10-09", "10-10",
                 "10-11", "10-12", "10-13", "10-14", "10-15", "10-16", "10-17", "10-18", "10-19", "10-20",

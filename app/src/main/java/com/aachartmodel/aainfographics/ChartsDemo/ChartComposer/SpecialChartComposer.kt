@@ -39,7 +39,7 @@ object SpecialChartComposer{
         return AAChartModel()
             .chartType(AAChartType.Column)
             .polar(true)
-            .dataLabelEnabled(false)
+            .dataLabelsEnabled(false)
             .categories(arrayOf(
                 "January",
                 "February",
@@ -70,7 +70,7 @@ object SpecialChartComposer{
             .backgroundColor("#ffffff")
             .title("LANGUAGE MARKET SHARES JANUARY,2020 TO MAY")
             .subtitle("virtual data")
-            .dataLabelEnabled(true)//是否直接显示扇形图数据
+            .dataLabelsEnabled(true)//是否直接显示扇形图数据
             .yAxisTitle("℃")
             .series(arrayOf(
                 AASeriesElement()
@@ -737,7 +737,7 @@ object SpecialChartComposer{
                 "December"
             )
             )
-            .dataLabelEnabled(true)
+            .dataLabelsEnabled(true)
             .inverted(true)//x 轴是否垂直翻转
             .series(arrayOf(
                 AASeriesElement()
@@ -767,7 +767,7 @@ object SpecialChartComposer{
             .animationType(AAChartAnimationType.Bounce)//图形渲染动画类型为"bounce"
             .title("STEP LINE CHART")//图形标题
             .subtitle("2020/08/08")//图形副标题
-            .dataLabelEnabled(false)//是否显示数字
+            .dataLabelsEnabled(false)//是否显示数字
             .symbolStyle(AAChartSymbolStyleType.BorderBlank)//折线连接点样式
             .markerRadius(7)//折线连接点半径长度,为0时相当于没有折线连接点
             .series(arrayOf(
@@ -793,7 +793,7 @@ object SpecialChartComposer{
             .animationType(AAChartAnimationType.Bounce)//图形渲染动画类型为"bounce"
             .title("STEP AREA CHART")//图形标题
             .subtitle("2049/08/08")//图形副标题
-            .dataLabelEnabled(false)//是否显示数字
+            .dataLabelsEnabled(false)//是否显示数字
             .symbolStyle(AAChartSymbolStyleType.InnerBlank)//折线连接点样式
             .markerRadius(0)//折线连接点半径长度,为0时相当于没有折线连接点
             .series(arrayOf(

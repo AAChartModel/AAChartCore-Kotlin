@@ -28,7 +28,6 @@
 package com.aachartmodel.aainfographics.ChartsDemo.ChartComposer
 
 import com.example.chartcorekotlin.AAChartConfiger.*
-import java.util.HashMap
 
 class CustomStyleChartComposer  {
 
@@ -72,7 +71,7 @@ class CustomStyleChartComposer  {
             .animationType(AAChartAnimationType.Bounce)
             .title("Colorful Chart")
             .subtitle("use AAColor to get color string")
-            .dataLabelEnabled(false)
+            .dataLabelsEnabled(false)
             .categories(colorsNameArr)
             .colorsTheme(colorsArr)
             .stacking(AAChartStackingType.Percent)
@@ -162,7 +161,7 @@ class CustomStyleChartComposer  {
             .chartType(AAChartType.Column)
             .title("Discontinuous Data Chart")
             .yAxisTitle("")
-            .dataLabelEnabled(true)
+            .dataLabelsEnabled(true)
             .tooltipEnabled(true)
             .series(arrayOf(
                 AASeriesElement()
@@ -202,7 +201,7 @@ class CustomStyleChartComposer  {
             .yAxisVisible(true)//是否显示中间的多个圆环
             .legendEnabled(false)//隐藏图例(底部可点按的小圆点)
             .categories(arrayOf("一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"))
-            .dataLabelEnabled(true)
+            .dataLabelsEnabled(true)
             .polar(true)//极地化图形
             .series(arrayOf(
                     AASeriesElement()

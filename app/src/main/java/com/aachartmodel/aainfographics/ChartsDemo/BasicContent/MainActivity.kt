@@ -102,7 +102,7 @@ class MainActivity : AppCompatActivity() {
         "Step Line Chart--- 直方折线图",
         "Line Chart---折线图",
         "Spline Chart---曲线图",
-        "简单字符串拼接",
+        "/*使用JavaScript函数自定义内容*/简单字符串拼接--------------------------------",
         "自定义不同单位后缀",
         "值为0时,在tooltip中不显示",
         "自定义多彩颜色文字",
