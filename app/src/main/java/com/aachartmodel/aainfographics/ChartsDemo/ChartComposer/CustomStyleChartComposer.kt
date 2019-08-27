@@ -87,7 +87,6 @@ class CustomStyleChartComposer  {
 
 
      fun configureColorfulGradientColorChart(): AAChartModel {
-
         val gradientColorNamesArr = arrayOf(
             "oceanBlue",
             "sanguine",
@@ -110,7 +109,9 @@ class CustomStyleChartComposer  {
             "wroughtIron",
             "deepSea",
             "coastalBreeze",
-            "eveningDelight"
+            "eveningDelight",
+            "neonGlowColor",
+            "berrySmoothieColor"
         )
 
         val gradientColorArr = arrayOf<Any>(
@@ -135,7 +136,9 @@ class CustomStyleChartComposer  {
             AAGradientColor.wroughtIronColor(),
             AAGradientColor.deepSeaColor(),
             AAGradientColor.coastalBreezeColor(),
-            AAGradientColor.eveningDelightColor()
+            AAGradientColor.eveningDelightColor(),
+            AAGradientColor.neonGlowColor(),
+            AAGradientColor.berrySmoothieColor()
         )
 
        return AAChartModel()
@@ -149,7 +152,10 @@ class CustomStyleChartComposer  {
             .series(arrayOf(
                     AASeriesElement()
                         .name("Tokyo")
-                        .data(arrayOf(149.9, 171.5, 106.4, 129.2, 144.0, 176.0, 135.6, 188.5, 276.4, 214.1, 95.6, 54.4))
+                        .data(arrayOf(
+                            149.9, 171.5, 106.4, 129.2, 144.0, 176.0, 135.6, 188.5, 276.4, 214.1, 95.6, 54.4,
+                            149.9, 171.5, 106.4, 129.2, 144.0, 176.0, 135.6, 188.5, 276.4, 214.1, 95.6, 54.4
+                            ))
                         .colorByPoint(true)
                 )
             )
