@@ -452,7 +452,7 @@ class AAChartModel {
         return this
     }
 
-    fun AAChartModel() {
+     init {
         chartType = AAChartType.Line.value
         animationDuration = 500//以毫秒为单位
         animationType = AAChartAnimationType.Linear.value

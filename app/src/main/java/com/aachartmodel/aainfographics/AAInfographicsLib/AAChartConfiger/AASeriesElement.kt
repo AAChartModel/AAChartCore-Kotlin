@@ -56,7 +56,7 @@ class AASeriesElement {
 
 
     fun type(prop: AAChartType): AASeriesElement {
-        type = prop.toString()
+        type = prop.value
         return this
     }
 

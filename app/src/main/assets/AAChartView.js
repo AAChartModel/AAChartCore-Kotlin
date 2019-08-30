@@ -100,21 +100,16 @@
             var container = document.getElementById('container');//获得元素
             container.style.width = receivedWidth;//设置宽度
             aaGlobalChart.reflow();
-            console.log("🌞修改了内容的宽度" + receivedWidth);
         }
 
         function setTheChartViewContentHeight (receivedHeight) {
              var container = document.getElementById('container');//获得元素
              container.style.height = receivedHeight;//设置高度
              aaGlobalChart.reflow();
-             console.log("🌛修改了内容的高度" + receivedHeight);
 
         }
 
         function setChartSeriesHidden(hidden) {
-                     console.log("🔥element是显示还是隐藏" + receivedHeight);
-
-
              for (var i = 0; i < aaGlobalChart.series.length; i++) {
                   var series = aaGlobalChart.series[i];
                      if (hidden == true) {
@@ -123,11 +118,6 @@
                          series.show();
                        }
                    }
-                                        console.log("🚀element是显示还是隐藏" + receivedHeight);
-                                                        alert("隐藏还是显示"+ hidden);
-
-	var err = undefined;
-	err.a = 1;
         }
 
         function showTheSeriesElementContentWithIndex (elementIndex) {

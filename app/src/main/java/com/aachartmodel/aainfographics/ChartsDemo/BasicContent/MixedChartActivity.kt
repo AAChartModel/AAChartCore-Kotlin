@@ -53,7 +53,7 @@ class MixedChartActivity : AppCompatActivity() {
     }
 
 
-    private fun configureTheAAChartModel(chartType: String): AAChartModel? {
+    private fun configureTheAAChartModel(chartType: String): AAChartModel {
         when (chartType) {
             "arearangeMixedLine" -> return MixedChartComposer.arearangeMixedLine()
             "columnrangeMixedLine" -> return MixedChartComposer.configureColumnrangeMixedLineChart()
@@ -65,6 +65,6 @@ class MixedChartActivity : AppCompatActivity() {
             "polygonMixedScatter" -> return MixedChartComposer.polygonMixedScatter()
             "polarChartMixed" -> return MixedChartComposer.polarChartMixedChart()
         }
-        return null
+        return MixedChartComposer.arearangeMixedLine()
     }
 }
