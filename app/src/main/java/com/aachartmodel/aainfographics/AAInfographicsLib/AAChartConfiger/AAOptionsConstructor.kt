@@ -79,7 +79,7 @@ object AAOptionsConstructor {
                 .stacking(aaChartModel.stacking)//设置是否百分比堆叠显示图形
             )
 
-        if (aaChartModel.animationType !== AAChartAnimationType.Linear.value) {
+        if (aaChartModel.animationType != AAChartAnimationType.Linear.value) {
             aaPlotOptions
                 .series?.animation(AAAnimation()
                 .easing(aaChartModel.animationType)
@@ -114,15 +114,15 @@ object AAOptionsConstructor {
     ): AAPlotOptions {
         val chartType = aaChartModel.chartType
         //数据点标记相关配置，只有线性图(折线图、曲线图、折线区域填充图、曲线区域填充图,散点图)才有数据点标记
-        if (chartType === AAChartType.Area.value
-            || chartType === AAChartType.Areaspline.value
-            || chartType === AAChartType.Line.value
-            || chartType === AAChartType.Spline.value
-            || chartType === AAChartType.Scatter.value) {
+        if (chartType == AAChartType.Area.value
+            || chartType == AAChartType.Areaspline.value
+            || chartType == AAChartType.Line.value
+            || chartType == AAChartType.Spline.value
+            || chartType == AAChartType.Scatter.value) {
             val aaMarker = AAMarker()
                 .radius(aaChartModel.markerRadius)//曲线连接点半径，默认是4
                 .symbol(aaChartModel.markerSymbol)//曲线点类型："circle", "square", "diamond", "triangle","triangle-down"，默认是"circle"
-            if (aaChartModel.markerSymbolStyle === AAChartSymbolStyleType.InnerBlank.value) {
+            if (aaChartModel.markerSymbolStyle == AAChartSymbolStyleType.InnerBlank.value) {
                 aaMarker.fillColor("#ffffff")//点的填充色(用来设置折线连接点的填充色)
                     .lineWidth(2f)//外沿线的宽度(用来设置折线连接点的轮廓描边的宽度)
                     .lineColor("")//外沿线的颜色(用来设置折线连接点的轮廓描边颜色，当值为空字符串时，默认取数据点或数据列的颜色)
@@ -213,9 +213,9 @@ object AAOptionsConstructor {
 
     private fun configureAxisContentAndStyle(aaOptions: AAOptions,
                                              aaChartModel: AAChartModel) {
-        if (aaChartModel.chartType !== AAChartType.Pie.value
-            && aaChartModel.chartType !== AAChartType.Pyramid.value
-            && aaChartModel.chartType !== AAChartType.Funnel.value) {
+        if (aaChartModel.chartType != AAChartType.Pie.value
+            && aaChartModel.chartType != AAChartType.Pyramid.value
+            && aaChartModel.chartType != AAChartType.Funnel.value) {
             val aaXAxis = AAXAxis()
                 .labels(AALabels()
                     .enabled(aaChartModel.xAxisLabelsEnabled)//设置 x 轴是否显示文字
