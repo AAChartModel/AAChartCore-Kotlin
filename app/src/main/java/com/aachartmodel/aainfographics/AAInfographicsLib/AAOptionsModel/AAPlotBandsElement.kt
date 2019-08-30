@@ -55,6 +55,7 @@ class AAPlotBandsElement {
         return this
     }
 
+
     fun color(prop: Any): AAPlotBandsElement {
         color = prop
         return this
@@ -88,17 +89,4 @@ class AAPlotBandsElement {
 }
 
 
-class AALabel {
-    private var text: String? = null
-    private var style: Any? = null
 
-    fun text(prop: String): AALabel {
-        text = prop
-        return this
-    }
-
-    fun style(prop: Any): AALabel {
-        style = prop
-        return this
-    }
-}

@@ -74,7 +74,7 @@ class CommonChartActivity : AppCompatActivity(), RadioGroup.OnCheckedChangeListe
             .backgroundColor("#4b2b7f")
             .dataLabelsEnabled(false)
             .yAxisGridLineWidth(0)
-            .legendVerticalAlign(AAChartLegendVerticalAlignType.Bottom)
+            .legendVerticalAlign(AAChartVerticalAlignType.Bottom)
             .series(arrayOf(
                     AASeriesElement()
                         .name("Tokyo")

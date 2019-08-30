@@ -85,12 +85,6 @@ enum class AAChartType(val value: String) {
     Polygon         ("polygon")
 }
 
-enum class AAChartAlignType(val value: String) {
-    Left   ("left"),
-    Center ("center"),
-    Right  ("right"),
-}
-
 enum class AAChartZoomType(val value: String) {
     X  ("x"),
     Y  ("y"),
@@ -117,18 +111,18 @@ enum class AAChartSymbolStyleType(val value: String) {
     BorderBlank  ("borderBlank"),
 }
 
-enum class AAChartLegendlLayoutType(val value: String) {
+enum class AAChartLayoutType(val value: String) {
     Horizontal  ("horizontal"),
     Vertical    ("vertical"),
 }
 
-enum class AAChartLegendAlignType(val value: String) {
+enum class AAChartAlignType(val value: String) {
     Left     ("left"),
     Center   ("center"),
     Right    ("right"),
 }
 
-enum class AAChartLegendVerticalAlignType(val value: String) {
+enum class AAChartVerticalAlignType(val value: String) {
     Top     ("top"),
     Middle  ("middle"),
     Bottom  ("bottom"),
@@ -352,7 +346,7 @@ class AAChartModel {
         return this
     }
 
-    fun legendVerticalAlign(prop: AAChartLegendVerticalAlignType): AAChartModel {
+    fun legendVerticalAlign(prop: AAChartVerticalAlignType): AAChartModel {
         legendVerticalAlign = prop.value
         return this
     }

@@ -28,6 +28,7 @@
 package com.example.chartcorekotlin.AAChartConfiger
 
 import java.util.HashMap
+
 enum class AALinearGradientDirection {
     ToTop,           //⇧⇧⇧⇧⇧⇧
     ToBottom,        //⇩⇩⇩⇩⇩⇩
@@ -39,10 +40,7 @@ enum class AALinearGradientDirection {
     ToBottomRight,   //⇘⇘⇘⇘⇘⇘
 }
 
-
 object AAGradientColor {
-
-
     fun oceanBlueColor(): Map<String, Any> {
         return oceanBlueColor(AALinearGradientDirection.ToTop)
     }
@@ -268,8 +266,6 @@ object AAGradientColor {
         gradientColorMap["stops"] = stopsArr
         return gradientColorMap
     }
-
-
 
     /**
     (0,0) ----------- (1,0)
