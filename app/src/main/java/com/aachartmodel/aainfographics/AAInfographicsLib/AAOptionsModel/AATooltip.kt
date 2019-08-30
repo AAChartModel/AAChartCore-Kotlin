@@ -127,7 +127,7 @@ class AATooltip {
         return this
     }
 
-    fun valueSuffix(prop: String): AATooltip {
+    fun valueSuffix(prop: String?): AATooltip {
         valueSuffix = prop
         return this
     }

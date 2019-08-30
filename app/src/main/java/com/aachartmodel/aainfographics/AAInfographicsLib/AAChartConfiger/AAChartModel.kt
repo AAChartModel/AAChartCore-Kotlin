@@ -29,6 +29,7 @@
 package com.example.chartcorekotlin.AAChartConfiger
 
 enum class AAChartAnimationType(val value :String){
+    Linear         ("Linear"),
     EaseInQuad     ("easeInQuad"),
     EaseOutQuad    ("easeOutQuad"),
     EaseInOutQuad  ("easeInOutQuad"),
@@ -144,15 +145,22 @@ enum class AAChartLineDashSyleType(val value: String) {
 
 class AAChartModel {
 
-    var animationType: String? = null          //动画类型
-    var animationDuration: Int? = null         //动画时间
-    var title: String? = null                  //标题内容
-    var subtitle: String? = null               //副标题内容
-    var chartType: String? = null              //图表类型
-    var stacking: String? = null               //堆积样式
-    var symbol: String? = null                 //折线曲线连接点的类型："circle", "square", "diamond", "triangle","triangle-down"，默认是"circle"
-    var symbolStyle: String? = null
-    var zoomType: String? = null               //缩放类型 AAChartZoomTypeX表示可沿着 x 轴进行手势缩放
+    var animationType: String? = null         //动画类型
+    var animationDuration: Int? = null        //动画时间
+    var title: String? = null                 //标题内容
+    var titleFontColor: String? = null        //标题字体颜色
+    var titleFontSize: Float? = null          //标题字体大小
+    var titleFontWeight: String? = null       //标题字体粗细
+    var subtitle: String? = null              //副标题内容
+    var subtitleAlign: String? = null
+    var subtitleFontColor: String? = null     //副标题字体颜色
+    var subtitleFontSize: Float? = null       //副标题字体大小
+    var subtitleFontWeight: String? = null    //副标题字体粗细
+    var chartType: String? = null             //图表类型
+    var stacking: String? = null              //堆积样式
+    var markerSymbol: String? = null          //折线曲线连接点的类型："circle", "square", "diamond", "triangle","triangle-down"，默认是"circle"
+    var markerSymbolStyle: String? = null
+    var zoomType: String? = null              //缩放类型 AAChartZoomTypeX表示可沿着 x 轴进行手势缩放
     var pointHollow: Boolean? = null           //折线或者曲线的连接点是否为空心的
     var inverted: Boolean? = null              //x 轴是否翻转(垂直)
     var xAxisReversed: Boolean? = null         //x 轴翻转
@@ -164,30 +172,33 @@ class AAChartModel {
     var polar: Boolean? = null                 //是否极化图形(变为雷达图)
     var marginLeft: Float? = null
     var marginRight: Float? = null
-    var dataLabelEnabled: Boolean? = null      //是否显示数据
+    var dataLabelsEnabled: Boolean? = null      //是否显示数据
+    var dataLabelsFontColor: String? = null
+    var dataLabelsFontSize: Float? = null
+    var dataLabelsFontWeight: String? = null
     var xAxisLabelsEnabled: Boolean? = null    //x轴是否显示数据
-    var categories: Array<String>? = null      //x轴是否显示数据
-    var xAxisGridLineWidth: Int? = null        //x轴网格线的宽度
+    var xAxisTickInterval: Int? = null
+    var categories: Array<String>? = null            //x轴是否显示数据
+    var xAxisGridLineWidth: Float? = null      //x轴网格线的宽度
     var xAxisVisible: Boolean? = null          //x 轴是否显示
     var yAxisVisible: Boolean? = null          //y 轴是否显示
     var yAxisLabelsEnabled: Boolean? = null    //y轴是否显示数据
     var yAxisTitle: String? = null             //y轴标题
     var yAxisLineWidth: Float? = null          //y 轴轴线的宽度
-
-    var yAxisGridLineWidth: Int? = null        //y轴网格线的宽度
-    var colorsTheme: Array<Any>? = null        //图表主题颜色数组
+    var yAxisMin: Float? = null
+    var yAxisMax: Float? = null
+    var yAxisAllowDecimals: Boolean? = null
+    var yAxisGridLineWidth: Float? = null      //y轴网格线的宽度
+    var colorsTheme: Array<Any>? = null           //图表主题颜色数组
     var legendEnabled: Boolean? = null         //是否显示图例
-    var legendLayout: String? = null           //图例数据项的布局。布局类型： "horizontal" 或 "vertical" 即水平布局和垂直布局 默认是：horizontal.
-    var legendAlign: String? = null            //设定图例在图表区中的水平对齐方式，合法值有left，center 和 right。
-    var legendVerticalAlign: String? = null    //设定图例在图表区中的垂直对齐方式，合法值有 top，middle 和 bottom。垂直位置可以通过 y 选项做进一步设定。
-    var backgroundColor: String? = null        //图表背景色
-    var borderRadius: Int? = null              //柱状图长条图头部圆角半径(可用于设置头部的形状,仅对条形图,柱状图有效)
-    var markerRadius: Int? = null              //折线连接点的半径长度
+    var backgroundColor: Any ? = null          //图表背景色
+    var borderRadius: Float? = null            //柱状图长条图头部圆角半径(可用于设置头部的形状,仅对条形图,柱状图有效)
+    var markerRadius: Float? = null            //折线连接点的半径长度
     var series: Array<AASeriesElement>? = null
     var titleColor: String? = null             //标题颜色
     var subTitleColor: String? = null          //副标题颜色
     var axisColor: String? = null              //x 轴和 y 轴文字颜色
-
+    var touchEventEnabled: Boolean? = null     //是否支持用户触摸事件
 
 
     fun animationType(prop: AAChartAnimationType): AAChartModel {
@@ -205,8 +216,43 @@ class AAChartModel {
         return this
     }
 
+    fun titleFontColor(prop: String): AAChartModel {
+        titleFontColor = prop
+        return this
+    }
+
+    fun titleFontSize(prop: Float?): AAChartModel {
+        titleFontSize = prop
+        return this
+    }
+
+    fun titleFontWeight(prop: String): AAChartModel {
+        titleFontWeight = prop
+        return this
+    }
+
     fun subtitle(prop: String): AAChartModel {
         subtitle = prop
+        return this
+    }
+
+    fun subtitleAlign(prop: String): AAChartModel {
+        subtitleAlign = prop
+        return this
+    }
+
+    fun subtitleFontColor(prop: String): AAChartModel {
+        subtitleFontColor = prop
+        return this
+    }
+
+    fun subtitleFontSize(prop: Float?): AAChartModel {
+        subtitleFontSize = prop
+        return this
+    }
+
+    fun subtitleFontWeight(prop: String): AAChartModel {
+        subtitleFontWeight = prop
         return this
     }
 
@@ -220,13 +266,13 @@ class AAChartModel {
         return this
     }
 
-    fun symbol(prop: AAChartSymbolType): AAChartModel {
-        symbol = prop.value
+    fun markerSymbol(prop: AAChartSymbolType): AAChartModel {
+        markerSymbol = prop.value
         return this
     }
 
-    fun symbolStyle(prop: AAChartSymbolStyleType): AAChartModel {
-        symbolStyle = prop.value
+    fun markerSymbolStyle(prop: AAChartSymbolStyleType): AAChartModel {
+        markerSymbolStyle = prop.value
         return this
     }
 
@@ -275,8 +321,33 @@ class AAChartModel {
         return this
     }
 
+    fun marginLeft(prop: Float?): AAChartModel {
+        marginLeft = prop
+        return this
+    }
+
+    fun marginright(prop: Float?): AAChartModel {
+        marginRight = prop
+        return this
+    }
+
     fun dataLabelsEnabled(prop: Boolean?): AAChartModel {
-        dataLabelEnabled = prop
+        dataLabelsEnabled = prop
+        return this
+    }
+
+    fun dataLabelsFontColor(prop: String): AAChartModel {
+        dataLabelsFontColor = prop
+        return this
+    }
+
+    fun dataLabelsFontSize(prop: Float?): AAChartModel {
+        dataLabelsFontSize = prop
+        return this
+    }
+
+    fun dataLabelsFontWeight(prop: String): AAChartModel {
+        dataLabelsFontWeight = prop
         return this
     }
 
@@ -285,13 +356,23 @@ class AAChartModel {
         return this
     }
 
+    fun xAxisTickInterval(prop: Int?): AAChartModel {
+        xAxisTickInterval = prop
+        return this
+    }
+
     fun categories(prop: Array<String>): AAChartModel {
         categories = prop
         return this
     }
 
-    fun xAxisGridLineWidth(prop: Int?): AAChartModel {
+    fun xAxisGridLineWidth(prop: Float?): AAChartModel {
         xAxisGridLineWidth = prop
+        return this
+    }
+
+    fun yAxisGridLineWidth(prop: Float?): AAChartModel {
+        yAxisGridLineWidth = prop
         return this
     }
 
@@ -305,11 +386,6 @@ class AAChartModel {
         return this
     }
 
-    fun yAxisGridLineWidth(prop: Int?): AAChartModel {
-        yAxisGridLineWidth = prop
-        return this
-    }
-
     fun yAxisLabelsEnabled(prop: Boolean?): AAChartModel {
         yAxisLabelsEnabled = prop
         return this
@@ -320,8 +396,23 @@ class AAChartModel {
         return this
     }
 
-    fun yAxisLineWidth(prop:Float): AAChartModel {
+    fun yAxisLineWidth(prop: Float?): AAChartModel {
         yAxisLineWidth = prop
+        return this
+    }
+
+    fun yAxisMin(prop: Float?): AAChartModel {
+        yAxisMin = prop
+        return this
+    }
+
+    fun yAxisMax(prop: Float?): AAChartModel {
+        yAxisMax = prop
+        return this
+    }
+
+    fun yAxisAllowDecimals(prop: Boolean?): AAChartModel {
+        yAxisAllowDecimals = prop
         return this
     }
 
@@ -335,33 +426,18 @@ class AAChartModel {
         return this
     }
 
-    fun legendLayout(prop: String): AAChartModel {
-        legendLayout = prop
-
-        return this
-    }
-
-    fun legendAlign(prop: String): AAChartModel {
-        legendAlign = prop
-        return this
-    }
-
-    fun legendVerticalAlign(prop: AAChartVerticalAlignType): AAChartModel {
-        legendVerticalAlign = prop.value
-        return this
-    }
-
-    fun backgroundColor(prop: String): AAChartModel {
+    fun backgroundColor(prop: Any): AAChartModel {
         backgroundColor = prop
         return this
     }
 
-    fun borderRadius(prop: Int?): AAChartModel {
+
+    fun borderRadius(prop: Float?): AAChartModel {
         borderRadius = prop
         return this
     }
 
-    fun markerRadius(prop: Int?): AAChartModel {
+    fun markerRadius(prop: Float?): AAChartModel {
         markerRadius = prop
         return this
     }
@@ -371,34 +447,49 @@ class AAChartModel {
         return this
     }
 
-    init {
-        chartType = AAChartType.Line.toString()
-        animationType = AAChartAnimationType.EaseInBack.value
-        animationDuration = 800//以毫秒为单位
+    fun touchEventEnabled(prop: Boolean?): AAChartModel {
+        touchEventEnabled = prop
+        return this
+    }
+
+    fun AAChartModel() {
+        chartType = AAChartType.Line.value
+        animationDuration = 500//以毫秒为单位
+        animationType = AAChartAnimationType.Linear.value
         pointHollow = false
         inverted = false
         stacking = AAChartStackingType.False.value
         xAxisReversed = false
         yAxisReversed = false
         zoomType = "x"
-        colorsTheme = arrayOf("#fe117c", "#ffc069", "#06caf4", "#7dffc0")//默认的颜色数组(必须要添加默认数组,否则就会出错)
+        dataLabelsEnabled = false
+        markerSymbolStyle = AAChartSymbolStyleType.Normal.value
+        //        colorsTheme = new String[]{"#b5282a","#e7a701","#50c18d","#fd4800","#f1c6c5"};
+        colorsTheme =
+            arrayOf("#fe117c", "#ffc069", "#06caf4", "#7dffc0")//默认的颜色数组(必须要添加默认数组,否则就会出错)
         tooltipCrosshairs = true
         gradientColorEnable = false
         polar = false
-        dataLabelEnabled = false
         xAxisLabelsEnabled = true
-        xAxisGridLineWidth = 0
+        xAxisGridLineWidth = 0f
         yAxisLabelsEnabled = true
-        yAxisGridLineWidth = 1
+        yAxisGridLineWidth = 1f
         legendEnabled = true
-        legendLayout = "horizontal"
-        legendAlign = "center"
-        legendVerticalAlign = "bottom"
         backgroundColor = "#ffffff"
-        borderRadius = 0//柱状图长条图头部圆角半径(可用于设置头部的形状,仅对条形图,柱状图有效,设置为1000时,柱形图或者条形图头部为楔形)
-        markerRadius = 6//折线连接点的半径长度,如果值设置为0,这样就相当于不显示了
+        borderRadius = 0f//柱状图长条图头部圆角半径(可用于设置头部的形状,仅对条形图,柱状图有效,设置为1000时,柱形图或者条形图头部为楔形)
+        markerRadius = 6f//折线连接点的半径长度,如果值设置为0,这样就相当于不显示了
+        touchEventEnabled = true
+        titleFontColor = "#000000"//标题字体颜色为黑色
+        titleFontWeight = "regular"//常规字体
+        titleFontSize = 11f
+        subtitleFontColor = "#000000"//副标题字体颜色为黑色
+        subtitleFontWeight = "regular"//常规字体
+        subtitleFontSize = 9f
+        dataLabelsFontColor = "#000000"//数据标签默认颜色为黑色
+        dataLabelsFontWeight = "bold"//图表的数据字体为粗体
+        dataLabelsFontSize = 10f
 
     }
+
+
 }
-
-

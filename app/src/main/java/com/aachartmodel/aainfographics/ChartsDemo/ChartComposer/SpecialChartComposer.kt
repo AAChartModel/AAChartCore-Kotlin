@@ -268,8 +268,8 @@ object SpecialChartComposer{
             .chartType(AAChartType.Scatter)
             .title("Height and weight distribution by sex")
             .yAxisTitle("kg")
-            .markerRadius(8)
-            .symbolStyle(AAChartSymbolStyleType.InnerBlank)
+            .markerRadius(8f)
+            .markerSymbolStyle(AAChartSymbolStyleType.InnerBlank)
             .series(seriesElements)
     }
 
@@ -768,8 +768,8 @@ object SpecialChartComposer{
             .title("STEP LINE CHART")//图形标题
             .subtitle("2020/08/08")//图形副标题
             .dataLabelsEnabled(false)//是否显示数字
-            .symbolStyle(AAChartSymbolStyleType.BorderBlank)//折线连接点样式
-            .markerRadius(7)//折线连接点半径长度,为0时相当于没有折线连接点
+            .markerSymbolStyle(AAChartSymbolStyleType.BorderBlank)//折线连接点样式
+            .markerRadius(7f)//折线连接点半径长度,为0时相当于没有折线连接点
             .series(arrayOf(
                 AASeriesElement()
                     .name("Berlin")
@@ -794,8 +794,8 @@ object SpecialChartComposer{
             .title("STEP AREA CHART")//图形标题
             .subtitle("2049/08/08")//图形副标题
             .dataLabelsEnabled(false)//是否显示数字
-            .symbolStyle(AAChartSymbolStyleType.InnerBlank)//折线连接点样式
-            .markerRadius(0)//折线连接点半径长度,为0时相当于没有折线连接点
+            .markerSymbolStyle(AAChartSymbolStyleType.InnerBlank)//折线连接点样式
+            .markerRadius(0f)//折线连接点半径长度,为0时相当于没有折线连接点
             .series(arrayOf(
                 AASeriesElement()
                     .name("Berlin")

@@ -50,6 +50,7 @@ import android.webkit.WebResourceRequest
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.Toast
+import com.aachartmodel.aainfographics.AAInfographicsLib.AAOptionsModel.AAOptions
 import com.example.chartcorekotlin.AAChartConfiger.AAChartModel
 import com.example.chartcorekotlin.AAChartConfiger.AAOptionsConstructor
 import com.example.chartcorekotlin.AAChartConfiger.AASeriesElement
@@ -81,10 +82,11 @@ class AAChartView : WebView {
 
     interface AAChartViewCallBack {
         fun chartViewDidFinishedLoad(aaChartView: AAChartView)
-        fun chartViewMoveOverEventMessage(aaChartView: AAChartView, messageModel: AAMoveOverEventMessageModel)
+        fun chartViewMoveOverEventMessage(
+            aaChartView: AAChartView,
+            messageModel: AAMoveOverEventMessageModel
+        )
     }
-
-
 
     constructor(context: Context) : super(context) {
         sharedConstructor()
@@ -94,7 +96,11 @@ class AAChartView : WebView {
         sharedConstructor()
     }
 
-    constructor(context: Context, attrs: AttributeSet, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
+    constructor(context: Context, attrs: AttributeSet, defStyleAttr: Int) : super(
+        context,
+        attrs,
+        defStyleAttr
+    ) {
         sharedConstructor()
     }
 
@@ -102,6 +108,7 @@ class AAChartView : WebView {
         // Do some initialize work.
         this.contentWidth = 320f
         this.contentHeight = 350f
+        //        //设置WebView支持JavaScript(这一句是十分关键的一句)
         this.settings.javaScriptEnabled = true
 //        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
 //            this.setWebContentsDebuggingEnabled(true)
@@ -127,14 +134,14 @@ class AAChartView : WebView {
         return ""
     }
 
-    fun getEventMessageModel(messageBody: Map<*, *>): AAMoveOverEventMessageModel {
+    internal fun getEventMessageModel(messageBody: Map<*, *>): AAMoveOverEventMessageModel {
         val eventMessageModel = AAMoveOverEventMessageModel()
-        eventMessageModel.name = messageBody["name"]!!.toString()
-        eventMessageModel.x = messageBody["x"] as Double?
-        eventMessageModel.y = messageBody["y"] as Double?
-        eventMessageModel.category = messageBody["category"]!!.toString()
-        eventMessageModel.offset = messageBody["offset"] as LinkedTreeMap<*, *>?
-        eventMessageModel.index = messageBody["index"] as Double?
+        eventMessageModel.name = messageBody["name"].toString()
+        eventMessageModel.x = messageBody["x"] as Double
+        eventMessageModel.y = messageBody["y"] as Double
+        eventMessageModel.category = messageBody["category"].toString()
+        eventMessageModel.offset = messageBody["offset"] as LinkedTreeMap<*, *>
+        eventMessageModel.index = messageBody["index"] as Double
         return eventMessageModel
     }
 
@@ -152,7 +159,7 @@ class AAChartView : WebView {
         this.aa_refreshChartWithChartOptions(aaOptions)
     }
 
-    fun aa_drawChartWithChartOptions(chartOptions: HashMap<*, *>) {
+    fun aa_drawChartWithChartOptions(chartOptions: AAOptions) {
         this.loadUrl("file:///android_asset/AAChartView.html")
         this.webViewClient = object : WebViewClient() {
             override fun onPageFinished(view: WebView, url: String) {
@@ -164,7 +171,10 @@ class AAChartView : WebView {
             }
 
             @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
-            override fun shouldOverrideUrlLoading(view: WebView, request: WebResourceRequest): Boolean {
+            override fun shouldOverrideUrlLoading(
+                view: WebView,
+                request: WebResourceRequest
+            ): Boolean {
                 super.shouldOverrideUrlLoading(view, request)
                 val urlStr = request.url.toString()
                 val jsBridgeName = "AAChartViewBridge".toLowerCase()
@@ -181,7 +191,12 @@ class AAChartView : WebView {
 
 
         this.webChromeClient = object : WebChromeClient() {
-            override fun onJsAlert(view: WebView, url: String, message: String, result: JsResult): Boolean {
+            override fun onJsAlert(
+                view: WebView,
+                url: String,
+                message: String,
+                result: JsResult
+            ): Boolean {
                 super.onJsAlert(view, url, message, result)
 
                 return true
@@ -197,11 +212,12 @@ class AAChartView : WebView {
         this.safeEvaluateJavaScriptString(javaScriptStr)
     }
 
-    fun aa_refreshChartWithChartOptions(chartOptions: HashMap<*, *>) {
+    fun aa_refreshChartWithChartOptions(chartOptions: AAOptions) {
         // 将对象编译成json
         val gson = Gson()
         val aaOptionsJsonStr = gson.toJson(chartOptions)
-        val javaScriptStr = "loadTheHighChartView('$aaOptionsJsonStr','$contentWidth','$contentHeight')"
+        val javaScriptStr =
+            "loadTheHighChartView('$aaOptionsJsonStr','$contentWidth','$contentHeight')"
         this.safeEvaluateJavaScriptString(javaScriptStr)
     }
 
@@ -216,7 +232,7 @@ class AAChartView : WebView {
         this.safeEvaluateJavaScriptString(javaScriptStr)
     }
 
-    private fun configureChartOptionsAndDrawChart(chartOptions: HashMap<*, *>) {
+    private fun configureChartOptionsAndDrawChart(chartOptions: AAOptions) {
         // 将对象编译成json
         val gson = Gson()
         val aaOptionsJsonStr = gson.toJson(chartOptions)

@@ -73,8 +73,7 @@ class CommonChartActivity : AppCompatActivity(), RadioGroup.OnCheckedChangeListe
             .subtitle("subtitle")
             .backgroundColor("#4b2b7f")
             .dataLabelsEnabled(false)
-            .yAxisGridLineWidth(0)
-            .legendVerticalAlign(AAChartVerticalAlignType.Bottom)
+            .yAxisGridLineWidth(0f)
             .series(arrayOf(
                     AASeriesElement()
                         .name("Tokyo")
@@ -129,10 +128,10 @@ class CommonChartActivity : AppCompatActivity(), RadioGroup.OnCheckedChangeListe
 
         if (chartType == AAChartType.Area.value
             || chartType == AAChartType.Arearange.value) {
-            aaChartModel.symbolStyle(AAChartSymbolStyleType.InnerBlank)
+            aaChartModel.markerSymbolStyle(AAChartSymbolStyleType.InnerBlank)
         } else if (chartType == AAChartType.Line.value
             || chartType == AAChartType.Spline.value) {
-            aaChartModel.symbolStyle(AAChartSymbolStyleType.BorderBlank)
+            aaChartModel.markerSymbolStyle(AAChartSymbolStyleType.BorderBlank)
         }
 
 
@@ -193,11 +192,11 @@ class CommonChartActivity : AppCompatActivity(), RadioGroup.OnCheckedChangeListe
             }
         } else {
             when (group.checkedRadioButtonId) {
-                R.id.symbol1 -> aaChartModel!!.symbol(AAChartSymbolType.Circle)
-                R.id.symbol2 -> aaChartModel!!.symbol(AAChartSymbolType.Diamond)
-                R.id.symbol3 -> aaChartModel!!.symbol(AAChartSymbolType.Square)
-                R.id.symbol4 -> aaChartModel!!.symbol(AAChartSymbolType.Triangle)
-                R.id.symbol5 -> aaChartModel!!.symbol(AAChartSymbolType.TriangleDown)
+                R.id.symbol1 -> aaChartModel!!.markerSymbol(AAChartSymbolType.Circle)
+                R.id.symbol2 -> aaChartModel!!.markerSymbol(AAChartSymbolType.Diamond)
+                R.id.symbol3 -> aaChartModel!!.markerSymbol(AAChartSymbolType.Square)
+                R.id.symbol4 -> aaChartModel!!.markerSymbol(AAChartSymbolType.Triangle)
+                R.id.symbol5 -> aaChartModel!!.markerSymbol(AAChartSymbolType.TriangleDown)
             }
         }
 

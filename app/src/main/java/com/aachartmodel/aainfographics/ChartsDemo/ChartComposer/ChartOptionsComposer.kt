@@ -37,16 +37,15 @@ package com.aachartmodel.aainfographics.ChartsDemo.ChartComposer
 
 import com.aachartmodel.aainfographics.AAInfographicsLib.AAOptionsModel.*
 import com.example.chartcorekotlin.AAChartConfiger.*
-import java.util.HashMap
 
 class ChartOptionsComposer {
     companion object {
 
-     fun configureAAPlotBandsForChart(): HashMap<String, Any?> {
+     fun configureAAPlotBandsForChart(): AAOptions {
         val aaChartModel = AAChartModel()
             .chartType(AAChartType.Spline)//图形类型
             .dataLabelsEnabled(false)
-            .markerRadius(0)
+            .markerRadius(0f)
             .series(arrayOf(
                     AASeriesElement()
                         .name("Tokyo")
@@ -84,12 +83,11 @@ class ChartOptionsComposer {
                 .color("#acf08f")
         )
 
-        val aaYAxis = aaOptions["yAxis"] as HashMap<String, Any>
-        aaYAxis["plotBands"] = aaPlotBandsElementArr
+         aaOptions.yAxis?.plotBands(aaPlotBandsElementArr)
         return aaOptions
     }
 
-     fun configureAAPlotLinesForChart(): HashMap<String, Any?> {
+     fun configureAAPlotLinesForChart(): AAOptions {
         val zonesArr = arrayOf(
             mapOf(
                 "value" to 12,
@@ -161,18 +159,17 @@ class ChartOptionsComposer {
                         )
                 )
         )
+         aaOptions.yAxis?.plotLines(aaPlotLinesElementsArr)
 
-        val aaYAxis = aaOptions["yAxis"] as HashMap<String, Any>?
-        aaYAxis!!["plotLines"] = aaPlotLinesElementsArr
-        return aaOptions
+         return aaOptions
     }
 
-     fun customAATooltipWithJSFuntion():HashMap<*, *> {
+     fun customAATooltipWithJSFuntion(): AAOptions {
         val aaChartModel = AAChartModel()
             .chartType(AAChartType.Area)//图形类型
             .title("近三个月金价起伏周期图")//图表主标题
             .subtitle("金价(元/克)")//图表副标题
-            .symbolStyle(AAChartSymbolStyleType.BorderBlank)//折线连接点样式为外边缘空白
+            .markerSymbolStyle(AAChartSymbolStyleType.BorderBlank)//折线连接点样式为外边缘空白
             .dataLabelsEnabled(false)
             .categories(arrayOf(
                 "10-01", "10-02", "10-03", "10-04", "10-05", "10-06", "10-07", "10-08", "10-09", "10-10",
@@ -216,14 +213,14 @@ function () {
             .borderColor("#000000")
             .style(AAStyle()
                 .color("#FFD700")
-                .fontSize("12 px")
+                .fontSize(12f)
             )
         val aaOptions = AAOptionsConstructor.configureChartOptions(aaChartModel)
-        aaOptions["tooltip"] = aaTooltip
+        aaOptions.tooltip = aaTooltip
         return aaOptions
     }
 
-     fun customXAxisCrosshairStyle(): HashMap<*, *> {
+     fun customXAxisCrosshairStyle(): AAOptions {
         val aaChartModel = AAChartModel()
             .chartType(AAChartType.Line)//图表类型
             .series(arrayOf(
@@ -272,8 +269,7 @@ function () {
             .color(AAColor.redColor())
             .width(1f)
             .dashStyle(AAChartLineDashSyleType.LongDashDotDot)
-        val aaXAxis = aaOptions["xAxis"] as HashMap<String, Any>
-        aaXAxis["crosshair"] = aaCrosshair
+         aaOptions.xAxis?.crosshair(aaCrosshair)
         return aaOptions
     }
 

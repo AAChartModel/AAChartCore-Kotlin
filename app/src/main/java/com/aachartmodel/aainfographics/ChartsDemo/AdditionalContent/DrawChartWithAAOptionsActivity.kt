@@ -29,6 +29,7 @@ package com.aachartmodel.aainfographics.ChartsDemo.AdditionalContent
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import com.aachartmodel.aainfographics.AAInfographicsLib.AAOptionsModel.AAOptions
 import com.aachartmodel.aainfographics.ChartsDemo.ChartComposer.ChartOptionsComposer.Companion.configureAAPlotBandsForChart
 import com.aachartmodel.aainfographics.ChartsDemo.ChartComposer.ChartOptionsComposer.Companion.configureAAPlotLinesForChart
 import com.aachartmodel.aainfographics.ChartsDemo.ChartComposer.ChartOptionsComposer.Companion.customAATooltipWithJSFuntion
@@ -53,7 +54,7 @@ class DrawChartWithAAOptionsActivity : AppCompatActivity() {
 
     }
 
-    private fun configureTheChartOptions(chartType: String): HashMap<*, *> {
+    private fun configureTheChartOptions(chartType: String): AAOptions {
         when (chartType) {
             "configureAAPlotBandsForChart" -> return configureAAPlotBandsForChart()
             "configureAAPlotLinesForChart" -> return configureAAPlotLinesForChart()

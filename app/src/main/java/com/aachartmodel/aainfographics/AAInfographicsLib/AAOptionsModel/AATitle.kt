@@ -20,7 +20,7 @@ class AATitle {
     private var y: Float? = null
     private var userHTML: Boolean? = null
 
-    fun text(prop: String): AATitle {
+    fun text(prop: String?): AATitle {
         text = prop
         return this
     }

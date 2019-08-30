@@ -29,6 +29,7 @@ package com.aachartmodel.aainfographics.ChartsDemo.AdditionalContent
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import com.aachartmodel.aainfographics.AAInfographicsLib.AAOptionsModel.AAOptions
 import com.aachartmodel.aainfographics.ChartsDemo.ChartComposer.CustomTooltipComposer
 import com.aachartmodel.aainfographics.ChartsDemo.ChartComposer.CustomTooltipComposer.Companion.customAreaChartTooltipStyleWithFormatterFunction1
 import com.aachartmodel.aainfographics.ChartsDemo.ChartComposer.CustomTooltipComposer.Companion.customAreaChartTooltipStyleWithFormatterFunction2
@@ -54,7 +55,7 @@ class CustomTooltipWithJSFunctionActivity : AppCompatActivity() {
 
     }
 
-    private fun configureTheChartOptions(chartType: String): HashMap<*, *> {
+    private fun configureTheChartOptions(chartType: String): AAOptions {
         when (chartType) {
             "formatterFunction1" -> return customAreaChartTooltipStyleWithFormatterFunction1()
             "formatterFunction2" -> return customAreaChartTooltipStyleWithFormatterFunction2()

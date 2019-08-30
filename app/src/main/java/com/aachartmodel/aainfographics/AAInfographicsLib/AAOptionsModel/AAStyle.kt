@@ -15,17 +15,17 @@ class AAStyle {
     private var fontWeight: String? = null
     private var textOutLine: String? = null
 
-    fun color(prop: String): AAStyle {
+    fun color(prop: String?): AAStyle {
         color = prop
         return this
     }
 
-    fun fontSize(prop: String): AAStyle {
-        fontSize = prop
+    fun fontSize(prop: Float?): AAStyle {
+        fontSize = "$prop px"
         return this
     }
 
-    fun fontWeight(prop: String): AAStyle {
+    fun fontWeight(prop: String?): AAStyle {
         fontWeight = prop
         return this
     }

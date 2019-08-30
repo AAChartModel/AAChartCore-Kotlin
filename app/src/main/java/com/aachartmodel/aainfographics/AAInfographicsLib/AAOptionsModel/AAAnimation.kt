@@ -17,7 +17,7 @@ class AAAnimation {
         return this
     }
 
-    fun easing(prop: String): AAAnimation {
+    fun easing(prop: String?): AAAnimation {
         easing = prop
         return this
     }

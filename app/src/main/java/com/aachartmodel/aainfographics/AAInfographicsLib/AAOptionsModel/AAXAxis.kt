@@ -44,7 +44,7 @@ class AAXAxis {
         return this
     }
 
-    fun categories(prop: Array<String>): AAXAxis {
+    fun categories(prop: Array<String>?): AAXAxis {
         categories = prop
         return this
     }

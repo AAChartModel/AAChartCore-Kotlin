@@ -21,7 +21,7 @@ class AAMarker {
         return this
     }
 
-    fun symbol(prop: String): AAMarker {
+    fun symbol(prop: String?): AAMarker {
         symbol = prop
         return this
     }
@@ -36,7 +36,7 @@ class AAMarker {
         return this
     }
 
-    fun lineColor(prop: Any): AAMarker {
+    fun lineColor(prop: Any?): AAMarker {
         lineColor = prop
         return this
     }

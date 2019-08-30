@@ -21,12 +21,12 @@ class AAChart {
     private var marginLeft: Float? = null
     private var marginRight: Float? = null
 
-    fun type(prop: String): AAChart {
+    fun type(prop: String?): AAChart {
         type = prop
         return this
     }
 
-    fun backgroundColor(prop: Any): AAChart {
+    fun backgroundColor(prop: Any?): AAChart {
         backgroundColor = prop
         return this
     }
@@ -36,7 +36,7 @@ class AAChart {
         return this
     }
 
-    fun pinchType(prop: String): AAChart {
+    fun pinchType(prop: String?): AAChart {
         pinchType = prop
         return this
     }

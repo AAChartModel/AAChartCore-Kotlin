@@ -35,19 +35,19 @@
  */
 package com.aachartmodel.aainfographics.ChartsDemo.ChartComposer
 
+import com.aachartmodel.aainfographics.AAInfographicsLib.AAOptionsModel.AAOptions
 import com.aachartmodel.aainfographics.AAInfographicsLib.AAOptionsModel.AAStyle
 import com.aachartmodel.aainfographics.AAInfographicsLib.AAOptionsModel.AATooltip
 import com.example.chartcorekotlin.AAChartConfiger.*
-import java.util.HashMap
 
 class CustomTooltipComposer {
     companion object {
-     fun customAreaChartTooltipStyleWithFormatterFunction1(): HashMap<*, *> {
+     fun customAreaChartTooltipStyleWithFormatterFunction1(): AAOptions {
         val aaChartModel = AAChartModel()
             .chartType(AAChartType.Area)//图形类型
             .title("近三个月金价起伏周期图")//图表主标题
             .subtitle("金价(元/克)")//图表副标题
-            .symbolStyle(AAChartSymbolStyleType.BorderBlank)//折线连接点样式为外边缘空白
+            .markerSymbolStyle(AAChartSymbolStyleType.BorderBlank)//折线连接点样式为外边缘空白
             .dataLabelsEnabled(false)
             .categories(arrayOf(
                 "10-01", "10-02", "10-03", "10-04", "10-05", "10-06", "10-07", "10-08", "10-09", "10-10", "10-11",
@@ -96,19 +96,19 @@ function () {
             .style(
                 AAStyle()
                     .color("#FFD700")
-                    .fontSize("12 px")
+                    .fontSize(12f)
             )
         val aaOptions = AAOptionsConstructor.configureChartOptions(aaChartModel)
-        aaOptions["tooltip"] = aaTooltip
+         aaOptions.tooltip(aaTooltip)
         return aaOptions
     }
 
-     fun customAreaChartTooltipStyleWithFormatterFunction2():HashMap<*, *> {
+     fun customAreaChartTooltipStyleWithFormatterFunction2(): AAOptions {
         val aaChartModel = AAChartModel()
             .chartType(AAChartType.Area)//图形类型
             .title("2014 ~ 2020 汪星人生存指数")//图表主标题
             .subtitle("数据来源：www.无任何可靠依据.com")//图表副标题
-            .symbolStyle(AAChartSymbolStyleType.BorderBlank)//折线连接点样式为外边缘空白
+            .markerSymbolStyle(AAChartSymbolStyleType.BorderBlank)//折线连接点样式为外边缘空白
             .dataLabelsEnabled(false)
             .colorsTheme(arrayOf<Any>("#ff0000", "#0000ff"))
             .stacking(AAChartStackingType.Normal)
@@ -143,16 +143,16 @@ function () {
              """.trimIndent()
             )
         val aaOptions = AAOptionsConstructor.configureChartOptions(aaChartModel)
-        aaOptions["tooltip"] = aaTooltip
+         aaOptions.tooltip = aaTooltip
         return aaOptions
     }
 
-     fun customAreaChartTooltipStyleWithFormatterFunction3():HashMap<*, *> {
+     fun customAreaChartTooltipStyleWithFormatterFunction3(): AAOptions {
         val aaChartModel = AAChartModel()
             .chartType(AAChartType.Area)//图形类型
             .title("2014 ~ 2020 汪星人生存指数")//图表主标题
             .subtitle("数据来源：www.无任何可靠依据.com")//图表副标题
-            .symbolStyle(AAChartSymbolStyleType.BorderBlank)//折线连接点样式为外边缘空白
+            .markerSymbolStyle(AAChartSymbolStyleType.BorderBlank)//折线连接点样式为外边缘空白
             .dataLabelsEnabled(false)
             .categories(arrayOf("临床一期", "临床二期", "临床三期"))
             .series(arrayOf(
@@ -193,20 +193,20 @@ function () {
                 """.trimIndent()
             )
         val aaOptions = AAOptionsConstructor.configureChartOptions(aaChartModel)
-        aaOptions["tooltip"] = aaTooltip
+         aaOptions.tooltip = aaTooltip
         return aaOptions
     }
 
-     fun customAreaChartTooltipStyleWithFormatterFunction4():HashMap<*, *> {
+     fun customAreaChartTooltipStyleWithFormatterFunction4(): AAOptions {
         val aaChartModel = AAChartModel()
             .chartType(AAChartType.Areaspline)//图形类型
             .title("")//图表主标题
             .subtitle("")//图表副标题
-            .symbolStyle(AAChartSymbolStyleType.BorderBlank)//折线连接点样式为外边缘空白
+            .markerSymbolStyle(AAChartSymbolStyleType.BorderBlank)//折线连接点样式为外边缘空白
             .dataLabelsEnabled(false)
             .colorsTheme(arrayOf<Any>("#04d69f", "#1e90ff", "#ef476f", "#ffd066"))
             .stacking(AAChartStackingType.Normal)
-            .markerRadius(0)
+            .markerRadius(0f)
             .series(arrayOf(
                 AASeriesElement()
                     .name("Tokyo Hot")
@@ -257,11 +257,11 @@ function () {
             .backgroundColor("#050505")
             .borderColor("#050505")
         val aaOptions = AAOptionsConstructor.configureChartOptions(aaChartModel)
-        aaOptions["tooltip"] = aaTooltip
+         aaOptions.tooltip = aaTooltip
         return aaOptions
     }
 
-     fun customBoxplotTooltipContent(): HashMap<*, *> {
+     fun customBoxplotTooltipContent(): AAOptions {
         val aaChartModel = AAChartModel()
             .chartType(AAChartType.Boxplot)
             .title("BOXPLOT CHART")
@@ -301,10 +301,10 @@ function () {
             .borderColor("#000000")
             .style(AAStyle()
                     .color("#1e90ff")
-                    .fontSize("12 px")
+                    .fontSize(12f)
             )
         val aaOptions = AAOptionsConstructor.configureChartOptions(aaChartModel)
-        aaOptions["tooltip"] = aaTooltip
+         aaOptions.tooltip = aaTooltip
         return aaOptions
     }
     }

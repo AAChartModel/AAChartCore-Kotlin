@@ -29,7 +29,7 @@ class AASeries {
         return this
     }
 
-    fun stacking(prop: String): AASeries {
+    fun stacking(prop: String?): AASeries {
         stacking = prop
         return this
     }
