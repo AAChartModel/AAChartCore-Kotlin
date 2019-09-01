@@ -465,8 +465,7 @@ class AAChartModel {
         dataLabelsEnabled = false
         markerSymbolStyle = AAChartSymbolStyleType.Normal.value
         //        colorsTheme = new String[]{"#b5282a","#e7a701","#50c18d","#fd4800","#f1c6c5"};
-        colorsTheme =
-            arrayOf("#fe117c", "#ffc069", "#06caf4", "#7dffc0")//默认的颜色数组(必须要添加默认数组,否则就会出错)
+        colorsTheme = arrayOf("#fe117c", "#ffc069", "#06caf4", "#7dffc0")//默认的颜色数组(必须要添加默认数组,否则就会出错)
         tooltipCrosshairs = true
         gradientColorEnable = false
         polar = false

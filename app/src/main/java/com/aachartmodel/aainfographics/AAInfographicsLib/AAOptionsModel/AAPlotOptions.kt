@@ -340,5 +340,35 @@ class AAPie {
 
 }
 
+class AAColumnrange {
+    private var borderRadius: Float? = null
+    private var borderWidth: Float? = null
+    private var dataLabels: AADataLabels? = null
+
+    fun borderRadius(prop: Float?): AAColumnrange {
+        borderRadius = prop
+        return this
+    }
+
+    fun borderWidth(prop: Float?): AAColumnrange {
+        borderWidth = prop
+        return this
+    }
+
+    fun dataLabels(prop: AADataLabels): AAColumnrange {
+        dataLabels = prop
+        return this
+    }
+}
+
+class AAArearange {
+    private var dataLabels: AADataLabels? = null
+
+    fun dataLabels(prop: AADataLabels): AAArearange {
+        dataLabels = prop
+        return this
+    }
+}
+
 
 

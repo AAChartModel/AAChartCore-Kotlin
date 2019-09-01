@@ -155,57 +155,55 @@ object AAOptionsConstructor {
                 )
         }
 
-        if (chartType == AAChartType.Column.value) {
-            val aaColumn = AAColumn()
-                .borderWidth(0f)
-                .borderRadius(aaChartModel.borderRadius)
-                .dataLabels(aaDataLabels)
-            if (aaChartModel.polar == true) {
-                aaColumn.pointPadding(0f)
-                    .groupPadding(0.005f)
+        when (chartType) {
+            AAChartType.Column.value -> {
+                val aaColumn = AAColumn()
+                    .borderWidth(0f)
+                    .borderRadius(aaChartModel.borderRadius)
+                    .dataLabels(aaDataLabels)
+                if (aaChartModel.polar == true) {
+                    aaColumn.pointPadding(0f)
+                        .groupPadding(0.005f)
+                }
+                aaPlotOptions.column(aaColumn)
             }
-            aaPlotOptions.column(aaColumn)
-        } else if (chartType == AAChartType.Bar.value) {
-            val aaBar = AABar()
-                .borderWidth(0f)
-                .borderRadius(aaChartModel.borderRadius)
-                .dataLabels(aaDataLabels)
-            if (aaChartModel.polar == true) {
-                aaBar.pointPadding(0f)
-                    .groupPadding(0.005f)
+            AAChartType.Bar.value -> {
+                val aaBar = AABar()
+                    .borderWidth(0f)
+                    .borderRadius(aaChartModel.borderRadius)
+                    .dataLabels(aaDataLabels)
+                if (aaChartModel.polar == true) {
+                    aaBar.pointPadding(0f)
+                        .groupPadding(0.005f)
+                }
+                aaPlotOptions.bar(aaBar)
             }
-            aaPlotOptions.bar(aaBar)
-        } else if (chartType == AAChartType.Area.value) {
-            aaPlotOptions.area(AAArea().dataLabels(aaDataLabels))
-        } else if (chartType == AAChartType.Areaspline.value) {
-            aaPlotOptions.areaspline(AAAreaspline().dataLabels(aaDataLabels))
-        } else if (chartType == AAChartType.Line.value) {
-            aaPlotOptions.line(AALine().dataLabels(aaDataLabels))
-        } else if (chartType == AAChartType.Spline.value) {
-            aaPlotOptions.spline(AASpline().dataLabels(aaDataLabels))
-        } else if (chartType == AAChartType.Pie.value) {
-            val aaPie = AAPie()
-                .allowPointSelect(true)
-                .cursor("pointer")
-                .showInLegend(true)
-            if (aaChartModel.dataLabelsEnabled == true) {
-                aaPie.dataLabels(aaDataLabels.format("<b>{point.name}</b>: {point.percentage:.1f} %"))
-            } else {
-                aaPie.dataLabels(AADataLabels().enabled(false))
+            AAChartType.Area.value -> aaPlotOptions.area(AAArea().dataLabels(aaDataLabels))
+            AAChartType.Areaspline.value -> aaPlotOptions.areaspline(AAAreaspline().dataLabels(aaDataLabels))
+            AAChartType.Line.value -> aaPlotOptions.line(AALine().dataLabels(aaDataLabels))
+            AAChartType.Spline.value -> aaPlotOptions.spline(AASpline().dataLabels(aaDataLabels))
+            AAChartType.Pie.value -> {
+                val aaPie = AAPie()
+                    .allowPointSelect(true)
+                    .cursor("pointer")
+                    .showInLegend(true)
+                if (aaChartModel.dataLabelsEnabled == true) {
+                    aaDataLabels.format("<b>{point.name}</b>: {point.percentage:.1f} %")
+                }
+                aaPlotOptions.pie(aaPie.dataLabels(aaDataLabels))
             }
-            aaPlotOptions.pie(aaPie)
-        } else if (chartType == AAChartType.Columnrange.value) {
-            val columnRangeMap = mapOf(
-                "borderRadius" to 0,//The color of the border surrounding each column or bar
-                "borderWidth" to 0,//The corner radius of the border surrounding each column or bar. default：0
-                "dataLabels" to aaDataLabels
-                )
-            aaPlotOptions.columnrange(columnRangeMap)
-        } else if (chartType == AAChartType.Arearange.value) {
-            val areaRangeMap = mapOf(
-                "dataLabels" to aaDataLabels
-            )
-            aaPlotOptions.arearange(areaRangeMap)
+            AAChartType.Columnrange.value -> {
+                val aaColumnrange = AAColumnrange()
+                    .borderRadius(0f)//The color of the border surrounding each column or bar
+                    .borderWidth(0f)//The corner radius of the border surrounding each column or bar. default：0
+                    .dataLabels(aaDataLabels)
+                aaPlotOptions.columnrange(aaColumnrange)
+            }
+            AAChartType.Arearange.value -> {
+                val aaArearange = AAArearange()
+                    .dataLabels(aaDataLabels)
+                aaPlotOptions.arearange(aaArearange)
+            }
         }
         return aaPlotOptions
     }
@@ -236,7 +234,7 @@ object AAOptionsConstructor {
                 .allowDecimals(aaChartModel.yAxisAllowDecimals)//是否允许显示小数
                 .reversed(aaChartModel.yAxisReversed)
                 .gridLineWidth(aaChartModel.yAxisGridLineWidth)//y轴网格线宽度
-                .title( AATitle()
+                .title(AATitle()
                     .text(aaChartModel.yAxisTitle)
                 )//y 轴标题
                 .lineWidth(aaChartModel.yAxisLineWidth)//设置 y轴轴线的宽度,为0即是隐藏 y轴轴线
