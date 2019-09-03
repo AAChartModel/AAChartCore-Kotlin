@@ -251,7 +251,7 @@ class CustomStyleChartComposer  {
             arrayOf(1.00, "#0bf8f5")
         )//颜色字符串设置支持十六进制类型和 rgba 类型
 
-         val linearGradientColor = AAGradientColor.gradientColorMap(
+         val linearGradientColor = AAGradientColor.linearGradient(
              AALinearGradientDirection.ToLeft,
              stopsArr
          )
@@ -285,7 +285,7 @@ class CustomStyleChartComposer  {
             arrayOf(0.75, "#F33c52"),
             arrayOf(1.00, "#1904dd")
         )//颜色字符串设置支持十六进制类型和 rgba 类型
-         val linearGradientColor = AAGradientColor.gradientColorMap(
+         val linearGradientColor = AAGradientColor.linearGradient(
              AALinearGradientDirection.ToLeft,
              stopsArr
          )
@@ -317,7 +317,7 @@ class CustomStyleChartComposer  {
             arrayOf(1, "rgba(255,105,180,0.1)")//热情的粉红, alpha 透明度 0.1
         ) //颜色字符串设置支持十六进制类型和 rgba 类型
 
-         val linearGradientColor = AAGradientColor.gradientColorMap(
+         val linearGradientColor = AAGradientColor.linearGradient(
              AALinearGradientDirection.ToBottom,
              stopsArr
          )
