@@ -86,28 +86,28 @@ class AAItemStyle {
     private var fontWeight: String? = null
 
 
-    fun color(prop: String): AAItemStyle {
-        this.color = prop
+    fun color(prop: String?): AAItemStyle {
+        color = prop
         return this
     }
 
     fun cursor(prop: String): AAItemStyle {
-        this.cursor = prop
+        cursor = prop
         return this
     }
 
     fun pointer(prop: String): AAItemStyle {
-        this.pointer = prop
+        pointer = prop
         return this
     }
 
     fun fontSize(prop: Float?): AAItemStyle {
-        this.fontSize = prop!!.toString() + "px"
+        fontSize = prop!!.toString() + "px"
         return this
     }
 
     fun fontWeight(prop: String): AAItemStyle {
-        this.fontWeight = prop
+        fontWeight = prop
         return this
     }
 }

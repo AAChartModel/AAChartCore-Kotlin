@@ -103,7 +103,7 @@ enum class AAChartSymbolType(val value: String) {
     Square         ("square"),
     Diamond        ("diamond"),
     Triangle       ("triangle"),
-    TriangleDown  ("triangle-down"),
+    TriangleDown   ("triangle-down"),
 }
 
 enum class AAChartSymbolStyleType(val value: String) {
@@ -145,22 +145,23 @@ enum class AAChartLineDashSyleType(val value: String) {
 
 class AAChartModel {
 
-    var animationType: String? = null         //动画类型
-    var animationDuration: Int? = null        //动画时间
-    var title: String? = null                 //标题内容
-    var titleFontColor: String? = null        //标题字体颜色
-    var titleFontSize: Float? = null          //标题字体大小
-    var titleFontWeight: String? = null       //标题字体粗细
-    var subtitle: String? = null              //副标题内容
+    var animationType: String? = null          //动画类型
+    var animationDuration: Int? = null         //动画时间
+    var title: String? = null                  //标题内容
+    var titleFontColor: String? = null         //标题字体颜色
+    var titleFontSize: Float? = null           //标题字体大小
+    var titleFontWeight: String? = null        //标题字体粗细
+    var subtitle: String? = null               //副标题内容
     var subtitleAlign: String? = null
-    var subtitleFontColor: String? = null     //副标题字体颜色
-    var subtitleFontSize: Float? = null       //副标题字体大小
-    var subtitleFontWeight: String? = null    //副标题字体粗细
-    var chartType: String? = null             //图表类型
-    var stacking: String? = null              //堆积样式
-    var markerSymbol: String? = null          //折线曲线连接点的类型："circle", "square", "diamond", "triangle","triangle-down"，默认是"circle"
+    var subtitleFontColor: String? = null      //副标题字体颜色
+    var subtitleFontSize: Float? = null        //副标题字体大小
+    var subtitleFontWeight: String? = null     //副标题字体粗细
+    var axesTextColor: String? = null          //x 轴和 y 轴文字颜色
+    var chartType: String? = null              //图表类型
+    var stacking: String? = null               //堆积样式
+    var markerSymbol: String? = null           //折线曲线连接点的类型："circle", "square", "diamond", "triangle","triangle-down"，默认是"circle"
     var markerSymbolStyle: String? = null
-    var zoomType: String? = null              //缩放类型 AAChartZoomTypeX表示可沿着 x 轴进行手势缩放
+    var zoomType: String? = null               //缩放类型 AAChartZoomTypeX表示可沿着 x 轴进行手势缩放
     var pointHollow: Boolean? = null           //折线或者曲线的连接点是否为空心的
     var inverted: Boolean? = null              //x 轴是否翻转(垂直)
     var xAxisReversed: Boolean? = null         //x 轴翻转
@@ -172,13 +173,13 @@ class AAChartModel {
     var polar: Boolean? = null                 //是否极化图形(变为雷达图)
     var marginLeft: Float? = null
     var marginRight: Float? = null
-    var dataLabelsEnabled: Boolean? = null      //是否显示数据
+    var dataLabelsEnabled: Boolean? = null     //是否显示数据
     var dataLabelsFontColor: String? = null
     var dataLabelsFontSize: Float? = null
     var dataLabelsFontWeight: String? = null
     var xAxisLabelsEnabled: Boolean? = null    //x轴是否显示数据
     var xAxisTickInterval: Int? = null
-    var categories: Array<String>? = null            //x轴是否显示数据
+    var categories: Array<String>? = null      //x轴是否显示数据
     var xAxisGridLineWidth: Float? = null      //x轴网格线的宽度
     var xAxisVisible: Boolean? = null          //x 轴是否显示
     var yAxisVisible: Boolean? = null          //y 轴是否显示
@@ -189,15 +190,12 @@ class AAChartModel {
     var yAxisMax: Float? = null
     var yAxisAllowDecimals: Boolean? = null
     var yAxisGridLineWidth: Float? = null      //y轴网格线的宽度
-    var colorsTheme: Array<Any>? = null           //图表主题颜色数组
+    var colorsTheme: Array<Any>? = null        //图表主题颜色数组
     var legendEnabled: Boolean? = null         //是否显示图例
     var backgroundColor: Any ? = null          //图表背景色
     var borderRadius: Float? = null            //柱状图长条图头部圆角半径(可用于设置头部的形状,仅对条形图,柱状图有效)
     var markerRadius: Float? = null            //折线连接点的半径长度
     var series: Array<AASeriesElement>? = null
-    var titleColor: String? = null             //标题颜色
-    var subTitleColor: String? = null          //副标题颜色
-    var axisColor: String? = null              //x 轴和 y 轴文字颜色
     var touchEventEnabled: Boolean? = null     //是否支持用户触摸事件
 
 
@@ -253,6 +251,11 @@ class AAChartModel {
 
     fun subtitleFontWeight(prop: String): AAChartModel {
         subtitleFontWeight = prop
+        return this
+    }
+
+    fun axesTextColor(prop: String): AAChartModel {
+        axesTextColor = prop
         return this
     }
 
@@ -453,42 +456,41 @@ class AAChartModel {
     }
 
      init {
-        chartType = AAChartType.Line.value
-        animationDuration = 500//以毫秒为单位
-        animationType = AAChartAnimationType.Linear.value
-        pointHollow = false
-        inverted = false
-        stacking = AAChartStackingType.False.value
-        xAxisReversed = false
-        yAxisReversed = false
-        zoomType = "x"
-        dataLabelsEnabled = false
-        markerSymbolStyle = AAChartSymbolStyleType.Normal.value
-        //        colorsTheme = new String[]{"#b5282a","#e7a701","#50c18d","#fd4800","#f1c6c5"};
-        colorsTheme = arrayOf("#fe117c", "#ffc069", "#06caf4", "#7dffc0")//默认的颜色数组(必须要添加默认数组,否则就会出错)
-        tooltipCrosshairs = true
-        gradientColorEnable = false
-        polar = false
-        xAxisLabelsEnabled = true
-        xAxisGridLineWidth = 0f
-        yAxisLabelsEnabled = true
-        yAxisGridLineWidth = 1f
-        legendEnabled = true
-        backgroundColor = "#ffffff"
-        borderRadius = 0f//柱状图长条图头部圆角半径(可用于设置头部的形状,仅对条形图,柱状图有效,设置为1000时,柱形图或者条形图头部为楔形)
-        markerRadius = 6f//折线连接点的半径长度,如果值设置为0,这样就相当于不显示了
-        touchEventEnabled = true
-        titleFontColor = "#000000"//标题字体颜色为黑色
-        titleFontWeight = "regular"//常规字体
-        titleFontSize = 11f
-        subtitleFontColor = "#000000"//副标题字体颜色为黑色
-        subtitleFontWeight = "regular"//常规字体
-        subtitleFontSize = 9f
-        dataLabelsFontColor = "#000000"//数据标签默认颜色为黑色
-        dataLabelsFontWeight = "bold"//图表的数据字体为粗体
-        dataLabelsFontSize = 10f
+         chartType            = AAChartType.Line.value
+         animationDuration    = 500 //以毫秒为单位
+         animationType        = AAChartAnimationType.Linear.value
+         pointHollow          = false
+         inverted             = false
+         stacking             = AAChartStackingType.False.value
+         xAxisReversed        = false
+         yAxisReversed        = false
+         zoomType             = "x"
+         dataLabelsEnabled    = false
+         markerSymbolStyle    = AAChartSymbolStyleType.Normal.value
+         colorsTheme          = arrayOf("#fe117c", "#ffc069", "#06caf4", "#7dffc0")
+         tooltipCrosshairs    = true
+         gradientColorEnable  = false
+         polar                = false
+         xAxisLabelsEnabled   = true
+         xAxisGridLineWidth   = 0f
+         yAxisLabelsEnabled   = true
+         yAxisGridLineWidth   = 1f
+         legendEnabled        = true
+         backgroundColor      = "#ffffff"
+         borderRadius         = 0f//柱状图长条图头部圆角半径(可用于设置头部的形状,仅对条形图,柱状图有效,设置为1000时,柱形图或者条形图头部为楔形)
+         markerRadius         = 6f//折线连接点的半径长度,如果值设置为0,这样就相当于不显示了
+         touchEventEnabled    = true
+         titleFontColor       = "#000000" //标题字体颜色为黑色
+         titleFontWeight      = "regular" //常规字体
+         titleFontSize        = 11f
+         subtitleFontColor    = "#000000" //副标题字体颜色为黑色
+         subtitleFontWeight   = "regular" //常规字体
+         subtitleFontSize     = 9f
+         dataLabelsFontColor  = "#000000" //数据标签默认颜色为黑色
+         dataLabelsFontWeight = "bold" //图表的数据字体为粗体
+         dataLabelsFontSize   = 10f
 
-    }
+     }
 
 
 }
