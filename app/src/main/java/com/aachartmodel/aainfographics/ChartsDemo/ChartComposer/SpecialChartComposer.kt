@@ -823,6 +823,7 @@ object SpecialChartComposer{
                 AASeriesElement()
                     .name("Observed Data")
                     .color("#ef476f")
+                    .fillColor(AAGradientColor.firebrickColor())
                     .data(arrayOf(
                         arrayOf(760, 801, 848, 895, 965),
                         arrayOf(733, 853, 939, 980,1080),

@@ -48,8 +48,8 @@ class AASeriesElement {
     private var threshold: Float? = null//The threshold, also called zero level or base level. For line type series this is only used in conjunction with negativeColor. default：0.
     private var negativeColor: String? = null// The color for the parts of the graph or points that are below the threshold
     private var dashStyle: String? = null
-    private var dataLabels: Dictionary<*, *>? = null
-    private var marker: Dictionary<*, *>? = null
+    private var dataLabels: AADataLabels? = null
+    private var marker: AAMarker? = null
     private var step: Any? = null
     private var colorByPoint: Boolean? = null
     private var zIndex: Int? = null
@@ -107,12 +107,12 @@ class AASeriesElement {
         return this
     }
 
-    fun dataLabels(prop: Dictionary<*, *>): AASeriesElement {
+    fun dataLabels(prop: AADataLabels): AASeriesElement {
         dataLabels = prop
         return this
     }
 
-    fun marker(prop: Dictionary<*, *>): AASeriesElement {
+    fun marker(prop: AAMarker): AASeriesElement {
         marker = prop
         return this
     }

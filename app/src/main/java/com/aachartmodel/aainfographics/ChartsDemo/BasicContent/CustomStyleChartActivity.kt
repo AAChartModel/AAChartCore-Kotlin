@@ -52,17 +52,44 @@ class CustomStyleChartActivity : AppCompatActivity() {
     }
 
     private fun configureTheAAChartModel(chartType: String): AAChartModel {
-       return when (chartType) {
-            "colorfulChart" -> CustomStyleChartComposer.configureColorfulChart()
-            "gradientColorfulChart" -> CustomStyleChartComposer.configureColorfulGradientColorChart()
-            "discontinuousDataChart" -> CustomStyleChartComposer.configureDiscontinuousDataChart()
-            "colorfulColumnChart" -> CustomStyleChartComposer.configureColorfulColumnChart()
-            "nightingaleRoseChart" -> CustomStyleChartComposer.configureNightingaleRoseChart()
-            "chartWithShadowStyle" -> CustomStyleChartComposer.configureChartWithShadowStyle()
-            "colorfulGradientAreaChart" -> CustomStyleChartComposer.configureColorfulGradientAreaChart()
-            "colorfulGradientSplineChart" -> CustomStyleChartComposer.configureColorfulGradientSplineChart()
-            "gradientColorAreasplineChart" -> CustomStyleChartComposer.configureGradientColorAreasplineChart()
-           else -> CustomStyleChartComposer.configureColorfulChart()
-       }
+        when (chartType) {
+            "colorfulChart" ->
+            return CustomStyleChartComposer.configureColorfulChart()
+            "gradientColorfulChart" ->
+            return CustomStyleChartComposer.configureColorfulGradientColorChart()
+            "discontinuousDataChart" ->
+            return CustomStyleChartComposer.configureDiscontinuousDataChart()
+            "colorfulColumnChart" ->
+            return CustomStyleChartComposer.configureColorfulColumnChart()
+            "nightingaleRoseChart" ->
+            return CustomStyleChartComposer.configureNightingaleRoseChart()
+            "chartWithShadowStyle" ->
+            return CustomStyleChartComposer.configureChartWithShadowStyle()
+            "colorfulGradientAreaChart" ->
+            return CustomStyleChartComposer.configureColorfulGradientAreaChart()
+            "colorfulGradientSplineChart" ->
+            return CustomStyleChartComposer.configureColorfulGradientSplineChart()
+            "gradientColorAreasplineChart" ->
+            return CustomStyleChartComposer.configureGradientColorAreasplineChart()
+            "SpecialStyleMarkerOfSingleDataElementChart" ->
+            return CustomStyleChartComposer.configureSpecialStyleMarkerOfSingleDataElementChart()
+            "SpecialStyleColumnOfSingleDataElementChart" ->
+            return CustomStyleChartComposer.configureSpecialStyleColumnOfSingleDataElementChart()
+            "AreaChartThreshold" ->
+            return CustomStyleChartComposer.configureAreaChartThreshold()
+            "customScatterChartMarkerSymbolContent" ->
+            return CustomStyleChartComposer.customScatterChartMarkerSymbolContent()
+            "customLineChartMarkerSymbolContent" ->
+            return CustomStyleChartComposer.customLineChartMarkerSymbolContent()
+            "TriangleRadarChart" ->
+            return CustomStyleChartComposer.configureTriangleRadarChart()
+            "QuadrangleRadarChart" ->
+            return CustomStyleChartComposer.configureQuadrangleRadarChart()
+            "PentagonRadarChart" ->
+            return CustomStyleChartComposer.configurePentagonRadarChart()
+            "HexagonRadarChart" ->
+            return CustomStyleChartComposer.configureHexagonRadarChart()
+        }
+        return CustomStyleChartComposer.configureColorfulChart()
     }
 }

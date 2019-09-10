@@ -46,57 +46,31 @@ class SpecialChartActivity : AppCompatActivity() {
         val intent = intent
         val chartType = intent.getStringExtra("chartType")
 
-        val chartTypeEnum = convertStringToEnum(chartType)
-
-        aaChartModel = configureChartModelWithChartType(chartTypeEnum)
+        aaChartModel = configureChartModelWithChartType(chartType)
         val aaChartView: AAChartView = findViewById(R.id.AAChartView)
         aaChartView.aa_drawChartWithChartModel(aaChartModel!!)
-
-
     }
 
-    private fun configureChartModelWithChartType(chartType: AAChartType): AAChartModel? {
+    private fun configureChartModelWithChartType(chartType: String): AAChartModel? {
         when (chartType) {
-            AAChartType.Column -> return SpecialChartComposer.configurePolarColumnChart()
-            AAChartType.Pie -> return SpecialChartComposer.configurePieChart()
-            AAChartType.Bubble -> return SpecialChartComposer.configureBubbleChart()
-            AAChartType.Scatter -> return SpecialChartComposer.configureScatterChart()
-            AAChartType.Arearange -> return SpecialChartComposer.configureArearangeChart()
-            AAChartType.Areasplinerange -> return SpecialChartComposer.configureAreasplinerangeChart()
-            AAChartType.Columnrange -> return SpecialChartComposer.configureColumnrangeChart()
-            AAChartType.Line -> return SpecialChartComposer.configureStepLineChart()
-            AAChartType.Area -> return SpecialChartComposer.configureStepAreaChart()
-            AAChartType.Boxplot -> return SpecialChartComposer.configureBoxplotChart()
-            AAChartType.Waterfall -> return SpecialChartComposer.configureWaterfallChart()
-            AAChartType.Pyramid -> return SpecialChartComposer.configurePyramidChart()
-            AAChartType.Funnel -> return SpecialChartComposer.configureFunnelChart()
-            else -> {
+            AAChartType.Column.value  -> return SpecialChartComposer.configurePolarColumnChart()
+            AAChartType.Pie.value  -> return SpecialChartComposer.configurePieChart()
+            AAChartType.Bubble.value  -> return SpecialChartComposer.configureBubbleChart()
+            AAChartType.Scatter.value  -> return SpecialChartComposer.configureScatterChart()
+            AAChartType.Arearange.value  -> return SpecialChartComposer.configureArearangeChart()
+            AAChartType.Areasplinerange.value  -> return SpecialChartComposer.configureAreasplinerangeChart()
+            AAChartType.Columnrange.value  -> return SpecialChartComposer.configureColumnrangeChart()
+            AAChartType.Line.value  -> return SpecialChartComposer.configureStepLineChart()
+            AAChartType.Area.value  -> return SpecialChartComposer.configureStepAreaChart()
+            AAChartType.Boxplot.value  -> return SpecialChartComposer.configureBoxplotChart()
+            AAChartType.Waterfall.value  -> return SpecialChartComposer.configureWaterfallChart()
+            AAChartType.Pyramid.value  -> return SpecialChartComposer.configurePyramidChart()
+            AAChartType.Funnel.value  -> return SpecialChartComposer.configureFunnelChart()
+            else  -> {
             }
         }
 
         return null
     }
 
-    private fun convertStringToEnum(chartTypeStr: String): AAChartType {
-        when (chartTypeStr) {
-            AAChartType.Column.toString() -> return AAChartType.Column
-            AAChartType.Bar.toString() -> return AAChartType.Bar
-            AAChartType.Area.toString() -> return AAChartType.Area
-            AAChartType.Areaspline.toString() -> return AAChartType.Areaspline
-            AAChartType.Line.toString() -> return AAChartType.Line
-            AAChartType.Spline.toString() -> return AAChartType.Spline
-            AAChartType.Scatter.toString() -> return AAChartType.Scatter
-            AAChartType.Pie.toString() -> return AAChartType.Pie
-            AAChartType.Bubble.toString() -> return AAChartType.Bubble
-            AAChartType.Pyramid.toString() -> return AAChartType.Pyramid
-            AAChartType.Funnel.toString() -> return AAChartType.Funnel
-            AAChartType.Columnrange.toString() -> return AAChartType.Columnrange
-            AAChartType.Arearange.toString() -> return AAChartType.Arearange
-            AAChartType.Areasplinerange.toString() -> return AAChartType.Areasplinerange
-            AAChartType.Boxplot.toString() -> return AAChartType.Boxplot
-            AAChartType.Waterfall.toString() -> return AAChartType.Waterfall
-            AAChartType.Polygon.toString() -> return AAChartType.Polygon
-        }
-        return AAChartType.Column
-    }
 }
