@@ -35,12 +35,12 @@
  */
 package com.aachartmodel.aainfographics.AAInfographicsLib.AAOptionsModel
 
-import com.example.chartcorekotlin.AAChartConfiger.AAChartLineDashSyleType
+import com.example.chartcorekotlin.AAChartConfiger.AAChartLineDashStyleType
 
 class AACrosshair {
     private var width: Float? = null
     private var color: String? = null
-    private var dashStyle: AAChartLineDashSyleType? = null
+    private var dashStyle: AAChartLineDashStyleType? = null
 
     fun width(prop: Float?): AACrosshair {
         width = prop
@@ -52,7 +52,7 @@ class AACrosshair {
         return this
     }
 
-    fun dashStyle(prop: AAChartLineDashSyleType): AACrosshair {
+    fun dashStyle(prop: AAChartLineDashStyleType): AACrosshair {
         dashStyle = prop
         return this
     }

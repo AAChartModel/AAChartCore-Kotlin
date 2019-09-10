@@ -35,12 +35,12 @@
  */
 package com.aachartmodel.aainfographics.AAInfographicsLib.AAOptionsModel
 
-import com.example.chartcorekotlin.AAChartConfiger.AAChartLineDashSyleType
+import com.example.chartcorekotlin.AAChartConfiger.AAChartLineDashStyleType
 
 class AAPlotLinesElement {
 
     private var color: Any? = null
-    private var dashStyle: AAChartLineDashSyleType? = null
+    private var dashStyle: AAChartLineDashStyleType? = null
     private var width: Float? = null
     private var value: Float? = null
     private var zIndex: Int? = null
@@ -51,7 +51,7 @@ class AAPlotLinesElement {
         return this
     }
 
-    fun dashStyle(prop: AAChartLineDashSyleType): AAPlotLinesElement {
+    fun dashStyle(prop: AAChartLineDashStyleType): AAPlotLinesElement {
         dashStyle = prop
         return this
     }

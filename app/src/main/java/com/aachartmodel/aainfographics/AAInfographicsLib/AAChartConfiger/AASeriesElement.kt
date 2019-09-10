@@ -28,6 +28,8 @@
 package com.example.chartcorekotlin.AAChartConfiger
 
 
+import com.aachartmodel.aainfographics.AAInfographicsLib.AAOptionsModel.AADataLabels
+import com.aachartmodel.aainfographics.AAInfographicsLib.AAOptionsModel.AAMarker
 import java.util.Dictionary
 
 /**
@@ -100,7 +102,7 @@ class AASeriesElement {
         return this
     }
 
-    fun dashStyle(prop: AAChartLineDashSyleType): AASeriesElement {
+    fun dashStyle(prop: AAChartLineDashStyleType): AASeriesElement {
         dashStyle = prop.toString()
         return this
     }
@@ -142,6 +144,40 @@ class AASeriesElement {
 
 
 }
+
+class AADataElement {
+    private var name: String? = null
+    private var y: Float? = null
+    private var color: Any? = null
+    private var dataLabels: AADataLabels? = null
+    private var marker: AAMarker? = null
+
+    fun name(prop: String): AADataElement {
+        name = prop
+        return this
+    }
+
+    fun y(prop: Float?): AADataElement {
+        y = prop
+        return this
+    }
+
+    fun color(prop: Any): AADataElement {
+        color = prop
+        return this
+    }
+
+    fun dataLabels(prop: AADataLabels): AADataElement {
+        dataLabels = prop
+        return this
+    }
+
+    fun marker(prop: AAMarker): AADataElement {
+        marker = prop
+        return this
+    }
+}
+
 
 class AAShadow {
     private var color: String? = null

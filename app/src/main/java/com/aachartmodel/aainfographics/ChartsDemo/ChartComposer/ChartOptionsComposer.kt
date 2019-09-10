@@ -123,7 +123,7 @@ class ChartOptionsComposer {
         val aaPlotLinesElementsArr = arrayOf<AAPlotLinesElement>(
             AAPlotLinesElement()
                 .color("#1e90ff")//颜色值(16进制)
-                .dashStyle(AAChartLineDashSyleType.LongDashDotDot)//样式：Dash,Dot,Solid等,默认Solid
+                .dashStyle(AAChartLineDashStyleType.LongDashDotDot)//样式：Dash,Dot,Solid等,默认Solid
                 .width(1f) //标示线粗细
                 .value(12f) //所在位置
                 .zIndex(1) //层叠,标示线在图表中显示的层叠级别，值越大，显示越向前
@@ -135,7 +135,7 @@ class ChartOptionsComposer {
                         )
                 ), AAPlotLinesElement()
                 .color("#ef476f")//颜色值(16进制)
-                .dashStyle(AAChartLineDashSyleType.LongDashDot)//样式：Dash,Dot,Solid等,默认Solid
+                .dashStyle(AAChartLineDashStyleType.LongDashDot)//样式：Dash,Dot,Solid等,默认Solid
                 .width(1f) //标示线粗细
                 .value(24f) //所在位置
                 .zIndex(1) //层叠,标示线在图表中显示的层叠级别，值越大，显示越向前
@@ -147,7 +147,7 @@ class ChartOptionsComposer {
                         )
                 ), AAPlotLinesElement()
                 .color("#1e90ff")//颜色值(16进制)
-                .dashStyle(AAChartLineDashSyleType.LongDash)//样式：Dash,Dot,Solid等,默认Solid
+                .dashStyle(AAChartLineDashStyleType.LongDash)//样式：Dash,Dot,Solid等,默认Solid
                 .width(1f) //标示线粗细
                 .value(36f) //所在位置
                 .zIndex(1) //层叠,标示线在图表中显示的层叠级别，值越大，显示越向前
@@ -268,7 +268,7 @@ function () {
         val aaCrosshair = AACrosshair()
             .color(AAColor.redColor())
             .width(1f)
-            .dashStyle(AAChartLineDashSyleType.LongDashDotDot)
+            .dashStyle(AAChartLineDashStyleType.LongDashDotDot)
          aaOptions.xAxis?.crosshair(aaCrosshair)
         return aaOptions
     }

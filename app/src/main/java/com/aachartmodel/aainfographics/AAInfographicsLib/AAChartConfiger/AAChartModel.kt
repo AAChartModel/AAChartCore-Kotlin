@@ -129,7 +129,7 @@ enum class AAChartVerticalAlignType(val value: String) {
     Bottom  ("bottom"),
 }
 
-enum class AAChartLineDashSyleType(val value: String) {
+enum class AAChartLineDashStyleType(val value: String) {
     Solid           ("Solid"),
     ShortDash       ("ShortDash"),
     ShortDot        ("ShortDot"),
@@ -142,6 +142,13 @@ enum class AAChartLineDashSyleType(val value: String) {
     LongDashDot     ("LongDashDot"),
     LongDashDotDot  ("LongDashDotDot"),
 }
+
+enum class AAChartFontWeightType(val value: String) {
+    Thin     ("thin"),
+    Regular  ("regular"),
+    Bold     ("bold"),
+}
+
 
 class AAChartModel {
 
