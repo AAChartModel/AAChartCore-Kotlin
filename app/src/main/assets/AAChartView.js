@@ -53,15 +53,13 @@
 
                     };
 
-                    var pointEvents = {
-                        point:{
-                            events:{
-                            mouseOver: mouseOverFunc,
-//                                click: mouseOverFunc,
-                            }
-                        }
-                    };
-                    aaOptions.plotOptions.series = Object.assign(pointEvents,aaOptions.plotOptions.series)
+                    var seriesPoint = {
+                              events:{
+                                  mouseOver: mouseOverFunc,
+          //                      click: mouseOverFunc,
+                              }
+                             };
+                              aaOptions.plotOptions.series.point = seriesPoint;
                 }
 
 
