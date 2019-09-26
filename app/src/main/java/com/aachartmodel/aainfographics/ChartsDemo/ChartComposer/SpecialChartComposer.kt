@@ -27,7 +27,7 @@
  */
 package com.aachartmodel.aainfographics.ChartsDemo.ChartComposer
 
-import com.aachartmodel.aainfographics.AAInfographicsLib.AAOptionsModel.AAWaterfallChart
+import com.aachartmodel.aainfographics.AAInfographicsLib.AAOptionsModel.AAWaterfall
 import com.example.chartcorekotlin.AAChartConfiger.*
 import java.util.HashMap
 
@@ -867,7 +867,7 @@ object SpecialChartComposer{
         dataElement7["isSum"] = true
         dataElement7["color"] = "#04d69f"
 
-        val seriesElement = AAWaterfallChart()
+        val seriesElement = AAWaterfall()
             .upColor("#9b43b4")
             .color("#ef476f")
             .borderWidth(0f)
