@@ -1,6 +1,6 @@
 /**
  * Copyright (C), 2015-2019, 飞牛集达有限公司
- * FileName: AAEasyTool
+ * FileName: AAJSStringPurer
  * Author: ios-fn
  * Date: 2019-06-16 19:05
  * Description:
@@ -38,7 +38,7 @@ package com.aachartmodel.aainfographics.AAInfographicsLib.AAChartConfiger
 import com.example.chartcorekotlin.AAChartConfiger.AAChartType
 
 
-object AAEasyTool {
+object AAJSStringPurer {
 
     fun pureJavaScriptFunctionString(jsFunctionStr: String): String {
         var pureJSFunctionStr = jsFunctionStr

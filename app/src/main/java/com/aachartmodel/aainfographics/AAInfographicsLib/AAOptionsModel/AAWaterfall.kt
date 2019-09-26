@@ -1,6 +1,6 @@
 /**
  * Copyright (C), 2015-2019, 飞牛集达有限公司
- * FileName: AAWaterfallChart
+ * FileName: AAWaterfall
  * Author: ios-fn
  * Date: 2019-06-29 22:47
  * Description:
@@ -35,28 +35,28 @@
  */
 package com.aachartmodel.aainfographics.AAInfographicsLib.AAOptionsModel;
 
-class AAWaterfallChart {
+class AAWaterfall {
     var upColor: String? = null
     var color: String? = null
     var borderWidth: Float? = null
     var data: Array<Any>? = null
 
-    fun upColor(prop: String): AAWaterfallChart {
+    fun upColor(prop: String): AAWaterfall {
         upColor = prop
         return this
     }
 
-    fun color(prop: String): AAWaterfallChart {
+    fun color(prop: String): AAWaterfall {
         color = prop
         return this
     }
 
-    fun borderWidth(prop: Float?): AAWaterfallChart {
+    fun borderWidth(prop: Float?): AAWaterfall {
         borderWidth = prop
         return this
     }
 
-    fun data(prop: Array<Any>): AAWaterfallChart {
+    fun data(prop: Array<Any>): AAWaterfall {
         data = prop
         return this
     }

@@ -35,7 +35,7 @@
  */
 package com.aachartmodel.aainfographics.AAInfographicsLib.AAOptionsModel
 
-import com.aachartmodel.aainfographics.AAInfographicsLib.AAChartConfiger.AAEasyTool
+import com.aachartmodel.aainfographics.AAInfographicsLib.AAChartConfiger.AAJSStringPurer
 
 
 class AATooltip {
@@ -92,7 +92,7 @@ class AATooltip {
 
     fun formatter(prop: String): AATooltip {
         var pureJSFunctionStr = "($prop)"
-        pureJSFunctionStr = AAEasyTool.pureJavaScriptFunctionString(pureJSFunctionStr)
+        pureJSFunctionStr = AAJSStringPurer.pureJavaScriptFunctionString(pureJSFunctionStr)
         formatter = pureJSFunctionStr
         return this
     }

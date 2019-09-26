@@ -133,7 +133,8 @@ class ChartOptionsComposer {
                                 .color("#1e90ff")
                                 .fontWeight("bold")
                         )
-                ), AAPlotLinesElement()
+                ),
+            AAPlotLinesElement()
                 .color("#ef476f")//颜色值(16进制)
                 .dashStyle(AAChartLineDashStyleType.LongDashDot)//样式：Dash,Dot,Solid等,默认Solid
                 .width(1f) //标示线粗细
@@ -145,7 +146,8 @@ class ChartOptionsComposer {
                                 .color("#ef476f")
                                 .fontWeight("bold")
                         )
-                ), AAPlotLinesElement()
+                ),
+            AAPlotLinesElement()
                 .color("#1e90ff")//颜色值(16进制)
                 .dashStyle(AAChartLineDashStyleType.LongDash)//样式：Dash,Dot,Solid等,默认Solid
                 .width(1f) //标示线粗细
@@ -181,7 +183,8 @@ class ChartOptionsComposer {
                 "11-30", "12-01", "12-02", "12-03", "12-04", "12-05", "12-06", "12-07", "12-08", "12-09",
                 "12-10", "12-11", "12-12", "12-13", "12-14", "12-15", "12-16", "12-17", "12-18", "12-19",
                 "12-20", "12-21", "12-22", "12-23", "12-024", "12-25", "12-26", "12-27", "12-28", "12-29", "12-30"))
-            .series(arrayOf(AASeriesElement()
+            .series(arrayOf(
+                AASeriesElement()
                 .name("2020")
                 .lineWidth(3f)
                 .color("#FFD700"/*纯金色*/)

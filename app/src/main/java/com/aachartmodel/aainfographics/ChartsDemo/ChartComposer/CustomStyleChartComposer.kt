@@ -507,7 +507,7 @@ class CustomStyleChartComposer  {
                 .markerRadius(0f)
                 .polar(true)//是否极化图形
                 .series(arrayOf(
-                        AASeriesElement()
+                    AASeriesElement()
                             .data(arrayOf(15.0, 15.0, 15.0)),
                     AASeriesElement()
                             .data(arrayOf(9.0, 9.0, 9.0)),
