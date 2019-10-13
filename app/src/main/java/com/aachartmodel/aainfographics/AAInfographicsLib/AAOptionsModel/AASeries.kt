@@ -8,6 +8,8 @@
  */
 package com.aachartmodel.aainfographics.AAInfographicsLib.AAOptionsModel
 
+import com.example.chartcorekotlin.AAChartConfiger.AAChartStackingType
+
 class AASeries {
     private var borderRadius: Float? = null
     private var marker: AAMarker? = null
@@ -29,8 +31,8 @@ class AASeries {
         return this
     }
 
-    fun stacking(prop: String?): AASeries {
-        stacking = prop
+    fun stacking(prop: AAChartStackingType?): AASeries {
+        stacking = prop?.value
         return this
     }
 

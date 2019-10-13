@@ -2,13 +2,19 @@
         var aaGlobalChart;
 
         function loadTheHighChartView (sender,receivedWidth, receivedHeight) {
+            var aaOptions = JSON.parse(sender);
+            if (aaOptions.xAxisArray) {
+                    aaOptions.xAxis = aaOptions.xAxisArray
+                }
 
-        var aaOptions = JSON.parse(sender);;
+            if (aaOptions.yAxisArray) {
+                    aaOptions.yAxis = aaOptions.yAxisArray
+                }
 
             aaOptions.credits = {enabled:false};//去掉表格右下角版权信息
             if (aaOptions.plotOptions) {
                     configurePlotOptions(aaOptions);
-                            }
+                }
             if (aaOptions.tooltip) {
                     if (aaOptions.tooltip.formatter) {
                         aaOptions.tooltip.formatter = eval(aaOptions.tooltip.formatter);

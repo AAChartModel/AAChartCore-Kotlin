@@ -12,7 +12,9 @@ class AAXAxis {
     var plotBands: Array<AAPlotBandsElement>? = null
     var plotLines: Array<AAPlotLinesElement>? = null
     var categories: Array<String>? = null
+    var linkedTo: Int? = null
     var reversed: Boolean? = null
+    var opposite: Boolean? = null
     var lineWidth: Float? = null //x轴轴线宽度
     var lineColor: String? = null //x轴轴线线颜色
     var max: Float? = null //x轴最大值
@@ -49,10 +51,21 @@ class AAXAxis {
         return this
     }
 
+    fun linkedTo(prop: Int?): AAXAxis {
+        linkedTo = prop
+        return this
+    }
+
     fun reversed(prop: Boolean?): AAXAxis {
         reversed = prop
         return this
     }
+
+    fun opposite(prop: Boolean?): AAXAxis {
+        opposite = prop
+        return this
+    }
+
 
     fun lineWidth(prop: Float?): AAXAxis {
         lineWidth = prop

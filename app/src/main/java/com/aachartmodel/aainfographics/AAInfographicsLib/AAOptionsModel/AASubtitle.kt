@@ -8,6 +8,7 @@
  */
 package com.aachartmodel.aainfographics.AAInfographicsLib.AAOptionsModel
 
+import com.example.chartcorekotlin.AAChartConfiger.AAChartAlignType
 import com.example.chartcorekotlin.AAChartConfiger.AAChartVerticalAlignType
 
 class AASubtitle {
@@ -29,8 +30,8 @@ class AASubtitle {
         return this
     }
 
-    fun align(prop: String?): AASubtitle {
-        align = prop
+    fun align(prop: AAChartAlignType?): AASubtitle {
+        align = prop?.value
         return this
     }
 

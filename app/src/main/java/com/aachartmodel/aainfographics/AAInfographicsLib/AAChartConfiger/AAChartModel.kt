@@ -152,23 +152,23 @@ enum class AAChartFontWeightType(val value: String) {
 
 class AAChartModel {
 
-    var animationType: String? = null          //动画类型
+    var animationType: AAChartAnimationType? = null          //动画类型
     var animationDuration: Int? = null         //动画时间
     var title: String? = null                  //标题内容
     var titleFontColor: String? = null         //标题字体颜色
     var titleFontSize: Float? = null           //标题字体大小
     var titleFontWeight: String? = null        //标题字体粗细
     var subtitle: String? = null               //副标题内容
-    var subtitleAlign: String? = null
+    var subtitleAlign: AAChartAlignType? = null
     var subtitleFontColor: String? = null      //副标题字体颜色
     var subtitleFontSize: Float? = null        //副标题字体大小
     var subtitleFontWeight: String? = null     //副标题字体粗细
     var axesTextColor: String? = null          //x 轴和 y 轴文字颜色
-    var chartType: String? = null              //图表类型
-    var stacking: String? = null               //堆积样式
-    var markerSymbol: String? = null           //折线曲线连接点的类型："circle", "square", "diamond", "triangle","triangle-down"，默认是"circle"
-    var markerSymbolStyle: String? = null
-    var zoomType: String? = null               //缩放类型 AAChartZoomTypeX表示可沿着 x 轴进行手势缩放
+    var chartType: AAChartType? = null              //图表类型
+    var stacking: AAChartStackingType? = null               //堆积样式
+    var markerSymbol: AAChartSymbolType? = null           //折线曲线连接点的类型："circle", "square", "diamond", "triangle","triangle-down"，默认是"circle"
+    var markerSymbolStyle: AAChartSymbolStyleType? = null
+    var zoomType: AAChartZoomType? = null               //缩放类型 AAChartZoomTypeX表示可沿着 x 轴进行手势缩放
     var pointHollow: Boolean? = null           //折线或者曲线的连接点是否为空心的
     var inverted: Boolean? = null              //x 轴是否翻转(垂直)
     var xAxisReversed: Boolean? = null         //x 轴翻转
@@ -207,7 +207,7 @@ class AAChartModel {
 
 
     fun animationType(prop: AAChartAnimationType): AAChartModel {
-        animationType = prop.value
+        animationType = prop
         return this
     }
 
@@ -241,7 +241,7 @@ class AAChartModel {
         return this
     }
 
-    fun subtitleAlign(prop: String): AAChartModel {
+    fun subtitleAlign(prop: AAChartAlignType): AAChartModel {
         subtitleAlign = prop
         return this
     }
@@ -267,26 +267,26 @@ class AAChartModel {
     }
 
     fun chartType(prop: AAChartType): AAChartModel {
-        chartType = prop.value
+        chartType = prop
         return this
     }
 
     fun stacking(prop: AAChartStackingType): AAChartModel {
-        stacking = prop.value
+        stacking = prop
         return this
     }
 
     fun markerSymbol(prop: AAChartSymbolType): AAChartModel {
-        markerSymbol = prop.value
+        markerSymbol = prop
         return this
     }
 
     fun markerSymbolStyle(prop: AAChartSymbolStyleType): AAChartModel {
-        markerSymbolStyle = prop.value
+        markerSymbolStyle = prop
         return this
     }
 
-    fun zoomType(prop: String): AAChartModel {
+    fun zoomType(prop: AAChartZoomType): AAChartModel {
         zoomType = prop
         return this
     }
@@ -463,17 +463,17 @@ class AAChartModel {
     }
 
      init {
-         chartType            = AAChartType.Line.value
+         chartType            = AAChartType.Line
          animationDuration    = 500 //以毫秒为单位
-         animationType        = AAChartAnimationType.Linear.value
+         animationType        = AAChartAnimationType.Linear
          pointHollow          = false
          inverted             = false
-         stacking             = AAChartStackingType.False.value
+         stacking             = AAChartStackingType.False
          xAxisReversed        = false
          yAxisReversed        = false
-         zoomType             = "x"
+         zoomType             = AAChartZoomType.X
          dataLabelsEnabled    = false
-         markerSymbolStyle    = AAChartSymbolStyleType.Normal.value
+         markerSymbolStyle    = AAChartSymbolStyleType.Normal
          colorsTheme          = arrayOf("#fe117c", "#ffc069", "#06caf4", "#7dffc0")
          tooltipCrosshairs    = true
          gradientColorEnable  = false

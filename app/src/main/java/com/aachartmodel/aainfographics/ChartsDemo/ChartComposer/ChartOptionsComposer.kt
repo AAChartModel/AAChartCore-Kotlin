@@ -41,7 +41,48 @@ import com.example.chartcorekotlin.AAChartConfiger.*
 class ChartOptionsComposer {
     companion object {
 
-     fun configureAAPlotBandsForChart(): AAOptions {
+        private fun customChartLegendStyle(): AAOptions {
+            val element1 = AASeriesElement()
+                .name("Predefined symbol")
+                .data(arrayOf(0.45, 0.43, 0.50, 0.55, 0.58, 0.62, 0.83, 0.39, 0.56, 0.67, 0.50, 0.34, 0.50, 0.67, 0.58, 0.29, 0.46, 0.23, 0.47, 0.46, 0.38, 0.56, 0.48, 0.36))
+            val element2 = AASeriesElement()
+                .name("Image symbol")
+                .data(arrayOf(0.38, 0.31, 0.32, 0.32, 0.64, 0.66, 0.86, 0.47, 0.52, 0.75, 0.52, 0.56, 0.54, 0.60, 0.46, 0.63, 0.54, 0.51, 0.58, 0.64, 0.60, 0.45, 0.36, 0.67))
+            val element3 = AASeriesElement()
+                .name("Base64 symbol (*)")
+                .data(arrayOf(0.46, 0.32, 0.53, 0.58, 0.86, 0.68, 0.85, 0.73, 0.69, 0.71, 0.91, 0.74, 0.60, 0.50, 0.39, 0.67, 0.55, 0.49, 0.65, 0.45, 0.64, 0.47, 0.63, 0.64))
+            val element4 = AASeriesElement()
+                .name("Custom symbol")
+                .data(arrayOf(0.60, 0.51, 0.52, 0.53, 0.64, 0.84, 0.65, 0.68, 0.63, 0.47, 0.72, 0.60, 0.65, 0.74, 0.66, 0.65, 0.71, 0.59, 0.65, 0.77, 0.52, 0.53, 0.58, 0.53))
+
+            val aaChartModel = AAChartModel()
+                .chartType(AAChartType.Areaspline)
+                .title("CUSTOM LEGEND STYLE")
+                .subtitle("LEGEND ON THE TOP_RIGHT SIDE WITH VERTICAL STYLE")
+                .subtitleAlign(AAChartAlignType.Left)
+                .markerRadius(0f)
+                .backgroundColor(AAColor.whiteColor())
+                .dataLabelsEnabled(false)
+                .yAxisGridLineWidth(0f)
+                .yAxisTitle("percent values")
+                .stacking(AAChartStackingType.Normal)
+                .colorsTheme(arrayOf("mediumspringgreen", "deepskyblue", "red", "sandybrown"))
+                .series(arrayOf(element1, element2, element3, element4))
+
+            val aaOptions = AAOptionsConstructor.configureChartOptions(aaChartModel)
+
+            aaOptions.legend!!
+                .enabled(true)
+                .align(AAChartAlignType.Right)
+                .layout(AAChartLayoutType.Vertical)
+                .verticalAlign(AAChartVerticalAlignType.Top)
+
+            aaOptions.yAxis?.labels?.format = "{value} %"//给y轴添加单位
+            return aaOptions
+        }
+
+
+        fun configureAAPlotBandsForChart(): AAOptions {
         val aaChartModel = AAChartModel()
             .chartType(AAChartType.Spline)//图形类型
             .dataLabelsEnabled(false)
@@ -275,6 +316,97 @@ function () {
          aaOptions.xAxis?.crosshair(aaCrosshair)
         return aaOptions
     }
+
+        private fun customDoubleXAxesChart():AAOptions {
+            val gradientColorDic1 = AAGradientColor.linearGradient(
+                AALinearGradientDirection.ToTop,
+                "#7052f4",
+                "#00b0ff"//颜色字符串设置支持十六进制类型和 rgba 类型
+            )
+
+            val gradientColorDic2 = AAGradientColor.linearGradient(
+                AALinearGradientDirection.ToTop,
+                "#EF71FF",
+                "#4740C8"//颜色字符串设置支持十六进制类型和 rgba 类型
+            )
+
+            val aaChart = AAChart()
+                .type(AAChartType.Bar)
+
+            val aaTitle = AATitle()
+                .text("2015 年德国人口金字塔")
+                .style(AAStyle()
+                    .color("#000000")
+                    .fontSize(12.0f))
+
+            val aaCategories = arrayOf("0-4", "5-9", "10-14", "15-19", "20-24", "25-29", "30-34", "35-39", "40-44", "45-49", "50-54", "55-59", "60-64", "65-69", "70-74", "75-79", "80-84", "85-89", "90-94", "95-99", "100 + ")
+
+            val aaXAxis1 = AAXAxis()
+                .reversed(true)
+                .categories(aaCategories)
+                .labels(AALabels()
+                    .step(1))
+
+            val aaXAxis2 = AAXAxis()
+                .reversed(true)
+                .opposite(true)
+                .categories(aaCategories)
+                .linkedTo(0)
+                .labels(AALabels()
+                    .step(1))
+
+            val aaYAxis = AAYAxis()
+                .gridLineWidth(0f)// Y 轴网格线宽度
+                .title(AATitle()
+                    .text(""))//Y 轴标题
+                .labels(AALabels()
+                    .formatter(
+                        "function () {\n" +
+                                "    return (Math.abs(this.value) / 1000000) + 'M';\n" +
+                                "}"
+                    ))
+                .min(-4000000f)
+                .max(4000000f)
+
+            val aaPlotOptions = AAPlotOptions()
+                .series(AASeries()
+                    .animation(AAAnimation()
+                        .duration(800)
+                        .easing(AAChartAnimationType.Bounce)
+                    )
+                    .stacking(AAChartStackingType.Normal))
+
+            val aaTooltip = AATooltip()
+                .enabled(true)
+                .shared(false)
+                .formatter(("function () {\n" +
+                        "    return '<b>' + this.series.name + ', age ' + this.point.category + '</b><br/>' +\n" +
+                        "        '人口: ' + Highcharts.numberFormat(Math.abs(this.point.y), 0);\n" +
+                        "}"))
+
+            val aaSeriesElement1 = AASeriesElement()
+                .name("Men")
+                .color(gradientColorDic1)
+                .data(arrayOf(-1746181, -1884428, -2089758, -2222362, -2537431, -2507081, -2443179,
+                    -2664537, -3556505, -3680231, -3143062, -2721122, -2229181, -2227768, -2176300,
+                    -1329968, -836804, -354784, -90569, -28367, -3878))
+
+            val aaSeriesElement2 = AASeriesElement()
+                .name("Women")
+                .color(gradientColorDic2)
+                .data(arrayOf(1656154, 1787564, 1981671, 2108575, 2403438, 2366003, 2301402, 2519874,
+                    3360596, 3493473, 3050775, 2759560, 2304444, 2426504, 2568938, 1785638, 1447162,
+                    1005011, 330870, 130632, 21208))
+
+            return AAOptions()
+                .chart(aaChart)
+                .title(aaTitle)
+                .xAxisArray(arrayOf(aaXAxis1, aaXAxis2))
+                .yAxis(aaYAxis)
+                .plotOptions(aaPlotOptions)
+                .tooltip(aaTooltip)
+                .series(arrayOf(aaSeriesElement1, aaSeriesElement2))
+        }
 
     }
 }

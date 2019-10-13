@@ -8,6 +8,8 @@
  */
 package com.aachartmodel.aainfographics.AAInfographicsLib.AAOptionsModel
 
+import com.example.chartcorekotlin.AAChartConfiger.AAChartAnimationType
+
 class AAAnimation {
     private var duration: Int? = null
     private var easing: String? = null
@@ -17,8 +19,8 @@ class AAAnimation {
         return this
     }
 
-    fun easing(prop: String?): AAAnimation {
-        easing = prop
+    fun easing(prop: AAChartAnimationType?): AAAnimation {
+        easing = prop?.value
         return this
     }
 }

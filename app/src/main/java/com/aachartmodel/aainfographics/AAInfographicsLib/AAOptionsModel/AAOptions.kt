@@ -16,6 +16,8 @@ class AAOptions {
     var subtitle: AASubtitle? = null
     var xAxis: AAXAxis? = null
     var yAxis: AAYAxis? = null
+    var xAxisArray: Array<AAXAxis>? = null
+    var yAxisArray: Array<AAYAxis>? = null
     var tooltip: AATooltip? = null
     var plotOptions: AAPlotOptions? = null
     var series: Array<AASeriesElement>? = null
@@ -45,6 +47,16 @@ class AAOptions {
 
     fun yAxis(prop: AAYAxis): AAOptions {
         yAxis = prop
+        return this
+    }
+
+    fun xAxisArray(prop: Array<AAXAxis>): AAOptions {
+        xAxisArray = prop
+        return this
+    }
+
+    fun yAxisArray(prop: Array<AAYAxis>): AAOptions {
+        yAxisArray = prop
         return this
     }
 

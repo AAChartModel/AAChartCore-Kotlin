@@ -8,6 +8,9 @@
  */
 package com.aachartmodel.aainfographics.AAInfographicsLib.AAOptionsModel
 
+import com.example.chartcorekotlin.AAChartConfiger.AAChartType
+import com.example.chartcorekotlin.AAChartConfiger.AAChartZoomType
+
 class AAChart {
     private var type: String? = null
     private var backgroundColor: Any? = null
@@ -21,8 +24,8 @@ class AAChart {
     private var marginLeft: Float? = null
     private var marginRight: Float? = null
 
-    fun type(prop: String?): AAChart {
-        type = prop
+    fun type(prop: AAChartType?): AAChart {
+        type = prop?.value
         return this
     }
 
@@ -36,8 +39,8 @@ class AAChart {
         return this
     }
 
-    fun pinchType(prop: String?): AAChart {
-        pinchType = prop
+    fun pinchType(prop: AAChartZoomType?): AAChart {
+        pinchType = prop?.value
         return this
     }
 

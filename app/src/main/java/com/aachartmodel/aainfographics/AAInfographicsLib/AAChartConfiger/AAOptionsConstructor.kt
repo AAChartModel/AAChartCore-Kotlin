@@ -79,7 +79,7 @@ object AAOptionsConstructor {
                 .stacking(aaChartModel.stacking) //设置是否百分比堆叠显示图形
             )
 
-        if (aaChartModel.animationType != AAChartAnimationType.Linear.value) {
+        if (aaChartModel.animationType != AAChartAnimationType.Linear) {
             aaPlotOptions
                 .series?.animation(AAAnimation()
                 .easing(aaChartModel.animationType)
@@ -119,19 +119,19 @@ object AAOptionsConstructor {
     ) {
         val chartType = aaChartModel.chartType
         //数据点标记相关配置，只有线性图(折线图、曲线图、折线区域填充图、曲线区域填充图,散点图)才有数据点标记
-        if (chartType == AAChartType.Area.value
-            || chartType == AAChartType.Areaspline.value
-            || chartType == AAChartType.Line.value
-            || chartType == AAChartType.Spline.value
-            || chartType == AAChartType.Scatter.value) {
+        if (chartType == AAChartType.Area
+            || chartType == AAChartType.Areaspline
+            || chartType == AAChartType.Line
+            || chartType == AAChartType.Spline
+            || chartType == AAChartType.Scatter) {
             val aaMarker = AAMarker()
                 .radius(aaChartModel.markerRadius) //曲线连接点半径，默认是4
-                .symbol(aaChartModel.markerSymbol) //曲线点类型："circle", "square", "diamond", "triangle","triangle-down"，默认是"circle"
-            if (aaChartModel.markerSymbolStyle == AAChartSymbolStyleType.InnerBlank.value) {
+                .symbol(aaChartModel.markerSymbol?.value) //曲线点类型："circle", "square", "diamond", "triangle","triangle-down"，默认是"circle"
+            if (aaChartModel.markerSymbolStyle == AAChartSymbolStyleType.InnerBlank) {
                 aaMarker.fillColor("#ffffff") //点的填充色(用来设置折线连接点的填充色)
                     .lineWidth(2f) //外沿线的宽度(用来设置折线连接点的轮廓描边的宽度)
                     .lineColor("") //外沿线的颜色(用来设置折线连接点的轮廓描边颜色，当值为空字符串时，默认取数据点或数据列的颜色)
-            } else if (aaChartModel.markerSymbolStyle == AAChartSymbolStyleType.BorderBlank.value) {
+            } else if (aaChartModel.markerSymbolStyle == AAChartSymbolStyleType.BorderBlank) {
                 aaMarker.lineWidth(2f)
                     .lineColor(aaChartModel.backgroundColor)
             }
@@ -159,7 +159,7 @@ object AAOptionsConstructor {
         }
 
         when (chartType) {
-            AAChartType.Column.value -> {
+            AAChartType.Column -> {
                 val aaColumn = AAColumn()
                     .borderWidth(0f)
                     .borderRadius(aaChartModel.borderRadius)
@@ -170,7 +170,7 @@ object AAOptionsConstructor {
                 }
                 aaPlotOptions.column(aaColumn)
             }
-            AAChartType.Bar.value -> {
+            AAChartType.Bar -> {
                 val aaBar = AABar()
                     .borderWidth(0f)
                     .borderRadius(aaChartModel.borderRadius)
@@ -181,11 +181,11 @@ object AAOptionsConstructor {
                 }
                 aaPlotOptions.bar(aaBar)
             }
-            AAChartType.Area.value -> aaPlotOptions.area(AAArea().dataLabels(aaDataLabels))
-            AAChartType.Areaspline.value -> aaPlotOptions.areaspline(AAAreaspline().dataLabels(aaDataLabels))
-            AAChartType.Line.value -> aaPlotOptions.line(AALine().dataLabels(aaDataLabels))
-            AAChartType.Spline.value -> aaPlotOptions.spline(AASpline().dataLabels(aaDataLabels))
-            AAChartType.Pie.value -> {
+            AAChartType.Area -> aaPlotOptions.area(AAArea().dataLabels(aaDataLabels))
+            AAChartType.Areaspline -> aaPlotOptions.areaspline(AAAreaspline().dataLabels(aaDataLabels))
+            AAChartType.Line -> aaPlotOptions.line(AALine().dataLabels(aaDataLabels))
+            AAChartType.Spline -> aaPlotOptions.spline(AASpline().dataLabels(aaDataLabels))
+            AAChartType.Pie -> {
                 val aaPie = AAPie()
                     .allowPointSelect(true)
                     .cursor("pointer")
@@ -195,17 +195,20 @@ object AAOptionsConstructor {
                 }
                 aaPlotOptions.pie(aaPie.dataLabels(aaDataLabels))
             }
-            AAChartType.Columnrange.value -> {
+            AAChartType.Columnrange -> {
                 val aaColumnrange = AAColumnrange()
                     .borderRadius(0f) //The color of the border surrounding each column or bar
                     .borderWidth(0f) //The corner radius of the border surrounding each column or bar. default：0
                     .dataLabels(aaDataLabels)
                 aaPlotOptions.columnrange(aaColumnrange)
             }
-            AAChartType.Arearange.value -> {
+            AAChartType.Arearange -> {
                 val aaArearange = AAArearange()
                     .dataLabels(aaDataLabels)
                 aaPlotOptions.arearange(aaArearange)
+            }
+            else -> {
+
             }
         }
     }
@@ -217,9 +220,9 @@ object AAOptionsConstructor {
     ) {
         val chartType = aaChartModel.chartType
         //x 轴和 Y 轴的相关配置,扇形图、金字塔图和漏斗图则不需要设置 X 轴和 Y 轴的相关内容
-        if (   chartType != AAChartType.Pie.value
-            && chartType != AAChartType.Pyramid.value
-            && chartType != AAChartType.Funnel.value) {
+        if (   chartType != AAChartType.Pie
+            && chartType != AAChartType.Pyramid
+            && chartType != AAChartType.Funnel) {
             val aaXAxisLabelsEnabled = aaChartModel.xAxisLabelsEnabled
             val aaXAxisLabels = AALabels()
                 .enabled(aaXAxisLabelsEnabled) //设置 x 轴是否显示文字
