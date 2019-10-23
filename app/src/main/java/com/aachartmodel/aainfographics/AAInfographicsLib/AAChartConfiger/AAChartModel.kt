@@ -166,6 +166,7 @@ class AAChartModel {
     var axesTextColor: String? = null          //x 轴和 y 轴文字颜色
     var chartType: AAChartType? = null              //图表类型
     var stacking: AAChartStackingType? = null               //堆积样式
+    var markerRadius: Float? = null            //折线连接点的半径长度
     var markerSymbol: AAChartSymbolType? = null           //折线曲线连接点的类型："circle", "square", "diamond", "triangle","triangle-down"，默认是"circle"
     var markerSymbolStyle: AAChartSymbolStyleType? = null
     var zoomType: AAChartZoomType? = null               //缩放类型 AAChartZoomTypeX表示可沿着 x 轴进行手势缩放
@@ -201,7 +202,6 @@ class AAChartModel {
     var legendEnabled: Boolean? = null         //是否显示图例
     var backgroundColor: Any ? = null          //图表背景色
     var borderRadius: Float? = null            //柱状图长条图头部圆角半径(可用于设置头部的形状,仅对条形图,柱状图有效)
-    var markerRadius: Float? = null            //折线连接点的半径长度
     var series: Array<AASeriesElement>? = null
     var touchEventEnabled: Boolean? = null     //是否支持用户触摸事件
 
@@ -273,6 +273,11 @@ class AAChartModel {
 
     fun stacking(prop: AAChartStackingType): AAChartModel {
         stacking = prop
+        return this
+    }
+
+    fun markerRadius(prop: Float?): AAChartModel {
+        markerRadius = prop
         return this
     }
 
@@ -444,11 +449,6 @@ class AAChartModel {
 
     fun borderRadius(prop: Float?): AAChartModel {
         borderRadius = prop
-        return this
-    }
-
-    fun markerRadius(prop: Float?): AAChartModel {
-        markerRadius = prop
         return this
     }
 
