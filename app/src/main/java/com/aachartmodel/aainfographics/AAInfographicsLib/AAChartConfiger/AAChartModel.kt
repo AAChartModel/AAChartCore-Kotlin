@@ -157,12 +157,12 @@ class AAChartModel {
     var title: String? = null                  //标题内容
     var titleFontColor: String? = null         //标题字体颜色
     var titleFontSize: Float? = null           //标题字体大小
-    var titleFontWeight: String? = null        //标题字体粗细
+    var titleFontWeight: AAChartFontWeightType? = null        //标题字体粗细
     var subtitle: String? = null               //副标题内容
     var subtitleAlign: AAChartAlignType? = null
     var subtitleFontColor: String? = null      //副标题字体颜色
     var subtitleFontSize: Float? = null        //副标题字体大小
-    var subtitleFontWeight: String? = null     //副标题字体粗细
+    var subtitleFontWeight: AAChartFontWeightType? = null     //副标题字体粗细
     var axesTextColor: String? = null          //x 轴和 y 轴文字颜色
     var chartType: AAChartType? = null              //图表类型
     var stacking: AAChartStackingType? = null               //堆积样式
@@ -184,7 +184,7 @@ class AAChartModel {
     var dataLabelsEnabled: Boolean? = null     //是否显示数据
     var dataLabelsFontColor: String? = null
     var dataLabelsFontSize: Float? = null
-    var dataLabelsFontWeight: String? = null
+    var dataLabelsFontWeight: AAChartFontWeightType? = null
     var xAxisLabelsEnabled: Boolean? = null    //x轴是否显示数据
     var xAxisTickInterval: Int? = null
     var categories: Array<String>? = null      //x轴是否显示数据
@@ -231,7 +231,7 @@ class AAChartModel {
         return this
     }
 
-    fun titleFontWeight(prop: String): AAChartModel {
+    fun titleFontWeight(prop: AAChartFontWeightType): AAChartModel {
         titleFontWeight = prop
         return this
     }
@@ -256,7 +256,7 @@ class AAChartModel {
         return this
     }
 
-    fun subtitleFontWeight(prop: String): AAChartModel {
+    fun subtitleFontWeight(prop: AAChartFontWeightType): AAChartModel {
         subtitleFontWeight = prop
         return this
     }
@@ -361,7 +361,7 @@ class AAChartModel {
         return this
     }
 
-    fun dataLabelsFontWeight(prop: String): AAChartModel {
+    fun dataLabelsFontWeight(prop: AAChartFontWeightType): AAChartModel {
         dataLabelsFontWeight = prop
         return this
     }
@@ -488,13 +488,13 @@ class AAChartModel {
          markerRadius         = 6f//折线连接点的半径长度,如果值设置为0,这样就相当于不显示了
          touchEventEnabled    = true
          titleFontColor       = "#000000" //标题字体颜色为黑色
-         titleFontWeight      = "regular" //常规字体
+         titleFontWeight      = AAChartFontWeightType.Regular //常规字体
          titleFontSize        = 11f
          subtitleFontColor    = "#000000" //副标题字体颜色为黑色
-         subtitleFontWeight   = "regular" //常规字体
+         subtitleFontWeight   = AAChartFontWeightType.Regular //常规字体
          subtitleFontSize     = 9f
          dataLabelsFontColor  = "#000000" //数据标签默认颜色为黑色
-         dataLabelsFontWeight = "bold" //图表的数据字体为粗体
+         dataLabelsFontWeight = AAChartFontWeightType.Bold //图表的数据字体为粗体
          dataLabelsFontSize   = 10f
 
      }

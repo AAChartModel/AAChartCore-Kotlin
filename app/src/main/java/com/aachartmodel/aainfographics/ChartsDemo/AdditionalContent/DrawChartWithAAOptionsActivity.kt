@@ -30,13 +30,20 @@ package com.aachartmodel.aainfographics.ChartsDemo.AdditionalContent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import com.aachartmodel.aainfographics.AAInfographicsLib.AAOptionsModel.AAOptions
+import com.aachartmodel.aainfographics.ChartsDemo.ChartComposer.ChartOptionsComposer.Companion.customChartLegendStyle
 import com.aachartmodel.aainfographics.ChartsDemo.ChartComposer.ChartOptionsComposer.Companion.configureAAPlotBandsForChart
 import com.aachartmodel.aainfographics.ChartsDemo.ChartComposer.ChartOptionsComposer.Companion.configureAAPlotLinesForChart
-import com.aachartmodel.aainfographics.ChartsDemo.ChartComposer.ChartOptionsComposer.Companion.customAATooltipWithJSFuntion
+import com.aachartmodel.aainfographics.ChartsDemo.ChartComposer.ChartOptionsComposer.Companion.configureDoubleYAxisChartOptions
+import com.aachartmodel.aainfographics.ChartsDemo.ChartComposer.ChartOptionsComposer.Companion.configureTheMirrorColumnChart
+import com.aachartmodel.aainfographics.ChartsDemo.ChartComposer.ChartOptionsComposer.Companion.configureTripleYAxesMixedChart
+import com.aachartmodel.aainfographics.ChartsDemo.ChartComposer.ChartOptionsComposer.Companion.configureXAxisLabelsFontColorAndFontSizeWithHTMLString
+import com.aachartmodel.aainfographics.ChartsDemo.ChartComposer.ChartOptionsComposer.Companion.configureXAxisLabelsFontColorWithHTMLString
+import com.aachartmodel.aainfographics.ChartsDemo.ChartComposer.ChartOptionsComposer.Companion.configureXAxisPlotBand
+import com.aachartmodel.aainfographics.ChartsDemo.ChartComposer.ChartOptionsComposer.Companion.configure_DataLabels_XAXis_YAxis_Legend_Style
+import com.aachartmodel.aainfographics.ChartsDemo.ChartComposer.ChartOptionsComposer.Companion.customAATooltipWithJSFunction
 import com.aachartmodel.aainfographics.ChartsDemo.ChartComposer.ChartOptionsComposer.Companion.customXAxisCrosshairStyle
 import com.aachartmodel.aainfographics.R
 import com.aachartmodel.aainfographics.aainfographicsLib.aachartConfiger.AAChartView
-import java.util.HashMap
 
 class DrawChartWithAAOptionsActivity : AppCompatActivity() {
 
@@ -56,10 +63,18 @@ class DrawChartWithAAOptionsActivity : AppCompatActivity() {
 
     private fun configureTheChartOptions(chartType: String): AAOptions {
         when (chartType) {
-            "configureAAPlotBandsForChart" -> return configureAAPlotBandsForChart()
-            "configureAAPlotLinesForChart" -> return configureAAPlotLinesForChart()
-            "customAATooltipWithJSFuntion" -> return customAATooltipWithJSFuntion()
+            "customLegendStyle" -> return customChartLegendStyle()
+            "AAPlotBandsForChart" -> return configureAAPlotBandsForChart()
+            "AAPlotLinesForChart" -> return configureAAPlotLinesForChart()
+            "customAATooltipWithJSFuntion" -> return customAATooltipWithJSFunction()
             "customXAxisCrosshairStyle" -> return customXAxisCrosshairStyle()
+            "XAxisLabelsFontColorWithHTMLString" -> return configureXAxisLabelsFontColorWithHTMLString()
+            "XAxisLabelsFontColorAndFontSizeWithHTMLString" -> return configureXAxisLabelsFontColorAndFontSizeWithHTMLString()
+            "_DataLabels_XAXis_YAxis_Legend_Style" -> return configure_DataLabels_XAXis_YAxis_Legend_Style()
+            "XAxisPlotBand" -> return configureXAxisPlotBand()
+            "configureTheMirrorColumnChart" -> return configureTheMirrorColumnChart()
+            "configureDoubleYAxisChartOptions" -> return configureDoubleYAxisChartOptions()
+            "configureTripleYAxesMixedChart" -> return configureTripleYAxesMixedChart()
         }
         return configureAAPlotBandsForChart()
     }

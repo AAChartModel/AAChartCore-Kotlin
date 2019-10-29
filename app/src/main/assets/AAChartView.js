@@ -20,6 +20,18 @@
                         aaOptions.tooltip.formatter = eval(aaOptions.tooltip.formatter);
                     }
                 }
+
+                    if (aaOptions.xAxis
+                                && aaOptions.xAxis.labels
+                                && aaOptions.xAxis.labels.formatter) {
+                                aaOptions.xAxis.labels.formatter = eval(aaOptions.xAxis.labels.formatter);
+                            }
+
+                            if (aaOptions.yAxis
+                                && aaOptions.yAxis.labels
+                                && aaOptions.yAxis.labels.formatter) {
+                                aaOptions.yAxis.labels.formatter = eval(aaOptions.yAxis.labels.formatter);
+                            }
             aaGlobalChart = Highcharts.chart('container', aaOptions);
            //全局配置(可通过全局配置设置主题)https://api.hcharts.cn/highcharts#Highcharts.setOptions
         };

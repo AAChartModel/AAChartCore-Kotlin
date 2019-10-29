@@ -36,20 +36,16 @@
 package com.aachartmodel.aainfographics.aainfographicsLib.aachartConfiger
 
 import android.content.Context
-import android.content.DialogInterface
 import android.os.Build
 import android.support.annotation.RequiresApi
-import android.support.v7.app.AlertDialog
 import android.util.AttributeSet
 import android.util.Log
 import android.webkit.JavascriptInterface
 import android.webkit.JsResult
-import android.webkit.ValueCallback
 import android.webkit.WebChromeClient
 import android.webkit.WebResourceRequest
 import android.webkit.WebView
 import android.webkit.WebViewClient
-import android.widget.Toast
 import com.aachartmodel.aainfographics.AAInfographicsLib.AAOptionsModel.AAOptions
 import com.example.chartcorekotlin.AAChartConfiger.AAChartModel
 import com.example.chartcorekotlin.AAChartConfiger.AAOptionsConstructor
@@ -81,7 +77,7 @@ class AAChartView : WebView {
     private val optionsJson: String? = null
 
     interface AAChartViewCallBack {
-        fun chartViewDidFinishedLoad(aaChartView: AAChartView)
+        fun chartViewDidFinishLoad(aaChartView: AAChartView)
         fun chartViewMoveOverEventMessage(
             aaChartView: AAChartView,
             messageModel: AAMoveOverEventMessageModel
@@ -165,7 +161,7 @@ class AAChartView : WebView {
             override fun onPageFinished(view: WebView, url: String) {
                 println("图表加载完成!!!!!!!! ")
                 if (callBack != null) {
-                    callBack!!.chartViewDidFinishedLoad(this@AAChartView)
+                    callBack!!.chartViewDidFinishLoad(this@AAChartView)
                 }
                 configureChartOptionsAndDrawChart(chartOptions)
             }

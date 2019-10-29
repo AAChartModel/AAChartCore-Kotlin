@@ -30,15 +30,17 @@ package com.aachartmodel.aainfographics.ChartsDemo.AdditionalContent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import com.aachartmodel.aainfographics.AAInfographicsLib.AAOptionsModel.AAOptions
-import com.aachartmodel.aainfographics.ChartsDemo.ChartComposer.CustomTooltipComposer
 import com.aachartmodel.aainfographics.ChartsDemo.ChartComposer.CustomTooltipComposer.Companion.customAreaChartTooltipStyleWithFormatterFunction1
 import com.aachartmodel.aainfographics.ChartsDemo.ChartComposer.CustomTooltipComposer.Companion.customAreaChartTooltipStyleWithFormatterFunction2
 import com.aachartmodel.aainfographics.ChartsDemo.ChartComposer.CustomTooltipComposer.Companion.customAreaChartTooltipStyleWithFormatterFunction3
 import com.aachartmodel.aainfographics.ChartsDemo.ChartComposer.CustomTooltipComposer.Companion.customAreaChartTooltipStyleWithFormatterFunction4
 import com.aachartmodel.aainfographics.ChartsDemo.ChartComposer.CustomTooltipComposer.Companion.customBoxplotTooltipContent
+import com.aachartmodel.aainfographics.ChartsDemo.ChartComposer.CustomTooltipComposer.Companion.customDoubleXAxesChart
+import com.aachartmodel.aainfographics.ChartsDemo.ChartComposer.CustomTooltipComposer.Companion.customStackedAndGroupedColumnChartTooltip
+import com.aachartmodel.aainfographics.ChartsDemo.ChartComposer.CustomTooltipComposer.Companion.customYAxisLabels
+import com.aachartmodel.aainfographics.ChartsDemo.ChartComposer.CustomTooltipComposer.Companion.customYAxisLabels2
 import com.aachartmodel.aainfographics.R
 import com.aachartmodel.aainfographics.aainfographicsLib.aachartConfiger.AAChartView
-import java.util.HashMap
 
 class CustomTooltipWithJSFunctionActivity : AppCompatActivity() {
 
@@ -62,6 +64,10 @@ class CustomTooltipWithJSFunctionActivity : AppCompatActivity() {
             "formatterFunction3" -> return customAreaChartTooltipStyleWithFormatterFunction3()
             "formatterFunction4" -> return customAreaChartTooltipStyleWithFormatterFunction4()
             "formatterFunction5" -> return customBoxplotTooltipContent()
+            "customYAxisLabels" -> return customYAxisLabels()
+            "customYAxisLabels2" -> return customYAxisLabels2()
+            "customStackedAndGroupedColumnChartTooltip" -> return customStackedAndGroupedColumnChartTooltip()
+            "customDoubleXAxesChart" -> return customDoubleXAxesChart()
         }
         return customAreaChartTooltipStyleWithFormatterFunction1()
     }

@@ -36,6 +36,7 @@ import android.widget.ArrayAdapter
 import android.widget.ListView
 import com.aachartmodel.aainfographics.ChartsDemo.AdditionalContent.CustomTooltipWithJSFunctionActivity
 import com.aachartmodel.aainfographics.ChartsDemo.AdditionalContent.DrawChartWithAAOptionsActivity
+import com.aachartmodel.aainfographics.ChartsDemo.AdditionalContent.EvaluateJSStringFunctionActivity
 import com.aachartmodel.aainfographics.ChartsDemo.AdditionalContent.HideOrShowChartSeriesActivity
 import com.aachartmodel.aainfographics.ChartsDemo.BasicContent.CommonChartActivity
 import com.aachartmodel.aainfographics.ChartsDemo.BasicContent.CustomStyleChartActivity
@@ -98,14 +99,18 @@ class MainActivity : AppCompatActivity() {
         "PentagonRadarChart",
         "HexagonRadarChart",
         /*使用AAOptions绘制图表*/
-        "/*使用AAOptions绘制图表*/drawChartWithOptionsOne-----------------",
+        "/*使用AAOptions绘制图表*/customLegendStyle-----------------",
+        "drawChartWithOptionsOne",
         "AAPlotLinesForChart",
-        "customAATooltipWithJSFuntion",
+        "customAATooltipWithJSFunction",
         "customXAxisCrosshairStyle",
         "XAxisLabelsFontColorWithHTMLString",
         "XAxisLabelsFontColorAndFontSizeWithHTMLString",
         "_DataLabels_XAXis_YAxis_Legend_Style",
         "XAxisPlotBand",
+        "configureTheMirrorColumnChart",
+        "configureDoubleYAxisChartOptions",
+        "configureTripleYAxesMixedChart",
         /*隐藏或显示内容*/
         "/*隐藏或显示内容*/Column Chart---柱形图--------------",
         "Bar Chart---条形图",
@@ -115,14 +120,19 @@ class MainActivity : AppCompatActivity() {
         "Step Line Chart--- 直方折线图",
         "Line Chart---折线图",
         "Spline Chart---曲线图",
-        "简单字符串拼接",
+        /*自定义 formatter 函数*/
+        "/*自定义 formatter 函数*/简单字符串拼接-----------------",
         "自定义不同单位后缀",
         "值为0时,在tooltip中不显示",
         "自定义多彩颜色文字",
-        "自定义箱线图的浮动提示框头部内容"
+        "自定义箱线图的浮动提示框头部内容",
+        "自定义Y轴文字",
+        "自定义Y轴文字2",
+        "自定义分组堆积柱状图tooltip内容",
+        "双 X 轴镜像图表"
     )
 
-    internal var chartTypeArr = arrayOf<String>(
+    private var chartTypeArr = arrayOf(
         /*基础类型图表*/
         AAChartType.Column.value,
         AAChartType.Bar.value,
@@ -176,14 +186,18 @@ class MainActivity : AppCompatActivity() {
         "PentagonRadarChart",
         "HexagonRadarChart",
         /*使用AAOptions绘制图表*/
+        "customLegendStyle",
         "AAPlotBandsForChart",
         "AAPlotLinesForChart",
-        "customAATooltipWithJSFuntion",
+        "customAATooltipWithJSFunction",
         "customXAxisCrosshairStyle",
         "XAxisLabelsFontColorWithHTMLString",
         "XAxisLabelsFontColorAndFontSizeWithHTMLString",
         "_DataLabels_XAXis_YAxis_Legend_Style",
         "XAxisPlotBand",
+        "configureTheMirrorColumnChart",
+        "configureDoubleYAxisChartOptions",
+        "configureTripleYAxesMixedChart",
         /*隐藏或显示内容*/
         AAChartType.Column.value,
         AAChartType.Bar.value,
@@ -193,11 +207,20 @@ class MainActivity : AppCompatActivity() {
         AAChartType.Line.value,
         AAChartType.Line.value,
         AAChartType.Spline.value,
+        /*自定义 formatter 函数*/
         "formatterFunction1",
         "formatterFunction2",
         "formatterFunction3",
         "formatterFunction4",
-        "formatterFunction5"
+        "formatterFunction5",
+        "customYAxisLabels",
+        "customYAxisLabels2",
+        "customStackedAndGroupedColumnChartTooltip",
+        "customDoubleXAxesChart",
+        /*执行由 JavaScript 字符串映射转换成的 js function 函数*/
+        "evalJSFunction1",
+        "evalJSFunction2",
+        "evalJSFunction3"
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -213,14 +236,22 @@ class MainActivity : AppCompatActivity() {
 
         listView.onItemClickListener = AdapterView.OnItemClickListener { _, _, position, _ ->
             println(position)
-            when {
-                position <= 7 -> goToCommonChartActivity(position)
-                position in 8..19 -> goToSpecialChartActivity(position)
-                position in 20..28 -> goToMixedChartActivity(position)
-                position in 28..46 -> goToCustomStyleChartActivity(position)
-                position in 47..54 -> goToDrawChartWithAAOptionsActivity(position)
-                position in 55..62 -> goToHideOrShowChartSeriesActivity(position)
-                position > 62 -> goToCustomTooltipWithJSFunctionActivity(position)
+            if (position <= 7) {/*基础类型图表*/
+                goToCommonChartActivity(position)
+            } else if (position <= 19) {/*特殊类型图表*/
+                goToSpecialChartActivity(position)
+            } else if (position <= 28) { /*Mixed Chart---混合图*/
+                goToMixedChartActivity(position)
+            } else if (position <= 46) {/*自定义样式图表*/
+                goToCustomStyleChartActivity(position)
+            } else if (position <= 58) {/*使用AAOptions绘制图表*/
+                goToDrawChartWithAAOptionsActivity(position)
+            } else if (position <= 65) { /*隐藏或显示内容*/
+                goToHideOrShowChartSeriesActivity(position)
+            } else if (position <= 75) {/*formatter js function*/
+                goToCustomTooltipWithJSFunctionActivity(position)
+            } else if (position > 75) { /*eval JS Function*/
+                goToEvaluateJSStringFunctionActivity(position)
             }
         }
     }
@@ -270,6 +301,14 @@ class MainActivity : AppCompatActivity() {
 
     private fun goToCustomTooltipWithJSFunctionActivity(position: Int) {
         val intent = Intent(this, CustomTooltipWithJSFunctionActivity::class.java)
+        intent.putExtra("chartType", chartTypeArr[position])
+
+        startActivity(intent)
+    }
+
+
+    private fun goToEvaluateJSStringFunctionActivity(position: Int) {
+        val intent = Intent(this, EvaluateJSStringFunctionActivity::class.java)
         intent.putExtra("chartType", chartTypeArr[position])
 
         startActivity(intent)

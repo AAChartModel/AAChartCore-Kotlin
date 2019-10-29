@@ -30,11 +30,13 @@ package com.example.chartcorekotlin.AAChartConfiger
 
 import com.aachartmodel.aainfographics.AAInfographicsLib.AAOptionsModel.AADataLabels
 import com.aachartmodel.aainfographics.AAInfographicsLib.AAOptionsModel.AAMarker
+import com.aachartmodel.aainfographics.AAInfographicsLib.AAOptionsModel.AATooltip
 import java.util.Dictionary
 
 /**
  * Created by anan on 2018/4/16.
  */
+
 
 class AASeriesElement {
 
@@ -45,9 +47,12 @@ class AASeriesElement {
     private var color: Any? = null
     private var fillColor: Any? = null
     private var fillOpacity: Float? = null//折线填充图、曲线填充图、直方折线填充图等填充图类型的填充颜色透明度
-    private var threshold: Float? = null//The threshold, also called zero level or base level. For line type series this is only used in conjunction with negativeColor. default：0.
-    private var negativeColor: String? = null// The color for the parts of the graph or points that are below the threshold
+    private var threshold: Float? =
+        null//The threshold, also called zero level or base level. For line type series this is only used in conjunction with negativeColor. default：0.
+    private var negativeColor: String? =
+        null// The color for the parts of the graph or points that are below the threshold
     private var dashStyle: String? = null
+    private var yAxis: Int? = null
     private var dataLabels: AADataLabels? = null
     private var marker: AAMarker? = null
     private var step: Any? = null
@@ -55,6 +60,8 @@ class AASeriesElement {
     private var zIndex: Int? = null
     private var zones: Array<Any>? = null
     private var shadow: AAShadow? = null
+    private var stack: String? = null
+    private var tooltip: AATooltip? = null
 
 
     fun type(prop: AAChartType): AASeriesElement {
@@ -103,7 +110,12 @@ class AASeriesElement {
     }
 
     fun dashStyle(prop: AAChartLineDashStyleType): AASeriesElement {
-        dashStyle = prop.toString()
+        dashStyle = prop.value
+        return this
+    }
+
+    fun yAxis(prop: Int?): AASeriesElement {
+        yAxis = prop
         return this
     }
 
@@ -132,8 +144,8 @@ class AASeriesElement {
         return this
     }
 
-    fun zones(prop: Array<Map<String, Any>>): AASeriesElement {
-        zones = arrayOf(prop)
+    fun zones(prop: Array<Any>): AASeriesElement {
+        zones = prop
         return this
     }
 
@@ -142,8 +154,18 @@ class AASeriesElement {
         return this
     }
 
+    fun stack(prop: String): AASeriesElement {
+        stack = prop
+        return this
+    }
+
+    fun tooltip(prop: AATooltip): AASeriesElement {
+        tooltip = prop
+        return this
+    }
 
 }
+
 
 class AADataElement {
     private var name: String? = null

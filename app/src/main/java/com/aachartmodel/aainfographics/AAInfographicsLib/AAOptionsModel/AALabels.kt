@@ -8,6 +8,8 @@
  */
 package com.aachartmodel.aainfographics.AAInfographicsLib.AAOptionsModel
 
+import com.aachartmodel.aainfographics.AAInfographicsLib.AAChartConfiger.AAJSStringPurer
+
 
 class AALabels {
      var align: String? =
@@ -55,13 +57,15 @@ class AALabels {
         return this
     }
 
-    fun Format(prop: String): AALabels {
+    fun format(prop: String): AALabels {
         format = prop
         return this
     }
 
     fun formatter(prop: String): AALabels {
-        formatter = prop
+        var pureJSFunctionStr = "($prop)"
+        pureJSFunctionStr = AAJSStringPurer.pureJavaScriptFunctionString(pureJSFunctionStr)
+        formatter = pureJSFunctionStr
         return this
     }
 

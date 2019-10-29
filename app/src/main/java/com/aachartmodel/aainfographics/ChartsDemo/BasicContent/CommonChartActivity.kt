@@ -287,7 +287,7 @@ class CommonChartActivity : AppCompatActivity(), RadioGroup.OnCheckedChangeListe
 
     }
 
-    override fun chartViewDidFinishedLoad(aaChartView: AAChartView) {
+    override fun chartViewDidFinishLoad(aaChartView: AAChartView) {
         println("🔥图表加载完成回调方法 ")
     }
 

@@ -25,6 +25,7 @@ class AALegend {
     private var itemStyle: AAItemStyle? = null
     private var x: Float? = null
     private var y: Float? = null
+    private var floating:Boolean? = null
 
     fun layout(prop: AAChartLayoutType): AALegend {
         layout = prop
@@ -76,6 +77,12 @@ class AALegend {
         return this
     }
 
+    fun floating(prop: Boolean): AALegend {
+        floating = prop
+        return this
+    }
+
+
 }
 
 class AAItemStyle {
@@ -110,5 +117,6 @@ class AAItemStyle {
         fontWeight = prop
         return this
     }
+
 }
 

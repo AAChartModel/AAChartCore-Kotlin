@@ -258,11 +258,9 @@ object AAOptionsConstructor {
                 .allowDecimals(aaChartModel.yAxisAllowDecimals) //是否允许显示小数
                 .reversed(aaChartModel.yAxisReversed)
                 .gridLineWidth(aaChartModel.yAxisGridLineWidth) //y轴网格线宽度
-                .title(
-                    AATitle()
+                .title(AATitle()
                         .text(aaChartModel.yAxisTitle)
-                        .style(
-                            AAStyle()
+                        .style(AAStyle()
                                 .color(aaChartModel.axesTextColor)
                         )
                 ) //y 轴标题

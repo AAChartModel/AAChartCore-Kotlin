@@ -184,8 +184,7 @@ companion object {
                     .data(arrayOf(82.89,67.54,62.07,59.43,67.02,67.09,35.66,71.78,81.61,78.85,79.12,72.30))
                     .dataLabels(AADataLabels()
                         .enabled(true)
-                        .style(
-                            AAStyle()
+                        .style(AAStyle()
                                 .color(AAColor.redColor())
                                 .fontSize(11f)
                         )
@@ -209,7 +208,7 @@ companion object {
                         .style(AAStyle()
                             .color("#000000")
                             .fontSize(15f)
-                            .fontWeight("bold")
+                            .fontWeight(AAChartFontWeightType.Bold)
                         )
                     )
             )

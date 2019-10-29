@@ -8,12 +8,14 @@
  */
 package com.aachartmodel.aainfographics.AAInfographicsLib.AAOptionsModel
 
+import com.example.chartcorekotlin.AAChartConfiger.AAChartFontWeightType
+
 class AAStyle {
 
     private var color: String? = null
     private var fontSize: String? = null
     private var fontWeight: String? = null
-    private var textOutLine: String? = null
+    private var textOutline: String? = null
 
     fun color(prop: String?): AAStyle {
         color = prop
@@ -25,13 +27,13 @@ class AAStyle {
         return this
     }
 
-    fun fontWeight(prop: String?): AAStyle {
-        fontWeight = prop
+    fun fontWeight(prop: AAChartFontWeightType?): AAStyle {
+        fontWeight = prop?.value
         return this
     }
 
-    fun textOutLine(prop: String): AAStyle {
-        textOutLine = prop
+    fun textOutline(prop: String): AAStyle {
+        textOutline = prop
         return this
     }
 
