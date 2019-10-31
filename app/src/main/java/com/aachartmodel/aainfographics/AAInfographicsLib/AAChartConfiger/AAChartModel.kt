@@ -463,6 +463,8 @@ class AAChartModel {
     }
 
      init {
+         title                = ""
+         subtitle             = ""
          chartType            = AAChartType.Line
          animationDuration    = 500 //以毫秒为单位
          animationType        = AAChartAnimationType.Linear
