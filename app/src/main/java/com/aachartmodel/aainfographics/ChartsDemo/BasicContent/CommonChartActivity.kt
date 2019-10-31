@@ -29,6 +29,7 @@ package com.aachartmodel.aainfographics.ChartsDemo.BasicContent
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.CompoundButton
 import android.widget.RadioGroup
 import android.widget.Switch
@@ -37,6 +38,7 @@ import com.aachartmodel.aainfographics.aainfographicsLib.aachartConfiger.AAChart
 import com.aachartmodel.aainfographics.aainfographicsLib.aachartConfiger.AAMoveOverEventMessageModel
 import com.example.chartcorekotlin.AAChartConfiger.*
 import com.google.gson.Gson
+import kotlinx.android.synthetic.main.activity_common_chart.*
 
 class CommonChartActivity : AppCompatActivity(), RadioGroup.OnCheckedChangeListener,
     CompoundButton.OnCheckedChangeListener, AAChartView.AAChartViewCallBack {
@@ -48,15 +50,16 @@ class CommonChartActivity : AppCompatActivity(), RadioGroup.OnCheckedChangeListe
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_common_chart)
 
-
-        setUpRadioButtonsAndSwitches()
         setUpAAChartView()
+        setUpRadioButtonsAndSwitches()
 
 
     }
 
     private fun setUpAAChartView() {
         aaChartView = findViewById(R.id.AAChartView)
+        aaChartView?.setBackgroundColor(0)
+        aaChartView?.background?.alpha = 0
         aaChartView?.callBack = this
         aaChartModel = configureAAChartModel()
         aaChartView?.aa_drawChartWithChartModel(aaChartModel)
@@ -94,7 +97,7 @@ class CommonChartActivity : AppCompatActivity(), RadioGroup.OnCheckedChangeListe
 
         configureTheStyleForDifferentTypeChart(chartType,position)
 
-        return aaChartModel as AAChartModel
+        return aaChartModel
     }
 
     private fun configureTheStyleForDifferentTypeChart(chartType: String, position: Int) {
@@ -134,7 +137,7 @@ class CommonChartActivity : AppCompatActivity(), RadioGroup.OnCheckedChangeListe
             .categories(arrayOf("Jan", "Feb", "Mar", "Apr", "May", "Jun", "July", "Aug", "Spe", "Oct", "Nov", "Dec"))
             .legendEnabled(true)
             .colorsTheme(arrayOf("#fe117c", "#ffc069", "#06caf4", "#7dffc0"))
-            .animationType(AAChartAnimationType.Bounce)
+            .animationType(AAChartAnimationType.EaseInQuart)
             .animationDuration(1200)
     }
 
@@ -231,6 +234,22 @@ class CommonChartActivity : AppCompatActivity(), RadioGroup.OnCheckedChangeListe
         val radioGroup2 = findViewById<RadioGroup>(R.id.radioGroup2)
         radioGroup2.setOnCheckedChangeListener(this)
 
+        if (aaChartModel.chartType == AAChartType.Bar
+            || aaChartModel.chartType == AAChartType.Column) {
+            symbol1.text = "Rect Corner"
+            symbol2.text = "Round Corner"
+            symbol3.text = "Sharp Corner"
+            symbol4.visibility = View.GONE
+            symbol5.visibility = View.GONE
+
+        } else {
+            symbol1.text = AAChartSymbolType.Circle.value
+            symbol2.text = AAChartSymbolType.Square.value
+            symbol3.text = AAChartSymbolType.Diamond.value
+            symbol4.text = AAChartSymbolType.Triangle.value
+            symbol5.text = AAChartSymbolType.TriangleDown.value
+        }
+
 
         val boolSwitch1 = findViewById<Switch>(R.id.switch1)
         boolSwitch1.setOnCheckedChangeListener(this)
@@ -262,12 +281,21 @@ class CommonChartActivity : AppCompatActivity(), RadioGroup.OnCheckedChangeListe
                 R.id.stacking3 -> aaChartModel.stacking(AAChartStackingType.Percent)
             }
         } else {
-            when (group.checkedRadioButtonId) {
-                R.id.symbol1 -> aaChartModel.markerSymbol(AAChartSymbolType.Circle)
-                R.id.symbol2 -> aaChartModel.markerSymbol(AAChartSymbolType.Diamond)
-                R.id.symbol3 -> aaChartModel.markerSymbol(AAChartSymbolType.Square)
-                R.id.symbol4 -> aaChartModel.markerSymbol(AAChartSymbolType.Triangle)
-                R.id.symbol5 -> aaChartModel.markerSymbol(AAChartSymbolType.TriangleDown)
+            if (aaChartModel.chartType == AAChartType.Bar
+                || aaChartModel.chartType == AAChartType.Column) {
+                when (group.checkedRadioButtonId) {
+                    R.id.symbol1 -> aaChartModel.borderRadius(0f)
+                    R.id.symbol2 -> aaChartModel.borderRadius(5f)
+                    R.id.symbol3 -> aaChartModel.borderRadius(1000f)
+                }
+            } else {
+                when (group.checkedRadioButtonId) {
+                    R.id.symbol1 -> aaChartModel.markerSymbol(AAChartSymbolType.Circle)
+                    R.id.symbol2 -> aaChartModel.markerSymbol(AAChartSymbolType.Diamond)
+                    R.id.symbol3 -> aaChartModel.markerSymbol(AAChartSymbolType.Square)
+                    R.id.symbol4 -> aaChartModel.markerSymbol(AAChartSymbolType.Triangle)
+                    R.id.symbol5 -> aaChartModel.markerSymbol(AAChartSymbolType.TriangleDown)
+                }
             }
         }
 

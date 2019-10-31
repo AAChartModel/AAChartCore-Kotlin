@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                                                 xmlns:app="http://schemas.android.com/apk/res-auto"
-                                                 xmlns:tools="http://schemas.android.com/tools"
-                                                 android:layout_width="match_parent"
-                                                 android:layout_height="match_parent"
-                                                 tools:context=".ChartsDemo.BasicContent.CommonChartActivity">
-
-
-
+<android.support.design.widget.CoordinatorLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/aaChartCoreThemeColor"
+        tools:context=".ChartsDemo.BasicContent.CommonChartActivity">
 
 
     <LinearLayout
@@ -16,11 +15,12 @@
             android:orientation="vertical">
 
 
-        <com.aachartmodel.aainfographics.aainfographicsLib.aachartConfiger.AAChartView
-                android:id="@+id/AAChartView"
-                android:layout_width="match_parent"
-                android:layout_height="500dp"
-        />
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="130dp"
+            android:background="@color/aaChartCoreThemeColor"
+            android:orientation="vertical">
 
         <RadioGroup
                 android:layout_width="match_parent"
@@ -33,6 +33,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:textColor="@color/mediumGray"
                     android:text="no stacking" />
 
             <RadioButton
@@ -40,6 +41,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:textColor="@color/mediumGray"
                     android:text="normalStacking" />
 
             <RadioButton
@@ -47,6 +49,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:textColor="@color/mediumGray"
                     android:text="percentStacking" />
         </RadioGroup>
 
@@ -61,6 +64,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:textColor="@color/mediumGray"
                     android:text="1" />
 
             <RadioButton
@@ -68,6 +72,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:textColor="@color/mediumGray"
                     android:text="2" />
 
             <RadioButton
@@ -75,6 +80,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:textColor="@color/mediumGray"
                     android:text="3" />
 
             <RadioButton
@@ -82,6 +88,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:textColor="@color/mediumGray"
                     android:text="4" />
 
             <RadioButton
@@ -89,6 +96,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:textColor="@color/mediumGray"
                     android:text="5" />
         </RadioGroup>
 
@@ -138,6 +146,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:textColor="@color/mediumGray"
                     android:text="xReversed" />
 
             <TextView
@@ -145,6 +154,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:textColor="@color/mediumGray"
                     android:text="yReversed" />
 
             <TextView
@@ -152,6 +162,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:textColor="@color/mediumGray"
                     android:text="xInverted" />
 
             <TextView
@@ -159,6 +170,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:textColor="@color/mediumGray"
                     android:text="polarization" />
 
             <TextView
@@ -166,10 +178,21 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:textColor="@color/mediumGray"
                     android:text="dataShow" />
         </LinearLayout>
 
     </LinearLayout>
+
+
+        <com.aachartmodel.aainfographics.aainfographicsLib.aachartConfiger.AAChartView
+                android:id="@+id/AAChartView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/aaChartCoreThemeColor"
+                />
+    </LinearLayout>
+
 
 
 </android.support.design.widget.CoordinatorLayout>
