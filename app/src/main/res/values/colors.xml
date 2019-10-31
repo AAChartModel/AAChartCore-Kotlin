@@ -3,4 +3,15 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="green">#41c574</color>
+    <color name="blue">#5992d2</color>
+    <color name="brown">#EAA033</color>
+    <color name="red">#D7063B</color>
+    <color name="gray">#F2F2F2</color>
+    <color name="lightGray">#F4F3F3</color>
+    <color name="lightBlack">#333333</color>
+    <color name="mediumGray">#666666</color>
+    <color name="aaChartCoreThemeColor">#4b2b7f</color>
 </resources>
