@@ -325,7 +325,7 @@ function () {
             val aaYAxisLabels = AALabels()
                 .formatter("""
 function () {
-        let yValue = this.value;
+        var yValue = this.value;
         if (yValue >= 200) {
             return "极佳";
         } else if (yValue >= 150 && yValue < 200) {
@@ -371,7 +371,7 @@ function () {
                 )
                 .formatter("""
 function () {
-        let yValue = this.value;
+        var yValue = this.value;
         if (yValue == 0) {
             return "0";
         } else if (yValue == 2500) {
@@ -410,16 +410,20 @@ function () {
                 .stacking(AAChartStackingType.Normal)
                 .categories(arrayOf("Apples", "Oranges", "Pears", "Grapes", "Bananas"))
                 .dataLabelsEnabled(true)
-                .series(arrayOf(AASeriesElement()
+                .series(arrayOf(
+                    AASeriesElement()
                     .name("John")
                     .data(arrayOf(5, 3, 4, 7, 2))
-                    .stack("male"), AASeriesElement()
+                    .stack("male"),
+                    AASeriesElement()
                     .name("Joe")
                     .data(arrayOf(3, 4, 4, 2, 5))
-                    .stack("male"), AASeriesElement()
+                    .stack("male"),
+                    AASeriesElement()
                     .name("Jane")
                     .data(arrayOf(2, 5, 6, 2, 1))
-                    .stack("female"), AASeriesElement()
+                    .stack("female"),
+                    AASeriesElement()
                     .name("Janet")
                     .data(arrayOf(3, 0, 4, 4, 3))
                     .stack("female"))
