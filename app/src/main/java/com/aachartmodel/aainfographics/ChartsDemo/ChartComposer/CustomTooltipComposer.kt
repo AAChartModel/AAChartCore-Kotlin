@@ -108,7 +108,7 @@ function () {
                 .subtitle("数据来源：www.无任何可靠依据.com")//图表副标题
                 .markerSymbolStyle(AAChartSymbolStyleType.BorderBlank)//折线连接点样式为外边缘空白
                 .dataLabelsEnabled(false)
-                .colorsTheme(arrayOf<Any>("#ff0000", "#0000ff"))
+                .colorsTheme(arrayOf("#ff0000", "#0000ff"))
                 .stacking(AAChartStackingType.Normal)
                 .series(arrayOf(
                     AASeriesElement()
@@ -202,7 +202,7 @@ function () {
                 .subtitle("")//图表副标题
                 .markerSymbolStyle(AAChartSymbolStyleType.BorderBlank)//折线连接点样式为外边缘空白
                 .dataLabelsEnabled(false)
-                .colorsTheme(arrayOf<Any>("#04d69f", "#1e90ff", "#ef476f", "#ffd066"))
+                .colorsTheme(arrayOf("#04d69f", "#1e90ff", "#ef476f", "#ffd066"))
                 .stacking(AAChartStackingType.Normal)
                 .markerRadius(0f)
                 .series(arrayOf(
@@ -316,7 +316,8 @@ function () {
                 .colorsTheme(arrayOf("#04d69f", "#1e90ff", "#ef476f", "#ffd066"))
                 .stacking(AAChartStackingType.Normal)
                 .markerRadius(8f)
-                .series(arrayOf(AASeriesElement()
+                .series(arrayOf(
+                    AASeriesElement()
                     .name("Tokyo Hot")
                     .lineWidth(5.0f)
                     .fillOpacity(0.4f)
@@ -364,7 +365,8 @@ function () {
                     .data(arrayOf(229.9, 771.5, 1106.4, 1129.2, 6644.0, 1176.0, 8835.6, 148.5, 8816.4, 6694.1, 7795.6, 9954.4))))
 
             val aaYAxisLabels = AALabels()
-                .style(AAStyle()
+                .style(
+                    AAStyle()
                     .fontSize(10f)
                     .fontWeight(AAChartFontWeightType.Bold)
                     .color(AAColor.grayColor())

@@ -74,11 +74,10 @@ class CommonChartActivity : AppCompatActivity(), RadioGroup.OnCheckedChangeListe
 
         aaChartModel
             .chartType(chartTypeEnum)
-            .title("title")
-            .subtitle("subtitle")
             .backgroundColor("#4b2b7f")
             .dataLabelsEnabled(false)
             .yAxisGridLineWidth(0f)
+            .legendEnabled(false)
             .series(arrayOf(
                 AASeriesElement()
                     .name("Tokyo")
@@ -135,16 +134,14 @@ class CommonChartActivity : AppCompatActivity(), RadioGroup.OnCheckedChangeListe
     private fun configureColumnChartAndBarChartStyle() {
         aaChartModel
             .categories(arrayOf("Jan", "Feb", "Mar", "Apr", "May", "Jun", "July", "Aug", "Spe", "Oct", "Nov", "Dec"))
-            .legendEnabled(true)
             .colorsTheme(arrayOf("#fe117c", "#ffc069", "#06caf4", "#7dffc0"))
-            .animationType(AAChartAnimationType.EaseInQuart)
+            .animationType(AAChartAnimationType.EaseInCubic)
             .animationDuration(1200)
     }
 
     private fun configureAreaChartAndAreasplineChartStyle(chartType:String) {
         aaChartModel
             .animationType(AAChartAnimationType.EaseOutQuart)
-            .legendEnabled(true)
             .markerRadius(5f)
             .markerSymbol(AAChartSymbolType.Circle)
             .markerSymbolStyle(AAChartSymbolStyleType.InnerBlank)
