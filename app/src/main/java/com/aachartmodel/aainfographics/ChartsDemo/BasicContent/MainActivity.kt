@@ -34,7 +34,7 @@ import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.ListView
-import com.aachartmodel.aainfographics.ChartsDemo.AdditionalContent.CustomTooltipWithJSFunctionActivity
+import com.aachartmodel.aainfographics.ChartsDemo.AdditionalContent.JSFormatterFunctionActivity
 import com.aachartmodel.aainfographics.ChartsDemo.AdditionalContent.DrawChartWithAAOptionsActivity
 import com.aachartmodel.aainfographics.ChartsDemo.AdditionalContent.EvaluateJSStringFunctionActivity
 import com.aachartmodel.aainfographics.ChartsDemo.AdditionalContent.HideOrShowChartSeriesActivity
@@ -300,7 +300,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun goToCustomTooltipWithJSFunctionActivity(position: Int) {
-        val intent = Intent(this, CustomTooltipWithJSFunctionActivity::class.java)
+        val intent = Intent(this, JSFormatterFunctionActivity::class.java)
         intent.putExtra("chartType", chartTypeArr[position])
 
         startActivity(intent)

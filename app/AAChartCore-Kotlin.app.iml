@@ -25,7 +25,7 @@
       </configuration>
     </facet>
     <facet type="kotlin-language" name="Kotlin">
-      <configuration version="3" platform="JVM 1.6" allPlatforms="JVM [1.6]" useProjectSettings="false" pureKotlinSourceFolders="$MODULE_DIR$/src/debug/kotlin;/Users/ios-fn/AAChartCore-Kotlin/app/src/debug/java;/Users/ios-fn/AAChartCore-Kotlin/app/src/release/kotlin;/Users/ios-fn/AAChartCore-Kotlin/app/src/release/java;/Users/ios-fn/AAChartCore-Kotlin/app/src/debugAndroidTest/kotlin;/Users/ios-fn/AAChartCore-Kotlin/app/src/debugUnitTest/kotlin;/Users/ios-fn/AAChartCore-Kotlin/app/src/releaseUnitTest/kotlin">
+      <configuration version="3" platform="JVM 1.6" allPlatforms="JVM [1.6]" useProjectSettings="false">
         <compilerSettings />
         <compilerArguments>
           <option name="destination" value="$MODULE_DIR$/build/tmp/kotlin-classes/debug" />

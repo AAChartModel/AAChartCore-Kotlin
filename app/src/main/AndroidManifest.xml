@@ -20,7 +20,7 @@
         <activity android:name=".ChartsDemo.BasicContent.CustomStyleChartActivity" />
         <activity android:name=".ChartsDemo.BasicContent.MixedChartActivity" />
         <activity android:name=".ChartsDemo.BasicContent.CommonChartActivity" />
-        <activity android:name=".ChartsDemo.AdditionalContent.CustomTooltipWithJSFunctionActivity" />
+        <activity android:name=".ChartsDemo.AdditionalContent.JSFormatterFunctionActivity" />
         <activity android:name=".ChartsDemo.AdditionalContent.DrawChartWithAAOptionsActivity" />
         <activity android:name=".ChartsDemo.AdditionalContent.EvaluateJSStringFunctionActivity" />
         <activity android:name=".ChartsDemo.AdditionalContent.HideOrShowChartSeriesActivity" />

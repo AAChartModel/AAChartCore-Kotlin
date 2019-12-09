@@ -42,7 +42,7 @@ import com.aachartmodel.aainfographics.ChartsDemo.ChartComposer.CustomTooltipCom
 import com.aachartmodel.aainfographics.R
 import com.aachartmodel.aainfographics.aainfographicsLib.aachartConfiger.AAChartView
 
-class CustomTooltipWithJSFunctionActivity : AppCompatActivity() {
+class JSFormatterFunctionActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
