@@ -9,22 +9,22 @@
 package com.aachartmodel.aainfographics.AAInfographicsLib.AAOptionsModel
 
 class AADataLabels {
-    private var enabled: Boolean? = null
-    private var style: AAStyle? = null
-    private var format: String? = null
-    private var rotation: Float? = null
-    private var allowOverlap: Boolean? = null
-    private var useHTML: Boolean? = null
-    private var distance: Float? = null
-    private var verticalAlign: String? = null
-    private var x: Float? = null
-    private var y: Float? = null
-    private var color: String? = null
-    private var backgroundColor: String? = null
-    private var borderColor: String? = null
-    private var borderRadius: Float? = null
-    private var borderWidth: Float? = null
-    private var shape: String? = null
+    var enabled: Boolean? = null
+    var style: AAStyle? = null
+    var format: String? = null
+    var rotation: Float? = null
+    var allowOverlap: Boolean? = null
+    var useHTML: Boolean? = null
+    var distance: Float? = null
+    var verticalAlign: String? = null
+    var x: Float? = null
+    var y: Float? = null
+    var color: String? = null
+    var backgroundColor: String? = null
+    var borderColor: String? = null
+    var borderRadius: Float? = null
+    var borderWidth: Float? = null
+    var shape: String? = null
 
     fun enabled(prop: Boolean?): AADataLabels {
         enabled = prop

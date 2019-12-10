@@ -549,5 +549,78 @@ function () {
                 .tooltip(aaTooltip)
                 .series(arrayOf(aaSeriesElement1, aaSeriesElement2))
         }
+
+         fun customArearangeChartTooltip():AAOptions {
+          val aaChartModel =  AAChartModel()
+                .chartType(AAChartType.Areasplinerange)
+                .title("Area spline range chart")
+                .subtitle("virtual data")
+                .yAxisTitle("℃")
+                .series(arrayOf(
+                    AASeriesElement()
+                        .name("2020")
+                        .data(arrayOf(
+                            /* 2014-06-01 */
+                            arrayOf(140158080, 5.1,  20.6),
+                            arrayOf(140166720, 6.6,  24.6),
+                            arrayOf(140175360, 9.7,  22.2),
+                            arrayOf(140184000, 9.6,  21.6),
+                            arrayOf(140192640, 13.0, 20.0),
+                            arrayOf(140201280, 12.9, 18.2),
+                            arrayOf(140209920, 8.5,  23.2),
+                            arrayOf(140218560, 9.2,  21.4),
+                            arrayOf(140227200, 10.5, 22.0),
+                            arrayOf(140235840, 7.3,  23.4),
+                            arrayOf(140244480, 12.1, 18.2),
+                            arrayOf(140253120, 11.1, 13.3),
+                            arrayOf(140261760, 10.0, 20.7),
+                            arrayOf(140270400, 5.8,  23.4),
+                            arrayOf(140279040, 7.4,  20.1),
+                            arrayOf(140287680, 10.3, 21.9),
+                            arrayOf(140296320, 7.8,  16.8),
+                            arrayOf(140304960, 11.6, 19.7),
+                            arrayOf(140313600, 9.8,  16.0),
+                            arrayOf(140322240, 10.7, 14.4),
+                            arrayOf(140330880, 9.0,  15.5),
+                            arrayOf(140339520, 5.1,  13.3),
+                            arrayOf(140348160, 10.0, 19.3),
+                            arrayOf(140356800, 5.2,  22.1),
+                            arrayOf(140365440, 6.3,  21.3),
+                            arrayOf(140374080, 5.5,  21.1),
+                            arrayOf(140382720, 8.4,  19.7),
+                            arrayOf(140391360, 7.1,  23.3),
+                            arrayOf(140400000, 6.1,  20.8),
+                            arrayOf(140408640, 8.4,  22.6)
+                        )
+                        ))
+                )
+             val aaOptions = AAOptionsConstructor.configureChartOptions(aaChartModel)
+
+             aaOptions.tooltip!!
+                 .useHTML(true)
+                 .formatter("""
+           function () {
+            var myPointOptions = this.points[0].point.options;
+            var xValue = myPointOptions.x;
+            var lowValue = myPointOptions.low;
+            var highValue = myPointOptions.high;
+            var titleStr = '🌕 this is my custom tooltip description text content <br>';
+            var xValueStr = '🌖 this is x value  : ' + xValue + '<br>';
+            var lowValueStr = ' 🌗 this is low value  : ' + lowValue + '<br>';
+            var highValueStr = '🌘 this is high value : ' + highValue + '<br>';
+            var tooltipDescStr =  titleStr + xValueStr + lowValueStr + highValueStr;
+            return tooltipDescStr;
+        }
+                 """.trimIndent()
+                 )
+                 .backgroundColor("#000000")
+                 .borderColor("#000000")
+                 .style(AAStyle()
+                         .color("#FFD700")
+                         .fontSize(12f)
+                 )
+
+             return aaOptions
+         }
     }
 }

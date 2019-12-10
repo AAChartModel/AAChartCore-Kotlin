@@ -33,6 +33,8 @@ import com.aachartmodel.aainfographics.AAInfographicsLib.AAOptionsModel.AAOption
 import com.aachartmodel.aainfographics.ChartsDemo.ChartComposer.ChartOptionsComposer.Companion.customChartLegendStyle
 import com.aachartmodel.aainfographics.ChartsDemo.ChartComposer.ChartOptionsComposer.Companion.configureAAPlotBandsForChart
 import com.aachartmodel.aainfographics.ChartsDemo.ChartComposer.ChartOptionsComposer.Companion.configureAAPlotLinesForChart
+import com.aachartmodel.aainfographics.ChartsDemo.ChartComposer.ChartOptionsComposer.Companion.configureDoubleYAxesAndColumnLineMixedChart
+import com.aachartmodel.aainfographics.ChartsDemo.ChartComposer.ChartOptionsComposer.Companion.configureDoubleYAxesMarketDepthChart
 import com.aachartmodel.aainfographics.ChartsDemo.ChartComposer.ChartOptionsComposer.Companion.configureDoubleYAxisChartOptions
 import com.aachartmodel.aainfographics.ChartsDemo.ChartComposer.ChartOptionsComposer.Companion.configureTheMirrorColumnChart
 import com.aachartmodel.aainfographics.ChartsDemo.ChartComposer.ChartOptionsComposer.Companion.configureTripleYAxesMixedChart
@@ -41,6 +43,8 @@ import com.aachartmodel.aainfographics.ChartsDemo.ChartComposer.ChartOptionsComp
 import com.aachartmodel.aainfographics.ChartsDemo.ChartComposer.ChartOptionsComposer.Companion.configureXAxisPlotBand
 import com.aachartmodel.aainfographics.ChartsDemo.ChartComposer.ChartOptionsComposer.Companion.configure_DataLabels_XAXis_YAxis_Legend_Style
 import com.aachartmodel.aainfographics.ChartsDemo.ChartComposer.ChartOptionsComposer.Companion.customAATooltipWithJSFunction
+import com.aachartmodel.aainfographics.ChartsDemo.ChartComposer.ChartOptionsComposer.Companion.customAreaChartTooltipStyleLikeHTMLTable
+import com.aachartmodel.aainfographics.ChartsDemo.ChartComposer.ChartOptionsComposer.Companion.customLineChartDataLabelsFormat
 import com.aachartmodel.aainfographics.ChartsDemo.ChartComposer.ChartOptionsComposer.Companion.customXAxisCrosshairStyle
 import com.aachartmodel.aainfographics.R
 import com.aachartmodel.aainfographics.aainfographicsLib.aachartConfiger.AAChartView
@@ -75,6 +79,10 @@ class DrawChartWithAAOptionsActivity : AppCompatActivity() {
             "configureTheMirrorColumnChart" -> return configureTheMirrorColumnChart()
             "configureDoubleYAxisChartOptions" -> return configureDoubleYAxisChartOptions()
             "configureTripleYAxesMixedChart" -> return configureTripleYAxesMixedChart()
+            "customLineChartDataLabelsFormat"-> return customLineChartDataLabelsFormat()
+            "configureDoubleYAxesAndColumnLineMixedChart"-> return configureDoubleYAxesAndColumnLineMixedChart()
+            "configureDoubleYAxesMarketDepthChart"-> return configureDoubleYAxesMarketDepthChart()
+            "customAreaChartTooltipStyleLikeHTMLTable"-> return customAreaChartTooltipStyleLikeHTMLTable()
         }
         return configureAAPlotBandsForChart()
     }

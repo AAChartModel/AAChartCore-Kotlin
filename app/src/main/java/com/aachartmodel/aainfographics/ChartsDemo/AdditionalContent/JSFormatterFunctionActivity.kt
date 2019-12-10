@@ -34,6 +34,7 @@ import com.aachartmodel.aainfographics.ChartsDemo.ChartComposer.CustomTooltipCom
 import com.aachartmodel.aainfographics.ChartsDemo.ChartComposer.CustomTooltipComposer.Companion.customAreaChartTooltipStyleWithFormatterFunction2
 import com.aachartmodel.aainfographics.ChartsDemo.ChartComposer.CustomTooltipComposer.Companion.customAreaChartTooltipStyleWithFormatterFunction3
 import com.aachartmodel.aainfographics.ChartsDemo.ChartComposer.CustomTooltipComposer.Companion.customAreaChartTooltipStyleWithFormatterFunction4
+import com.aachartmodel.aainfographics.ChartsDemo.ChartComposer.CustomTooltipComposer.Companion.customArearangeChartTooltip
 import com.aachartmodel.aainfographics.ChartsDemo.ChartComposer.CustomTooltipComposer.Companion.customBoxplotTooltipContent
 import com.aachartmodel.aainfographics.ChartsDemo.ChartComposer.CustomTooltipComposer.Companion.customDoubleXAxesChart
 import com.aachartmodel.aainfographics.ChartsDemo.ChartComposer.CustomTooltipComposer.Companion.customStackedAndGroupedColumnChartTooltip
@@ -68,6 +69,8 @@ class JSFormatterFunctionActivity : AppCompatActivity() {
             "customYAxisLabels2" -> return customYAxisLabels2()
             "customStackedAndGroupedColumnChartTooltip" -> return customStackedAndGroupedColumnChartTooltip()
             "customDoubleXAxesChart" -> return customDoubleXAxesChart()
+            "customArearangeChartTooltip" -> return customArearangeChartTooltip()
+
         }
         return customAreaChartTooltipStyleWithFormatterFunction1()
     }

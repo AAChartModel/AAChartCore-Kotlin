@@ -31,7 +31,6 @@ package com.example.chartcorekotlin.AAChartConfiger
 import com.aachartmodel.aainfographics.AAInfographicsLib.AAOptionsModel.AADataLabels
 import com.aachartmodel.aainfographics.AAInfographicsLib.AAOptionsModel.AAMarker
 import com.aachartmodel.aainfographics.AAInfographicsLib.AAOptionsModel.AATooltip
-import java.util.Dictionary
 
 /**
  * Created by anan on 2018/4/16.
@@ -44,6 +43,7 @@ class AASeriesElement {
     private var name: String? = null
     private var data: Array<Any>? = null
     private var lineWidth: Float? = null//折线图、曲线图、直方折线图、折线填充图、曲线填充图、直方折线填充图的线条宽度
+    private var borderWidth: Float? = null
     private var color: Any? = null
     private var fillColor: Any? = null
     private var fillOpacity: Float? = null//折线填充图、曲线填充图、直方折线填充图等填充图类型的填充颜色透明度
@@ -81,6 +81,11 @@ class AASeriesElement {
 
     fun lineWidth(prop: Float?): AASeriesElement {
         lineWidth = prop
+        return this
+    }
+
+    fun borderWidth(prop: Float): AASeriesElement {
+        borderWidth = prop
         return this
     }
 

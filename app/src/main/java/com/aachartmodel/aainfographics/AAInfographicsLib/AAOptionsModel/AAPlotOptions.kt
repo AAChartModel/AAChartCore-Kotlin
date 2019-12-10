@@ -73,24 +73,24 @@ class AAPlotOptions {
 }
 
 class AAColumn {
-    private var name: String? = null
-    private var data: Array<Any>? = null
-    private var color: String? = null
-    private var grouping: Boolean? =
+    var name: String? = null
+    var data: Array<Any>? = null
+    var color: String? = null
+    var grouping: Boolean? =
         null//Whether to group non-stacked columns or to let them render independent of each other. Non-grouped columns will be laid out individually and overlap each other. 默认是：true.
-    private var pointPadding: Float? =
+    var pointPadding: Float? =
         null//Padding between each column or bar, in x axis units. 默认是：0.1.
-    private var pointPlacement: Float? =
+    var pointPlacement: Float? =
         null//Padding between each column or bar, in x axis units. 默认是：0.1.
-    private var groupPadding: Float? =
+    var groupPadding: Float? =
         null//Padding between each value groups, in x axis units. 默认是：0.2.
-    private var borderWidth: Float? = null
-    private var colorByPoint: Boolean? =
+    var borderWidth: Float? = null
+    var colorByPoint: Boolean? =
         null//对每个不同的点设置颜色(当图表类型为 AAColumn 时,设置为 AAColumn 对象的属性,当图表类型为 bar 时,应该设置为 bar 对象的属性才有效)
-    private var dataLabels: AADataLabels? = null
-    private var stacking: String? = null
-    private var borderRadius: Float? = null
-    private var yAxis: Float? = null
+    var dataLabels: AADataLabels? = null
+    var stacking: String? = null
+    var borderRadius: Float? = null
+    var yAxis: Float? = null
 
     fun name(prop: String): AAColumn {
         name = prop
@@ -160,24 +160,24 @@ class AAColumn {
 }
 
 class AABar {
-    private var name: String? = null
-    private var data: Array<Any>? = null
-    private var color: String? = null
-    private var grouping: Boolean? =
+    var name: String? = null
+    var data: Array<Any>? = null
+    var color: String? = null
+    var grouping: Boolean? =
         null//Whether to group non-stacked columns or to let them render independent of each other. Non-grouped columns will be laid out individually and overlap each other. 默认是：true.
-    private var pointPadding: Float? =
+    var pointPadding: Float? =
         null//Padding between each column or bar, in x axis units. 默认是：0.1.
-    private var pointPlacement: Float? =
+    var pointPlacement: Float? =
         null//Padding between each column or bar, in x axis units. 默认是：0.1.
-    private var groupPadding: Float? =
+    var groupPadding: Float? =
         null//Padding between each value groups, in x axis units. 默认是：0.2.
-    private var borderWidth: Float? = null
-    private var colorByPoint: Boolean? =
+    var borderWidth: Float? = null
+    var colorByPoint: Boolean? =
         null//对每个不同的点设置颜色(当图表类型为 AABar 时,设置为 AABar 对象的属性,当图表类型为 bar 时,应该设置为 bar 对象的属性才有效)
-    private var dataLabels: AADataLabels? = null
-    private var stacking: String? = null
-    private var borderRadius: Float? = null
-    private var yAxis: Float? = null
+    var dataLabels: AADataLabels? = null
+    var stacking: String? = null
+    var borderRadius: Float? = null
+    var yAxis: Float? = null
 
     fun name(prop: String): AABar {
         name = prop
@@ -248,7 +248,7 @@ class AABar {
 
 class AALine {
     var dataLabels: AADataLabels? = null
-    
+
     fun dataLabels(prop: AADataLabels): AALine {
         dataLabels = prop
         return this
@@ -257,7 +257,7 @@ class AALine {
 
 class AASpline {
     var dataLabels: AADataLabels? = null
-    
+
     fun dataLabels(prop: AADataLabels): AASpline {
         dataLabels = prop
         return this
@@ -266,7 +266,7 @@ class AASpline {
 
 class AAArea {
     var dataLabels: AADataLabels? = null
-    
+
     fun dataLabels(prop: AADataLabels): AAArea {
         dataLabels = prop
         return this
@@ -341,9 +341,9 @@ class AAPie {
 }
 
 class AAColumnrange {
-    private var borderRadius: Float? = null
-    private var borderWidth: Float? = null
-    private var dataLabels: AADataLabels? = null
+    var borderRadius: Float? = null
+    var borderWidth: Float? = null
+    var dataLabels: AADataLabels? = null
 
     fun borderRadius(prop: Float?): AAColumnrange {
         borderRadius = prop
@@ -362,7 +362,7 @@ class AAColumnrange {
 }
 
 class AAArearange {
-    private var dataLabels: AADataLabels? = null
+    var dataLabels: AADataLabels? = null
 
     fun dataLabels(prop: AADataLabels): AAArearange {
         dataLabels = prop

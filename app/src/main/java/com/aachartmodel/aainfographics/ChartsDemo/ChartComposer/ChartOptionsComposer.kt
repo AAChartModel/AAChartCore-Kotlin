@@ -800,5 +800,353 @@ function () {
                 .series(arrayOf(element1, element2, element3))
         }
 
+       fun customLineChartDataLabelsFormat(): AAOptions {
+            val aaChartModel = AAChartModel() //选择图表类型
+                .chartType(AAChartType.Line)
+                .colorsTheme(arrayOf("#465DBC")) //title标题
+                .title("最近三十分钟数据展示") //title字体大小
+                .titleFontSize(20f) //title字体颜色
+                .titleFontColor("#0F0F0F") //坐标轴字体颜色
+                .axesTextColor("#0F0F0F") //背景颜色
+                .zoomType(AAChartZoomType.XY)
+                .backgroundColor("#FFFFFF") //数据是否显示
+                .dataLabelsEnabled(true) //x轴是否显示数据
+                .xAxisLabelsEnabled(true) //x轴显示的数据间隔
+                .xAxisTickInterval(5) //y轴是否显示数据
+                .yAxisLabelsEnabled(true) //y轴标题
+                .yAxisTitle("湿度%") //y轴最大值
+                .yAxisMax(100.0f) //y轴最小值
+                .yAxisMin(0.0f)
+                .yAxisAllowDecimals(true) //y轴数据
+                .series(arrayOf(
+                        AASeriesElement()
+                            .name("湿度")
+                            .data(arrayOf(44.0999, 44.8880, 44.7770, 43.0066, 43.6660, 43.5550)
+                            )
+                    )
+                )
+            val aaOptions = AAOptionsConstructor.configureChartOptions(aaChartModel)
+            aaOptions.plotOptions?.line?.dataLabels?.format =
+                "{point.y:.4f} ℃" //保留 Y 轴值的小数点后 4 位
+            return aaOptions
+        }
+
+       fun configureDoubleYAxesAndColumnLineMixedChart(): AAOptions {
+            val stopsArr: Array<Any> = arrayOf(
+                    arrayOf(0.0, "rgba(156,107,211,0.5)"),
+                    arrayOf(0.2, "rgba(156,107,211,0.3)"),
+                    arrayOf(1.0, "rgba(156,107,211,0)")
+                )
+            val gradientColorDic1: Map<String, *> = AAGradientColor.linearGradient(
+                AALinearGradientDirection.ToBottom,
+                stopsArr
+            )
+            val gradientColorDic2: Map<String, *> = AAGradientColor.linearGradient(
+                AALinearGradientDirection.ToBottom,
+                "#956FD4",
+                "#3EACE5" //颜色字符串设置支持十六进制类型和 rgba 类型
+            )
+            val category = arrayOf(
+                "市区", "万州", "江北", "南岸", "北碚", "綦南", "长寿", "永川", "璧山", "江津",
+                "城口", "大足", "垫江", "丰都", "奉节", "合川", "江津区", "开州", "南川", "彭水",
+                "黔江", "石柱", "铜梁", "潼南", "巫山", "巫溪", "武隆", "秀山", "酉阳", "云阳",
+                "忠县", "川东", "检修"
+            )
+            val goalValuesArr = arrayOf(
+                18092, 20728, 24045, 28348, 32808
+                , 36097, 39867, 44715, 48444, 50415
+                , 56061, 62677, 59521, 67560, 18092, 20728, 24045, 28348, 32808
+                , 36097, 39867, 44715, 48444, 50415, 36097, 39867, 44715, 48444, 50415
+                , 50061, 32677, 49521, 32808
+            )
+            val realValuesArr = arrayOf(
+                4600, 5000, 5500, 6500, 7500
+                , 8500, 9900, 12500, 14000, 21500
+                , 23200, 24450, 25250, 33300, 4600, 5000, 5500, 6500, 7500
+                , 8500, 9900, 22500, 14000, 21500, 8500, 9900, 12500, 14000, 21500
+                , 23200, 24450, 25250, 7500
+            )
+            val rateValuesArr = arrayOfNulls<Any>(33) 
+            for (i in 0..32) {
+                val goalValue: Float = goalValuesArr[i].toFloat()
+                val realValue: Float = realValuesArr[i].toFloat()
+                val rateValue = realValue / goalValue
+                rateValuesArr[i] = rateValue
+            }
+            val aaChart = AAChart()
+                .backgroundColor("#191E40")
+            val aaTitle = AATitle()
+                .text("")
+            val aaLabels = AALabels()
+                .enabled(true)
+                .style(AAStyle()
+                        .color(AAColor.lightGrayColor())
+                )
+            val aaXAxis = AAXAxis()
+                .visible(true)
+                .labels(aaLabels)
+                .min(0f)
+                .categories(category)
+            val aaYAxisTitleStyle = AAStyle()
+                .color("#1e90ff") //Title font color
+                .fontSize(14f) //Title font size
+                .fontWeight(AAChartFontWeightType.Bold) //Title font weight
+                .textOutline("0px 0px contrast")
+            val yAxis1 = AAYAxis()
+                .visible(true)
+                .labels(aaLabels)
+                .gridLineWidth(0f)
+                .title(AATitle()
+                        .text("已贯通 / 计划贯通")
+                        .style(aaYAxisTitleStyle)
+                )
+            val yAxis2 = AAYAxis()
+                .visible(true)
+                .labels(aaLabels)
+                .gridLineWidth(0f)
+                .title(AATitle()
+                        .text("贯通率")
+                        .style(aaYAxisTitleStyle)
+                )
+                .opposite(true)
+            val aaTooltip = AATooltip()
+                .enabled(true)
+                .shared(true)
+            val aaPlotOptions = AAPlotOptions()
+                .series(
+                    AASeries()
+                        .animation(
+                            AAAnimation()
+                                .easing(AAChartAnimationType.EaseTo)
+                                .duration(1000)
+                        )
+                )
+                .column(AAColumn()
+                        .grouping(false)
+                        .pointPadding(0f)
+                        .pointPlacement(0f)
+                )
+            val aaLegend = AALegend()
+                .enabled(true)
+                .itemStyle(
+                    AAItemStyle()
+                        .color(AAColor.lightGrayColor())
+                )
+                .floating(true)
+                .layout(AAChartLayoutType.Horizontal)
+                .align(AAChartAlignType.Left)
+                .x(30f)
+                .verticalAlign(AAChartVerticalAlignType.Top)
+                .y(10f)
+            val goalValuesElement: AASeriesElement = AASeriesElement()
+                .name("计划贯通")
+                .type(AAChartType.Column)
+                .borderWidth(0f)
+                .color(gradientColorDic1)
+                .yAxis(0)
+                .data(goalValuesArr as Array<Any>)
+            val realValuesElement: AASeriesElement = AASeriesElement()
+                .name("已贯通")
+                .type(AAChartType.Column)
+                .borderWidth(0f)
+                .color(gradientColorDic2)
+                .yAxis(0)
+                .data(realValuesArr as Array<Any>)
+            val rateValuesElement = AASeriesElement()
+                .name("贯通率")
+                .type(AAChartType.Line)
+                .marker(
+                    AAMarker()
+                        .radius(7f) //曲线连接点半径，默认是4
+                        .symbol(AAChartSymbolType.Circle.value) //曲线点类型："circle", "square", "diamond", "triangle","triangle-down"，默认是"circle"
+                        .fillColor("#ffffff") //点的填充色(用来设置折线连接点的填充色)
+                        .lineWidth(3f) //外沿线的宽度(用来设置折线连接点的轮廓描边的宽度)
+                        .lineColor("") //外沿线的颜色(用来设置折线连接点的轮廓描边颜色，当值为空字符串时，默认取数据点或数据列的颜色)
+                )
+                .color("#F02FC2")
+                .yAxis(1)
+                .data(rateValuesArr as Array<Any>)
+            return AAOptions()
+                .chart(aaChart)
+                .title(aaTitle)
+                .xAxis(aaXAxis)
+                .yAxisArray(arrayOf(yAxis1, yAxis2))
+                .tooltip(aaTooltip)
+                .plotOptions(aaPlotOptions)
+                .legend(aaLegend)
+                .series(arrayOf(
+                        goalValuesElement,
+                        realValuesElement,
+                        rateValuesElement
+                    )
+                )
+        }
+
+       fun configureDoubleYAxesMarketDepthChart(): AAOptions {
+            val aaChart = AAChart()
+                .type(AAChartType.Area)
+            val aaTitle = AATitle()
+                .text("ETH-BTC 市场深度图")
+            val aaSubtitle = AASubtitle()
+                .text("数据来源: https://github.com/AAChartModel")
+            val aaXAxis = AAXAxis()
+                .visible(true)
+                .plotLines(arrayOf(
+                        AAPlotLinesElement()
+                            .color(AAColor.redColor())
+                            .value(0.1523f)
+                            .width(1.5f)
+                            .label(
+                                AALabel()
+                                    .text("实际价格")
+                                    .style(AAChartLineDashStyleType.ShortDashDotDot) //                                .rotation(90)
+                            )
+                    )
+                )
+            val yAxis1 = AAYAxis()
+                .visible(true)
+                .lineWidth(1f)
+                .title(AATitle()
+                        .text("")
+                )
+                .tickWidth(1f)
+                .tickLength(5f)
+                .tickPosition("inside")
+                .gridLineWidth(1f)
+                .labels(AALabels()
+                        .enabled(true) //设置 y 轴是否显示数字
+                        .align(AAChartAlignType.Left)
+                        .x(8f)
+                )
+            val yAxis2 = AAYAxis()
+                .opposite(true)
+                .visible(true)
+                .lineWidth(1f)
+                .title(AATitle()
+                        .text("")
+                )
+                .tickWidth(1f)
+                .tickLength(5f)
+                .tickPosition("inside")
+                .gridLineWidth(0f)
+                .labels(AALabels()
+                        .enabled(true) //设置 y 轴是否显示数字
+                        .align(AAChartAlignType.Right)
+                        .x(-8f)
+                )
+            val aaTooltip = AATooltip()
+                .enabled(true)
+                .headerFormat("<span style=\\\"font-size=10px;\\\">Price: {point.key}</span><br/>")
+                .valueDecimals(2)
+            val aaLegend = AALegend()
+                .enabled(false)
+            val element1 = AASeriesElement()
+                .name("Bids")
+                .color("#04d69f")
+                .step(true)
+                .data(arrayOf(
+                        arrayOf(0.1524, 0.948665),
+                        arrayOf(0.1539, 35.510715),
+                        arrayOf(0.154, 39.883437),
+                        arrayOf(0.1541, 40.499661),
+                        arrayOf(0.1545, 43.262994000000006),
+                        arrayOf(0.1547, 60.14799400000001),
+                        arrayOf(0.1553, 60.30799400000001),
+                        arrayOf(0.1558, 60.55018100000001),
+                        arrayOf(0.1564, 68.381696),
+                        arrayOf(0.1567, 69.46518400000001),
+                        arrayOf(0.1569, 69.621464),
+                        arrayOf(0.157, 70.398015),
+                        arrayOf(0.1574, 70.400197),
+                        arrayOf(0.1575, 73.199217),
+                        arrayOf(0.158, 77.700017),
+                        arrayOf(0.1583, 79.449017),
+                        arrayOf(0.1588, 79.584064),
+                        arrayOf(0.159, 80.584064),
+                        arrayOf(0.16, 81.58156),
+                        arrayOf(0.1608, 83.38156)
+                    )
+                )
+            val element2 = AASeriesElement()
+                .name("Asks")
+                .color("#1e90ff")
+                .step(true)
+                .data(arrayOf(
+                        arrayOf(0.1435, 242.521842),
+                        arrayOf(0.1436, 206.49862099999999),
+                        arrayOf(0.1437, 205.823735),
+                        arrayOf(0.1438, 197.33275),
+                        arrayOf(0.1439, 153.677454),
+                        arrayOf(0.144, 146.007722),
+                        arrayOf(0.1442, 82.55212900000001),
+                        arrayOf(0.1443, 59.152814000000006),
+                        arrayOf(0.1444, 57.942260000000005),
+                        arrayOf(0.1445, 57.483850000000004),
+                        arrayOf(0.1446, 52.39210800000001),
+                        arrayOf(0.1447, 51.867208000000005),
+                        arrayOf(0.1448, 44.104697),
+                        arrayOf(0.1449, 40.131217),
+                        arrayOf(0.145, 31.878217),
+                        arrayOf(0.1451, 22.794916999999998),
+                        arrayOf(0.1453, 12.345828999999998),
+                        arrayOf(0.1454, 10.035642),
+                        arrayOf(0.148, 9.326642),
+                        arrayOf(0.1522, 3.76317)
+                    )
+                )
+            return AAOptions()
+                .chart(aaChart)
+                .title(aaTitle)
+                .subtitle(aaSubtitle)
+                .xAxis(aaXAxis)
+                .yAxisArray(arrayOf(yAxis1, yAxis2))
+                .tooltip(aaTooltip)
+                .legend(aaLegend)
+                .series(arrayOf(element1, element2))
+        }
+
+       fun customAreaChartTooltipStyleLikeHTMLTable(): AAOptions {
+            val element1 = AASeriesElement()
+                .name("Predefined symbol")
+                .data(arrayOf(0.45, 0.43, 0.50, 0.55, 0.58, 0.62, 0.83, 0.39, 0.56, 0.67, 0.50, 0.34, 0.50, 0.67, 0.58, 0.29, 0.46, 0.23, 0.47, 0.46, 0.38, 0.56, 0.48, 0.36))
+
+            val element2 = AASeriesElement()
+                .name("Image symbol")
+                .data(arrayOf(0.38, 0.31, 0.32, 0.32, 0.64, 0.66, 0.86, 0.47, 0.52, 0.75, 0.52, 0.56, 0.54, 0.60, 0.46, 0.63, 0.54, 0.51, 0.58, 0.64, 0.60, 0.45, 0.36, 0.67))
+
+            val element3 = AASeriesElement()
+                .name("Base64 symbol (*)")
+                .data(arrayOf(0.46, 0.32, 0.53, 0.58, 0.86, 0.68, 0.85, 0.73, 0.69, 0.71, 0.91, 0.74, 0.60, 0.50, 0.39, 0.67, 0.55, 0.49, 0.65, 0.45, 0.64, 0.47, 0.63, 0.64))
+
+            val element4 = AASeriesElement()
+                .name("Custom symbol")
+                .data(arrayOf(0.60, 0.51, 0.52, 0.53, 0.64, 0.84, 0.65, 0.68, 0.63, 0.47, 0.72, 0.60, 0.65, 0.74, 0.66, 0.65, 0.71, 0.59, 0.65, 0.77, 0.52, 0.53, 0.58, 0.53))
+
+
+            val aaChartModel = AAChartModel()
+                .chartType(AAChartType.Areaspline) //图表类型
+                .title("") //图表主标题
+                .subtitle("") //图表副标题
+                .colorsTheme(arrayOf("#04d69f", "#1e90ff", "#ef476f", "#ffd066"))
+                .stacking(AAChartStackingType.Normal)
+                .yAxisTitle("") //设置 Y 轴标题
+                .yAxisVisible(false)
+                .markerRadius(0f)
+                .series(arrayOf(element1, element2, element3, element4))
+
+            val aaOptions = AAOptionsConstructor.configureChartOptions(aaChartModel)
+            aaOptions.tooltip!!
+                .shared(true)
+                .useHTML(true)
+                .headerFormat("<small>{point.key} 摄氏度</small><table>")
+                .pointFormat("<tr><td style=\\\"color: {series.color}\\\">{series.name}: </td>"
+                            + "<td style=\\\"text-align: right\\\"><b>{point.y}EUR</b></td></tr>"
+                )
+                .footerFormat("</table>")
+                .valueDecimals(2)
+            return aaOptions
+        }
+
+
     }
 }

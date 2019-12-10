@@ -9,6 +9,7 @@
 package com.aachartmodel.aainfographics.AAInfographicsLib.AAOptionsModel
 
 import com.aachartmodel.aainfographics.AAInfographicsLib.AAChartConfiger.AAJSStringPurer
+import com.example.chartcorekotlin.AAChartConfiger.AAChartAlignType
 
 
 class AALabels {
@@ -32,8 +33,8 @@ class AALabels {
      var y: Float? = null//相对于坐标轴刻度线的垂直平偏移。 默认是：null.
      var useHTML: Boolean? = null//HTML渲染
 
-    fun align(prop: String): AALabels {
-        align = prop
+    fun align(prop: AAChartAlignType): AALabels {
+        align = prop.value
         return this
     }
 
