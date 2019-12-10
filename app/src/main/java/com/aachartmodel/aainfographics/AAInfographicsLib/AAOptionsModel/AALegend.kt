@@ -13,10 +13,10 @@ import com.example.chartcorekotlin.AAChartConfiger.AAChartLayoutType
 import com.example.chartcorekotlin.AAChartConfiger.AAChartVerticalAlignType
 
 class AALegend {
-    private var layout: AAChartLayoutType? =
+    private var layout: String? =
         null //图例数据项的布局。布局类型： "horizontal" 或 "vertical" 即水平布局和垂直布局 默认是：horizontal.
-    private var align: AAChartAlignType? = null //设定图例在图表区中的水平对齐方式，合法值有left，center 和 right。
-    private var verticalAlign: AAChartVerticalAlignType? =
+    private var align: String? = null //设定图例在图表区中的水平对齐方式，合法值有left，center 和 right。
+    private var verticalAlign: String? =
         null //设定图例在图表区中的垂直对齐方式，合法值有 top，middle 和 bottom。垂直位置可以通过 y 选项做进一步设定。
     private var enabled: Boolean? = null
     private var borderColor: String? = null
@@ -28,17 +28,17 @@ class AALegend {
     private var floating:Boolean? = null
 
     fun layout(prop: AAChartLayoutType): AALegend {
-        layout = prop
+        layout = prop.value
         return this
     }
 
     fun align(prop: AAChartAlignType): AALegend {
-        align = prop
+        align = prop.value
         return this
     }
 
     fun verticalAlign(prop: AAChartVerticalAlignType): AALegend {
-        verticalAlign = prop
+        verticalAlign = prop.value
         return this
     }
 
