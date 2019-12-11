@@ -801,21 +801,34 @@ function () {
         }
 
        fun customLineChartDataLabelsFormat(): AAOptions {
-            val aaChartModel = AAChartModel() //选择图表类型
+            val aaChartModel = AAChartModel()
+                //选择图表类型
                 .chartType(AAChartType.Line)
-                .colorsTheme(arrayOf("#465DBC")) //title标题
-                .title("最近三十分钟数据展示") //title字体大小
-                .titleFontSize(20f) //title字体颜色
-                .titleFontColor("#0F0F0F") //坐标轴字体颜色
-                .axesTextColor("#0F0F0F") //背景颜色
+                .colorsTheme(arrayOf("#465DBC"))
+                //title标题
+                .title("最近三十分钟数据展示")
+                //title字体大小
+                .titleFontSize(20f)
+                //title字体颜色
+                .titleFontColor("#0F0F0F")
+                //坐标轴字体颜色
+                .axesTextColor("#0F0F0F")
+                //背景颜色
                 .zoomType(AAChartZoomType.XY)
-                .backgroundColor("#FFFFFF") //数据是否显示
-                .dataLabelsEnabled(true) //x轴是否显示数据
-                .xAxisLabelsEnabled(true) //x轴显示的数据间隔
-                .xAxisTickInterval(5) //y轴是否显示数据
-                .yAxisLabelsEnabled(true) //y轴标题
-                .yAxisTitle("湿度%") //y轴最大值
-                .yAxisMax(100.0f) //y轴最小值
+                .backgroundColor("#FFFFFF")
+                //数据是否显示
+                .dataLabelsEnabled(true)
+                //x轴是否显示数据
+                .xAxisLabelsEnabled(true)
+                //x轴显示的数据间隔
+                .xAxisTickInterval(5)
+                //y轴是否显示数据
+                .yAxisLabelsEnabled(true)
+                //y轴标题
+                .yAxisTitle("湿度%")
+                //y轴最大值
+                .yAxisMax(100.0f)
+                //y轴最小值
                 .yAxisMin(0.0f)
                 .yAxisAllowDecimals(true) //y轴数据
                 .series(arrayOf(
