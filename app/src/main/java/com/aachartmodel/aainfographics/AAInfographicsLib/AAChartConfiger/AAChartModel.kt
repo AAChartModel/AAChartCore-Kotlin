@@ -83,7 +83,9 @@ enum class AAChartType(val value: String) {
     Areasplinerange ("areasplinerange"),
     Boxplot         ("boxplot"),
     Waterfall       ("waterfall"),
-    Polygon         ("polygon")
+    Polygon         ("polygon"),
+    Gauge           ("gauge"),
+    Errorbar        ("errorbar"),
 }
 
 enum class AAChartZoomType(val value: String) {
