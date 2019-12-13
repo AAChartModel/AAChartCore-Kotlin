@@ -36,6 +36,7 @@ package com.aachartmodel.aainfographics.aainfographicsLib.aachartConfiger
 import android.content.Context
 import android.os.Build
 import android.support.annotation.RequiresApi
+import android.support.v7.app.AlertDialog
 import android.util.AttributeSet
 import android.util.Log
 import android.webkit.JavascriptInterface
@@ -44,6 +45,7 @@ import android.webkit.WebChromeClient
 import android.webkit.WebResourceRequest
 import android.webkit.WebView
 import android.webkit.WebViewClient
+import com.aachartmodel.aainfographics.AAInfographicsLib.AAChartConfiger.AAJSStringPurer
 import com.aachartmodel.aainfographics.AAInfographicsLib.AAOptionsModel.AAOptions
 import com.example.chartcorekotlin.AAChartConfiger.AAChartModel
 import com.example.chartcorekotlin.AAChartConfiger.AAOptionsConstructor
@@ -53,6 +55,7 @@ import com.google.gson.Gson
 import com.google.gson.internal.LinkedTreeMap
 
 import java.util.HashMap
+
 
 class AAMoveOverEventMessageModel {
     var name: String? = null
@@ -65,15 +68,6 @@ class AAMoveOverEventMessageModel {
 
 
 class AAChartView : WebView {
-
-    var contentWidth: Float? = null
-    var contentHeight: Float? = null
-    var chartSeriesHidden: Boolean? = null
-    var callBack: AAChartViewCallBack? = null
-
-
-    private val optionsJson: String? = null
-
     interface AAChartViewCallBack {
         fun chartViewDidFinishLoad(aaChartView: AAChartView)
         fun chartViewMoveOverEventMessage(
@@ -82,108 +76,245 @@ class AAChartView : WebView {
         )
     }
 
-    constructor(context: Context) : super(context) {
-        sharedConstructor()
-    }
-
-    constructor(context: Context, attrs: AttributeSet) : super(context, attrs) {
-        sharedConstructor()
-    }
-
-    constructor(context: Context, attrs: AttributeSet, defStyleAttr: Int) : super(
-        context,
-        attrs,
-        defStyleAttr
-    ) {
-        sharedConstructor()
-    }
-
-    private fun sharedConstructor() {
-        // Do some initialize work.
-        this.contentWidth = 320f
-        this.contentHeight = 350f
-        //        //设置WebView支持JavaScript(这一句是十分关键的一句)
-        this.settings.javaScriptEnabled = true
-//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-//            this.setWebContentsDebuggingEnabled(true)
+    var contentWidth: Float? = null
+        set(value) {
+            field = value
+            val jsStr = ("setTheChartViewContentWidth('"
+                    + field + "')")
+            safeEvaluateJavaScriptString(jsStr)
+        }
+    var contentHeight: Float? = null
+        set(value) {
+            field = value
+            val jsStr = ("setTheChartViewContentHeight('"
+                    + field + "')")
+            safeEvaluateJavaScriptString(jsStr)
+        }
+    var chartSeriesHidden: Boolean? = null
+        set(value) {
+            field = value
+            val jsStr = ("setChartSeriesHidden('"
+                    + field + "')")
+            safeEvaluateJavaScriptString(jsStr)
+        }
+    var isClearBackgroundColor: Boolean? = null
+//        set(value) {
+//            field = value
+//            if (field!!) {
+//                setBackgroundColor(0)
+//                this.background.alpha = 0
+//            } else {
+//                setBackgroundColor(1)
+//                this.background.alpha = 255
+//            }
 //        }
-        //把当前对象作为androidObject别名传递给js
-        //js通过window.androidObject.androidMethod()就可以直接调用安卓的androidMethod方法
-        this.addJavascriptInterface(this, "androidObject")
+    var callBack: AAChartViewCallBack? = null
+
+
+    private var optionsJson: String? = null
+
+    constructor(
+        context: Context?
+    ) : super(context) {
+        setupBasicContent()
     }
 
+    constructor(
+        context: Context?,
+        attrs: AttributeSet?
+    ) : super(context, attrs) {
+        setupBasicContent()
+    }
+
+    constructor(
+        context: Context?,
+        attrs: AttributeSet?,
+        defStyleAttr: Int
+    ) : super(context, attrs, defStyleAttr) {
+        setupBasicContent()
+    }
+
+    private fun setupBasicContent() { // Do some initialize work.
+        contentWidth = 420f
+        contentHeight = 580f
+        isClearBackgroundColor = false
+        this.settings.javaScriptEnabled = true
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            setWebContentsDebuggingEnabled(true)
+        }
+        //把当前对象作为androidObject别名传递给js
+//js通过window.androidObject.androidMethod()就可以直接调用安卓的androidMethod方法
+        addJavascriptInterface(this, "androidObject")
+    }
 
     //js调用安卓，必须加@JavascriptInterface注释的方法才可以被js调用
     @JavascriptInterface
-    fun androidMethod(message: String): String {
+    fun androidMethod(message: String?): String {
         val gson = Gson()
-        var messageBody: Map<*, *> = HashMap<String, Any>()
+        var messageBody: Map<*, *> =
+            HashMap<String, Any>()
         messageBody = gson.fromJson(message, messageBody.javaClass)
-        val eventMessageModel = getEventMessageModel(messageBody)
+        val eventMessageModel: AAMoveOverEventMessageModel = getEventMessageModel(messageBody)
         if (callBack != null) {
             callBack!!.chartViewMoveOverEventMessage(this, eventMessageModel)
         }
-        println("显示总共调用了几次")
-
+        //       Log.i("androidMethod","++++++++++++++++显示总共调用了几次");
         return ""
     }
 
-    internal fun getEventMessageModel(messageBody: Map<*, *>): AAMoveOverEventMessageModel {
-        val eventMessageModel = AAMoveOverEventMessageModel()
-        eventMessageModel.name = messageBody["name"].toString()
-        eventMessageModel.x = messageBody["x"] as Double
-        eventMessageModel.y = messageBody["y"] as Double
-        eventMessageModel.category = messageBody["category"].toString()
-        eventMessageModel.offset = messageBody["offset"] as LinkedTreeMap<*, *>
-        eventMessageModel.index = messageBody["index"] as Double
-        return eventMessageModel
-    }
-
     fun aa_drawChartWithChartModel(chartModel: AAChartModel) {
-        val aaOptions = AAOptionsConstructor.configureChartOptions(chartModel)
-        this.aa_drawChartWithChartOptions(aaOptions)
-    }
-
-    fun aa_onlyRefreshTheChartDataWithChartModelSeriesArray(seriesElementsArr: Array<AASeriesElement>) {
-        this.aa_onlyRefreshTheChartDataWithChartOptionsSeriesArray(seriesElementsArr)
+        val aaOptions: AAOptions = AAOptionsConstructor.configureChartOptions(chartModel)
+        aa_drawChartWithChartOptions(aaOptions)
     }
 
     fun aa_refreshChartWithChartModel(chartModel: AAChartModel) {
-        val aaOptions = AAOptionsConstructor.configureChartOptions(chartModel)
-        this.aa_refreshChartWithChartOptions(aaOptions)
+        val aaOptions: AAOptions = AAOptionsConstructor.configureChartOptions(chartModel)
+        aa_refreshChartWithChartOptions(aaOptions)
     }
 
     fun aa_drawChartWithChartOptions(chartOptions: AAOptions) {
+        if (optionsJson != null) {
+            aa_refreshChartWithChartOptions(chartOptions)
+        } else {
+            loadLocalFilesAndDrawChart(chartOptions)
+            showJavaScriptAlertView()
+        }
+    }
+
+    fun aa_refreshChartWithChartOptions(chartOptions: AAOptions) {
+        configureChartOptionsAndDrawChart(chartOptions)
+    }
+
+    fun aa_onlyRefreshTheChartDataWithChartOptionsSeriesArray(seriesElementsArr: Array<AASeriesElement?>?) {
+        val gson = Gson()
+        val seriesArr = gson.toJson(seriesElementsArr)
+        val javaScriptStr = ("onlyRefreshTheChartDataWithSeries('"
+                + seriesArr + "')")
+        safeEvaluateJavaScriptString(javaScriptStr)
+    }
+
+    fun aa_updateChartWithOptions(
+        options: Any,
+        redraw: Boolean
+    ) {
+        var classNameStr = options.javaClass.simpleName
+        classNameStr = classNameStr.replace("AA", "")
+        //convert fist character to be lowercase string
+        val firstChar = classNameStr.substring(0, 1)
+        val lowercaseFirstStr = firstChar.toLowerCase()
+        classNameStr = classNameStr.substring(1)
+        val finalClassName = lowercaseFirstStr + classNameStr
+        val finalOptionsMap = HashMap<Any?, Any?>()
+        finalOptionsMap[finalClassName] = options
+        val optionsStr = Gson().toJson(finalOptionsMap)
+        val javaScriptStr = "updateChart('$optionsStr','$redraw')"
+        safeEvaluateJavaScriptString(javaScriptStr)
+    }
+
+    @JvmOverloads
+    fun aa_addPointToChartSeriesElement(
+        elementIndex: Int,
+        options: Any,
+        shift: Boolean =
+            true
+    ) {
+        aa_addPointToChartSeriesElement(
+            elementIndex,
+            options,
+            true,
+            shift,
+            true
+        )
+    }
+
+    fun aa_addPointToChartSeriesElement(
+        elementIndex: Int,
+        options: Any,
+        redraw: Boolean,
+        shift: Boolean,
+        animation: Boolean
+    ) {
+        val optionsStr: String
+        optionsStr = if (options is Int
+            || options is Float
+            || options is Double
+        ) {
+            options.toString()
+        } else {
+            Gson().toJson(options)
+        }
+        val javaScriptStr = ("addPointToChartSeries('"
+                + elementIndex + "','"
+                + optionsStr + "','"
+                + redraw + "','"
+                + shift + "','"
+                + animation + "')")
+        safeEvaluateJavaScriptString(javaScriptStr)
+    }
+
+    fun aa_showTheSeriesElementContent(elementIndex: Int) {
+        val javaScriptStr = ("showTheSeriesElementContentWithIndex('"
+                + elementIndex + "')")
+        safeEvaluateJavaScriptString(javaScriptStr)
+    }
+
+    fun aa_hideTheSeriesElementContent(elementIndex: Int) {
+        val javaScriptStr = ("hideTheSeriesElementContentWithIndex('"
+                + elementIndex + "')")
+        safeEvaluateJavaScriptString(javaScriptStr)
+    }
+
+    fun aa_addElementToChartSeries(aaSeriesElement: AASeriesElement) {
+        val pureElementJsonStr = Gson().toJson(aaSeriesElement)
+        val javaScriptStr = ("addElementToChartSeriesWithElement('"
+                + pureElementJsonStr + "')")
+        safeEvaluateJavaScriptString(javaScriptStr)
+    }
+
+    fun aa_removeElementFromChartSeries(elementIndex: Int) {
+        val javaScriptStr = ("removeElementFromChartSeriesWithElementIndex('"
+                + elementIndex + "')")
+        safeEvaluateJavaScriptString(javaScriptStr)
+    }
+
+    fun aa_evaluateTheJavaScriptStringFunction(jsFunctionStr: String) {
+        val pureJSFunctionStr: String =
+            AAJSStringPurer.pureJavaScriptFunctionString(jsFunctionStr)
+        val jsFunctionNameStr = ("evaluateTheJavaScriptStringFunction('"
+                + pureJSFunctionStr + "')")
+        safeEvaluateJavaScriptString(jsFunctionNameStr)
+    }
+
+    private fun loadLocalFilesAndDrawChart(aaOptions: AAOptions) {
         this.loadUrl("file:///android_asset/AAChartView.html")
         this.webViewClient = object : WebViewClient() {
-            override fun onPageFinished(view: WebView, url: String) {
-                println("图表加载完成!!!!!!!! ")
+            override fun onPageFinished(
+                view: WebView,
+                url: String
+            ) { //                Log.i("js files load","图表加载完成!!!!!!!! ");
+                configureChartOptionsAndDrawChart(aaOptions)
                 if (callBack != null) {
                     callBack!!.chartViewDidFinishLoad(this@AAChartView)
                 }
-                configureChartOptionsAndDrawChart(chartOptions)
-            }
-
-            @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
-            override fun shouldOverrideUrlLoading(
-                view: WebView,
-                request: WebResourceRequest
-            ): Boolean {
-                super.shouldOverrideUrlLoading(view, request)
-                val urlStr = request.url.toString()
-                val jsBridgeName = "AAChartViewBridge".toLowerCase()
-                if (urlStr.startsWith(jsBridgeName)) {
-                    val message = urlStr.replace("$jsBridgeName://?", "")
-                    val gson = Gson()
-                    var messageBody: Map<*, *> = HashMap<String, Any>()
-                    messageBody = gson.fromJson(message, messageBody.javaClass)
-                }
-
-                return false
             }
         }
+    }
 
+    private fun configureChartOptionsAndDrawChart(chartOptions: AAOptions) {
+        if (isClearBackgroundColor!!) {
+            chartOptions.chart!!.backgroundColor("rgba(0,0,0,0)")
+        }
+        val gson = Gson()
+        val aaOptionsJsonStr = gson.toJson(chartOptions)
+        optionsJson = aaOptionsJsonStr
+        val javaScriptStr = ("loadTheHighChartView('"
+                + aaOptionsJsonStr + "','"
+                + contentWidth + "','"
+                + contentHeight + "')")
+        safeEvaluateJavaScriptString(javaScriptStr)
+    }
 
+    private fun showJavaScriptAlertView() {
         this.webChromeClient = object : WebChromeClient() {
             override fun onJsAlert(
                 view: WebView,
@@ -192,57 +323,38 @@ class AAChartView : WebView {
                 result: JsResult
             ): Boolean {
                 super.onJsAlert(view, url, message, result)
-
+                val urlStr = "url --->$url\n\n\n"
+                val messageStr = "message --->$message\n\n\n"
+                val resultStr = "result --->$result"
+                val alertMessageStr = urlStr + messageStr + resultStr
+                AlertDialog.Builder(context)
+                    .setTitle("JavaScript alert Information") //设置对话框标题
+                    .setMessage(alertMessageStr)
+                    .setNeutralButton("sure", null)
+                    .show()
                 return true
             }
         }
     }
 
-    fun aa_onlyRefreshTheChartDataWithChartOptionsSeriesArray(seriesElementsArr: Array<AASeriesElement>) {
-        // 将对象编译成json
-        val gson = Gson()
-        val seriesArr = gson.toJson(seriesElementsArr)
-        val javaScriptStr = "onlyRefreshTheChartDataWithSeries('$seriesArr')"
-        this.safeEvaluateJavaScriptString(javaScriptStr)
-    }
-
-    fun aa_refreshChartWithChartOptions(chartOptions: AAOptions) {
-        // 将对象编译成json
-        val gson = Gson()
-        val aaOptionsJsonStr = gson.toJson(chartOptions)
-        val javaScriptStr =
-            "loadTheHighChartView('$aaOptionsJsonStr','$contentWidth','$contentHeight')"
-        this.safeEvaluateJavaScriptString(javaScriptStr)
-    }
-
-    fun aa_showTheSeriesElementContent(elementIndex: Int?) {
-        val javaScriptStr = "showTheSeriesElementContentWithIndex('$elementIndex')"
-        this.safeEvaluateJavaScriptString(javaScriptStr)
-
-    }
-
-    fun aa_hideTheSeriesElementContent(elementIndex: Int?) {
-        val javaScriptStr = "hideTheSeriesElementContentWithIndex('$elementIndex')"
-        this.safeEvaluateJavaScriptString(javaScriptStr)
-    }
-
-    private fun configureChartOptionsAndDrawChart(chartOptions: AAOptions) {
-        // 将对象编译成json
-        val gson = Gson()
-        val aaOptionsJsonStr = gson.toJson(chartOptions)
-        val javaScriptStr = "loadTheHighChartView('$aaOptionsJsonStr','420','580')"
-        this.safeEvaluateJavaScriptString(javaScriptStr)
+    private fun getEventMessageModel(messageBody: Map<*, *>): AAMoveOverEventMessageModel {
+        val eventMessageModel = AAMoveOverEventMessageModel()
+        eventMessageModel.name = messageBody["name"].toString()
+        eventMessageModel.x = messageBody["x"] as Double?
+        eventMessageModel.y = messageBody["y"] as Double?
+        eventMessageModel.category = messageBody["category"].toString()
+        eventMessageModel.offset = messageBody["offset"] as LinkedTreeMap<*, *>?
+        eventMessageModel.index = messageBody["index"] as Double?
+        return eventMessageModel
     }
 
     private fun safeEvaluateJavaScriptString(javaScriptString: String) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            this.evaluateJavascript(
-                "javascript:$javaScriptString"
-            ) { s -> Log.i("回调信息", "输出打印查看回调的结果$s") }
+            evaluateJavascript("javascript:$javaScriptString") {
+                //                 Log.i("call back information","输出打印查看回调的结果"+ it);
+            }
         } else {
             this.loadUrl("javascript:$javaScriptString")
         }
     }
-
-
 }

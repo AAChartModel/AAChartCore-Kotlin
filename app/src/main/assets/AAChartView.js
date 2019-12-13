@@ -2,36 +2,24 @@
         var aaGlobalChart;
 
         function loadTheHighChartView (sender,receivedWidth, receivedHeight) {
-            var aaOptions = JSON.parse(sender);
+        var aaOptions = JSON.parse(sender);
             if (aaOptions.xAxisArray) {
-                    aaOptions.xAxis = aaOptions.xAxisArray
+                aaOptions.xAxis = aaOptions.xAxisArray
                 }
 
             if (aaOptions.yAxisArray) {
-                    aaOptions.yAxis = aaOptions.yAxisArray
+                aaOptions.yAxis = aaOptions.yAxisArray
                 }
+
 
             aaOptions.credits = {enabled:false};//去掉表格右下角版权信息
+
             if (aaOptions.plotOptions) {
-                    configurePlotOptions(aaOptions);
-                }
-            if (aaOptions.tooltip) {
-                    if (aaOptions.tooltip.formatter) {
-                        aaOptions.tooltip.formatter = eval(aaOptions.tooltip.formatter);
-                    }
+                configurePlotOptions(aaOptions);
                 }
 
-                    if (aaOptions.xAxis
-                                && aaOptions.xAxis.labels
-                                && aaOptions.xAxis.labels.formatter) {
-                                aaOptions.xAxis.labels.formatter = eval(aaOptions.xAxis.labels.formatter);
-                            }
+            configureOptionsFormatters(aaOptions);
 
-                            if (aaOptions.yAxis
-                                && aaOptions.yAxis.labels
-                                && aaOptions.yAxis.labels.formatter) {
-                                aaOptions.yAxis.labels.formatter = eval(aaOptions.yAxis.labels.formatter);
-                            }
             aaGlobalChart = Highcharts.chart('container', aaOptions);
            //全局配置(可通过全局配置设置主题)https://api.hcharts.cn/highcharts#Highcharts.setOptions
         };
@@ -45,13 +33,12 @@
                     }
                     // 添加鼠标事件
                     if (aaOptions.touchEventEnabled == true && aaPlotOptions.series) {
-                        configureChartTouchEvent(aaOptions);
+                        configureChartTouchEvent(aaPlotOptions);
                     }
                 }
 
-        function configureChartTouchEvent(aaOptions) {
+        function configureChartTouchEvent(aaPlotOptions) {
                     var mouseOverFunc = function(){
-                        //console.log(this)
                         var message = {
                             name: this.series.name,
                             y :this.y,
@@ -62,86 +49,109 @@
                         };
 
                         var messageStr = JSON.stringify(message);
-
-//                        alert("AAChartViewBridge://?"+ messageStr);
-
                         window.androidObject.androidMethod(messageStr);
-
-//                        overrideUrlLoading("AAChartViewBridge://?"+ messageStr);
-
                     };
 
-                    var seriesPoint = {
-                              events:{
-                                  mouseOver: mouseOverFunc,
-          //                      click: mouseOverFunc,
-                              }
-                             };
-                              aaOptions.plotOptions.series.point = seriesPoint;
+                         var seriesPoint = {
+                                    events:{
+                                        mouseOver: mouseOverFunc,
+                                    }
+                                   };
+                         aaPlotOptions.series.point = seriesPoint;
                 }
 
+        function configureOptionsFormatters(aaOptions) {
+            if (aaOptions.tooltip
+                && aaOptions.tooltip.formatter) {
+                aaOptions.tooltip.formatter = eval(aaOptions.tooltip.formatter);
+            }
 
-        function overrideUrlLoading(testOverrideUrlStr) {
-            alert(testOverrideUrlStr);
-            uiWebViewLoadURL(testOverrideUrlStr);
-        }
+            if (aaOptions.xAxis
+                && aaOptions.xAxis.labels
+                && aaOptions.xAxis.labels.formatter) {
+                aaOptions.xAxis.labels.formatter = eval(aaOptions.xAxis.labels.formatter);
+            }
 
-        function uiWebViewLoadURL(url) {
-            var iFrame;
-            iFrame = document.createElement("iframe");
-            iFrame.setAttribute("src", url);
-            iFrame.setAttribute("style", "display:none;");
-            iFrame.setAttribute("height", "0px");
-            iFrame.setAttribute("width", "0px");
-            iFrame.setAttribute("frameborder", "0");
-            document.body.appendChild(iFrame);
-            iFrame.parentNode.removeChild(iFrame);
-            iFrame = null;
-        }
-
-        function onlyRefreshTheChartDataWithSeries (receivedSeries) {
-            var receivedSeriesElementArr = JSON.parse(receivedSeries);
-
-            for (var i = 0; i < receivedSeriesElementArr.length; i++) {
-                var receivedSeriesData = receivedSeriesElementArr[i].data;
-                // 获取series
-                var chartSeries =  aaGlobalChart.series[i];
-                // 执行只刷新数据的函数
-                chartSeries.setData(receivedSeriesData);
+            if (aaOptions.yAxis
+                && aaOptions.yAxis.labels
+                && aaOptions.yAxis.labels.formatter) {
+                aaOptions.yAxis.labels.formatter = eval(aaOptions.yAxis.labels.formatter);
             }
         }
 
-          //pragma mark -- setter method 适应内容https://code.hcharts.cn/highcharts/4YM0a8
-        function setTheChartViewContentWidth (receivedWidth) {
-            var container = document.getElementById('container');//获得元素
-            container.style.width = receivedWidth;//设置宽度
+        function onlyRefreshTheChartDataWithSeries(receivedSeries) {
+            var receivedSeriesArr = JSON.parse(receivedSeries);
+            var seriesArrLength = receivedSeriesArr.length;
+            for (var i = 0; i < seriesArrLength; i++) {
+                var receivedSeriesElementData = receivedSeriesArr[i].data;
+                // 获取series
+                var seriesElement = aaGlobalChart.series[i];
+                // 执行只刷新数据的函数
+                seriesElement.setData(receivedSeriesElementData);
+            }
+        }
+
+        function updateChart(optionsStr, redraw) {
+            var options = JSON.parse(optionsStr);
+            aaGlobalChart.update(options,redraw);
+        }
+
+        function addPointToChartSeries(elementIndex, optionsStr, redraw, shift, animation) {
+            var options = JSON.parse(optionsStr);
+            var redrawBool = (redraw == "true") ? true:false;
+            var shiftBool = (shift == "true") ? true:false;
+            var animationBool = (animation == "true") ? true:false;
+
+            var seriesElement = aaGlobalChart.series[elementIndex];
+            seriesElement.addPoint(options, redrawBool, shiftBool, animationBool);
+        }
+
+        //pragma mark -- setter method
+        function setTheChartViewContentWidth(receivedWidth) {
+            var container = document.getElementById('container'); //获得元素
+            container.style.width = receivedWidth; //设置宽度
             aaGlobalChart.reflow();
         }
 
-        function setTheChartViewContentHeight (receivedHeight) {
-             var container = document.getElementById('container');//获得元素
-             container.style.height = receivedHeight;//设置高度
-             aaGlobalChart.reflow();
-
+        function setTheChartViewContentHeight(receivedHeight) {
+            var container = document.getElementById('container'); //获得元素
+            container.style.height = receivedHeight; //设置高度
+            aaGlobalChart.reflow();
         }
 
         function setChartSeriesHidden(hidden) {
-             for (var i = 0; i < aaGlobalChart.series.length; i++) {
-                  var series = aaGlobalChart.series[i];
-                     if (hidden == true) {
-                        series.hide();
-                     } else {
-                         series.show();
-                       }
-                   }
+            for (var i = 0; i < aaGlobalChart.series.length; i++) {
+                var seriesElement = aaGlobalChart.series[i];
+                if (hidden == true) {
+                    seriesElement.hide();
+                } else {
+                    seriesElement.show();
+                }
+            }
         }
 
-        function showTheSeriesElementContentWithIndex (elementIndex) {
-            var series = aaGlobalChart.series[elementIndex];
-            series.show();
+        function showTheSeriesElementContentWithIndex(elementIndex) {
+            var seriesElement = aaGlobalChart.series[elementIndex];
+            seriesElement.show();
         }
 
         function hideTheSeriesElementContentWithIndex(elementIndex) {
-            var series = aaGlobalChart.series[elementIndex];
-            series.hide();
+            var seriesElement = aaGlobalChart.series[elementIndex];
+            seriesElement.hide();
+        }
+
+        function addElementToChartSeriesWithElement(elementStr) {
+            var seriesElement = JSON.parse(elementStr);
+            aaGlobalChart.addSeries(seriesElement);
+        }
+
+        function removeElementFromChartSeriesWithElementIndex(elementIndex) {
+            var seriesElement = aaGlobalChart.series[elementIndex];
+            if (seriesElement) {
+                seriesElement.remove(true);
+            }
+        }
+
+        function evaluateTheJavaScriptStringFunction(jsStringFunction) {
+            eval(jsStringFunction);
         }
