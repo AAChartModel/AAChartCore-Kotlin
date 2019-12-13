@@ -34,15 +34,14 @@
 package com.aachartmodel.aainfographics.aainfographicsLib.aachartConfiger
 
 import android.content.Context
+import android.graphics.Color
+import android.graphics.drawable.Drawable
 import android.os.Build
-import android.support.annotation.RequiresApi
 import android.support.v7.app.AlertDialog
 import android.util.AttributeSet
-import android.util.Log
 import android.webkit.JavascriptInterface
 import android.webkit.JsResult
 import android.webkit.WebChromeClient
-import android.webkit.WebResourceRequest
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import com.aachartmodel.aainfographics.AAInfographicsLib.AAChartConfiger.AAJSStringPurer
@@ -98,16 +97,16 @@ class AAChartView : WebView {
             safeEvaluateJavaScriptString(jsStr)
         }
     var isClearBackgroundColor: Boolean? = null
-//        set(value) {
-//            field = value
-//            if (field!!) {
-//                setBackgroundColor(0)
-//                this.background.alpha = 0
-//            } else {
-//                setBackgroundColor(1)
-//                this.background.alpha = 255
-//            }
-//        }
+        set(value) {
+            field = value
+            if (field == true) {
+                setBackgroundColor(0)
+                this.background?.alpha = 0
+            } else {
+                setBackgroundColor(1)
+                this.background?.alpha = 255
+            }
+        }
     var callBack: AAChartViewCallBack? = null
 
 
