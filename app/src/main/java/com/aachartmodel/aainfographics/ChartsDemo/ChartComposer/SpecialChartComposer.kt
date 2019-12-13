@@ -27,9 +27,10 @@
  */
 package com.aachartmodel.aainfographics.ChartsDemo.ChartComposer
 
+import com.aachartmodel.aainfographics.AAInfographicsLib.AAOptionsModel.AATooltip
 import com.aachartmodel.aainfographics.AAInfographicsLib.AAOptionsModel.AAWaterfall
 import com.example.chartcorekotlin.AAChartConfiger.*
-import java.util.HashMap
+import java.util.*
 
 object SpecialChartComposer{
 
@@ -928,5 +929,49 @@ object SpecialChartComposer{
             )
             )
     }
+
+    fun configureErrobarChart(): AAChartModel? {
+        return AAChartModel()
+            .yAxisTitle("")
+            .categories(arrayOf(
+                    "一月", "二月", "三月", "四月", "五月", "六月",
+                    "七月", "八月", "九月", "十月", "十一月", "十二月"
+                ))
+            .series(arrayOf(
+                    AASeriesElement()
+                        .name("降水")
+                        .type(AAChartType.Column)
+                        .color("#06caf4")
+                        .data(arrayOf(49.9, 71.5, 106.4, 129.2, 144.0, 176.0,
+                            135.6, 148.5, 216.4, 194.1, 95.6, 54.4
+                            ))
+                    ,
+                    AASeriesElement()
+                        .name("降雨误差")
+                        .type(AAChartType.Errorbar)
+                        .lineWidth(2.5f)
+                        .color(AAColor.redColor())
+                        .data(arrayOf(
+                                arrayOf(48,   51),
+                                arrayOf(68,   73),
+                                arrayOf(92,  110),
+                                arrayOf(128, 136),
+                                arrayOf(140, 150),
+                                arrayOf(171, 179),
+                                arrayOf(135, 143),
+                                arrayOf(142, 149),
+                                arrayOf(204, 220),
+                                arrayOf(189, 199),
+                                arrayOf(95,  110),
+                                arrayOf(52,   56)
+                            )
+                        )
+                        .tooltip(AATooltip()
+                                .pointFormat("(误差范围: {point.low}-{point.high} mm)<br/>"))
+                )
+            )
+    }
+
+
 
 }

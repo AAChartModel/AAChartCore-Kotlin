@@ -69,6 +69,7 @@ class MainActivity : AppCompatActivity() {
         "Waterfall Chart--- 瀑布图",
         "Pyramid Chart---金字塔图",
         "Funnel Chart---漏斗图",
+        "Errorbar Chart---误差图",
         /*Mixed Chart---混合图*/
         "/*Mixed Chart---混合图*/arearangeMixedLine-----------------",
         "columnrangeMixedLine",
@@ -161,7 +162,7 @@ class MainActivity : AppCompatActivity() {
         AAChartType.Waterfall.value,
         AAChartType.Pyramid.value,
         AAChartType.Funnel.value,
-
+        AAChartType.Errorbar.value,
         /*Mixed Chart---混合图*/
         "arearangeMixedLine",
         "columnrangeMixedLine",
@@ -248,22 +249,31 @@ class MainActivity : AppCompatActivity() {
         listView.onItemClickListener =
             OnItemClickListener { adapter, view, position, id ->
                 println(position)
-                if (position <= 7) { /*基础类型图表*/
-                    goToCommonChartActivity(position)
-                } else if (position <= 19) { /*特殊类型图表*/
-                    goToSpecialChartActivity(position)
-                } else if (position <= 28) { /*Mixed Chart---混合图*/
-                    goToMixedChartActivity(position)
-                } else if (position <= 46) { /*自定义样式图表*/
-                    goToCustomStyleChartActivity(position)
-                } else if (position <= 62) { /*使用AAOptions绘制图表*/
-                    goToDrawChartWithAAOptionsActivity(position)
-                } else if (position <= 69) { /*隐藏或显示内容*/
-                    goToHideOrShowChartSeriesActivity(position)
-                } else if (position <= 80) { /*formatter js function*/
-                    goToCustomTooltipWithJSFunctionActivity(position)
-                } else { /*eval JS Function*/
-                    goToEvaluateJSStringFunctionActivity(position)
+                when {
+                    position <= 7 -> { /*基础类型图表*/
+                        goToCommonChartActivity(position)
+                    }
+                    position <= 20 -> { /*特殊类型图表*/
+                        goToSpecialChartActivity(position)
+                    }
+                    position <= 29 -> { /*Mixed Chart---混合图*/
+                        goToMixedChartActivity(position)
+                    }
+                    position <= 47 -> { /*自定义样式图表*/
+                        goToCustomStyleChartActivity(position)
+                    }
+                    position <= 63 -> { /*使用AAOptions绘制图表*/
+                        goToDrawChartWithAAOptionsActivity(position)
+                    }
+                    position <= 70 -> { /*隐藏或显示内容*/
+                        goToHideOrShowChartSeriesActivity(position)
+                    }
+                    position <= 81 -> { /*formatter js function*/
+                        goToCustomTooltipWithJSFunctionActivity(position)
+                    }
+                    else -> { /*eval JS Function*/
+                        goToEvaluateJSStringFunctionActivity(position)
+                    }
                 }
             }
     }
