@@ -8,8 +8,8 @@
  */
 package com.aachartmodel.aainfographics.AAInfographicsLib.AAOptionsModel
 
-import com.example.chartcorekotlin.AAChartConfiger.AAChartType
-import com.example.chartcorekotlin.AAChartConfiger.AAChartZoomType
+import com.aachartmodel.aainfographics.AAInfographicsLib.AAChartConfiger.AAChartType
+import com.aachartmodel.aainfographics.AAInfographicsLib.AAChartConfiger.AAChartZoomType
 
 class AAChart {
     private var type: String? = null

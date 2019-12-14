@@ -34,8 +34,6 @@
 package com.aachartmodel.aainfographics.aainfographicsLib.aachartConfiger
 
 import android.content.Context
-import android.graphics.Color
-import android.graphics.drawable.Drawable
 import android.os.Build
 import android.support.v7.app.AlertDialog
 import android.util.AttributeSet
@@ -44,11 +42,11 @@ import android.webkit.JsResult
 import android.webkit.WebChromeClient
 import android.webkit.WebView
 import android.webkit.WebViewClient
+import com.aachartmodel.aainfographics.AAInfographicsLib.AAChartConfiger.AAChartModel
 import com.aachartmodel.aainfographics.AAInfographicsLib.AAChartConfiger.AAJSStringPurer
+import com.aachartmodel.aainfographics.AAInfographicsLib.AAChartConfiger.AAOptionsConstructor
+import com.aachartmodel.aainfographics.AAInfographicsLib.AAChartConfiger.AASeriesElement
 import com.aachartmodel.aainfographics.AAInfographicsLib.AAOptionsModel.AAOptions
-import com.example.chartcorekotlin.AAChartConfiger.AAChartModel
-import com.example.chartcorekotlin.AAChartConfiger.AAOptionsConstructor
-import com.example.chartcorekotlin.AAChartConfiger.AASeriesElement
 
 import com.google.gson.Gson
 import com.google.gson.internal.LinkedTreeMap

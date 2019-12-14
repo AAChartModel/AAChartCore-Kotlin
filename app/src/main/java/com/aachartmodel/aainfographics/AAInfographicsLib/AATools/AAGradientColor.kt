@@ -25,7 +25,7 @@
  * -------------------------------------------------------------------------------
 
  */
-package com.example.chartcorekotlin.AAChartConfiger
+package com.aachartmodel.aainfographics.AAInfographicsLib.AAChartConfiger
 
 import java.util.HashMap
 

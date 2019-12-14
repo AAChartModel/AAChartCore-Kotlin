@@ -35,7 +35,8 @@
  */
 package com.aachartmodel.aainfographics.AAInfographicsLib.AAOptionsModel
 
-import com.example.chartcorekotlin.AAChartConfiger.AAChartLineDashStyleType
+import com.aachartmodel.aainfographics.AAInfographicsLib.AAChartConfiger.AAChartLineDashStyleType
+
 
 class AACrosshair {
     private var width: Float? = null

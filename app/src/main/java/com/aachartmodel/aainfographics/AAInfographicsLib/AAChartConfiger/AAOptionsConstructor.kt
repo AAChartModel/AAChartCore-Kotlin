@@ -32,7 +32,7 @@
  * -------------------------------------------------------------------------------
 
  */
-package com.example.chartcorekotlin.AAChartConfiger
+package com.aachartmodel.aainfographics.AAInfographicsLib.AAChartConfiger
 
 import com.aachartmodel.aainfographics.AAInfographicsLib.AAOptionsModel.*
 

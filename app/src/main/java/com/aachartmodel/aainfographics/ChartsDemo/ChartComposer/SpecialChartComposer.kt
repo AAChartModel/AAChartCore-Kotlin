@@ -29,7 +29,7 @@ package com.aachartmodel.aainfographics.ChartsDemo.ChartComposer
 
 import com.aachartmodel.aainfographics.AAInfographicsLib.AAOptionsModel.AATooltip
 import com.aachartmodel.aainfographics.AAInfographicsLib.AAOptionsModel.AAWaterfall
-import com.example.chartcorekotlin.AAChartConfiger.*
+import com.aachartmodel.aainfographics.AAInfographicsLib.AAChartConfiger.*
 import java.util.*
 
 object SpecialChartComposer{

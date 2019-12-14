@@ -36,7 +36,7 @@
 package com.aachartmodel.aainfographics.ChartsDemo.ChartComposer
 
 import com.aachartmodel.aainfographics.AAInfographicsLib.AAOptionsModel.*
-import com.example.chartcorekotlin.AAChartConfiger.*
+import com.aachartmodel.aainfographics.AAInfographicsLib.AAChartConfiger.*
 
 class CustomTooltipComposer {
     companion object {

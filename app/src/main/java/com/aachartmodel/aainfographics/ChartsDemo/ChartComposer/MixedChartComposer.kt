@@ -29,7 +29,7 @@ package com.aachartmodel.aainfographics.ChartsDemo.ChartComposer
 
 import com.aachartmodel.aainfographics.AAInfographicsLib.AAOptionsModel.AADataLabels
 import com.aachartmodel.aainfographics.AAInfographicsLib.AAOptionsModel.AAStyle
-import com.example.chartcorekotlin.AAChartConfiger.*
+import com.aachartmodel.aainfographics.AAInfographicsLib.AAChartConfiger.*
 
 class MixedChartComposer {
 companion object {

@@ -8,7 +8,7 @@
  */
 package com.aachartmodel.aainfographics.AAInfographicsLib.AAOptionsModel
 
-import com.example.chartcorekotlin.AAChartConfiger.AAChartAnimationType
+import com.aachartmodel.aainfographics.AAInfographicsLib.AAChartConfiger.AAChartAnimationType
 
 class AAAnimation {
     private var duration: Int? = null

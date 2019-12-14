@@ -42,7 +42,7 @@ import com.aachartmodel.aainfographics.ChartsDemo.BasicContent.CommonChartActivi
 import com.aachartmodel.aainfographics.ChartsDemo.BasicContent.CustomStyleChartActivity
 import com.aachartmodel.aainfographics.ChartsDemo.BasicContent.MixedChartActivity
 import com.aachartmodel.aainfographics.ChartsDemo.BasicContent.SpecialChartActivity
-import com.example.chartcorekotlin.AAChartConfiger.AAChartType
+import com.aachartmodel.aainfographics.AAInfographicsLib.AAChartConfiger.AAChartType
 
 class MainActivity : AppCompatActivity() {
 

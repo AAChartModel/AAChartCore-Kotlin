@@ -32,8 +32,8 @@ import android.os.Bundle
 import com.aachartmodel.aainfographics.ChartsDemo.ChartComposer.SpecialChartComposer
 import com.aachartmodel.aainfographics.R
 import com.aachartmodel.aainfographics.aainfographicsLib.aachartConfiger.AAChartView
-import com.example.chartcorekotlin.AAChartConfiger.AAChartModel
-import com.example.chartcorekotlin.AAChartConfiger.AAChartType
+import com.aachartmodel.aainfographics.AAInfographicsLib.AAChartConfiger.AAChartModel
+import com.aachartmodel.aainfographics.AAInfographicsLib.AAChartConfiger.AAChartType
 
 class SpecialChartActivity : AppCompatActivity() {
 

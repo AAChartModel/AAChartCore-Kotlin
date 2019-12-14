@@ -8,8 +8,8 @@
  */
 package com.aachartmodel.aainfographics.AAInfographicsLib.AAOptionsModel
 
+import com.aachartmodel.aainfographics.AAInfographicsLib.AAChartConfiger.AAChartAlignType
 import com.aachartmodel.aainfographics.AAInfographicsLib.AAChartConfiger.AAJSStringPurer
-import com.example.chartcorekotlin.AAChartConfiger.AAChartAlignType
 
 
 class AALabels {

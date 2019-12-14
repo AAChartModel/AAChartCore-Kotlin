@@ -26,7 +26,7 @@
 
  */
 
-package com.example.chartcorekotlin.AAChartConfiger
+package com.aachartmodel.aainfographics.AAInfographicsLib.AAChartConfiger
 
 enum class AAChartAnimationType(val value :String){
     Linear         ("Linear"),

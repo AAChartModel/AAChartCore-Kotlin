@@ -8,7 +8,7 @@
  */
 package com.aachartmodel.aainfographics.AAInfographicsLib.AAOptionsModel
 
-import com.example.chartcorekotlin.AAChartConfiger.AASeriesElement
+import com.aachartmodel.aainfographics.AAInfographicsLib.AAChartConfiger.AASeriesElement
 
 class AAOptions {
     var chart: AAChart? = null

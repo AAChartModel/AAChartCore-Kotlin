@@ -8,7 +8,8 @@
  */
 package com.aachartmodel.aainfographics.AAInfographicsLib.AAOptionsModel
 
-import com.example.chartcorekotlin.AAChartConfiger.AAChartFontWeightType
+import com.aachartmodel.aainfographics.AAInfographicsLib.AAChartConfiger.AAChartFontWeightType
+
 
 class AAStyle {
 

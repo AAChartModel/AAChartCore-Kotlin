@@ -35,7 +35,7 @@
  */
 package com.aachartmodel.aainfographics.AAInfographicsLib.AAChartConfiger
 
-import com.example.chartcorekotlin.AAChartConfiger.AAChartType
+import com.aachartmodel.aainfographics.AAInfographicsLib.AAChartConfiger.AAChartType
 
 
 object AAJSStringPurer {

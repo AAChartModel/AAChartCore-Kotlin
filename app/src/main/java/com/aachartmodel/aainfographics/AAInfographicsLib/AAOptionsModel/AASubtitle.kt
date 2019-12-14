@@ -8,8 +8,9 @@
  */
 package com.aachartmodel.aainfographics.AAInfographicsLib.AAOptionsModel
 
-import com.example.chartcorekotlin.AAChartConfiger.AAChartAlignType
-import com.example.chartcorekotlin.AAChartConfiger.AAChartVerticalAlignType
+import com.aachartmodel.aainfographics.AAInfographicsLib.AAChartConfiger.AAChartAlignType
+import com.aachartmodel.aainfographics.AAInfographicsLib.AAChartConfiger.AAChartVerticalAlignType
+
 
 class AASubtitle {
     private var text: String? = null

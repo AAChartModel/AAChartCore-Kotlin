@@ -36,7 +36,7 @@ import android.widget.Switch
 import com.aachartmodel.aainfographics.R
 import com.aachartmodel.aainfographics.aainfographicsLib.aachartConfiger.AAChartView
 import com.aachartmodel.aainfographics.aainfographicsLib.aachartConfiger.AAMoveOverEventMessageModel
-import com.example.chartcorekotlin.AAChartConfiger.*
+import com.aachartmodel.aainfographics.AAInfographicsLib.AAChartConfiger.*
 import com.google.gson.Gson
 import kotlinx.android.synthetic.main.activity_common_chart.*
 

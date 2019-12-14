@@ -8,8 +8,6 @@
  */
 package com.aachartmodel.aainfographics.AAInfographicsLib.AAOptionsModel
 
-import com.example.chartcorekotlin.AAChartConfiger.AAChartSymbolType
-
 class AAMarker {
     private var radius: Float? = null
     private var symbol: String? = null

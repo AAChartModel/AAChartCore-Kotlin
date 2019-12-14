@@ -32,7 +32,7 @@ import android.os.Bundle
 import com.aachartmodel.aainfographics.ChartsDemo.ChartComposer.CustomStyleChartComposer
 import com.aachartmodel.aainfographics.R
 import com.aachartmodel.aainfographics.aainfographicsLib.aachartConfiger.AAChartView
-import com.example.chartcorekotlin.AAChartConfiger.AAChartModel
+import com.aachartmodel.aainfographics.AAInfographicsLib.AAChartConfiger.AAChartModel
 
 class CustomStyleChartActivity : AppCompatActivity() {
 
