@@ -66,7 +66,7 @@
 ### Manually  (old school way)
 
 1. Download whole project demo of `AAInfographicsDemo`
-2. Drag the folder `AAInfographics` into your project.
+2. Drag the `AAInfographicsLib` folder and `assets files` into your project.
 
 ## Usage
 
