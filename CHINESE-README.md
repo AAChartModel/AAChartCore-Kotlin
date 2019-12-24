@@ -73,7 +73,7 @@
 ### 手动安装
 
 1. 下载 Demo  `AAChartCore-KotlinDemo`
-2. 将 Demo 中的名为`AAInfographicsLib` 的文件夹和 `assets`文件夹下的所有文件拖入至你的项目之中.
+2. 将 Demo 中的名为 `AAInfographicsLib 的文件夹`和 `assets 文件夹下的所有文件`拖入至你的项目之中.
 
 
 ## 使用方法
