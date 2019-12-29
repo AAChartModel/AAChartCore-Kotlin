@@ -275,12 +275,15 @@ function () {
 
 ### 支持添加值域分割功能⚔
 
-* 添加`颜色带🎀`值域分割
+* 添加值域分割颜色带 `plotBands 🎀`
 ![plotBandsChart](https://raw.githubusercontent.com/AAChartModel/Gallery/master/AAChartKit/plotBandsChart.png)
 
-
-* 添加`颜色线🧶`值域分割
+* 添加值域分割颜色线 `plotLines 🧶`
 ![plotLinesChart](https://raw.githubusercontent.com/AAChartModel/Gallery/master/AAChartKit/plotLinesChart.png)
+
+* 添加值域分割数据列分区 `zones 🧱`
+![seriesZonesChart](https://raw.githubusercontent.com/AAChartModel/Gallery/master/AAChartKit/seriesZonesChart.png)
+
 
 
 ### 当前已支持的图表类型有十种以上,说明如下
