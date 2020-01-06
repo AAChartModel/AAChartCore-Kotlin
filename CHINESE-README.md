@@ -313,14 +313,15 @@ enum class AAChartType(val value: String) {
 ### 当前已支持的图表手势缩放类型共有三种,说明如下
 
 ```kotlin
- enum class AAChartZoomType(val value: String) {
-    X  ("x"),
-    Y  ("y"),
-    XY ("xy"),
+enum class AAChartZoomType(val value: String) {
+    None ("none"),  //禁用图表手势缩放功能(默认禁用手势缩放)
+    X    ("x"),     //支持图表 X 轴横向缩放
+    Y    ("y"),     //支持图表 Y 轴纵向缩放X
+    XY   ("xy"),    //支持图表 XY 轴纵向缩放
 }
 ```
 
-NOTE:例如,设置了`AAChartModel`的缩放属性`zoomType`为`AAChartZoomType.X`,并且将图表进行了手势放大之后,这时候如果想要左右滑动图表,可以使用 **双指点按** 屏幕中的`AAChartView`视图区域进行 **左右拖动** 即可.同时屏幕的右上角会自动出现一个标题为 **"恢复缩放"** 的按钮,点击恢复缩放,图表大小和位置将会回归到原初的样式.
+NOTE:例如,设置了`AAChartModel`的缩放属性`zoomType`为`AAChartZoomType.X`,并且将图表进行了手势放大之后,这时候如果想要左右滑动图表,可以使用 **双指点按** 屏幕中的`AAChartView`视图区域进行 **左右拖动** 即可.同时屏幕的右上角会自动出现一个标题为 **"恢复缩放"** 的按钮,点击恢复缩放,图表大小和位置将会回归到原初的样式. 默认为`AAChartZoomType.None`,即禁用缩放功能.
 
 ### 当前已支持的图表渲染动画类型有三十种以上,说明如下
 

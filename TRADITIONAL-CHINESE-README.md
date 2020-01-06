@@ -310,10 +310,11 @@ enum class AAChartType(val value: String) {
 ### 當前已支持的圖表手勢縮放類型共有三種,說明如下
 
 ```kotlin
- enum class AAChartZoomType(val value: String) {
-    X  ("x"),
-    Y  ("y"),
-    XY ("xy"),
+enum class AAChartZoomType(val value: String) {
+    None ("none"),  //禁用圖表手勢縮放功能(默認禁用手勢縮放)
+    X    ("x"),     //支持圖表 X 軸橫向縮放
+    Y    ("y"),     //支持圖表 Y 軸縱向縮放X
+    XY   ("xy"),    //支持圖表 XY 軸縱向縮放
 }
 ```
 

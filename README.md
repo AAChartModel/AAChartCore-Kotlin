@@ -304,10 +304,11 @@ enum class AAChartType(val value: String) {
 
 ### Supported zoom guesture types for now
 ```kotlin
- enum class AAChartZoomType(val value: String) {
-    X  ("x"),
-    Y  ("y"),
-    XY ("xy"),
+enum class AAChartZoomType(val value: String) {
+    None ("none"),  
+    X    ("x"),     
+    Y    ("y"),     
+    XY   ("xy"),    
 }
 ```
 

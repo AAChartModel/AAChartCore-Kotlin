@@ -89,9 +89,10 @@ enum class AAChartType(val value: String) {
 }
 
 enum class AAChartZoomType(val value: String) {
-    X  ("x"),
-    Y  ("y"),
-    XY ("xy"),
+    None ("none"),
+    X    ("x"),
+    Y    ("y"),
+    XY   ("xy"),
 }
 
 enum class AAChartStackingType(val value: String) {
@@ -475,7 +476,7 @@ class AAChartModel {
          stacking             = AAChartStackingType.False
          xAxisReversed        = false
          yAxisReversed        = false
-         zoomType             = AAChartZoomType.X
+         zoomType             = AAChartZoomType.None
          dataLabelsEnabled    = false
          markerSymbolStyle    = AAChartSymbolStyleType.Normal
          colorsTheme          = arrayOf("#fe117c", "#ffc069", "#06caf4", "#7dffc0")
