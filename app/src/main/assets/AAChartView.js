@@ -12,7 +12,7 @@
                 }
 
 
-            aaOptions.credits = {enabled:false};//去掉表格右下角版权信息
+            aaOptions.credits = {enabled:false};
 
             if (aaOptions.plotOptions) {
                 configurePlotOptions(aaOptions);
