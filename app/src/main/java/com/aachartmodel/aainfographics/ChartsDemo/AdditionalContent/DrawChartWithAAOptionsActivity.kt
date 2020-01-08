@@ -29,6 +29,7 @@ package com.aachartmodel.aainfographics.ChartsDemo.AdditionalContent
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import com.aachartmodel.aainfographics.AAInfographicsLib.AAChartConfiger.AAChartView
 import com.aachartmodel.aainfographics.AAInfographicsLib.AAOptionsModel.AAOptions
 import com.aachartmodel.aainfographics.ChartsDemo.ChartComposer.ChartOptionsComposer.Companion.customChartLegendStyle
 import com.aachartmodel.aainfographics.ChartsDemo.ChartComposer.ChartOptionsComposer.Companion.configureAAPlotBandsForChart
@@ -47,7 +48,6 @@ import com.aachartmodel.aainfographics.ChartsDemo.ChartComposer.ChartOptionsComp
 import com.aachartmodel.aainfographics.ChartsDemo.ChartComposer.ChartOptionsComposer.Companion.customLineChartDataLabelsFormat
 import com.aachartmodel.aainfographics.ChartsDemo.ChartComposer.ChartOptionsComposer.Companion.customXAxisCrosshairStyle
 import com.aachartmodel.aainfographics.R
-import com.aachartmodel.aainfographics.aainfographicsLib.aachartConfiger.AAChartView
 
 class DrawChartWithAAOptionsActivity : AppCompatActivity() {
 

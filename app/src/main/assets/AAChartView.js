@@ -43,8 +43,8 @@
                             name: this.series.name,
                             y :this.y,
                             x: this.x,
-                            category:this.category,
-                            offset:{plotX:this.plotX,plotY:this.plotY},
+                            category: this.category,
+                            offset: {plotX:this.plotX,plotY:this.plotY},
                             index: this.index,
                         };
 
@@ -79,7 +79,7 @@
             }
         }
 
-        function onlyRefreshTheChartDataWithSeries(receivedSeries) {
+        function onlyRefreshTheChartDataWithSeries(receivedSeries, animation) {
             var receivedSeriesArr = JSON.parse(receivedSeries);
             var seriesArrLength = receivedSeriesArr.length;
             for (var i = 0; i < seriesArrLength; i++) {
@@ -87,8 +87,11 @@
                 // 获取series
                 var seriesElement = aaGlobalChart.series[i];
                 // 执行只刷新数据的函数
-                seriesElement.setData(receivedSeriesElementData);
+                seriesElement.setData(receivedSeriesElementData, false);
             }
+
+            var animationBool = (animation == "true") ? true:false;
+            aaGlobalChart.redraw(animationBool);
         }
 
         function updateChart(optionsStr, redraw) {

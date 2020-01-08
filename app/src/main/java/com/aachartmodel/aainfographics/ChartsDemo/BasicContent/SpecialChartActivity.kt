@@ -31,9 +31,9 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import com.aachartmodel.aainfographics.ChartsDemo.ChartComposer.SpecialChartComposer
 import com.aachartmodel.aainfographics.R
-import com.aachartmodel.aainfographics.aainfographicsLib.aachartConfiger.AAChartView
 import com.aachartmodel.aainfographics.AAInfographicsLib.AAChartConfiger.AAChartModel
 import com.aachartmodel.aainfographics.AAInfographicsLib.AAChartConfiger.AAChartType
+import com.aachartmodel.aainfographics.AAInfographicsLib.AAChartConfiger.AAChartView
 
 class SpecialChartActivity : AppCompatActivity() {
 

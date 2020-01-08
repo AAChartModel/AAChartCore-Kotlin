@@ -29,6 +29,7 @@ package com.aachartmodel.aainfographics.ChartsDemo.AdditionalContent
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import com.aachartmodel.aainfographics.AAInfographicsLib.AAChartConfiger.AAChartView
 import com.aachartmodel.aainfographics.AAInfographicsLib.AAOptionsModel.AAOptions
 import com.aachartmodel.aainfographics.ChartsDemo.ChartComposer.CustomTooltipComposer.Companion.customAreaChartTooltipStyleWithFormatterFunction1
 import com.aachartmodel.aainfographics.ChartsDemo.ChartComposer.CustomTooltipComposer.Companion.customAreaChartTooltipStyleWithFormatterFunction2
@@ -41,7 +42,6 @@ import com.aachartmodel.aainfographics.ChartsDemo.ChartComposer.CustomTooltipCom
 import com.aachartmodel.aainfographics.ChartsDemo.ChartComposer.CustomTooltipComposer.Companion.customYAxisLabels
 import com.aachartmodel.aainfographics.ChartsDemo.ChartComposer.CustomTooltipComposer.Companion.customYAxisLabels2
 import com.aachartmodel.aainfographics.R
-import com.aachartmodel.aainfographics.aainfographicsLib.aachartConfiger.AAChartView
 
 class JSFormatterFunctionActivity : AppCompatActivity() {
 
@@ -53,7 +53,7 @@ class JSFormatterFunctionActivity : AppCompatActivity() {
 
         val aaOptions = configureTheChartOptions(chartType)
 
-        val aaChartView:AAChartView = findViewById(R.id.AAChartView)
+        val aaChartView: AAChartView = findViewById(R.id.AAChartView)
         aaChartView.aa_drawChartWithChartOptions(aaOptions)
 
     }

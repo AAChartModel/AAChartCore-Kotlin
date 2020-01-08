@@ -31,27 +31,17 @@
 
 */
 
-package com.aachartmodel.aainfographics.aainfographicsLib.aachartConfiger
+package com.aachartmodel.aainfographics.AAInfographicsLib.AAChartConfiger
 
 import android.content.Context
 import android.os.Build
 import android.support.v7.app.AlertDialog
 import android.util.AttributeSet
-import android.webkit.JavascriptInterface
-import android.webkit.JsResult
-import android.webkit.WebChromeClient
-import android.webkit.WebView
-import android.webkit.WebViewClient
-import com.aachartmodel.aainfographics.AAInfographicsLib.AAChartConfiger.AAChartModel
-import com.aachartmodel.aainfographics.AAInfographicsLib.AAChartConfiger.AAJSStringPurer
-import com.aachartmodel.aainfographics.AAInfographicsLib.AAChartConfiger.AAOptionsConstructor
-import com.aachartmodel.aainfographics.AAInfographicsLib.AAChartConfiger.AASeriesElement
+import android.webkit.*
 import com.aachartmodel.aainfographics.AAInfographicsLib.AAOptionsModel.AAOptions
-
 import com.google.gson.Gson
 import com.google.gson.internal.LinkedTreeMap
-
-import java.util.HashMap
+import java.util.*
 
 
 class AAMoveOverEventMessageModel {
@@ -182,11 +172,19 @@ class AAChartView : WebView {
         configureChartOptionsAndDrawChart(chartOptions)
     }
 
-    fun aa_onlyRefreshTheChartDataWithChartOptionsSeriesArray(seriesElementsArr: Array<AASeriesElement?>?) {
-        val gson = Gson()
-        val seriesArr = gson.toJson(seriesElementsArr)
+    fun aa_onlyRefreshTheChartDataWithChartOptionsSeriesArray(
+        seriesElementsArr: Array<AASeriesElement>
+    ) {
+        aa_onlyRefreshTheChartDataWithChartOptionsSeriesArray(seriesElementsArr, true)
+    }
+
+    fun aa_onlyRefreshTheChartDataWithChartOptionsSeriesArray(
+        seriesElementsArr: Array<AASeriesElement>,
+        animation: Boolean
+    ) {
+        val seriesArr = Gson().toJson(seriesElementsArr)
         val javaScriptStr = ("onlyRefreshTheChartDataWithSeries('"
-                + seriesArr + "')")
+                + seriesArr + "','" + animation + "')")
         safeEvaluateJavaScriptString(javaScriptStr)
     }
 

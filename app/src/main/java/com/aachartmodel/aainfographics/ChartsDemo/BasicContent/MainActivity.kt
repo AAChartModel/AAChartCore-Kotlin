@@ -34,15 +34,12 @@ import android.view.View
 import android.widget.AdapterView.OnItemClickListener
 import android.widget.ArrayAdapter
 import android.widget.ListView
-import com.aachartmodel.aainfographics.ChartsDemo.AdditionalContent.DrawChartWithAAOptionsActivity
-import com.aachartmodel.aainfographics.ChartsDemo.AdditionalContent.EvaluateJSStringFunctionActivity
-import com.aachartmodel.aainfographics.ChartsDemo.AdditionalContent.HideOrShowChartSeriesActivity
-import com.aachartmodel.aainfographics.ChartsDemo.AdditionalContent.JSFormatterFunctionActivity
+import com.aachartmodel.aainfographics.AAInfographicsLib.AAChartConfiger.AAChartType
+import com.aachartmodel.aainfographics.ChartsDemo.AdditionalContent.*
 import com.aachartmodel.aainfographics.ChartsDemo.BasicContent.CommonChartActivity
 import com.aachartmodel.aainfographics.ChartsDemo.BasicContent.CustomStyleChartActivity
 import com.aachartmodel.aainfographics.ChartsDemo.BasicContent.MixedChartActivity
 import com.aachartmodel.aainfographics.ChartsDemo.BasicContent.SpecialChartActivity
-import com.aachartmodel.aainfographics.AAInfographicsLib.AAChartConfiger.AAChartType
 
 class MainActivity : AppCompatActivity() {
 
@@ -116,8 +113,8 @@ class MainActivity : AppCompatActivity() {
         "configureDoubleYAxesAndColumnLineMixedChart",
         "configureDoubleYAxesMarketDepthChart",
         "customAreaChartTooltipStyleLikeHTMLTable",
-        /*隐藏或显示内容*/
-        "/*隐藏或显示内容*/Column Chart---柱形图--------------",
+        /*及时刷新📈📊图表数据*/
+        /*及时刷新📈📊图表数据*/"/*及时刷新📈📊图表数据*/Column Chart---柱形图--------------",
         "Bar Chart---条形图",
         "Area Chart---折线填充图",
         "Areaspline Chart---曲线填充图",
@@ -125,6 +122,7 @@ class MainActivity : AppCompatActivity() {
         "Step Line Chart--- 直方折线图",
         "Line Chart---折线图",
         "Spline Chart---曲线图",
+        "Scatter Chart---散点图",
         /*自定义 formatter 函数*/
         "/*自定义 formatter 函数*/简单字符串拼接-----------------",
         "自定义不同单位后缀",
@@ -209,7 +207,7 @@ class MainActivity : AppCompatActivity() {
         "configureDoubleYAxesAndColumnLineMixedChart",
         "configureDoubleYAxesMarketDepthChart",
         "customAreaChartTooltipStyleLikeHTMLTable",
-        /*隐藏或显示内容*/
+        /*及时刷新📈📊图表数据*/
         AAChartType.Column.value,
         AAChartType.Bar.value,
         AAChartType.Area.value,
@@ -218,6 +216,7 @@ class MainActivity : AppCompatActivity() {
         AAChartType.Line.value,
         AAChartType.Line.value,
         AAChartType.Spline.value,
+        AAChartType.Scatter.value,
         /*自定义 formatter 函数*/
         "formatterFunction1",
         "formatterFunction2",
@@ -249,31 +248,22 @@ class MainActivity : AppCompatActivity() {
         listView.onItemClickListener =
             OnItemClickListener { adapter, view, position, id ->
                 println(position)
-                when {
-                    position <= 7 -> { /*基础类型图表*/
-                        goToCommonChartActivity(position)
-                    }
-                    position <= 20 -> { /*特殊类型图表*/
-                        goToSpecialChartActivity(position)
-                    }
-                    position <= 29 -> { /*Mixed Chart---混合图*/
-                        goToMixedChartActivity(position)
-                    }
-                    position <= 47 -> { /*自定义样式图表*/
-                        goToCustomStyleChartActivity(position)
-                    }
-                    position <= 63 -> { /*使用AAOptions绘制图表*/
-                        goToDrawChartWithAAOptionsActivity(position)
-                    }
-                    position <= 70 -> { /*隐藏或显示内容*/
-                        goToHideOrShowChartSeriesActivity(position)
-                    }
-                    position <= 81 -> { /*formatter js function*/
-                        goToCustomTooltipWithJSFunctionActivity(position)
-                    }
-                    else -> { /*eval JS Function*/
-                        goToEvaluateJSStringFunctionActivity(position)
-                    }
+                if (position <= 7) { /*基础类型图表*/
+                    goToCommonChartActivity(position)
+                } else if (position <= 20) { /*特殊类型图表*/
+                    goToSpecialChartActivity(position)
+                } else if (position <= 29) { /*Mixed Chart---混合图*/
+                    goToMixedChartActivity(position)
+                } else if (position <= 47) { /*自定义样式图表*/
+                    goToCustomStyleChartActivity(position)
+                } else if (position <= 63) { /*使用AAOptions绘制图表*/
+                    goToDrawChartWithAAOptionsActivity(position)
+                } else if (position <= 72) { /*及时刷新📈📊图表数据*/
+                    goToOnlyRefreshChartDataActivity(position)
+                } else if (position <= 83) { /*formatter js function*/
+                    goToCustomTooltipWithJSFunctionActivity(position)
+                } else { /*eval JS Function*/
+                    goToEvaluateJSStringFunctionActivity(position)
                 }
             }
     }
@@ -311,6 +301,12 @@ class MainActivity : AppCompatActivity() {
         val intent = Intent(this, DrawChartWithAAOptionsActivity::class.java)
         intent.putExtra("chartType", chartTypeArr[position])
 
+        startActivity(intent)
+    }
+
+    fun goToOnlyRefreshChartDataActivity(position: Int) {
+        val intent = Intent(this, OnlyRefreshChartDataActivity::class.java)
+        intent.putExtra("chartType", chartTypeArr[position])
         startActivity(intent)
     }
 
