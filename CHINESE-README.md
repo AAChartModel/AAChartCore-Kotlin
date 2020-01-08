@@ -80,7 +80,7 @@
 
 1. 创建视图*AAChartView*
 ```xml
-        <com.aachartmodel.aainfographics.aainfographicsLib.aachartConfiger.AAChartView
+        <com.aachartmodel.aainfographics.AAInfographicsLib.AAChartConfiger.AAChartView
         android:id="@+id/AAChartView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
