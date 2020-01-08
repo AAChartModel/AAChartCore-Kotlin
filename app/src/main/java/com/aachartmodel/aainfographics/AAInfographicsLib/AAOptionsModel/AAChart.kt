@@ -21,8 +21,13 @@ class AAChart {
     private var polar: Boolean? = null
     private var animation: AAAnimation? = null
     private var inverted: Boolean? = null
-    private var marginLeft: Float? = null
-    private var marginRight: Float? = null
+    /*图表外边缘和绘图区域之间的边距。 数组中的数字分别表示顶部，右侧，底部和左侧 ([👆,👉,👇,👈])。 
+    也可以使用 marginTop，marginRight，marginBottom 和 marginLeft 来设置某一个方向的边距*/
+    private var margin: Array<Float>? = null
+    private var marginTop: Float? = null//👆
+    private var marginRight: Float? = null//👉
+    private var marginBottom: Float? = null//👇
+    private var marginLeft: Float? = null//👈
 
     fun type(prop: AAChartType?): AAChart {
         type = prop?.value
@@ -76,6 +81,31 @@ class AAChart {
 
     fun marginRight(prop: Float?): AAChart {
         marginRight = prop
+        return this
+    }
+
+    fun margin(prop: Array<Float>): AAChart {
+        margin = prop
+        return this
+    }
+
+    fun marginTop(prop: Float): AAChart {
+        marginTop = prop
+        return this
+    }
+
+    fun marginRight(prop: Float): AAChart {
+        marginRight = prop
+        return this
+    }
+
+    fun marginBottom(prop: Float): AAChart {
+        marginBottom = prop
+        return this
+    }
+
+    fun marginLeft(prop: Float): AAChart {
+        marginLeft = prop
         return this
     }
 
