@@ -77,6 +77,7 @@ class CommonChartActivity : AppCompatActivity(), RadioGroup.OnCheckedChangeListe
             .dataLabelsEnabled(false)
             .yAxisGridLineWidth(0f)
             .legendEnabled(false)
+            .touchEventEnabled(true)
             .series(arrayOf(
                 AASeriesElement()
                     .name("Tokyo")
