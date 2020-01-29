@@ -50,7 +50,7 @@ class AAMoveOverEventMessageModel {
     var y: Double? = null
     var category: String? = null
     var offset: LinkedTreeMap<*, *>? = null
-    var index: Double? = null
+    var index: Int? = null
 }
 
 
@@ -339,7 +339,8 @@ class AAChartView : WebView {
         eventMessageModel.y = messageBody["y"] as Double?
         eventMessageModel.category = messageBody["category"].toString()
         eventMessageModel.offset = messageBody["offset"] as LinkedTreeMap<*, *>?
-        eventMessageModel.index = messageBody["index"] as Double?
+        val index = messageBody["index"] as Double?
+        eventMessageModel.index = index?.toInt()
         return eventMessageModel
     }
 

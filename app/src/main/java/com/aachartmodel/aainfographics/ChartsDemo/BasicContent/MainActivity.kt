@@ -133,7 +133,13 @@ class MainActivity : AppCompatActivity() {
         "自定义Y轴文字2",
         "自定义分组堆积柱状图tooltip内容",
         "双 X 轴镜像图表",
-        "customArearangeChartTooltip"
+        "customArearangeChartTooltip",
+        /*执行由 JavaScript 字符串映射转换成的 js function 函数*/
+        "evalJSFunction1",
+        "evalJSFunction2",
+        "evalJSFunction3",
+        /*Double Charts Linked Work---双表联动*/
+        "doubleChartsLinkedWork----------------------------"
 
         )
 
@@ -231,7 +237,9 @@ class MainActivity : AppCompatActivity() {
         /*执行由 JavaScript 字符串映射转换成的 js function 函数*/
         "evalJSFunction1",
         "evalJSFunction2",
-        "evalJSFunction3"
+        "evalJSFunction3",
+        /*Double Charts Linked Work---双表联动*/
+        "doubleChartsLinkedWork"
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -262,8 +270,10 @@ class MainActivity : AppCompatActivity() {
                     goToOnlyRefreshChartDataActivity(position)
                 } else if (position <= 83) { /*formatter js function*/
                     goToCustomTooltipWithJSFunctionActivity(position)
-                } else { /*eval JS Function*/
+                } else if (position <= 85) { /*eval JS Function*/
                     goToEvaluateJSStringFunctionActivity(position)
+                } else { /*Double Charts Linked Work*/
+                    goToDoubleChartsLinkedWorkActivity(position)
                 }
             }
     }
@@ -329,6 +339,13 @@ class MainActivity : AppCompatActivity() {
         val intent = Intent(this, EvaluateJSStringFunctionActivity::class.java)
         intent.putExtra("chartType", chartTypeArr[position])
 
+        startActivity(intent)
+    }
+
+    fun goToDoubleChartsLinkedWorkActivity(position: Int) {
+        val intent = Intent(this, DoubleChartsLinkedWorkActivity::class.java
+        )
+        intent.putExtra("chartType", chartTypeArr[position])
         startActivity(intent)
     }
 
