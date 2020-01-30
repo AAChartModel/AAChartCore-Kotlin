@@ -35,8 +35,8 @@
  */
 package com.aachartmodel.aainfographics.ChartsDemo.ChartComposer
 
-import com.aachartmodel.aainfographics.AAInfographicsLib.AAOptionsModel.*
 import com.aachartmodel.aainfographics.AAInfographicsLib.AAChartConfiger.*
+import com.aachartmodel.aainfographics.AAInfographicsLib.AAOptionsModel.*
 
 class CustomTooltipComposer {
     companion object {
@@ -599,7 +599,7 @@ function () {
              aaOptions.tooltip!!
                  .useHTML(true)
                  .formatter("""
-           function () {
+function () {
             var myPointOptions = this.points[0].point.options;
             var xValue = myPointOptions.x;
             var lowValue = myPointOptions.low;
@@ -622,5 +622,178 @@ function () {
 
              return aaOptions
          }
+
+        fun customLineChartOriginalPointPositionByConfiguringXAxisFormatterAndTooltipFormatter(): AAOptions {
+            val categories = arrayOf(
+                "Jan", "Feb", "Mar", "Apr", "May", "Jun","Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
+            )
+            val categoryJSArrStr = javaScriptArrayStringWithJavaArray(categories as Array<Any>)!!
+
+            var tooltipFormatter = """
+function () {
+        return  'The value for <b>' + $categoryJSArrStr[this.x] +
+        '</b> is <b>' + this.y + '</b> ' + "℃";
+        }
+            """.trimIndent()
+
+            var xAxisLabelsFormatter = """
+function () {
+        return $categoryJSArrStr[this.value];
+        }
+            """.trimIndent()
+
+            val aaChartModel = AAChartModel()
+                .chartType(AAChartType.Area)
+                .title("THE HEAT OF PROGRAMMING LANGUAGE")
+                .subtitle("Virtual Data")
+                .dataLabelsEnabled(false)
+                .yAxisGridLineWidth(0f)
+                .touchEventEnabled(true)
+                .series(arrayOf(
+                    AASeriesElement()
+                        .name("Tokyo")
+                        .data(arrayOf(7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6)),
+                    AASeriesElement()
+                        .name("NewYork")
+                        .data(arrayOf(0.2, 0.8, 5.7, 11.3, 17.0, 22.0, 24.8, 24.1, 20.1, 14.1, 8.6, 2.5)),
+                    AASeriesElement()
+                        .name("London")
+                        .data(arrayOf(0.9, 0.6, 3.5, 8.4, 13.5, 17.0, 18.6, 17.9, 14.3, 9.0, 3.9, 1.0)),
+                    AASeriesElement()
+                        .name("Berlin")
+                        .data(arrayOf(3.9, 4.2, 5.7, 8.5, 11.9, 15.2, 17.0, 16.6, 14.2, 10.3, 6.6, 4.8))
+                ))
+            val aaOptions = AAOptionsConstructor.configureChartOptions(aaChartModel)
+            aaOptions.tooltip
+                ?.useHTML(true)
+                ?.formatter(tooltipFormatter)
+            aaOptions.xAxis?.labels
+                ?.formatter(xAxisLabelsFormatter)
+            return aaOptions
+        }
+
+        fun customTooltipWhichDataSourceComeFromOutSideRatherThanSeries(): AAOptions {
+            val aaChartModel = AAChartModel()
+                .chartType(AAChartType.Column) //图表类型
+                .title("")
+                .yAxisTitle("") //设置 Y 轴标题
+                .yAxisLineWidth(1f) //Y轴轴线线宽为0即是隐藏Y轴轴线
+                .yAxisGridLineWidth(1f) //y轴横向分割线宽度为1(为0即是隐藏分割线)
+                .xAxisGridLineWidth(1f) //x轴横向分割线宽度为1(为0即是隐藏分割线)
+                .colorsTheme(arrayOf("#FFD700" /*纯金色*/))
+                .categories(arrayOf(
+                        "一月", "二月", "三月", "四月", "五月", "六月",
+                        "七月", "八月", "九月", "十月", "十一月", "十二月"
+                    )
+                )
+                .yAxisMax(110f)
+                .series(arrayOf(
+                        AASeriesElement()
+                            .name("2017")
+                            .data(arrayOf(55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55)
+                            )
+                    )
+                )
+
+            val 看近时长数组 = arrayOf<Any>(70, 69, 95, 14, 18, 21, 25, 26, 23, 18, 13, 96)
+            val 看中时长数组 = arrayOf<Any>(20, 80, 57, 11, 17, 22, 24, 24, 20, 14, 86, 25)
+            val 看远时长数组 = arrayOf<Any>(90, 60, 35, 84, 13, 17, 18, 17, 14, 90, 39, 10)
+            val 总时长数组 = arrayOfNulls<Any>(12)
+            for (i in 0..11) {
+                val 单个总时长= (看近时长数组[i] as Int
+                        + 看中时长数组[i] as Int
+                        + 看远时长数组[i] as Int)
+                总时长数组[i] = 单个总时长
+            }
+            val 有效时长数组 =
+                arrayOf<Any>(39, 42, 57, 85, 19, 15, 17, 16, 14, 13, 66, 48)
+            val 切换次数数组 = arrayOf<Any>(
+                randomNumber(), randomNumber(), randomNumber(),
+                randomNumber(), randomNumber(), randomNumber(),
+                randomNumber(), randomNumber(), randomNumber(),
+                randomNumber(), randomNumber(), randomNumber()
+            )
+            val 停止次数数组 = arrayOf<Any>(
+                randomNumber(), randomNumber(), randomNumber(),
+                randomNumber(), randomNumber(), randomNumber(),
+                randomNumber(), randomNumber(), randomNumber(),
+                randomNumber(), randomNumber(), randomNumber()
+            )
+            val 干预次数数组 = arrayOf<Any>(
+                randomNumber(), randomNumber(), randomNumber(),
+                randomNumber(), randomNumber(), randomNumber(),
+                randomNumber(), randomNumber(), randomNumber(),
+                randomNumber(), randomNumber(), randomNumber()
+            )
+            val 总时长JS数组 = javaScriptArrayStringWithJavaArray(总时长数组 as Array<Any>)
+            val 有效时长JS数组 = javaScriptArrayStringWithJavaArray(有效时长数组)
+            val 看近时长JS数组 = javaScriptArrayStringWithJavaArray(看近时长数组)
+            val 看中时长JS数组 = javaScriptArrayStringWithJavaArray(看中时长数组)
+            val 看远时长JS数组 = javaScriptArrayStringWithJavaArray(看远时长数组)
+            val 切换次数JS数组 = javaScriptArrayStringWithJavaArray(切换次数数组)
+            val 停止次数JS数组 = javaScriptArrayStringWithJavaArray(停止次数数组)
+            val 干预次数JS数组 = javaScriptArrayStringWithJavaArray(干预次数数组)
+
+            var jsFormatterStr: String? = """
+function () {
+        let 总时长数组 = $总时长JS数组;
+        let 有效时长数组 = $有效时长JS数组;
+        let 看近时长数组 = $看近时长JS数组;
+        let 看中时长数组 = $看中时长JS数组;
+        let 看远时长数组 = $看远时长JS数组;
+        let 切换次数数组 = $切换次数JS数组;
+        let 停止次数数组 = $停止次数JS数组;
+        let 干预次数数组 = $干预次数JS数组;
+        let 时间单位后缀 = "min<br/>";
+        let 频率单位后缀 = "次<br/>";
+        
+        let 单个总时长字符串 = "总时长: &nbsp &nbsp" + 总时长数组[this.point.index] + 时间单位后缀;
+        let 单个有效时长字符串 = "有效时长: &nbsp" + 有效时长数组[this.point.index] + 时间单位后缀;
+        let 单个看近时长字符串 = "看近时长: &nbsp" + 看近时长数组[this.point.index] + 时间单位后缀;
+        let 单个看中时长字符串 = "看中时长: &nbsp" + 看中时长数组[this.point.index] + 时间单位后缀;
+        let 单个看远时长字符串 = "看远时长: &nbsp" + 看远时长数组[this.point.index] + 时间单位后缀;
+        let 单个切换次数字符串 = "切换次数: &nbsp" + 切换次数数组[this.point.index] + 频率单位后缀;
+        let 单个停止次数字符串 = "停止次数: &nbsp" + 停止次数数组[this.point.index] + 频率单位后缀;
+        let 单个干预次数字符串 = "干预次数: &nbsp" + 干预次数数组[this.point.index] + 频率单位后缀;
+        
+        let wholeContentString =  单个总时长字符串 + 单个有效时长字符串 + 单个看近时长字符串 + 单个看中时长字符串 + 单个看远时长字符串 + 单个切换次数字符串 + 单个停止次数字符串 + 单个干预次数字符串;
+        
+        return wholeContentString;
+        }
+            """.trimIndent()
+
+            val aaOptions = AAOptionsConstructor.configureChartOptions(aaChartModel)
+            aaOptions.tooltip!!
+                //‼️以 this.point.index 这种方式获取选中的点的索引必须设置 tooltip 的 shared 为 false
+                //‼️共享时是 this.points (由多个 point 组成的 points 数组)
+                //‼️非共享时是 this.point 单个 point 对象
+                .shared(false)
+                .useHTML(true)
+                .formatter(jsFormatterStr!!)
+                .backgroundColor("#000000") //黑色背景色
+                .borderColor("#FFD700") //边缘颜色纯金色
+                .style(AAStyle()
+                        .color("#FFD700") //文字颜色纯金色
+                        .fontSize(12f)
+                )
+            return aaOptions
+        }
+
+
+        private fun randomNumber(): Int {
+            val max = 38
+            val min = 1
+            return (Math.random() * (max - min) + min).toInt()
+        }
+
+        private fun javaScriptArrayStringWithJavaArray(javaArray: Array<Any>): String {
+            var originalJsArrStr = ""
+            for (i in javaArray!!.indices) {
+                val element = javaArray[i]
+                originalJsArrStr = "$originalJsArrStr'$element',"
+            }
+            return "[$originalJsArrStr]"
+        }
+
     }
 }

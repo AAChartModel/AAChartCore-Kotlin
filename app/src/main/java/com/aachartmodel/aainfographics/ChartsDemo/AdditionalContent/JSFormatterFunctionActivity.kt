@@ -38,7 +38,9 @@ import com.aachartmodel.aainfographics.ChartsDemo.ChartComposer.CustomTooltipCom
 import com.aachartmodel.aainfographics.ChartsDemo.ChartComposer.CustomTooltipComposer.Companion.customArearangeChartTooltip
 import com.aachartmodel.aainfographics.ChartsDemo.ChartComposer.CustomTooltipComposer.Companion.customBoxplotTooltipContent
 import com.aachartmodel.aainfographics.ChartsDemo.ChartComposer.CustomTooltipComposer.Companion.customDoubleXAxesChart
+import com.aachartmodel.aainfographics.ChartsDemo.ChartComposer.CustomTooltipComposer.Companion.customLineChartOriginalPointPositionByConfiguringXAxisFormatterAndTooltipFormatter
 import com.aachartmodel.aainfographics.ChartsDemo.ChartComposer.CustomTooltipComposer.Companion.customStackedAndGroupedColumnChartTooltip
+import com.aachartmodel.aainfographics.ChartsDemo.ChartComposer.CustomTooltipComposer.Companion.customTooltipWhichDataSourceComeFromOutSideRatherThanSeries
 import com.aachartmodel.aainfographics.ChartsDemo.ChartComposer.CustomTooltipComposer.Companion.customYAxisLabels
 import com.aachartmodel.aainfographics.ChartsDemo.ChartComposer.CustomTooltipComposer.Companion.customYAxisLabels2
 import com.aachartmodel.aainfographics.R
@@ -70,6 +72,10 @@ class JSFormatterFunctionActivity : AppCompatActivity() {
             "customStackedAndGroupedColumnChartTooltip" -> return customStackedAndGroupedColumnChartTooltip()
             "customDoubleXAxesChart" -> return customDoubleXAxesChart()
             "customArearangeChartTooltip" -> return customArearangeChartTooltip()
+             "customLineChartOriginalPointPositionByConfiguringXAxisFormatterAndTooltipFormatter" ->
+                return customLineChartOriginalPointPositionByConfiguringXAxisFormatterAndTooltipFormatter()
+             "customTooltipWhichDataSourceComeFromOutSideRatherThanSeries" ->
+                return customTooltipWhichDataSourceComeFromOutSideRatherThanSeries()
 
         }
         return customAreaChartTooltipStyleWithFormatterFunction1()
