@@ -128,10 +128,10 @@ class OnlyRefreshChartDataActivity : AppCompatActivity() {
                 .name("2018")
                 .data(numberArr2 as Array<Any>),
             AASeriesElement()
-                .name("2017")
+                .name("2019")
                 .data(numberArr1 as Array<Any>),
             AASeriesElement()
-                .name("2018")
+                .name("2020")
                 .data(numberArr2 as Array<Any>)
         )
     }
