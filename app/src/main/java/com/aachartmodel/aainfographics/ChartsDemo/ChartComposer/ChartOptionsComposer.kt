@@ -164,7 +164,7 @@ class ChartOptionsComposer {
             )
 
         val aaOptions = AAOptionsConstructor.configureChartOptions(aaChartModel)
-        val aaPlotLinesElementsArr = arrayOf<AAPlotLinesElement>(
+        val aaPlotLinesElementsArr = arrayOf(
             AAPlotLinesElement()
                 .color("#1e90ff")//颜色值(16进制)
                 .dashStyle(AAChartLineDashStyleType.LongDashDotDot)//样式：Dash,Dot,Solid等,默认Solid
