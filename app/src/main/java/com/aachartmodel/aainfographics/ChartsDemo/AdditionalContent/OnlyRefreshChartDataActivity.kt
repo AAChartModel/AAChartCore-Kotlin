@@ -36,6 +36,7 @@ import com.aachartmodel.aainfographics.R
 import kotlin.math.cos
 import kotlin.math.sin
 
+
 class OnlyRefreshChartDataActivity : AppCompatActivity() {
     private var aaChartModel = AAChartModel()
     private var aaChartView: AAChartView? = null
@@ -105,6 +106,7 @@ class OnlyRefreshChartDataActivity : AppCompatActivity() {
         return chartTypeEnum
     }
 
+    @Suppress("UNCHECKED_CAST")
     private fun configureChartSeriesArray(): Array<AASeriesElement> {
         val maxRange = 40
         val numberArr1 = arrayOfNulls<Any>(maxRange)
