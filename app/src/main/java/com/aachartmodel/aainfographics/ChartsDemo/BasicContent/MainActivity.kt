@@ -318,7 +318,7 @@ class MainActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
-    fun goToOnlyRefreshChartDataActivity(position: Int) {
+    private fun goToOnlyRefreshChartDataActivity(position: Int) {
         val intent = Intent(this, OnlyRefreshChartDataActivity::class.java)
         intent.putExtra("chartType", chartTypeArr[position])
         startActivity(intent)
@@ -346,7 +346,7 @@ class MainActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
-    fun goToDoubleChartsLinkedWorkActivity(position: Int) {
+    private fun goToDoubleChartsLinkedWorkActivity(position: Int) {
         val intent = Intent(this, DoubleChartsLinkedWorkActivity::class.java
         )
         intent.putExtra("chartType", chartTypeArr[position])
