@@ -271,7 +271,6 @@ class CommonChartActivity : AppCompatActivity(), RadioGroup.OnCheckedChangeListe
      */
     override fun onCheckedChanged(group: RadioGroup, checkedId: Int) {
         if (group.id == R.id.radioGroup1) {
-            //根据不同ID 弹出不同的吐司
             when (group.checkedRadioButtonId) {
                 R.id.stacking1 -> aaChartModel.stacking(AAChartStackingType.False)
                 R.id.stacking2 -> aaChartModel.stacking(AAChartStackingType.Normal)
