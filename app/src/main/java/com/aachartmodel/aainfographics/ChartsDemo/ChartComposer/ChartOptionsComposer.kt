@@ -373,21 +373,21 @@ function () {
                 "<span style=\\\"color:#CC99090;font-weight:bold;font-size:10px\\\">死亡搁浅</span>"
             )
 
-            val aaChartModel = AAChartModel()
-                .chartType(AAChartType.Areaspline)
-                .title("")
-                .subtitle("")
-                .stacking(AAChartStackingType.Normal)
-                .categories(categories)
-                .dataLabelsEnabled(false)
-                .markerRadius(0f)
-                .series(arrayOf(
-                        AASeriesElement()
-                            .name("Berlin Hot")
-                            .color(AAGradientColor.deepSeaColor())
-                            .data(arrayOf(7.0, 6.9, 2.5, 14.5, 18.2, 21.5, 5.2, 26.5, 23.3, 45.3, 13.9, 9.6))
-                    )
-                )
+             val aaChartModel = AAChartModel()
+                 .chartType(AAChartType.Areaspline)
+                 .title("")
+                 .subtitle("")
+                 .stacking(AAChartStackingType.Normal)
+                 .categories(categories)
+                 .dataLabelsEnabled(false)
+                 .markerRadius(0f)
+                 .series(arrayOf(
+                     AASeriesElement()
+                         .name("Berlin Hot")
+                         .color(AAGradientColor.deepSeaColor())
+                         .data(arrayOf(7.0, 6.9, 2.5, 14.5, 18.2, 21.5, 5.2, 26.5, 23.3, 45.3, 13.9, 9.6))
+                 )
+                 )
 
             val aaOptions = AAOptionsConstructor.configureChartOptions(aaChartModel)
             aaOptions.xAxis?.labels?.useHTML(true)
@@ -514,7 +514,7 @@ function () {
 
 
             val aaOptions = AAOptionsConstructor.configureChartOptions(aaChartModel)
-            val aaPlotBandsElementArr = arrayOf<AAPlotBandsElement>(
+            val aaPlotBandsElementArr = arrayOf(
                 AAPlotBandsElement()
                     .from(-0.25f)//值域颜色带X轴起始值
                     .to(4.75f)//值域颜色带X轴结束值
@@ -1012,7 +1012,7 @@ function () {
                             .label(
                                 AALabel()
                                     .text("实际价格")
-                                    .style(AAChartLineDashStyleType.ShortDashDotDot) //                                .rotation(90)
+                                    .style(AAChartLineDashStyleType.ShortDashDotDot) //.rotation(90)
                             )
                     )
                 )

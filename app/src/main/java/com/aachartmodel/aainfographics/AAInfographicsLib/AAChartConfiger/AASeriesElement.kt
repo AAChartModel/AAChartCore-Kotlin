@@ -62,6 +62,7 @@ class AASeriesElement {
     private var shadow: AAShadow? = null
     private var stack: String? = null
     private var tooltip: AATooltip? = null
+    private var showInLegend: Boolean? = null
 
 
     fun type(prop: AAChartType): AASeriesElement {
@@ -166,6 +167,11 @@ class AASeriesElement {
 
     fun tooltip(prop: AATooltip): AASeriesElement {
         tooltip = prop
+        return this
+    }
+
+    fun showInLegend(prop: Boolean): AASeriesElement? {
+        showInLegend = prop
         return this
     }
 

@@ -28,6 +28,8 @@ class AAChart {
     private var marginRight: Float? = null//👉
     private var marginBottom: Float? = null//👇
     private var marginLeft: Float? = null//👈
+    var scrollablePlotArea: AAScrollablePlotArea? = null
+
 
     fun type(prop: AAChartType?): AAChart {
         type = prop?.value
@@ -106,6 +108,11 @@ class AAChart {
 
     fun marginLeft(prop: Float): AAChart {
         marginLeft = prop
+        return this
+    }
+
+    fun scrollablePlotArea(prop: AAScrollablePlotArea?): AAChart {
+        scrollablePlotArea = prop
         return this
     }
 

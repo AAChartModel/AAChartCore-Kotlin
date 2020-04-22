@@ -50,6 +50,8 @@ object AAOptionsConstructor {
             .polar(aaChartModel.polar) //是否极化图表(开启极坐标模式)
             .marginLeft(aaChartModel.marginLeft) //图表左边距
             .marginRight(aaChartModel.marginRight) //图表右边距
+            .scrollablePlotArea(aaChartModel.scrollablePlotArea)
+
 
         val aaTitle = AATitle()
             .text(aaChartModel.title) //标题文本内容

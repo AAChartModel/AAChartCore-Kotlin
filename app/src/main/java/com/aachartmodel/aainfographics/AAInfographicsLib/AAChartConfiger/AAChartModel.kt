@@ -28,6 +28,8 @@
 
 package com.aachartmodel.aainfographics.AAInfographicsLib.AAChartConfiger
 
+import com.aachartmodel.aainfographics.AAInfographicsLib.AAOptionsModel.AAScrollablePlotArea
+
 enum class AAChartAnimationType(val value :String){
     Linear         ("Linear"),
     EaseInQuad     ("easeInQuad"),
@@ -207,6 +209,7 @@ class AAChartModel {
     var borderRadius: Float? = null            //柱状图长条图头部圆角半径(可用于设置头部的形状,仅对条形图,柱状图有效)
     var series: Array<AASeriesElement>? = null
     var touchEventEnabled: Boolean? = null     //是否支持用户触摸事件
+    var scrollablePlotArea: AAScrollablePlotArea? = null
 
 
     fun animationType(prop: AAChartAnimationType): AAChartModel {
@@ -462,6 +465,11 @@ class AAChartModel {
 
     fun touchEventEnabled(prop: Boolean?): AAChartModel {
         touchEventEnabled = prop
+        return this
+    }
+
+    fun scrollablePlotArea(prop: AAScrollablePlotArea): AAChartModel? {
+        scrollablePlotArea = prop
         return this
     }
 
