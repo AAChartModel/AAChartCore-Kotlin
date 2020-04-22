@@ -1,5 +1,5 @@
-![](https://raw.githubusercontent.com/AAChartModel/loadHtmlCssJsDemo-master/master/AAInfographics/AAInfographics-LOGO.png
-)
+ ![AAInfographics-LOGO](https://raw.githubusercontent.com/AAChartModel/Gallery/master/AAInfographics/AAInfographics-Logo02.png)
+
 
 # AAInfographics
 
