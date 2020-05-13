@@ -47,6 +47,8 @@ import com.aachartmodel.aainfographics.ChartsDemo.ChartComposer.ChartOptionsComp
 import com.aachartmodel.aainfographics.ChartsDemo.ChartComposer.ChartOptionsComposer.Companion.customAreaChartTooltipStyleLikeHTMLTable
 import com.aachartmodel.aainfographics.ChartsDemo.ChartComposer.ChartOptionsComposer.Companion.customLineChartDataLabelsFormat
 import com.aachartmodel.aainfographics.ChartsDemo.ChartComposer.ChartOptionsComposer.Companion.customXAxisCrosshairStyle
+import com.aachartmodel.aainfographics.ChartsDemo.ChartComposer.ChartOptionsComposer.Companion.gaugeChartWithPlotBand
+import com.aachartmodel.aainfographics.ChartsDemo.ChartComposer.ChartOptionsComposer.Companion.simpleGaugeChart
 import com.aachartmodel.aainfographics.R
 
 class DrawChartWithAAOptionsActivity : AppCompatActivity() {
@@ -83,6 +85,8 @@ class DrawChartWithAAOptionsActivity : AppCompatActivity() {
             "configureDoubleYAxesAndColumnLineMixedChart"-> return configureDoubleYAxesAndColumnLineMixedChart()
             "configureDoubleYAxesMarketDepthChart"-> return configureDoubleYAxesMarketDepthChart()
             "customAreaChartTooltipStyleLikeHTMLTable"-> return customAreaChartTooltipStyleLikeHTMLTable()
+             "simpleGaugeChart" -> return simpleGaugeChart()
+             "gaugeChartWithPlotBand" -> return gaugeChartWithPlotBand()
         }
         return configureAAPlotBandsForChart()
     }

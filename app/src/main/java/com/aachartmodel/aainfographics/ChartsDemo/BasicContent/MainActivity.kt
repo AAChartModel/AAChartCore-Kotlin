@@ -113,6 +113,8 @@ class MainActivity : AppCompatActivity() {
         "configureDoubleYAxesAndColumnLineMixedChart",
         "configureDoubleYAxesMarketDepthChart",
         "customAreaChartTooltipStyleLikeHTMLTable",
+        "simpleGaugeChart",
+        "gaugeChartWithPlotBand",
         /*即时刷新📈📊图表数据*/
         /*即时刷新📈📊图表数据*/"/*即时刷新📈📊图表数据*/Column Chart---柱形图--------------",
         "Bar Chart---条形图",
@@ -215,6 +217,8 @@ class MainActivity : AppCompatActivity() {
         "configureDoubleYAxesAndColumnLineMixedChart",
         "configureDoubleYAxesMarketDepthChart",
         "customAreaChartTooltipStyleLikeHTMLTable",
+        "simpleGaugeChart",
+        "gaugeChartWithPlotBand",
         /*即时刷新📈📊图表数据*/
         AAChartType.Column.value,
         AAChartType.Bar.value,
@@ -268,15 +272,15 @@ class MainActivity : AppCompatActivity() {
                     goToMixedChartActivity(position)
                 } else if (position <= 47) { /*自定义样式图表*/
                     goToCustomStyleChartActivity(position)
-                } else if (position <= 63) { /*使用AAOptions绘制图表*/
+                } else if (position <= 65) { /*使用AAOptions绘制图表*/
                     goToDrawChartWithAAOptionsActivity(position)
-                } else if (position <= 72) { /*即时刷新📈📊图表数据*/
+                } else if (position <= 74) { /*即时刷新📈📊图表数据*/
                     goToOnlyRefreshChartDataActivity(position)
-                } else if (position <= 85) { /*formatter js function*/
+                } else if (position <= 87) { /*formatter js function*/
                     goToCustomTooltipWithJSFunctionActivity(position)
-                } else if (position <= 87) { /*eval JS Function*/
+                } else if (position <= 89) { /*eval JS Function*/
                     goToEvaluateJSStringFunctionActivity(position)
-                } else { /*Double Charts Linked Work*/
+                }else { /*Double Charts Linked Work*/
                     goToDoubleChartsLinkedWorkActivity(position)
                 }
             }

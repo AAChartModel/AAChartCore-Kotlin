@@ -35,8 +35,8 @@
  */
 package com.aachartmodel.aainfographics.ChartsDemo.ChartComposer
 
-import com.aachartmodel.aainfographics.AAInfographicsLib.AAOptionsModel.*
 import com.aachartmodel.aainfographics.AAInfographicsLib.AAChartConfiger.*
+import com.aachartmodel.aainfographics.AAInfographicsLib.AAOptionsModel.*
 
 class ChartOptionsComposer {
     companion object {
@@ -1160,6 +1160,68 @@ function () {
             return aaOptions
         }
 
+        fun simpleGaugeChart(): AAOptions {
+            return AAOptions()
+                .chart(AAChart()
+                        .type(AAChartType.Gauge)
+                )
+                .pane(AAPane()
+                        .startAngle(-150f)
+                        .endAngle(150f)
+                )
+                .yAxis(AAYAxis()
+                        .min(0f)
+                        .max(100f)
+                        .plotBands(arrayOf(
+                                AAPlotBandsElement()
+                                    .from(0f)
+                                    .to(60f)
+                                    .color("#FF0000")
+                            )
+                        )
+                )
+                .series(arrayOf(
+                        AASeriesElement()
+                            .data(arrayOf(80))
+                    )
+                )
+        }
+
+        fun gaugeChartWithPlotBand(): AAOptions {
+            return AAOptions()
+                .chart(AAChart()
+                        .type(AAChartType.Gauge))
+                .title(AATitle()
+                        .text("速度仪"))
+                .pane(AAPane()
+                        .startAngle(-150f)
+                        .endAngle(150f))
+                .yAxis(AAYAxis()
+                        .min(0f)
+                        .max(200f)
+                        .title(AATitle()
+                                .text("km/h"))
+                        .plotBands(arrayOf(
+                                AAPlotBandsElement()
+                                    .from(0f)
+                                    .to(120f)
+                                    .color("#ffc069"),
+                                AAPlotBandsElement()
+                                    .from(120f)
+                                    .to(160f)
+                                    .color("#fe117c"),
+                                AAPlotBandsElement()
+                                    .from(160f)
+                                    .to(200f)
+                                    .color("#06caf4")
+                            )
+                        )
+                )
+                .series(arrayOf(
+                        AASeriesElement()
+                            .data(arrayOf(80))
+                    ))
+        }
 
     }
 }
