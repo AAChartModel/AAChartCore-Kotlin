@@ -8,7 +8,7 @@
  */
 package com.aachartmodel.aainfographics.AAInfographicsLib.AAOptionsModel
 
-import com.aachartmodel.aainfographics.AAInfographicsLib.AAChartConfiger.AAChartFontWeightType
+import com.aachartmodel.aainfographics.AAInfographicsLib.AAChartCreator.AAChartFontWeightType
 
 
 class AAStyle {

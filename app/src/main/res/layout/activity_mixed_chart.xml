@@ -8,7 +8,7 @@
         tools:context=".ChartsDemo.BasicContent.MixedChartActivity">
 
 
-    <com.aachartmodel.aainfographics.AAInfographicsLib.AAChartConfiger.AAChartView
+    <com.aachartmodel.aainfographics.AAInfographicsLib.AAChartCreator.AAChartView
             android:id="@+id/AAChartView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

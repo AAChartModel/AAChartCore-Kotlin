@@ -8,9 +8,9 @@
  */
 package com.aachartmodel.aainfographics.AAInfographicsLib.AAOptionsModel
 
-import com.aachartmodel.aainfographics.AAInfographicsLib.AAChartConfiger.AAChartAlignType
-import com.aachartmodel.aainfographics.AAInfographicsLib.AAChartConfiger.AAChartLayoutType
-import com.aachartmodel.aainfographics.AAInfographicsLib.AAChartConfiger.AAChartVerticalAlignType
+import com.aachartmodel.aainfographics.AAInfographicsLib.AAChartCreator.AAChartAlignType
+import com.aachartmodel.aainfographics.AAInfographicsLib.AAChartCreator.AAChartLayoutType
+import com.aachartmodel.aainfographics.AAInfographicsLib.AAChartCreator.AAChartVerticalAlignType
 
 class AALegend {
     private var layout: String? =

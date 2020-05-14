@@ -8,7 +8,7 @@
  */
 package com.aachartmodel.aainfographics.AAInfographicsLib.AAOptionsModel
 
-import com.aachartmodel.aainfographics.AAInfographicsLib.AAChartConfiger.AAChartAnimationType
+import com.aachartmodel.aainfographics.AAInfographicsLib.AAChartCreator.AAChartAnimationType
 
 class AAAnimation {
     private var duration: Int? = null

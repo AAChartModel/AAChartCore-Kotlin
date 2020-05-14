@@ -26,7 +26,7 @@
 
  */
 
-package com.aachartmodel.aainfographics.AAInfographicsLib.AAChartConfiger
+package com.aachartmodel.aainfographics.AAInfographicsLib.AAChartCreator
 
 import com.aachartmodel.aainfographics.AAInfographicsLib.AAOptionsModel.AAScrollablePlotArea
 

@@ -35,7 +35,7 @@
  */
 package com.aachartmodel.aainfographics.ChartsDemo.ChartComposer
 
-import com.aachartmodel.aainfographics.AAInfographicsLib.AAChartConfiger.*
+import com.aachartmodel.aainfographics.AAInfographicsLib.AAChartCreator.*
 import com.aachartmodel.aainfographics.AAInfographicsLib.AAOptionsModel.*
 
 class CustomTooltipComposer {

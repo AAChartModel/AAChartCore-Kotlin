@@ -31,8 +31,8 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import com.aachartmodel.aainfographics.ChartsDemo.ChartComposer.MixedChartComposer
 import com.aachartmodel.aainfographics.R
-import com.aachartmodel.aainfographics.AAInfographicsLib.AAChartConfiger.AAChartModel
-import com.aachartmodel.aainfographics.AAInfographicsLib.AAChartConfiger.AAChartView
+import com.aachartmodel.aainfographics.AAInfographicsLib.AAChartCreator.AAChartModel
+import com.aachartmodel.aainfographics.AAInfographicsLib.AAChartCreator.AAChartView
 
 class MixedChartActivity : AppCompatActivity() {
     private var aaChartModel: AAChartModel? = null

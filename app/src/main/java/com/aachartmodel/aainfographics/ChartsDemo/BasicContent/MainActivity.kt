@@ -34,7 +34,7 @@ import android.view.View
 import android.widget.AdapterView.OnItemClickListener
 import android.widget.ArrayAdapter
 import android.widget.ListView
-import com.aachartmodel.aainfographics.AAInfographicsLib.AAChartConfiger.AAChartType
+import com.aachartmodel.aainfographics.AAInfographicsLib.AAChartCreator.AAChartType
 import com.aachartmodel.aainfographics.ChartsDemo.AdditionalContent.*
 import com.aachartmodel.aainfographics.ChartsDemo.BasicContent.CommonChartActivity
 import com.aachartmodel.aainfographics.ChartsDemo.BasicContent.CustomStyleChartActivity

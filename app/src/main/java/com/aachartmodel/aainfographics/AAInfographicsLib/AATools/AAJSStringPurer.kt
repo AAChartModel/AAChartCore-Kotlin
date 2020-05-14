@@ -33,9 +33,7 @@
  * -------------------------------------------------------------------------------
 
  */
-package com.aachartmodel.aainfographics.AAInfographicsLib.AAChartConfiger
-
-import com.aachartmodel.aainfographics.AAInfographicsLib.AAChartConfiger.AAChartType
+package com.aachartmodel.aainfographics.AAInfographicsLib.AAChartCreator
 
 
 object AAJSStringPurer {

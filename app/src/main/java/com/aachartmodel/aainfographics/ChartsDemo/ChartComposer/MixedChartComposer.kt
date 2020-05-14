@@ -29,7 +29,7 @@ package com.aachartmodel.aainfographics.ChartsDemo.ChartComposer
 
 import com.aachartmodel.aainfographics.AAInfographicsLib.AAOptionsModel.AADataLabels
 import com.aachartmodel.aainfographics.AAInfographicsLib.AAOptionsModel.AAStyle
-import com.aachartmodel.aainfographics.AAInfographicsLib.AAChartConfiger.*
+import com.aachartmodel.aainfographics.AAInfographicsLib.AAChartCreator.*
 
 class MixedChartComposer {
 companion object {

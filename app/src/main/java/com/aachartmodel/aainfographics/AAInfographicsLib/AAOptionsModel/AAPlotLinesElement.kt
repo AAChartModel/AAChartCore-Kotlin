@@ -35,7 +35,7 @@
  */
 package com.aachartmodel.aainfographics.AAInfographicsLib.AAOptionsModel
 
-import com.aachartmodel.aainfographics.AAInfographicsLib.AAChartConfiger.AAChartLineDashStyleType
+import com.aachartmodel.aainfographics.AAInfographicsLib.AAChartCreator.AAChartLineDashStyleType
 
 
 class AAPlotLinesElement {

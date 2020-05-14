@@ -28,7 +28,7 @@
 package com.aachartmodel.aainfographics.ChartsDemo.ChartComposer
 
 import com.aachartmodel.aainfographics.AAInfographicsLib.AAOptionsModel.AAMarker
-import com.aachartmodel.aainfographics.AAInfographicsLib.AAChartConfiger.*
+import com.aachartmodel.aainfographics.AAInfographicsLib.AAChartCreator.*
 
 class CustomStyleChartComposer  {
 

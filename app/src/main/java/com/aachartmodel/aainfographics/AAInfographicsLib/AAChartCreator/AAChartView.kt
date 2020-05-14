@@ -31,7 +31,7 @@
 
 */
 
-package com.aachartmodel.aainfographics.AAInfographicsLib.AAChartConfiger
+package com.aachartmodel.aainfographics.AAInfographicsLib.AAChartCreator
 
 import android.content.Context
 import android.os.Build

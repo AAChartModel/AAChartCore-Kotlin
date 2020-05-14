@@ -8,7 +8,7 @@
  */
 package com.aachartmodel.aainfographics.AAInfographicsLib.AAOptionsModel
 
-import com.aachartmodel.aainfographics.AAInfographicsLib.AAChartConfiger.AAChartStackingType
+import com.aachartmodel.aainfographics.AAInfographicsLib.AAChartCreator.AAChartStackingType
 
 class AASeries {
     private var borderRadius: Float? = null
