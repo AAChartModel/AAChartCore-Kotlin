@@ -65,8 +65,16 @@
 
 ### Manually  (old school way)
 
-1. Download whole project demo of `AAInfographicsDemo`
-2. Drag the `AAInfographicsLib` folder and `assets files` into your project.
+1. Download the repository
+2. Locate the folders `AAInfographicsLib`and `assets files`. <br/>
+   You can find them at AAChartCore-Kotlin-master/app/src/main/*assets* <br/>
+   and AAChartCore-Kotlin-master/app/src/main/java/com/aachartmodel/*aainfographics* <br/>
+3. Place assets folder at ./your_project_folder/app/src/main
+4. Place the AAInfographicsLib library folder at ./your_project_folder/app/src/main/java/android/organisation/app_name/
+5. Add implementation 'com.google.code.gson:gson:2.8.6' to your gradle
+6. If missing - add mavenLocal()
+
+You're all set, enjoy!
 
 ## Usage
 
