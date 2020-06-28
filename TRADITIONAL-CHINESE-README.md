@@ -470,8 +470,8 @@ series | 圖表的數據列 | AASeriesElement實例對象組成的有效數組,�
 ## 源代碼⛓
 語言版本 |  項目名稱 | 適用平臺| 源代碼鏈接|
 ------------ | ------------- |------------- | ------------- |
-Kotlin | AAInfographics | Android | https://github.com/AAChartModel/AAChartKit-Kotlin |
-Java | AAChartCore | Android | https://github.com/AAChartModel/AAChartKit |
+Kotlin | AAInfographics | Android | https://github.com/AAChartModel/AAChartCore-Kotlin |
+Java | AAChartCore | Android | https://github.com/AAChartModel/AAChartCore |
 Swift | AAInfographics |  iOS |https://github.com/AAChartModel/AAChartKit-Swift |
 Objective C | AAChartKit | iOS | https://github.com/AAChartModel/AAChartKit |
 
