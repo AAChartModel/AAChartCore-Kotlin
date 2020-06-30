@@ -27,9 +27,9 @@
  */
 package com.aachartmodel.aainfographics.ChartsDemo.ChartComposer
 
+import com.aachartmodel.aainfographics.AAInfographicsLib.AAChartCreator.*
 import com.aachartmodel.aainfographics.AAInfographicsLib.AAOptionsModel.AADataLabels
 import com.aachartmodel.aainfographics.AAInfographicsLib.AAOptionsModel.AAStyle
-import com.aachartmodel.aainfographics.AAInfographicsLib.AAChartCreator.*
 
 class MixedChartComposer {
 companion object {
@@ -483,7 +483,14 @@ companion object {
                         arrayOf(0.116163, 3.129283)
                     )
                     )
-                    .color("#0088FF")
+                    .color("#0088FF"),
+                AASeriesElement()
+                    .name("线性回归线")
+                    .type(AAChartType.Line)
+                    .data(arrayOf(
+                            arrayOf(0.014, 3.078),
+                            arrayOf(0.969, 4.655)))
+                    .color("#FF0000")
             )
             )
     }

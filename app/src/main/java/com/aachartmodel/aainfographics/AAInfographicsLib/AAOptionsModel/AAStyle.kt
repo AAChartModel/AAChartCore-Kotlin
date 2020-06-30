@@ -24,7 +24,7 @@ class AAStyle {
     }
 
     fun fontSize(prop: Float?): AAStyle {
-        fontSize = "$prop px"
+        fontSize = "${prop}px"
         return this
     }
 

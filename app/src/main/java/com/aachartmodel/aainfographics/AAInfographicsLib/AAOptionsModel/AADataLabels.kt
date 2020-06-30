@@ -8,8 +8,11 @@
  */
 package com.aachartmodel.aainfographics.AAInfographicsLib.AAOptionsModel
 
+import com.aachartmodel.aainfographics.AAInfographicsLib.AAChartCreator.AAChartVerticalAlignType
+
 class AADataLabels {
     var enabled: Boolean? = null
+    var inside: Boolean? = null
     var style: AAStyle? = null
     var format: String? = null
     var rotation: Float? = null
@@ -28,6 +31,11 @@ class AADataLabels {
 
     fun enabled(prop: Boolean?): AADataLabels {
         enabled = prop
+        return this
+    }
+
+    fun inside(prop: Boolean): AADataLabels {
+        inside = prop
         return this
     }
 
@@ -61,8 +69,8 @@ class AADataLabels {
         return this
     }
 
-    fun verticalAlign(prop: String): AADataLabels {
-        verticalAlign = prop
+    fun verticalAlign(prop: AAChartVerticalAlignType): AADataLabels {
+        verticalAlign = prop.value
         return this
     }
 

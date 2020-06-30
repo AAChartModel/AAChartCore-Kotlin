@@ -90,4 +90,13 @@ object AAColor {
         return "clear"
     }
 
+    fun rgbaColor(
+        red: Int,
+        green: Int,
+        blue: Int,
+        alpha: Float
+    ): String {
+        return "rgba($red,$green,$blue,$alpha)"
+    }
+
 }
