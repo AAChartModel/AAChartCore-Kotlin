@@ -66,7 +66,7 @@ class SpecialChartActivity : AppCompatActivity() {
             AAChartType.Waterfall.value  -> return SpecialChartComposer.configureWaterfallChart()
             AAChartType.Pyramid.value  -> return SpecialChartComposer.configurePyramidChart()
             AAChartType.Funnel.value  -> return SpecialChartComposer.configureFunnelChart()
-            AAChartType.Errorbar.value -> return  SpecialChartComposer.configureErrobarChart()
+            AAChartType.Errorbar.value -> return  SpecialChartComposer.configureErrorbarChart()
             else  -> {
             }
         }

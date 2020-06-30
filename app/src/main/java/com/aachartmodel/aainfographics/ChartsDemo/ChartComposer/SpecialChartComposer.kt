@@ -27,9 +27,11 @@
  */
 package com.aachartmodel.aainfographics.ChartsDemo.ChartComposer
 
+import com.aachartmodel.aainfographics.AAInfographicsLib.AAChartCreator.*
+import com.aachartmodel.aainfographics.AAInfographicsLib.AAOptionsModel.AADataLabels
+import com.aachartmodel.aainfographics.AAInfographicsLib.AAOptionsModel.AAStyle
 import com.aachartmodel.aainfographics.AAInfographicsLib.AAOptionsModel.AATooltip
 import com.aachartmodel.aainfographics.AAInfographicsLib.AAOptionsModel.AAWaterfall
-import com.aachartmodel.aainfographics.AAInfographicsLib.AAChartCreator.*
 import java.util.*
 
 object SpecialChartComposer{
@@ -919,6 +921,14 @@ object SpecialChartComposer{
             .series(arrayOf(
                 AASeriesElement()
                     .name("2020")
+                    .dataLabels(AADataLabels()
+                        .enabled(true)
+                        .inside(true)
+                        .verticalAlign(AAChartVerticalAlignType.Middle)
+                        .color(AAColor.blackColor())
+                        .style(AAStyle()
+                            .fontSize(25f)
+                            .textOutline("0px 0px contrast")))
                     .data(arrayOf(
                         arrayOf("Swift",       11850),
                         arrayOf("Objective-C", 12379),
@@ -930,7 +940,7 @@ object SpecialChartComposer{
             )
     }
 
-    fun configureErrobarChart(): AAChartModel? {
+    fun configureErrorbarChart(): AAChartModel {
         return AAChartModel()
             .yAxisTitle("")
             .categories(arrayOf(
