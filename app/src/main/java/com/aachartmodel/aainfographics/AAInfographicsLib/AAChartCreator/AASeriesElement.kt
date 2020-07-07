@@ -74,8 +74,8 @@ class AASeriesElement {
     private var reversed: Boolean? = null
 
 
-    fun type(prop: String?): AASeriesElement {
-        type = prop
+    fun type(prop: AAChartType?): AASeriesElement {
+        type = prop?.value
         return this
     }
 
@@ -144,8 +144,8 @@ class AASeriesElement {
         return this
     }
 
-    fun dashStyle(prop: String?): AASeriesElement {
-        dashStyle = prop
+    fun dashStyle(prop: AAChartLineDashStyleType?): AASeriesElement {
+        dashStyle = prop?.value
         return this
     }
 
