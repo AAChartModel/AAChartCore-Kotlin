@@ -168,7 +168,7 @@ companion object {
             )
     }
 
-    fun configurestackingColumnMixedLineChart(): AAChartModel {
+    fun configureStackingColumnMixedLineChart(): AAChartModel {
         return AAChartModel()
             .title("16年1月-16年11月充值客单分析")//图形标题
             .subtitle("BY MICVS")//图形副标题
@@ -178,44 +178,37 @@ companion object {
             .colorsTheme(arrayOf(
                 AAGradientColor.oceanBlueColor(),
                 AAGradientColor.sanguineColor(),
-                AAGradientColor.lusciousLimeColor()
-            )
-            )
+                AAGradientColor.lusciousLimeColor()))
             .series(arrayOf(
                 AASeriesElement()
                     .name("新用户")
                     .data(arrayOf(82.89,67.54,62.07,59.43,67.02,67.09,35.66,71.78,81.61,78.85,79.12,72.30))
-                    .dataLabels(AADataLabels()
+                    .dataLabels(
+                        AADataLabels()
                         .enabled(true)
                         .style(AAStyle()
                                 .color(AAColor.redColor())
-                                .fontSize(11f)
-                        )
-                    ),
+                                .fontSize(11f))),
                 AASeriesElement()
                     .name("老用户")
                     .data(arrayOf(198.66,330.81,151.95,160.12,222.56,229.05,128.53,250.91,224.47,473.99,126.85,260.50))
-                    .dataLabels(AADataLabels()
+                    .dataLabels(
+                        AADataLabels()
                         .enabled(true)
                         .style(AAStyle()
                             .color("#000000")
-                            .fontSize(11f)
-                        )
-                    ),
+                            .fontSize(11f))),
                 AASeriesElement()
                     .name("总量")
                     .type(AAChartType.Line)
                     .data(arrayOf(281.55,398.35,214.02,219.55,289.57,296.14,164.18,322.69,306.08,552.84,205.97,332.79))
-                    .dataLabels(AADataLabels()
+                    .dataLabels(
+                        AADataLabels()
                         .enabled(true)
                         .style(AAStyle()
                             .color("#000000")
                             .fontSize(15f)
-                            .fontWeight(AAChartFontWeightType.Bold)
-                        )
-                    )
-            )
-            )
+                            .fontWeight(AAChartFontWeightType.Bold)))))
     }
 
     fun dashStyleTypeMixedChart(): AAChartModel {

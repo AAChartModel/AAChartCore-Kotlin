@@ -57,7 +57,7 @@ class MixedChartActivity : AppCompatActivity() {
         when (chartType) {
             "arearangeMixedLine" -> return MixedChartComposer.arearangeMixedLine()
             "columnrangeMixedLine" -> return MixedChartComposer.configureColumnrangeMixedLineChart()
-            "stackingColumnMixedLine" -> return MixedChartComposer.configurestackingColumnMixedLineChart()
+            "stackingColumnMixedLine" -> return MixedChartComposer.configureStackingColumnMixedLineChart()
             "dashStyleTypeMixed" -> return MixedChartComposer.dashStyleTypeMixedChart()
             "negativeColorMixed" -> return MixedChartComposer.negativeColorMixedChart()
             "scatterMixedLine" -> return MixedChartComposer.scatterMixedLine()
