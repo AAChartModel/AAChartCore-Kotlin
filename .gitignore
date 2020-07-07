@@ -60,3 +60,5 @@ app/build.gradle
 .gradle/5.6.4/javaCompile/classAnalysis.bin
 .gradle/5.6.4/javaCompile/jarAnalysis.bin
 .gradle/5.6.4/javaCompile/javaCompile.lock
+.idea/AAChartCore-Kotlin.iml
+.idea/gradle.xml
