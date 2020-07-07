@@ -82,10 +82,7 @@ class CustomStyleChartComposer  {
                     AASeriesElement()
                         .name("Tokyo")
                         .data(arrayOf(149.9, 171.5, 106.4, 129.2, 144.0, 176.0, 135.6, 188.5, 276.4, 214.1, 95.6, 54.4))
-                        .colorByPoint(true)
-                )
-                )
-
+                        .colorByPoint(true)))
         }
 
 
@@ -157,12 +154,8 @@ class CustomStyleChartComposer  {
                         .name("Tokyo")
                         .data(arrayOf(
                             149.9, 171.5, 106.4, 129.2, 144.0, 176.0, 135.6, 188.5, 276.4, 214.1, 95.6, 54.4,
-                            149.9, 171.5, 106.4, 129.2, 144.0, 176.0, 135.6, 188.5, 276.4, 214.1, 95.6, 54.4
-                        ))
-                        .colorByPoint(true)
-                )
-                )
-
+                            149.9, 171.5, 106.4, 129.2, 144.0, 176.0, 135.6, 188.5, 276.4, 214.1, 95.6, 54.4))
+                        .colorByPoint(true)))
         }
 
         fun configureDiscontinuousDataChart(): AAChartModel {
@@ -176,13 +169,8 @@ class CustomStyleChartComposer  {
                     AASeriesElement()
                         .name("Tokyo")
                         .data(arrayOf(
-                            arrayOf<Any?>(6.9, 9.5, 14.5, 18.2, 21.5, null, null, null, null, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6)
-                        )
-                        )
-                        .color(AAGradientColor.deepSeaColor())
-                )
-                )
-
+                            arrayOf<Any?>(6.9, 9.5, 14.5, 18.2, 21.5, null, null, null, null, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6)))
+                        .color(AAGradientColor.deepSeaColor())))
         }
 
         fun configureColorfulColumnChart(): AAChartModel {
@@ -195,9 +183,7 @@ class CustomStyleChartComposer  {
                     AASeriesElement()
                         .name("东京")
                         .data(arrayOf(149.9, 171.5, 106.4, 129.2, 144.0, 176.0, 135.6, 188.5, 276.4, 214.1, 95.6, 54.4))
-                        .colorByPoint(true)
-                )
-                )
+                        .colorByPoint(true)))
         }
 
         fun configureNightingaleRoseChart(): AAChartModel {
@@ -215,9 +201,7 @@ class CustomStyleChartComposer  {
                 .series(arrayOf(
                     AASeriesElement()
                         .name("东京")
-                        .data(arrayOf(7.0, 6.9, 9.5, 9.6, 13.9, 14.5, 18.3, 18.2, 21.5, 25.2, 26.5, 23.3))
-                )
-                )
+                        .data(arrayOf(7.0, 6.9, 9.5, 9.6, 13.9, 14.5, 18.3, 18.2, 21.5, 25.2, 26.5, 23.3))))
         }
 
         fun configureChartWithShadowStyle(): AAChartModel {
@@ -241,10 +225,7 @@ class CustomStyleChartComposer  {
                             .offsetY(15.0f)
                             .opacity(0.2f)
                             .width(8.0f)
-                            .color(AAColor.redColor())
-                        )
-                )
-                )
+                            .color(AAColor.redColor()))))
         }
 
         fun configureColorfulGradientAreaChart(): AAChartModel {
@@ -274,9 +255,7 @@ class CustomStyleChartComposer  {
                         .name("Tokyo Hot")
                         .lineWidth(15.0f)
                         .color(linearGradientColor)
-                        .data(arrayOf(7.0, 6.9, 2.5, 14.5, 18.2, 21.5, 5.2, 26.5, 23.3, 45.3, 13.9, 9.6))
-                )
-                )
+                        .data(arrayOf(7.0, 6.9, 2.5, 14.5, 18.2, 21.5, 5.2, 26.5, 23.3, 45.3, 13.9, 9.6))))
         }
 
 
@@ -308,9 +287,7 @@ class CustomStyleChartComposer  {
                         .name("Tokyo Hot")
                         .lineWidth(3f)
                         .color(linearGradientColor)
-                        .data(arrayOf(7.0, 6.9, 2.5, 14.5, 18.2, 21.5, 5.2, 26.5, 23.3, 45.3, 13.9, 9.6))
-                )
-                )
+                        .data(arrayOf(7.0, 6.9, 2.5, 14.5, 18.2, 21.5, 5.2, 26.5, 23.3, 45.3, 13.9, 9.6))))
         }
 
 
@@ -343,9 +320,7 @@ class CustomStyleChartComposer  {
                         .lineWidth(5.0f)
                         .color("rgba(220,20,60,1)")//猩红色, alpha 透明度 1
                         .fillColor(linearGradientColor)
-                        .data(arrayOf(7.0, 6.9, 2.5, 14.5, 18.2, 21.5, 5.2, 26.5, 23.3, 45.3, 13.9, 9.6))
-                )
-                )
+                        .data(arrayOf(7.0, 6.9, 2.5, 14.5, 18.2, 21.5, 5.2, 26.5, 23.3, 45.3, 13.9, 9.6))))
         }
 
         internal fun configureSpecialStyleMarkerOfSingleDataElementChart(): AAChartModel {
@@ -387,9 +362,7 @@ class CustomStyleChartComposer  {
                         .name("Virtual Data")
                         .lineWidth(9f)
                         .data(arrayOf(7.0, 6.9, 2.5, 14.5, 18.2, singleSpecialData, 5.2, 26.5, 23.3, 45.3, 13.9, 9.6))
-                        .color(gradientColorDic1)
-                )
-                )
+                        .color(gradientColorDic1)))
         }
 
         internal fun configureSpecialStyleColumnOfSingleDataElementChart(): AAChartModel {
@@ -411,9 +384,7 @@ class CustomStyleChartComposer  {
                             .name("Virtual Data")
                             .lineWidth(6f)
                             .data(arrayOf(7.0, 6.9, 2.5, 14.5, 18.2, singleSpecialData, 5.2, 26.5, 23.3, 26.5, 13.9, 9.6))
-                            .color(AAGradientColor.oceanBlueColor())
-                    )
-                )
+                            .color(AAGradientColor.oceanBlueColor())))
         }
 
         internal fun configureAreaChartThreshold(): AAChartModel {
@@ -440,9 +411,7 @@ class CustomStyleChartComposer  {
                             .data(arrayOf(106.4, 129.2, 269.9, -100.5, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4))
                             .lineWidth(6f)
                             .color("rgba(30, 144, 255,1)")
-                            .fillColor(gradientColorDic1)
-                    )
-                )
+                            .fillColor(gradientColorDic1)))
         }
 
         //refer to online sample https://jshare.com.cn/github/highcharts/highcharts/tree/master/samples/highcharts/plotoptions/series-marker-symbol/
@@ -566,9 +535,7 @@ class CustomStyleChartComposer  {
                         AASeriesElement()
                             .data(arrayOf(6.0, 6.0, 6.0, 6.0, 6.0)),
                         AASeriesElement()
-                            .data(arrayOf(3.0, 3.0, 3.0, 3.0, 3.0))
-                    )
-                )
+                            .data(arrayOf(3.0, 3.0, 3.0, 3.0, 3.0))))
         }
 
         //六边形雷达图
@@ -591,9 +558,7 @@ class CustomStyleChartComposer  {
                     AASeriesElement()
                             .data(arrayOf(6.0, 6.0, 6.0, 6.0, 6.0, 6.0)),
                     AASeriesElement()
-                            .data(arrayOf(3.0, 3.0, 3.0, 3.0, 3.0, 3.0))
-                    )
-                )
+                            .data(arrayOf(3.0, 3.0, 3.0, 3.0, 3.0, 3.0))))
         }
 
 
@@ -627,9 +592,7 @@ class CustomStyleChartComposer  {
                         AASeriesElement()
                             .name("体重")
                             .color("#2494F3")
-                            .data(arrayOf(7.0, 6.9, 2.5, 14.5, 18.2, 21.5, 5.2, 26.5, 23.3, 45.3, 13.9, 9.6))
-                    )
-                )
+                            .data(arrayOf(7.0, 6.9, 2.5, 14.5, 18.2, 21.5, 5.2, 26.5, 23.3, 45.3, 13.9, 9.6))))
         }
 
         fun customSpecialStyleDataLabelOfSingleDataElementChart(): AAChartModel {
@@ -656,14 +619,12 @@ class CustomStyleChartComposer  {
                         .style(AAStyle()
                                 .fontWeight(AAChartFontWeightType.Bold)
                                 .color(AAColor.whiteColor())
-                                .fontSize(16f)
-                        )
+                                .fontSize(16f))
                         .y(-35f)
                         .align(AAChartAlignType.Center)
                         .verticalAlign(AAChartVerticalAlignType.Top)
                         .overflow("none")
-                        .crop(false)
-                )
+                        .crop(false))
                 .y(26.5f)
 
             return AAChartModel()
@@ -680,9 +641,7 @@ class CustomStyleChartComposer  {
                             .lineWidth(6f)
                             .color("rgba(255,215,0,1)")
                             .fillColor(gradientColorDic1) // gold color, alpha: 1.0
-                            .data(arrayOf(7.0, 6.9, 2.5, 14.5, 18.2, singleSpecialData, 5.2, 26.5, 23.3, 45.3, 13.9, 9.6))
-                    )
-                )
+                            .data(arrayOf(7.0, 6.9, 2.5, 14.5, 18.2, singleSpecialData, 5.2, 26.5, 23.3, 45.3, 13.9, 9.6))))
         }
 
         fun customBarChartHoverColorAndSelectColor(): AAChartModel {
@@ -701,26 +660,10 @@ class CustomStyleChartComposer  {
                                             .color("rgba(220,20,60,1)")
                                     ) //猩红色, alpha 透明度 1
                                     .select(AASelect()
-                                            .color(AAColor.redColor())
-                                    )
-                            )
-                    )
-                )
+                                            .color(AAColor.redColor())))))
         }
 
         fun customChartHoverAndSelectHaloStyle(): AAChartModel {
-            val hoverHaloAttributes = mapOf(
-                "stroke-width" to 50,
-                "fill" to "#00BFFF",
-                "stroke" to "#00FA9A"
-            )
-
-            val selectHaloAttributes = mapOf(
-                "stroke-width" to 150,
-                "fill" to AAColor.rgbaColor(138, 43, 226, 1f),
-                "stroke" to AAColor.rgbaColor(30, 144, 255, 1f)
-            )
-
             return AAChartModel()
                 .chartType(AAChartType.Line)
                 .title("Custom Chart Hover And Select Halo Style")
@@ -738,19 +681,20 @@ class CustomStyleChartComposer  {
                                             .halo(AAHalo()
                                                     .size(130f)
                                                     .opacity(0.8f)
-                                                    .attributes(hoverHaloAttributes)
-                                            )
-                                    )
+                                                    .attributes(mapOf(
+                                                        "stroke-width" to 50,
+                                                        "fill" to "#00BFFF",
+                                                        "stroke" to "#00FA9A"
+                                                    ))))
                                     .select(AASelect()
                                             .halo(AAHalo()
                                                     .size(130f)
                                                     .opacity(1.0f)
-                                                    .attributes(selectHaloAttributes)
-                                            )
-                                    )
-                            )
-                    )
-                )
+                                                    .attributes(mapOf(
+                                                        "stroke-width" to 150,
+                                                        "fill" to AAColor.rgbaColor(138, 43, 226, 1f),
+                                                        "stroke" to AAColor.rgbaColor(30, 144, 255, 1f)
+                                                    )))))))
         }
 
         fun customSplineChartMarkerStatesHoverStyle(): AAChartModel {
@@ -775,13 +719,8 @@ class CustomStyleChartComposer  {
                                                     .fillColor(AAColor.whiteColor())
                                                     .radius(40f)
                                                     .lineColor(AAColor.greenColor())
-                                                    .lineWidth(20f)
-                                            )
-                                    )
-                            )
-                            .data(arrayOf(7.0, 6.9, 2.5, 14.5, 18.2, 21.5, 5.2, 26.5, 23.3, 45.3, 13.9, 9.6))
-                    )
-                )
+                                                    .lineWidth(20f))))
+                            .data(arrayOf(7.0, 6.9, 2.5, 14.5, 18.2, 21.5, 5.2, 26.5, 23.3, 45.3, 13.9, 9.6))))
         }
 
 
@@ -830,7 +769,7 @@ class CustomStyleChartComposer  {
             val element4 = AASeriesElement()
                 .name("2020")
                 .data(arrayOf(3.9, 4.2, 5.7, 8.5, 11.9, 15.2, 17.0, 16.6, 14.2, 10.3, 6.6, 4.8))
-            val series = arrayOf(element1, element2, element3, element4)
+
             return AAChartModel()
                 .chartType(AAChartType.Column)
                 .stacking(AAChartStackingType.Normal)
@@ -838,7 +777,7 @@ class CustomStyleChartComposer  {
                 .markerRadius(0f)
                 .categories(categories)
                 .colorsTheme(colorsTheme)
-                .series(series)
+                .series(arrayOf(element1, element2, element3, element4))
         }
 
         //Issue: https://github.com/AAChartModel/AAChartKit-Swift/issues/190
@@ -858,11 +797,7 @@ class CustomStyleChartComposer  {
                                     arrayOf("Objective-C", 4064),
                                     arrayOf("JavaScript",  1987),
                                     arrayOf("GO",           976),
-                                    arrayOf("Python",       846)
-                                )
-                            )
-                    )
-                )
+                                    arrayOf("Python",       846)))))
         }
 
         //Issue: https://github.com/AAChartModel/AAChartKit/issues/888
@@ -886,8 +821,7 @@ class CustomStyleChartComposer  {
                                     arrayOf("Safari Past",    88.5),
                                     arrayOf("Opera Past",     46.0),
                                     arrayOf("Others Past",   223.0)
-                                )
-                            ),
+                                )),
                         AASeriesElement()
                             .name("Now")
                             .size("80%") //尺寸大小
@@ -900,10 +834,7 @@ class CustomStyleChartComposer  {
                                     arrayOf("Safari Now",  388.5),
                                     arrayOf("Opera Now",   446.0),
                                     arrayOf("Others Now",  223.0)
-                                )
-                            )
-                    )
-                )
+                                ))))
         }
 
         //GitHub issue https://github.com/AAChartModel/AAChartKit/issues/903
@@ -930,9 +861,7 @@ class CustomStyleChartComposer  {
                         AASeriesElement()
                             .name("2020")
                             .enableMouseTracking(false)
-                            .data(arrayOf(3.9, 4.2, 5.7, 8.5, 11.9, 15.2, 17.0, 16.6, 14.2, 10.3, 6.6, 4.8))
-                    )
-                )
+                            .data(arrayOf(3.9, 4.2, 5.7, 8.5, 11.9, 15.2, 17.0, 16.6, 14.2, 10.3, 6.6, 4.8))))
         }
 
 
@@ -956,8 +885,7 @@ class CustomStyleChartComposer  {
                                     .offsetY(15.0f)
                                     .opacity(0.2f)
                                     .width(8.0f)
-                                    .color("#1e90ff")
-                            ),
+                                    .color("#1e90ff")),
                         AASeriesElement()
                             .name("2018")
                             .lineWidth(5f)
@@ -967,8 +895,7 @@ class CustomStyleChartComposer  {
                                     .offsetY(15.0f)
                                     .opacity(0.2f)
                                     .width(8.0f)
-                                    .color("#ef476f")
-                            ),
+                                    .color("#ef476f")),
                         AASeriesElement()
                             .name("2019")
                             .lineWidth(5f)
@@ -978,8 +905,7 @@ class CustomStyleChartComposer  {
                                     .offsetY(15.0f)
                                     .opacity(0.2f)
                                     .width(8.0f)
-                                    .color("#ffd066")
-                            ),
+                                    .color("#ffd066")),
                         AASeriesElement()
                             .name("2020")
                             .lineWidth(5f)
@@ -989,10 +915,7 @@ class CustomStyleChartComposer  {
                                     .offsetY(15.0f)
                                     .opacity(0.2f)
                                     .width(8.0f)
-                                    .color("#04d69f")
-                            )
-                    )
-                )
+                                    .color("#04d69f"))))
         }
 
         // GitHub issue https://github.com/AAChartModel/AAChartKit/issues/905
@@ -1039,9 +962,7 @@ class CustomStyleChartComposer  {
                                     .style(AAStyle()
                                             .color("#04d69f")
                                             .fontSize(11f)))
-                            .data(arrayOf(5.59, 3.09, 4.09, 6.14, 5.33, 6.05, 5.71, 6.22, 6.56, 4.75, 5.27, 6.02, 5.22, 5.77, 6.19, 5.68, 4.33, 5.48))
-                    )
-                )
+                            .data(arrayOf(5.59, 3.09, 4.09, 6.14, 5.33, 6.05, 5.71, 6.22, 6.56, 4.75, 5.27, 6.02, 5.22, 5.77, 6.19, 5.68, 4.33, 5.48))))
         }
 
 
@@ -1144,9 +1065,7 @@ class CustomStyleChartComposer  {
                                     .style(AAStyle()
                                             .color("#04d69f")
                                             .fontSize(11f)))
-                            .data(arrayOf(5.59, 3.09, 4.09, 6.14, 5.33, 6.05, 5.71, 6.22, 6.56, 4.75, 5.27, 6.02, 5.22, 5.77, 6.19, 5.68, 4.33, 5.48))
-                )
-                )
+                            .data(arrayOf(5.59, 3.09, 4.09, 6.14, 5.33, 6.05, 5.71, 6.22, 6.56, 4.75, 5.27, 6.02, 5.22, 5.77, 6.19, 5.68, 4.33, 5.48))))
         }
 
         // Refer to https://api.highcharts.com.cn/highcharts#plotOptions.spline.marker.states.hover.enabled
@@ -1170,9 +1089,7 @@ class CustomStyleChartComposer  {
                                     .states(AAMarkerStates()
                                             .hover(AAMarkerHover()
                                                     .enabled(false))))
-                            .data(arrayOf(7.0, 6.9, 2.5, 14.5, 18.2, 21.5, 5.2, 26.5, 23.3, 45.3, 13.9, 9.6))
-                    )
-                )
+                            .data(arrayOf(7.0, 6.9, 2.5, 14.5, 18.2, 21.5, 5.2, 26.5, 23.3, 45.3, 13.9, 9.6))))
         }
 
     }
