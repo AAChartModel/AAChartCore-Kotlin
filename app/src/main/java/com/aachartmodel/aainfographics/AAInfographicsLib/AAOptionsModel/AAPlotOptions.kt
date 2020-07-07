@@ -8,6 +8,9 @@
  */
 package com.aachartmodel.aainfographics.AAInfographicsLib.AAOptionsModel
 
+import com.aachartmodel.aainfographics.AAInfographicsLib.AAChartCreator.AAChartType
+import com.aachartmodel.aainfographics.AAInfographicsLib.AAChartCreator.AASeriesElement
+
 class AAPlotOptions {
     var column: AAColumn? = null
     var bar: AABar? = null
@@ -283,6 +286,7 @@ class AAAreaspline {
 }
 
 class AAPie {
+    var type:String? = null
     var dataLabels:AADataLabels? = null
     var size: Float? = null
     var allowPointSelect: Boolean? = null
@@ -291,7 +295,14 @@ class AAPie {
     var startAngle: Float? = null
     var endAngle: Float? = null
     var depth: Float? = null
-    var center: Float? = null
+    var center: Any? = null
+    var data: Array<Any>? = null
+
+
+    fun type(prop: AAChartType?): AAPie {
+        type = prop?.value
+        return this
+    }
 
     fun dataLabels(prop: AADataLabels): AAPie {
         dataLabels = prop
@@ -333,8 +344,13 @@ class AAPie {
         return this
     }
 
-    fun center(prop: Float?): AAPie {
+    fun center(prop: Any?): AAPie {
         center = prop
+        return this
+    }
+
+    fun data(prop: Array<Any>): AAPie {
+        data = prop
         return this
     }
 

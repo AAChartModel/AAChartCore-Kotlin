@@ -8,10 +8,12 @@
  */
 package com.aachartmodel.aainfographics.AAInfographicsLib.AAOptionsModel
 
+import com.aachartmodel.aainfographics.AAInfographicsLib.AAChartCreator.AAChartAlignType
 import com.aachartmodel.aainfographics.AAInfographicsLib.AAChartCreator.AAChartVerticalAlignType
 
 class AADataLabels {
     var enabled: Boolean? = null
+    var align: String? = null
     var inside: Boolean? = null
     var style: AAStyle? = null
     var format: String? = null
@@ -28,23 +30,34 @@ class AADataLabels {
     var borderRadius: Float? = null
     var borderWidth: Float? = null
     var shape: String? = null
+    var crop: Boolean? = null
+    var overflow: String? = null
+    var softConnector: Boolean? = null
+    var textPath: Any? = null
+    var filter: Any? = null
 
     fun enabled(prop: Boolean?): AADataLabels {
         enabled = prop
         return this
     }
 
-    fun inside(prop: Boolean): AADataLabels {
+    fun align(prop: AAChartAlignType?): AADataLabels {
+        align = prop?.value
+        return this
+    }
+
+    fun inside(prop: Boolean?): AADataLabels {
         inside = prop
         return this
     }
 
-    fun style(prop: AAStyle): AADataLabels {
+
+    fun style(prop: AAStyle?): AADataLabels {
         style = prop
         return this
     }
 
-    fun format(prop: String): AADataLabels {
+    fun format(prop: String?): AADataLabels {
         format = prop
         return this
     }
@@ -69,8 +82,8 @@ class AADataLabels {
         return this
     }
 
-    fun verticalAlign(prop: AAChartVerticalAlignType): AADataLabels {
-        verticalAlign = prop.value
+    fun verticalAlign(prop: AAChartVerticalAlignType?): AADataLabels {
+        verticalAlign = prop?.value
         return this
     }
 
@@ -84,17 +97,17 @@ class AADataLabels {
         return this
     }
 
-    fun color(prop: String): AADataLabels {
+    fun color(prop: String?): AADataLabels {
         color = prop
         return this
     }
 
-    fun backgroundColor(prop: String): AADataLabels {
+    fun backgroundColor(prop: String?): AADataLabels {
         backgroundColor = prop
         return this
     }
 
-    fun borderColor(prop: String): AADataLabels {
+    fun borderColor(prop: String?): AADataLabels {
         borderColor = prop
         return this
     }
@@ -109,8 +122,33 @@ class AADataLabels {
         return this
     }
 
-    fun shape(prop: String): AADataLabels {
+    fun shape(prop: String?): AADataLabels {
         shape = prop
+        return this
+    }
+
+    fun crop(prop: Boolean?): AADataLabels {
+        crop = prop
+        return this
+    }
+
+    fun overflow(prop: String?): AADataLabels {
+        overflow = prop
+        return this
+    }
+
+    fun softConnector(prop: Boolean?): AADataLabels {
+        softConnector = prop
+        return this
+    }
+
+    fun textPath(prop: Any?): AADataLabels {
+        textPath = prop
+        return this
+    }
+
+    fun filter(prop: Any?): AADataLabels {
+        filter = prop
         return this
     }
 }

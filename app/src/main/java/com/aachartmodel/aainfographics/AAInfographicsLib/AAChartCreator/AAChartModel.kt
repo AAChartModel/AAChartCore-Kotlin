@@ -327,6 +327,11 @@ class AAChartModel {
         return this
     }
 
+    fun tooltipValueSuffix(prop: String?): AAChartModel {
+        tooltipValueSuffix = prop
+        return this
+    }
+
     fun tooltipCrosshairs(prop: Boolean?): AAChartModel {
         tooltipCrosshairs = prop
         return this

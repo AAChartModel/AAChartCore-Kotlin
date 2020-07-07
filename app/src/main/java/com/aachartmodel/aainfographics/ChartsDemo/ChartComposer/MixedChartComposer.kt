@@ -29,7 +29,10 @@ package com.aachartmodel.aainfographics.ChartsDemo.ChartComposer
 
 import com.aachartmodel.aainfographics.AAInfographicsLib.AAChartCreator.*
 import com.aachartmodel.aainfographics.AAInfographicsLib.AAOptionsModel.AADataLabels
+import com.aachartmodel.aainfographics.AAInfographicsLib.AAOptionsModel.AAMarker
+import com.aachartmodel.aainfographics.AAInfographicsLib.AAOptionsModel.AAPie
 import com.aachartmodel.aainfographics.AAInfographicsLib.AAOptionsModel.AAStyle
+import java.util.*
 
 class MixedChartComposer {
 companion object {
@@ -624,5 +627,122 @@ companion object {
             )
             )
     }
+
+    fun configurePieMixedLineMixedColumnChart(): AAChartModel? {
+        val columnElement1 = AASeriesElement()
+            .name("Anna")
+            .type(AAChartType.Column)
+            .data(arrayOf(3, 2, 1, 3, 4))
+        val columnElement2 = AASeriesElement()
+            .name("Babara")
+            .type(AAChartType.Column)
+            .data(arrayOf(2, 3, 5, 7, 6))
+        val columnElement3 = AASeriesElement()
+            .name("Coco")
+            .type(AAChartType.Column)
+            .data(arrayOf(4, 3, 3, 9, 0))
+        val lineElement = AASeriesElement()
+            .name("average value")
+            .type(AAChartType.Line)
+            .data(arrayOf(3, 2.67, 3, 6.33, 3.33))
+            .marker(
+                AAMarker()
+                    .fillColor("#1E90FF")
+                    .lineWidth(2.0f)
+                    .lineColor(AAColor.whiteColor())
+            )
+        val pieElement = AAPie()
+            .type(AAChartType.Pie)
+            .center(arrayOf(100, 80))
+            .size(100f)
+            .showInLegend(true)
+            .dataLabels(AADataLabels()
+                    .enabled(false)
+            )
+            .data(arrayOf(
+                    AADataElement()
+                        .name("Ada")
+                        .y(13.0f)
+                        .color(AAGradientColor.oceanBlueColor())
+                    ,
+                    AADataElement()
+                        .name("Bob")
+                        .y(13.0f)
+                        .color(AAGradientColor.sanguineColor())
+                    ,
+                    AADataElement()
+                        .name("Coco")
+                        .y(13.0f)
+                        .color(AAGradientColor.purpleLakeColor())
+                )
+            )
+
+        return AAChartModel()
+            .stacking(AAChartStackingType.Normal)
+            .colorsTheme(arrayOf(
+                    AAGradientColor.oceanBlueColor(),
+                    AAGradientColor.sanguineColor(),
+                    AAGradientColor.purpleLakeColor()
+                )
+            )
+            .dataLabelsEnabled(false)
+            .series(arrayOf(
+                    columnElement1,
+                    columnElement2,
+                    columnElement3,
+                    lineElement,
+                    pieElement as AASeriesElement
+                )
+            )
     }
+
+
+    //GitHub issue https://github.com/AAChartModel/AAChartKit/issues/921
+    private fun configureNegativeColorMixedAreasplineChart(): AAChartModel? {
+        val blueStopsArr: Array<Any> = arrayOf(
+                arrayOf(0.0, AAColor.rgbaColor(30, 144, 255, 0.0f)),
+                arrayOf(0.5, AAColor.rgbaColor(30, 144, 255, 0.0f)),
+                arrayOf(1.0, AAColor.rgbaColor(30, 144, 255, 0.6f))
+            )
+        val gradientBlueColorDic = AAGradientColor.linearGradient(
+            AALinearGradientDirection.ToTop,
+            blueStopsArr
+        )
+
+        val redStopsArr: Array<Any> = arrayOf(
+            arrayOf(0.0, AAColor.rgbaColor(255, 0, 0, 0.6f)),
+            arrayOf(0.5, AAColor.rgbaColor(255, 0, 0, 0.0f)),
+            arrayOf(1.0, AAColor.rgbaColor(255, 0, 0, 0.0f))
+        )
+        val gradientRedColorDic = AAGradientColor.linearGradient(
+            AALinearGradientDirection.ToTop,
+            redStopsArr
+        )
+
+        return AAChartModel()
+            .chartType(AAChartType.Area)
+            .legendEnabled(false)
+            .dataLabelsEnabled(false)
+            .markerRadius(5f)
+            .markerSymbolStyle(AAChartSymbolStyleType.InnerBlank)
+            .yAxisGridLineWidth(0f)
+            .series(arrayOf(
+                AASeriesElement()
+                    .name("Column")
+                    .data(arrayOf(
+                        7.0, 6.9, 2.5, 14.5, 18.2, 21.5, 5.2, 26.5, 23.3, 45.3, 13.9, 9.6,
+                        -7.0, -6.9, -2.5, -14.5, -18.2, -21.5, -5.2, -26.5, -23.3, -45.3, -13.9, -9.6
+                    ))
+                    .lineWidth(5f)
+                    .color(AAColor.rgbaColor(30, 144, 255, 1.0f))
+                    .negativeColor(AAColor.rgbaColor(255, 0, 0, 1.0f))
+                    .fillColor(gradientBlueColorDic)
+                    .negativeFillColor(gradientRedColorDic)
+                    .threshold(0f) //default:0
+            )
+            )
+    }
+
+
+}
 }

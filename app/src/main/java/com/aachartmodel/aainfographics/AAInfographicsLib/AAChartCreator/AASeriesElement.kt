@@ -40,22 +40,29 @@ import com.aachartmodel.aainfographics.AAInfographicsLib.AAOptionsModel.AAToolti
 class AASeriesElement {
 
     private var type: String? = null
+    private var allowPointSelect: Boolean? = null
     private var name: String? = null
     private var data: Array<Any>? = null
-    private var lineWidth: Float? = null//折线图、曲线图、直方折线图、折线填充图、曲线填充图、直方折线填充图的线条宽度
+    private var lineWidth //折线图、曲线图、直方折线图、折线填充图、曲线填充图、直方折线填充图的线条宽度
+            : Float? = null
     private var borderWidth: Float? = null
     private var color: Any? = null
     private var fillColor: Any? = null
-    private var fillOpacity: Float? = null//折线填充图、曲线填充图、直方折线填充图等填充图类型的填充颜色透明度
-    private var threshold: Float? =
-        null//The threshold, also called zero level or base level. For line type series this is only used in conjunction with negativeColor. default：0.
-    private var negativeColor: String? =
-        null// The color for the parts of the graph or points that are below the threshold
+    private var fillOpacity //折线填充图、曲线填充图、直方折线填充图等填充图类型的填充颜色透明度
+            : Float? = null
+    private var threshold //The threshold, also called zero level or base level. For line type series this is only used in conjunction with negativeColor. default：0.
+            : Float? = null
+    private var negativeColor // The color for the parts of the graph or points that are below the threshold
+            : String? = null
+    private var negativeFillColor: Any? = null
+    private var size: Any? = null
+    private var innerSize: Any? = null
     private var dashStyle: String? = null
     private var yAxis: Int? = null
     private var dataLabels: AADataLabels? = null
     private var marker: AAMarker? = null
     private var step: Any? = null
+    private var states: Any? = null
     private var colorByPoint: Boolean? = null
     private var zIndex: Int? = null
     private var zones: Array<Any>? = null
@@ -63,14 +70,21 @@ class AASeriesElement {
     private var stack: String? = null
     private var tooltip: AATooltip? = null
     private var showInLegend: Boolean? = null
+    private var enableMouseTracking: Boolean? = null
+    private var reversed: Boolean? = null
 
 
-    fun type(prop: AAChartType): AASeriesElement {
-        type = prop.value
+    fun type(prop: String?): AASeriesElement {
+        type = prop
         return this
     }
 
-    fun name(prop: String): AASeriesElement {
+    fun allowPointSelect(prop: Boolean?): AASeriesElement {
+        allowPointSelect = prop
+        return this
+    }
+
+    fun name(prop: String?): AASeriesElement {
         name = prop
         return this
     }
@@ -85,17 +99,17 @@ class AASeriesElement {
         return this
     }
 
-    fun borderWidth(prop: Float): AASeriesElement {
+    fun borderWidth(prop: Float?): AASeriesElement {
         borderWidth = prop
         return this
     }
 
-    fun color(prop: Any): AASeriesElement {
+    fun color(prop: Any?): AASeriesElement {
         color = prop
         return this
     }
 
-    fun fillColor(prop: Any): AASeriesElement {
+    fun fillColor(prop: Any?): AASeriesElement {
         fillColor = prop
         return this
     }
@@ -110,13 +124,28 @@ class AASeriesElement {
         return this
     }
 
-    fun negativeColor(prop: String): AASeriesElement {
+    fun negativeColor(prop: String?): AASeriesElement {
         negativeColor = prop
         return this
     }
 
-    fun dashStyle(prop: AAChartLineDashStyleType): AASeriesElement {
-        dashStyle = prop.value
+    fun negativeFillColor(prop: Any?): AASeriesElement {
+        negativeFillColor = prop
+        return this
+    }
+
+    fun size(prop: Any?): AASeriesElement {
+        size = prop
+        return this
+    }
+
+    fun innerSize(prop: Any?): AASeriesElement {
+        innerSize = prop
+        return this
+    }
+
+    fun dashStyle(prop: String?): AASeriesElement {
+        dashStyle = prop
         return this
     }
 
@@ -125,18 +154,23 @@ class AASeriesElement {
         return this
     }
 
-    fun dataLabels(prop: AADataLabels): AASeriesElement {
+    fun dataLabels(prop: AADataLabels?): AASeriesElement {
         dataLabels = prop
         return this
     }
 
-    fun marker(prop: AAMarker): AASeriesElement {
+    fun marker(prop: AAMarker?): AASeriesElement {
         marker = prop
         return this
     }
 
-    fun step(prop: Any): AASeriesElement {
+    fun step(prop: Any?): AASeriesElement {
         step = prop
+        return this
+    }
+
+    fun states(prop: Any?): AASeriesElement {
+        states = prop
         return this
     }
 
@@ -155,23 +189,33 @@ class AASeriesElement {
         return this
     }
 
-    fun shadow(prop: AAShadow): AASeriesElement {
+    fun shadow(prop: AAShadow?): AASeriesElement {
         shadow = prop
         return this
     }
 
-    fun stack(prop: String): AASeriesElement {
+    fun stack(prop: String?): AASeriesElement {
         stack = prop
         return this
     }
 
-    fun tooltip(prop: AATooltip): AASeriesElement {
+    fun tooltip(prop: AATooltip?): AASeriesElement {
         tooltip = prop
         return this
     }
 
-    fun showInLegend(prop: Boolean): AASeriesElement? {
+    fun showInLegend(prop: Boolean?): AASeriesElement {
         showInLegend = prop
+        return this
+    }
+
+    fun enableMouseTracking(prop: Boolean?): AASeriesElement {
+        enableMouseTracking = prop
+        return this
+    }
+
+    fun reversed(prop: Boolean?): AASeriesElement {
+        reversed = prop
         return this
     }
 
