@@ -78,9 +78,9 @@ You're all set, enjoy!
 
 ## Usage
 
-1. Creat the instance object of chart view:`AAChartView`
+1. Create the instance object of chart view:`AAChartView`
 ```xml
-         <com.aachartmodel.aainfographics.AAInfographicsLib.AAChartConfiger.AAChartView
+         <com.aachartmodel.aainfographics.AAInfographicsLib.AAChartCreator.AAChartView
         android:id="@+id/AAChartView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -88,20 +88,19 @@ You're all set, enjoy!
   ```
 
 ```kotlin
-       aaChartView = findViewById(R.id.AAChartView)
+       val aaChartView : AAChartView = findViewById(R.id.AAChartView)
 ```
 
 2. Configure the properties of chart model:`AAChartModel`
 
 ```kotlin
-     val aaChartModel = AAChartModel()
+     val aaChartModel : AAChartModel = AAChartModel()
     .chartType(AAChartType.Area)
     .title("title")
     .subtitle("subtitle")
     .backgroundColor("#4b2b7f")
-    .dataLabelEnabled(true)
-    .yAxisGridLineWidth(0)
-    .legendVerticalAlign(AAChartLegendVerticalAlignType.Bottom)
+    .dataLabelsEnabled(true)
+    .yAxisGridLineWidth(0f)
     .series(arrayOf(
         AASeriesElement()
             .name("Tokyo")
@@ -122,7 +121,7 @@ You're all set, enjoy!
 
 ```kotlin
         //The chart view object calls the instance object of AAChartModel and draws the final graphic
-        aaChartView?.aa_drawChartWithChartModel(aaChartModel!)
+        aaChartView?.aa_drawChartWithChartModel(aaChartModel)
 ```
 
 
