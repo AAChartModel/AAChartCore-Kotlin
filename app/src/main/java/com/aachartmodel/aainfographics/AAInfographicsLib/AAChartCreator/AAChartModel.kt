@@ -172,7 +172,6 @@ class AAChartModel {
     var markerSymbol: AAChartSymbolType? = null//折线曲线连接点的类型："circle", "square", "diamond", "triangle","triangle-down"，默认是"circle"
     var markerSymbolStyle: AAChartSymbolStyleType? = null
     var zoomType: AAChartZoomType? = null      //缩放类型 AAChartZoomTypeX表示可沿着 x 轴进行手势缩放
-    var pointHollow: Boolean? = null           //折线或者曲线的连接点是否为空心的
     var inverted: Boolean? = null              //x 轴是否翻转(垂直)
     var xAxisReversed: Boolean? = null         //x 轴翻转
     var yAxisReversed: Boolean? = null         //y 轴翻转
@@ -274,11 +273,6 @@ class AAChartModel {
 
     fun zoomType(prop: AAChartZoomType): AAChartModel {
         zoomType = prop
-        return this
-    }
-
-    fun pointHollow(prop: Boolean?): AAChartModel {
-        pointHollow = prop
         return this
     }
 
@@ -449,7 +443,6 @@ class AAChartModel {
          chartType            = AAChartType.Line
          animationDuration    = 500 //以毫秒为单位
          animationType        = AAChartAnimationType.Linear
-         pointHollow          = false
          inverted             = false
          stacking             = AAChartStackingType.False
          xAxisReversed        = false
