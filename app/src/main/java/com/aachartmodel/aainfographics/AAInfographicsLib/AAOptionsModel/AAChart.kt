@@ -86,7 +86,7 @@ class AAChart {
         return this
     }
 
-    fun margin(prop: Array<Float>): AAChart {
+    fun margin(prop: Array<Float>?): AAChart {
         margin = prop
         return this
     }

@@ -48,10 +48,8 @@ object AAOptionsConstructor {
             .pinchType(aaChartModel.zoomType) //设置手势缩放方向
             .panning(true) //设置手势缩放后是否可平移
             .polar(aaChartModel.polar) //是否极化图表(开启极坐标模式)
-            .marginLeft(aaChartModel.marginLeft) //图表左边距
-            .marginRight(aaChartModel.marginRight) //图表右边距
+            .margin(aaChartModel.margin)
             .scrollablePlotArea(aaChartModel.scrollablePlotArea)
-
 
         val aaTitle = AATitle()
             .text(aaChartModel.title) //标题文本内容
