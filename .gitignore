@@ -69,3 +69,17 @@ app/build.gradle
 .gradle/checksums/md5-checksums.bin
 .gradle/checksums/sha1-checksums.bin
 .idea/jarRepositories.xml
+build.gradle
+.idea/libraries/Gradle__com_google_code_gson_gson_2_8_5_jar.xml
+.idea/libraries/Gradle__com_squareup_javawriter_2_1_1_jar.xml
+.idea/libraries/Gradle__javax_inject_javax_inject_1_jar.xml
+.idea/libraries/Gradle__junit_junit_4_12_jar.xml
+.idea/libraries/Gradle__net_sf_kxml_kxml2_2_3_0_jar.xml
+.idea/libraries/Gradle__org_hamcrest_hamcrest_core_1_3_jar.xml
+.idea/libraries/Gradle__org_hamcrest_hamcrest_integration_1_3_jar.xml
+.idea/libraries/Gradle__org_hamcrest_hamcrest_library_1_3_jar.xml
+.idea/libraries/Gradle__org_jetbrains_annotations_13_0_jar.xml
+.idea/libraries/Gradle__org_jetbrains_kotlin_kotlin_android_extensions_runtime_1_3_31_jar.xml
+.idea/libraries/Gradle__org_jetbrains_kotlin_kotlin_stdlib_1_3_31_jar.xml
+.idea/libraries/Gradle__org_jetbrains_kotlin_kotlin_stdlib_common_1_3_31_jar.xml
+.idea/libraries/Gradle__org_jetbrains_kotlin_kotlin_stdlib_jdk7_1_3_31_jar.xml
