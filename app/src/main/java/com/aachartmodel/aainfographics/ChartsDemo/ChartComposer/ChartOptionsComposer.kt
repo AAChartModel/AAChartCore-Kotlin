@@ -345,11 +345,11 @@ function () {
                 .dataLabelsEnabled(false)
                 .markerRadius(0f)
                 .series(arrayOf(
-                        AASeriesElement()
-                            .name("Berlin Hot")
-                            .color(AAGradientColor.mysticMauveColor())
-                            .data(arrayOf(7.0, 6.9, 2.5, 14.5, 18.2, 21.5, 5.2, 26.5, 23.3, 45.3, 13.9, 9.6))
-                    )
+                    AASeriesElement()
+                        .name("Berlin Hot")
+                        .color(AAGradientColor.mysticMauveColor())
+                        .data(arrayOf(7.0, 6.9, 2.5, 14.5, 18.2, 21.5, 5.2, 26.5, 23.3, 45.3, 13.9, 9.6))
+                )
                 )
 
             val aaOptions = AAOptionsConstructor.configureChartOptions(aaChartModel)
@@ -807,10 +807,9 @@ function () {
                 .colorsTheme(arrayOf("#465DBC"))
                 //title标题
                 .title("最近三十分钟数据展示")
-                //title字体大小
-                .titleFontSize(20f)
-                //title字体颜色
-                .titleFontColor("#0F0F0F")
+                .titleStyle(AAStyle()
+                    .color("#0F0F0F")
+                    .fontSize(20f))
                 //坐标轴字体颜色
                 .axesTextColor("#0F0F0F")
                 //背景颜色

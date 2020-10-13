@@ -55,20 +55,12 @@ object AAOptionsConstructor {
 
         val aaTitle = AATitle()
             .text(aaChartModel.title) //标题文本内容
-            .style(AAStyle()
-                .color(aaChartModel.titleFontColor) //Title font color
-                .fontSize(aaChartModel.titleFontSize) //Title font size
-                .fontWeight(aaChartModel.titleFontWeight) //Title font weight
-            )
+            .style(aaChartModel.titleStyle)
 
         val aaSubtitle = AASubtitle()
             .text(aaChartModel.subtitle) //副标题内容
             .align(aaChartModel.subtitleAlign) //图表副标题文本水平对齐方式。可选的值有 “left”，”center“和“right”。 默认是：center.
-            .style(AAStyle()
-                .color(aaChartModel.subtitleFontColor) //Subtitle font color
-                .fontSize(aaChartModel.subtitleFontSize) //Subtitle font size
-                .fontWeight(aaChartModel.subtitleFontWeight) //Subtitle font weight
-            )
+            .style(aaChartModel.subtitleStyle)
 
         val aaTooltip = AATooltip()
             .enabled(aaChartModel.tooltipEnabled) //启用浮动提示框
@@ -153,11 +145,7 @@ object AAOptionsConstructor {
         if (aaChartModel.dataLabelsEnabled == true) {
             aaDataLabels = aaDataLabels
                 .enabled(true)
-                .style(AAStyle()
-                        .color(aaChartModel.dataLabelsFontColor)
-                        .fontSize(aaChartModel.dataLabelsFontSize)
-                        .fontWeight(aaChartModel.dataLabelsFontWeight)
-                )
+                .style(aaChartModel.dataLabelsStyle)
         }
 
         when (chartType) {

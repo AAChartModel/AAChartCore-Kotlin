@@ -25,7 +25,7 @@ class AATitle {
         return this
     }
 
-    fun style(prop: AAStyle): AATitle {
+    fun style(prop: AAStyle?): AATitle {
         style = prop
         return this
     }

@@ -29,6 +29,7 @@
 package com.aachartmodel.aainfographics.AAInfographicsLib.AAChartCreator
 
 import com.aachartmodel.aainfographics.AAInfographicsLib.AAOptionsModel.AAScrollablePlotArea
+import com.aachartmodel.aainfographics.AAInfographicsLib.AAOptionsModel.AAStyle
 
 enum class AAChartAnimationType(val value :String){
     Linear         ("Linear"),
@@ -157,24 +158,20 @@ enum class AAChartFontWeightType(val value: String) {
 
 class AAChartModel {
 
-    var animationType: AAChartAnimationType? = null          //动画类型
+    var animationType: AAChartAnimationType? = null //动画类型
     var animationDuration: Int? = null         //动画时间
     var title: String? = null                  //标题内容
-    var titleFontColor: String? = null         //标题字体颜色
-    var titleFontSize: Float? = null           //标题字体大小
-    var titleFontWeight: AAChartFontWeightType? = null        //标题字体粗细
+    var titleStyle: AAStyle? = null            //标题文本风格样式
     var subtitle: String? = null               //副标题内容
     var subtitleAlign: AAChartAlignType? = null
-    var subtitleFontColor: String? = null      //副标题字体颜色
-    var subtitleFontSize: Float? = null        //副标题字体大小
-    var subtitleFontWeight: AAChartFontWeightType? = null     //副标题字体粗细
+    var subtitleStyle: AAStyle? = null         //副标题文本风格样式
     var axesTextColor: String? = null          //x 轴和 y 轴文字颜色
-    var chartType: AAChartType? = null              //图表类型
-    var stacking: AAChartStackingType? = null               //堆积样式
+    var chartType: AAChartType? = null         //图表类型
+    var stacking: AAChartStackingType? = null  //堆积样式
     var markerRadius: Float? = null            //折线连接点的半径长度
-    var markerSymbol: AAChartSymbolType? = null           //折线曲线连接点的类型："circle", "square", "diamond", "triangle","triangle-down"，默认是"circle"
+    var markerSymbol: AAChartSymbolType? = null//折线曲线连接点的类型："circle", "square", "diamond", "triangle","triangle-down"，默认是"circle"
     var markerSymbolStyle: AAChartSymbolStyleType? = null
-    var zoomType: AAChartZoomType? = null               //缩放类型 AAChartZoomTypeX表示可沿着 x 轴进行手势缩放
+    var zoomType: AAChartZoomType? = null      //缩放类型 AAChartZoomTypeX表示可沿着 x 轴进行手势缩放
     var pointHollow: Boolean? = null           //折线或者曲线的连接点是否为空心的
     var inverted: Boolean? = null              //x 轴是否翻转(垂直)
     var xAxisReversed: Boolean? = null         //x 轴翻转
@@ -187,9 +184,7 @@ class AAChartModel {
     var marginLeft: Float? = null
     var marginRight: Float? = null
     var dataLabelsEnabled: Boolean? = null     //是否显示数据
-    var dataLabelsFontColor: String? = null
-    var dataLabelsFontSize: Float? = null
-    var dataLabelsFontWeight: AAChartFontWeightType? = null
+    var dataLabelsStyle: AAStyle? = null
     var xAxisLabelsEnabled: Boolean? = null    //x轴是否显示数据
     var xAxisTickInterval: Int? = null
     var categories: Array<String>? = null      //x轴是否显示数据
@@ -227,18 +222,8 @@ class AAChartModel {
         return this
     }
 
-    fun titleFontColor(prop: String): AAChartModel {
-        titleFontColor = prop
-        return this
-    }
-
-    fun titleFontSize(prop: Float?): AAChartModel {
-        titleFontSize = prop
-        return this
-    }
-
-    fun titleFontWeight(prop: AAChartFontWeightType): AAChartModel {
-        titleFontWeight = prop
+    fun titleStyle(prop: AAStyle): AAChartModel {
+        titleStyle = prop
         return this
     }
 
@@ -252,18 +237,8 @@ class AAChartModel {
         return this
     }
 
-    fun subtitleFontColor(prop: String): AAChartModel {
-        subtitleFontColor = prop
-        return this
-    }
-
-    fun subtitleFontSize(prop: Float?): AAChartModel {
-        subtitleFontSize = prop
-        return this
-    }
-
-    fun subtitleFontWeight(prop: AAChartFontWeightType): AAChartModel {
-        subtitleFontWeight = prop
+    fun subtitleStyle(prop: AAStyle): AAChartModel {
+        subtitleStyle = prop
         return this
     }
 
@@ -362,18 +337,8 @@ class AAChartModel {
         return this
     }
 
-    fun dataLabelsFontColor(prop: String): AAChartModel {
-        dataLabelsFontColor = prop
-        return this
-    }
-
-    fun dataLabelsFontSize(prop: Float?): AAChartModel {
-        dataLabelsFontSize = prop
-        return this
-    }
-
-    fun dataLabelsFontWeight(prop: AAChartFontWeightType): AAChartModel {
-        dataLabelsFontWeight = prop
+    fun dataLabelsStyle(prop: AAStyle): AAChartModel {
+        dataLabelsStyle = prop
         return this
     }
 
@@ -504,16 +469,6 @@ class AAChartModel {
          backgroundColor      = "#ffffff"
          borderRadius         = 0f//柱状图长条图头部圆角半径(可用于设置头部的形状,仅对条形图,柱状图有效,设置为1000时,柱形图或者条形图头部为楔形)
          markerRadius         = 6f//折线连接点的半径长度,如果值设置为0,这样就相当于不显示了
-         titleFontColor       = "#000000" //标题字体颜色为黑色
-         titleFontWeight      = AAChartFontWeightType.Regular //常规字体
-         titleFontSize        = 11f
-         subtitleFontColor    = "#000000" //副标题字体颜色为黑色
-         subtitleFontWeight   = AAChartFontWeightType.Regular //常规字体
-         subtitleFontSize     = 9f
-         dataLabelsFontColor  = "#000000" //数据标签默认颜色为黑色
-         dataLabelsFontWeight = AAChartFontWeightType.Bold //图表的数据字体为粗体
-         dataLabelsFontSize   = 10f
-
      }
 
 

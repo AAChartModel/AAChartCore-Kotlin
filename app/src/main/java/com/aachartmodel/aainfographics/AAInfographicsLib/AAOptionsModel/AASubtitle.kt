@@ -26,7 +26,7 @@ class AASubtitle {
         return this
     }
 
-    fun style(prop: AAStyle): AASubtitle {
+    fun style(prop: AAStyle?): AASubtitle {
         style = prop
         return this
     }
