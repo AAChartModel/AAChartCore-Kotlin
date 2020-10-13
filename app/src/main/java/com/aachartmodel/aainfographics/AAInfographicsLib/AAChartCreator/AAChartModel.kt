@@ -180,8 +180,7 @@ class AAChartModel {
     var tooltipCrosshairs: Boolean? = null     //是否显示准星线(默认显示)
     var gradientColorEnable: Boolean? = null   //是否要为渐变色
     var polar: Boolean? = null                 //是否极化图形(变为雷达图)
-    var marginLeft: Float? = null
-    var marginRight: Float? = null
+    var margin: Array<Float>? = null           //图表外边缘和绘图区域之间的边距
     var dataLabelsEnabled: Boolean? = null     //是否显示数据
     var dataLabelsStyle: AAStyle? = null
     var xAxisLabelsEnabled: Boolean? = null    //x轴是否显示数据
@@ -316,13 +315,8 @@ class AAChartModel {
         return this
     }
 
-    fun marginLeft(prop: Float?): AAChartModel {
-        marginLeft = prop
-        return this
-    }
-
-    fun marginright(prop: Float?): AAChartModel {
-        marginRight = prop
+    fun margin(prop: Array<Float>): AAChartModel {
+        margin = prop
         return this
     }
 
