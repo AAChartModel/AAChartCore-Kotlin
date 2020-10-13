@@ -141,9 +141,9 @@ object AAOptionsConstructor {
     ) {
         val chartType = aaChartModel.chartType
 
-        var aaDataLabels = AADataLabels()
+        val aaDataLabels = AADataLabels()
         if (aaChartModel.dataLabelsEnabled == true) {
-            aaDataLabels = aaDataLabels
+            aaDataLabels
                 .enabled(true)
                 .style(aaChartModel.dataLabelsStyle)
         }
@@ -153,7 +153,6 @@ object AAOptionsConstructor {
                 val aaColumn = AAColumn()
                     .borderWidth(0f)
                     .borderRadius(aaChartModel.borderRadius)
-                    .dataLabels(aaDataLabels)
                 if (aaChartModel.polar == true) {
                     aaColumn.pointPadding(0f)
                         .groupPadding(0.005f)
@@ -164,17 +163,12 @@ object AAOptionsConstructor {
                 val aaBar = AABar()
                     .borderWidth(0f)
                     .borderRadius(aaChartModel.borderRadius)
-                    .dataLabels(aaDataLabels)
                 if (aaChartModel.polar == true) {
                     aaBar.pointPadding(0f)
                         .groupPadding(0.005f)
                 }
                 aaPlotOptions.bar(aaBar)
             }
-            AAChartType.Area -> aaPlotOptions.area(AAArea().dataLabels(aaDataLabels))
-            AAChartType.Areaspline -> aaPlotOptions.areaspline(AAAreaspline().dataLabels(aaDataLabels))
-            AAChartType.Line -> aaPlotOptions.line(AALine().dataLabels(aaDataLabels))
-            AAChartType.Spline -> aaPlotOptions.spline(AASpline().dataLabels(aaDataLabels))
             AAChartType.Pie -> {
                 val aaPie = AAPie()
                     .allowPointSelect(true)
@@ -183,24 +177,20 @@ object AAOptionsConstructor {
                 if (aaChartModel.dataLabelsEnabled == true) {
                     aaDataLabels.format("<b>{point.name}</b>: {point.percentage:.1f} %")
                 }
-                aaPlotOptions.pie(aaPie.dataLabels(aaDataLabels))
+                aaPlotOptions.pie(aaPie)
             }
             AAChartType.Columnrange -> {
                 val aaColumnrange = AAColumnrange()
                     .borderRadius(0f) //The color of the border surrounding each column or bar
                     .borderWidth(0f) //The corner radius of the border surrounding each column or bar. default：0
-                    .dataLabels(aaDataLabels)
                 aaPlotOptions.columnrange(aaColumnrange)
-            }
-            AAChartType.Arearange -> {
-                val aaArearange = AAArearange()
-                    .dataLabels(aaDataLabels)
-                aaPlotOptions.arearange(aaArearange)
             }
             else -> {
 
             }
+
         }
+        aaPlotOptions.series?.dataLabels(aaDataLabels)
     }
 
 

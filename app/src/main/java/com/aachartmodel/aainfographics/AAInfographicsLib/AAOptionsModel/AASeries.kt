@@ -20,6 +20,7 @@ class AASeries {
     private var connectNulls: Boolean? = null//设置折线是否断点重连
     private var events: Map<*, *>? = null
     private var shadow: AAShadow? = null
+    private var dataLabels: AADataLabels? = null
 
     fun borderRadius(prop: Float?): AASeries {
         borderRadius = prop
@@ -65,5 +66,12 @@ class AASeries {
         shadow = prop
         return this
     }
+
+    fun dataLabels(prop: AADataLabels): AASeries {
+        dataLabels = prop
+        return this
+    }
+
+
 
 }
