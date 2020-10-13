@@ -62,3 +62,10 @@ app/build.gradle
 .gradle/5.6.4/javaCompile/javaCompile.lock
 .idea/AAChartCore-Kotlin.iml
 .idea/gradle.xml
+.gradle/6.1.1/executionHistory/executionHistory.lock
+.gradle/6.1.1/fileChanges/last-build.bin
+.gradle/6.1.1/fileHashes/fileHashes.lock
+.gradle/checksums/checksums.lock
+.gradle/checksums/md5-checksums.bin
+.gradle/checksums/sha1-checksums.bin
+.idea/jarRepositories.xml
