@@ -81,6 +81,11 @@ class ChartOptionsComposer {
                 .align(AAChartAlignType.Right)
 
             aaOptions.yAxis?.labels?.format = "{value} %"//给y轴添加单位
+
+            aaOptions.defaultOptions = AALang()
+                .resetZoom("重置缩放比例")
+                .thousandsSep(",")
+
             return aaOptions
         }
 

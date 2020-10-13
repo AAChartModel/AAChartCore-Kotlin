@@ -24,6 +24,7 @@ class AAOptions {
     var legend: AALegend? = null
     var pane: AAPane? = null
     var colors: Array<Any>? = null
+    var defaultOptions: AALang? = null
     var touchEventEnabled: Boolean? = null
 
     fun chart(prop: AAChart): AAOptions {
@@ -88,6 +89,11 @@ class AAOptions {
 
     fun colors(prop: Array<Any>?): AAOptions {
         colors = prop
+        return this
+    }
+
+    fun defaultOptions(prop: AALang): AAOptions? {
+        defaultOptions = prop
         return this
     }
 

@@ -2,7 +2,14 @@
         var aaGlobalChart;
 
         function loadTheHighChartView (sender,receivedWidth, receivedHeight) {
-        var aaOptions = JSON.parse(sender);
+            var aaOptions = JSON.parse(sender, function (key, value) {
+            if (   typeof(value) == 'string'
+                && value.indexOf('function') != -1) {
+                  return eval(value)
+                }
+                return value;
+                });
+
             if (aaOptions.xAxisArray) {
                 aaOptions.xAxis = aaOptions.xAxisArray
                 }
@@ -11,14 +18,17 @@
                 aaOptions.yAxis = aaOptions.yAxisArray
                 }
 
-
             aaOptions.credits = {enabled:false};
+
+            if (aaOptions.defaultOptions) {
+                Highcharts.setOptions({
+                 lang: aaOptions.defaultOptions
+                   });
+                 }
 
             if (aaOptions.plotOptions) {
                 configurePlotOptions(aaOptions);
                 }
-
-            configureOptionsFormatters(aaOptions);
 
             aaGlobalChart = Highcharts.chart('container', aaOptions);
            //全局配置(可通过全局配置设置主题)https://api.hcharts.cn/highcharts#Highcharts.setOptions
@@ -52,32 +62,17 @@
                         window.androidObject.androidMethod(messageStr);
                     };
 
-                         var seriesPoint = {
-                                    events:{
-                                        mouseOver: mouseOverFunc,
-                                    }
-                                   };
-                         aaPlotOptions.series.point = seriesPoint;
+                    if (aaPlotOptions.series.point) {// set property directly for series point
+                        aaPlotOptions.series.point.events.mouseOver = mouseOverFunc;
+                    } else {// create a new series point object instance
+                        var seriesPoint = {
+                            events:{
+                                mouseOver: mouseOverFunc,
+                             }
+                         };
+                    aaPlotOptions.series.point = seriesPoint;
+                    }
                 }
-
-        function configureOptionsFormatters(aaOptions) {
-            if (aaOptions.tooltip
-                && aaOptions.tooltip.formatter) {
-                aaOptions.tooltip.formatter = eval(aaOptions.tooltip.formatter);
-            }
-
-            if (aaOptions.xAxis
-                && aaOptions.xAxis.labels
-                && aaOptions.xAxis.labels.formatter) {
-                aaOptions.xAxis.labels.formatter = eval(aaOptions.xAxis.labels.formatter);
-            }
-
-            if (aaOptions.yAxis
-                && aaOptions.yAxis.labels
-                && aaOptions.yAxis.labels.formatter) {
-                aaOptions.yAxis.labels.formatter = eval(aaOptions.yAxis.labels.formatter);
-            }
-        }
 
         function onlyRefreshTheChartDataWithSeries(receivedSeries, animation) {
             var receivedSeriesArr = JSON.parse(receivedSeries);
