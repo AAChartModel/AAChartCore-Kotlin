@@ -83,3 +83,9 @@ build.gradle
 .idea/libraries/Gradle__org_jetbrains_kotlin_kotlin_stdlib_1_3_31_jar.xml
 .idea/libraries/Gradle__org_jetbrains_kotlin_kotlin_stdlib_common_1_3_31_jar.xml
 .idea/libraries/Gradle__org_jetbrains_kotlin_kotlin_stdlib_jdk7_1_3_31_jar.xml
+.gradle/6.1.1/executionHistory/executionHistory.bin
+.gradle/6.1.1/fileContent/fileContent.lock
+.gradle/6.1.1/fileHashes/resourceHashesCache.bin
+.gradle/6.1.1/javaCompile/classAnalysis.bin
+.gradle/6.1.1/javaCompile/jarAnalysis.bin
+.gradle/6.1.1/javaCompile/javaCompile.lock
