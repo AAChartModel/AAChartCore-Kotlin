@@ -137,8 +137,13 @@ You're all set, enjoy!
         aaChartView.aa_drawChartWithChartModel(aaChartModel)
 ```
 
+4. Finally add this line to your proguard file:
+```kotlin
+-keep class com.github.aachartmodel.aainfographics.** { *; }
+```
 
 🌹🌹🌹Congratulations! Everything was done!!! You will get what you want!!!
+
 
 ### Update chart content 
 if you want to refresh chart content,you should do something as follow.According to your actual needs, select the function that fits you.
