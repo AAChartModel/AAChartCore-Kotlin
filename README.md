@@ -63,16 +63,29 @@
 ## Installation
 
 
-### Manually  (old school way)
+### Gradle
 
-1. Download the repository
-2. Locate the folders `AAInfographicsLib`and `assets files`. <br/>
-   You can find them at AAChartCore-Kotlin-master/app/src/main/*assets* <br/>
-   and AAChartCore-Kotlin-master/app/src/main/java/com/aachartmodel/*aainfographics* <br/>
-3. Place assets folder at ./your_project_folder/app/src/main
-4. Place the AAInfographicsLib library folder at ./your_project_folder/app/src/main/java/android/organisation/app_name/
-5. Add implementation 'com.google.code.gson:gson:2.8.6' to your gradle
-6. If missing - add mavenLocal()
+
+#### Step 1. Add the JitPack repository to your build file
+
+Add it in your root build.gradle at the end of repositories:
+
+```groovy
+	allprojects {
+		repositories {
+			...
+			maven { url 'https://www.jitpack.io' }
+		}
+	}
+```
+	
+#### Step 2. Add the dependency
+
+```groovy
+	dependencies {
+	        implementation 'com.github.AAChartModel:AAChartCore-Kotlin:-SNAPSHOT'
+	}
+```
 
 You're all set, enjoy!
 
@@ -80,15 +93,16 @@ You're all set, enjoy!
 
 1. Create the instance object of chart view:`AAChartView`
 ```xml
-         <com.aachartmodel.aainfographics.AAInfographicsLib.AAChartCreator.AAChartView
-        android:id="@+id/AAChartView"
+    <com.github.aachartmodel.aainfographics.aachartcreator.AAChartView
+        android:id="@+id/aa_chart_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        />
+        android:layout_height="match_parent">
+
+    </com.github.aachartmodel.aainfographics.aachartcreator.AAChartView>
   ```
 
 ```kotlin
-       val aaChartView : AAChartView = findViewById(R.id.AAChartView)
+    val aaChartView = findViewById<AAChartView>(R.id.aa_chart_view)
 ```
 
 2. Configure the properties of chart model:`AAChartModel`
@@ -100,7 +114,6 @@ You're all set, enjoy!
     .subtitle("subtitle")
     .backgroundColor("#4b2b7f")
     .dataLabelsEnabled(true)
-    .yAxisGridLineWidth(0f)
     .series(arrayOf(
         AASeriesElement()
             .name("Tokyo")
@@ -121,7 +134,7 @@ You're all set, enjoy!
 
 ```kotlin
         //The chart view object calls the instance object of AAChartModel and draws the final graphic
-        aaChartView?.aa_drawChartWithChartModel(aaChartModel)
+        aaChartView.aa_drawChartWithChartModel(aaChartModel)
 ```
 
 4. Finally add this line to your proguard file:
@@ -140,13 +153,13 @@ if you want to refresh chart content,you should do something as follow.According
 
 ```kotlin
         //Only refresh the chart series data
-        aaChartView?.aa_onlyRefreshTheChartDataWithChartModelSeries(chartModelSeriesArray)
+        aaChartView.aa_onlyRefreshTheChartDataWithChartModelSeries(chartModelSeriesArray)
 ```
 
 *  Refresh the chart, minus the chart data (this method is recommended for subsequent refreshes after the first drawing of graphics has completed. If you want to update the chart data only, you should use the function `aa_onlyRefreshTheChartDataWithChartModelSeries`)
 ```kotlin
         //Refresh the chart after the AAChartModel whole content is updated
-        aaChartView?.aa_refreshChartWholeContentWithChartModel(aaChartModel!)
+        aaChartView.aa_refreshChartWholeContentWithChartModel(aaChartModel)
 ```
 
 ## Infographics sample
@@ -410,52 +423,7 @@ series | the series data of chart |  a list made of AASeriesElement instance obj
 
 
 
-
-* ### AAChartModel:chart all properties list
-```kotlin
-  var animationType: String? = null          
-    var animationDuration: Int? = null       
-    var title: String? = null                 
-    var subtitle: String? = null               
-    var chartType: String? = null             
-    var stacking: String? = null              
-    var symbol: String? = null               
-    var symbolStyle: String? = null
-    var zoomType: String? = null              
-    var pointHollow: Boolean? = null           
-    var inverted: Boolean? = null              
-    var xAxisReversed: Boolean? = null         
-    var yAxisReversed: Boolean? = null         
-    var tooltipEnabled: Boolean? = null        
-    var tooltipValueSuffix: String? = null    
-    var tooltipCrosshairs: Boolean? = null     
-    var gradientColorEnable: Boolean? = null  
-    var polar: Boolean? = null                
-    var marginLeft: Float? = null            
-    var marginRight: Float? = null           
-    var dataLabelEnabled: Boolean? = null     
-    var xAxisLabelsEnabled: Boolean? = null    
-    var categories: Array<String>? = null      
-    var xAxisGridLineWidth: Int? = null       
-    var xAxisVisible: Boolean? = null          
-    var yAxisVisible: Boolean? = null          
-    var yAxisLabelsEnabled: Boolean? = null    
-    var yAxisTitle: String? = null            
-    var yAxisLineWidth: Float? = null          
-    var yAxisGridLineWidth: Int? = null        
-    var colorsTheme: Array<Any>? = null        
-    var legendEnabled: Boolean? = null         
-    var legendLayout: String? = null           
-    var legendAlign: String? = null            
-    var legendVerticalAlign: String? = null    
-    var backgroundColor: String? = null        
-    var borderRadius: Int? = null              
-    var markerRadius: Int? = null             
-    var series: Array<AASeriesElement>? = null
-    var titleColor: String? = null            
-    var subTitleColor: String? = null        
-    var axisColor: String? = null             
-```
+More detailed chart property setting parameters can be found in the ʻAAChartModel` and ʻAAOptions` files. For details, please refer to the ʻAAChartCore-Kotlin(AAInfographics)` source code.
 
 
 
