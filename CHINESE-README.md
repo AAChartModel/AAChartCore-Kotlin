@@ -70,25 +70,44 @@
 
 ## 安装
 
-### 手动安装
+### 通过 Gradle 安装
 
-1. 下载 Demo  `AAChartCore-KotlinDemo`
-2. 将 Demo 中的名为 `AAInfographicsLib 的文件夹`和 `assets 文件夹下的所有文件`拖入至你的项目之中.
+#### Step 1. 添加 `JitPack 仓库支持` 到你的 `build` 文件中 
 
+在**项目根目录**的 `build.gradle（注意：不是 app/build.gradle）` 中添加对 `JitPack` 的支持：
+
+```groovy
+	allprojects {
+		repositories {
+			...
+			maven { url 'https://www.jitpack.io' }
+		}
+	}
+```
+	
+#### Step 2. 添加 `AAChartCore-Kotlin(AAInfographics)` 依赖
+
+```groovy
+	dependencies {
+	        implementation 'com.github.AAChartModel:AAChartCore-Kotlin:-SNAPSHOT'
+	}
+```
 
 ## 使用方法
 
 1. 创建视图*AAChartView*
+
 ```xml
-        <com.aachartmodel.aainfographics.AAInfographicsLib.AAChartConfiger.AAChartView
-        android:id="@+id/AAChartView"
+    <com.github.aachartmodel.aainfographics.aachartcreator.AAChartView
+        android:id="@+id/aa_chart_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        />
- ```
+        android:layout_height="match_parent">
+
+    </com.github.aachartmodel.aainfographics.aachartcreator.AAChartView>
+  ```
 
  ```kotlin
-        aaChartView = findViewById(R.id.AAChartView)
+    val aaChartView = findViewById<AAChartView>(R.id.aa_chart_view)
  ```
 2. 配置视图模型*AAChartModel*
 
@@ -100,8 +119,6 @@
     .subtitle("subtitle")
     .backgroundColor("#4b2b7f")
     .dataLabelEnabled(true)
-    .yAxisGridLineWidth(0)
-    .legendVerticalAlign(AAChartLegendVerticalAlignType.Bottom)
     .series(arrayOf(
         AASeriesElement()
             .name("Tokyo")
@@ -123,7 +140,7 @@
 
 ```kotlin
         /*图表视图对象调用图表模型对象,绘制最终图形*/
-        aaChartView.aa_drawChartWithChartModel(aaChartModel);
+        aaChartView.aa_drawChartWithChartModel(aaChartModel)
 ```
 
 🌹🌹🌹 好了,至此,有关于绘制图形的任务,一切皆已经搞定!!! 你将得到你想要的任意图形!!!
@@ -405,51 +422,10 @@ colorsTheme | 图表显示的颜色主题效果 |类似此 `arrayOf("#fe117c", "
 series | 图表的数据列 | AASeriesElement实例对象组成的有效数组,其中每个AASeriesElement都有与之对应的数据、类型、颜色、透明度等具体的值 | 
 
 
-* ### AAChartModel 所有属性列表说明
-```kotlin
-    var animationType: String? = null          //动画类型
-    var animationDuration: Int? = null         //动画时间
-    var title: String? = null                  //标题内容
-    var subtitle: String? = null               //副标题内容
-    var chartType: String? = null              //图表类型
-    var stacking: String? = null               //堆积样式
-    var symbol: String? = null                 //折线曲线连接点的类型："circle", "square", "diamond", "triangle","triangle-down"，默认是"circle"
-    var symbolStyle: String? = null
-    var zoomType: String? = null               //缩放类型 AAChartZoomTypeX表示可沿着 x 轴进行手势缩放
-    var pointHollow: Boolean? = null           //折线或者曲线的连接点是否为空心的
-    var inverted: Boolean? = null              //x 轴是否翻转(垂直)
-    var xAxisReversed: Boolean? = null         //x 轴翻转
-    var yAxisReversed: Boolean? = null         //y 轴翻转
-    var tooltipEnabled: Boolean? = null        //是否显示浮动提示框(默认显示)
-    var tooltipValueSuffix: String? = null     //浮动提示框单位后缀
-    var tooltipCrosshairs: Boolean? = null     //是否显示准星线(默认显示)
-    var gradientColorEnable: Boolean? = null   //是否要为渐变色
-    var polar: Boolean? = null                 //是否极化图形(变为雷达图)
-    var marginLeft: Float? = null              //左部外边距
-    var marginRight: Float? = null             //右边外边距
-    var dataLabelEnabled: Boolean? = null      //是否显示数据
-    var xAxisLabelsEnabled: Boolean? = null    //x轴是否显示数据
-    var categories: Array<String>? = null      //x轴是否显示数据
-    var xAxisGridLineWidth: Int? = null        //x轴网格线的宽度
-    var xAxisVisible: Boolean? = null          //x 轴是否显示
-    var yAxisVisible: Boolean? = null          //y 轴是否显示
-    var yAxisLabelsEnabled: Boolean? = null    //y轴是否显示数据
-    var yAxisTitle: String? = null             //y轴标题
-    var yAxisLineWidth: Float? = null          //y 轴轴线的宽度
-    var yAxisGridLineWidth: Int? = null        //y轴网格线的宽度
-    var colorsTheme: Array<Any>? = null        //图表主题颜色数组
-    var legendEnabled: Boolean? = null         //是否显示图例
-    var legendLayout: String? = null           //图例数据项的布局。布局类型： "horizontal" 或 "vertical" 即水平布局和垂直布局 默认是：horizontal.
-    var legendAlign: String? = null            //设定图例在图表区中的水平对齐方式，合法值有left，center 和 right。
-    var legendVerticalAlign: String? = null    //设定图例在图表区中的垂直对齐方式，合法值有 top，middle 和 bottom。垂直位置可以通过 y 选项做进一步设定。
-    var backgroundColor: String? = null        //图表背景色
-    var borderRadius: Int? = null              //柱状图长条图头部圆角半径(可用于设置头部的形状,仅对条形图,柱状图有效)
-    var markerRadius: Int? = null              //折线连接点的半径长度
-    var series: Array<AASeriesElement>? = null
-    var titleColor: String? = null             //标题颜色
-    var subTitleColor: String? = null          //副标题颜色
-    var axisColor: String? = null              //x 轴和 y 轴文字颜色
-```
+
+更多详尽的图表属性设置参数您可以在 `AAChartModel` 和 `AAOptions` 文件中找到, 详细内容参见 `AAChartCore-Kotlin(AAInfographics)` 源代码.
+
+
 
 
 ## 作者
