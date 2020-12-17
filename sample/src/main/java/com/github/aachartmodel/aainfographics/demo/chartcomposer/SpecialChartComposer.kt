@@ -842,8 +842,7 @@ object SpecialChartComposer{
         dataElement7["isSum"] = true
         dataElement7["color"] = "#04d69f"
 
-        val seriesElement = AAWaterfall()
-            .upColor("#9b43b4")
+        val seriesElement = AASeriesElement()
             .color("#ef476f")
             .borderWidth(0f)
             .data(arrayOf(
@@ -854,14 +853,13 @@ object SpecialChartComposer{
                     dataElement5,
                     dataElement6,
                     dataElement7
-                )
-            )
+                ))
 
         return AAChartModel()
             .chartType(AAChartType.Waterfall)
             .title("WATERFALL CHART")
             .subtitle("virtual data")
-//            .series(arrayOf(seriesElement))
+            .series(arrayOf(seriesElement))
     }
     fun configurePyramidChart(): AAChartModel  {
         return AAChartModel()
@@ -903,8 +901,8 @@ object SpecialChartComposer{
                         arrayOf("Objective-C", 12379),
                         arrayOf("JavaScript",  14286),
                         arrayOf("Go",          15552),
-                        arrayOf("Python",      18654))
-                    )))
+                        arrayOf("Python",      18654)
+                    ))))
     }
 
     fun configureErrorbarChart(): AAChartModel {
@@ -919,8 +917,9 @@ object SpecialChartComposer{
                         .name("降水")
                         .type(AAChartType.Column)
                         .color("#06caf4")
-                        .data(arrayOf(49.9, 71.5, 106.4, 129.2, 144.0, 176.0,
-                            135.6, 148.5, 216.4, 194.1, 95.6, 54.4
+                        .data(arrayOf(
+                                49.9, 71.5, 106.4, 129.2, 144.0, 176.0,
+                                135.6, 148.5, 216.4, 194.1, 95.6, 54.4
                             )),
                     AASeriesElement()
                         .name("降雨误差")
