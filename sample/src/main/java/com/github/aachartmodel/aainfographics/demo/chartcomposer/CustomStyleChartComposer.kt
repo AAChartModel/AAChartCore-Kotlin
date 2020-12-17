@@ -54,19 +54,19 @@ class CustomStyleChartComposer  {
             )
 
             val colorsArr = arrayOf<Any>(
-                AAColor.redColor(),
-                AAColor.orangeColor(),
-                AAColor.yellowColor(),
-                AAColor.greenColor(),
-                AAColor.cyanColor(),
-                AAColor.blueColor(),
-                AAColor.purpleColor(),
-                AAColor.grayColor(),
-                AAColor.darkGrayColor(),
-                AAColor.lightGrayColor(),
-                AAColor.magentaColor(),
-                AAColor.brownColor(),
-                AAColor.blackColor()
+                    AAColor.Red,
+                    AAColor.Orange,
+                    AAColor.Yellow,
+                    AAColor.Green,
+                    AAColor.Cyan,
+                    AAColor.Blue,
+                    AAColor.Purple,
+                    AAColor.Gray,
+                    AAColor.DarkGray,
+                    AAColor.LightGray,
+                    AAColor.Magenta,
+                    AAColor.Brown,
+                    AAColor.Black,
             )
 
             return AAChartModel()
@@ -115,30 +115,30 @@ class CustomStyleChartComposer  {
             )
 
             val gradientColorArr = arrayOf<Any>(
-                AAGradientColor.oceanBlueColor(),
-                AAGradientColor.sanguineColor(),
-                AAGradientColor.lusciousLimeColor(),
-                AAGradientColor.purpleLakeColor(),
-                AAGradientColor.freshPapayaColor(),
-                AAGradientColor.ultramarineColor(),
-                AAGradientColor.pinkSugarColor(),
-                AAGradientColor.lemonDrizzleColor(),
-                AAGradientColor.victoriaPurpleColor(),
-                AAGradientColor.springGreensColor(),
-                AAGradientColor.mysticMauveColor(),
-                AAGradientColor.reflexSilverColor(),
-                AAGradientColor.newLeafColor(),
-                AAGradientColor.cottonCandyColor(),
-                AAGradientColor.pixieDustColor(),
-                AAGradientColor.fizzyPeachColor(),
-                AAGradientColor.sweetDreamColor(),
-                AAGradientColor.firebrickColor(),
-                AAGradientColor.wroughtIronColor(),
-                AAGradientColor.deepSeaColor(),
-                AAGradientColor.coastalBreezeColor(),
-                AAGradientColor.eveningDelightColor(),
-                AAGradientColor.neonGlowColor(),
-                AAGradientColor.berrySmoothieColor()
+                    AAGradientColor.OceanBlue,
+                    AAGradientColor.Sanguine,
+                    AAGradientColor.LusciousLime,
+                    AAGradientColor.PurpleLake,
+                    AAGradientColor.FreshPapaya,
+                    AAGradientColor.Ultramarine,
+                    AAGradientColor.PinkSugar,
+                    AAGradientColor.LemonDrizzle,
+                    AAGradientColor.VictoriaPurple,
+                    AAGradientColor.SpringGreens,
+                    AAGradientColor.MysticMauve,
+                    AAGradientColor.ReflexSilver,
+                    AAGradientColor.NewLeaf,
+                    AAGradientColor.CottonCandy,
+                    AAGradientColor.PixieDust,
+                    AAGradientColor.FizzyPeach,
+                    AAGradientColor.SweetDream,
+                    AAGradientColor.Firebrick,
+                    AAGradientColor.WroughtIron,
+                    AAGradientColor.DeepSea,
+                    AAGradientColor.CoastalBreeze,
+                    AAGradientColor.EveningDelight,
+                    AAGradientColor.NeonGlow,
+                    AAGradientColor.BerrySmoothie
             )
 
             return AAChartModel()
@@ -170,7 +170,7 @@ class CustomStyleChartComposer  {
                         .name("Tokyo")
                         .data(arrayOf(
                             arrayOf<Any?>(6.9, 9.5, 14.5, 18.2, 21.5, null, null, null, null, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6)))
-                        .color(AAGradientColor.deepSeaColor())))
+                        .color(AAGradientColor.DeepSea)))
         }
 
         fun configureColorfulColumnChart(): AAChartModel {
@@ -225,7 +225,7 @@ class CustomStyleChartComposer  {
                             .offsetY(15.0f)
                             .opacity(0.2f)
                             .width(8.0f)
-                            .color(AAColor.redColor()))))
+                            .color(AAColor.Red))))
         }
 
         fun configureColorfulGradientAreaChart(): AAChartModel {
@@ -367,7 +367,7 @@ class CustomStyleChartComposer  {
 
         internal fun configureSpecialStyleColumnOfSingleDataElementChart(): AAChartModel {
             val singleSpecialData = AADataElement()
-                .color(AAGradientColor.freshPapayaColor())
+                .color(AAGradientColor.FreshPapaya)
                 .y(49.5f)
 
             return AAChartModel()
@@ -384,7 +384,8 @@ class CustomStyleChartComposer  {
                             .name("Virtual Data")
                             .lineWidth(6f)
                             .data(arrayOf(7.0, 6.9, 2.5, 14.5, 18.2, singleSpecialData, 5.2, 26.5, 23.3, 26.5, 13.9, 9.6))
-                            .color(AAGradientColor.oceanBlueColor())))
+                            .color(AAGradientColor.OceanBlue)
+                ))
         }
 
         internal fun configureAreaChartThreshold(): AAChartModel {
@@ -619,7 +620,7 @@ class CustomStyleChartComposer  {
                         .format(formatStr)
                         .style(AAStyle()
                                 .fontWeight(AAChartFontWeightType.Bold)
-                                .color(AAColor.whiteColor())
+                                .color(AAColor.White)
                                 .fontSize(16f))
                         .y(-35f)
                         .align(AAChartAlignType.Center)
@@ -658,17 +659,16 @@ class CustomStyleChartComposer  {
                             .allowPointSelect(true)
                             .states(AAStates()
                                     .hover(AAHover()
-                                            .color("rgba(220,20,60,1)")
-                                    ) //猩红色, alpha 透明度 1
+                                            .color("rgba(220,20,60,1)")) //猩红色, alpha 透明度 1
                                     .select(AASelect()
-                                            .color(AAColor.redColor())))))
+                                            .color(AAColor.Red)))))
         }
 
         fun customChartHoverAndSelectHaloStyle(): AAChartModel {
             return AAChartModel()
                 .chartType(AAChartType.Line)
                 .title("Custom Chart Hover And Select Halo Style")
-                .colorsTheme(arrayOf(AAColor.redColor()))
+                .colorsTheme(arrayOf(AAColor.Red))
                 .yAxisReversed(true)
                 .xAxisReversed(true)
                 .markerRadius(20f)
@@ -717,9 +717,9 @@ class CustomStyleChartComposer  {
                             .marker(AAMarker()
                                     .states(AAMarkerStates()
                                             .hover(AAMarkerHover()
-                                                    .fillColor(AAColor.whiteColor())
+                                                    .fillColor(AAColor.White)
                                                     .radius(40f)
-                                                    .lineColor(AAColor.greenColor())
+                                                    .lineColor(AAColor.Green)
                                                     .lineWidth(20f))))
                             .data(arrayOf(7.0, 6.9, 2.5, 14.5, 18.2, 21.5, 5.2, 26.5, 23.3, 45.3, 13.9, 9.6))))
         }
@@ -741,7 +741,7 @@ class CustomStyleChartComposer  {
                 "闪客",
                 "忍者之印"
             )
-            val colorsTheme: Array<Any> = arrayOf(
+            val colorsTheme = arrayOf<Any>(
                 "#fe117c",
                 "#ffc069",
                 "#06caf4",
@@ -753,10 +753,10 @@ class CustomStyleChartComposer  {
                     AADataLabels()
                         .y(-10f)
                         .format("{total} mm")
-                        .color(AAColor.redColor())
+                        .color(AAColor.Red)
                         .shape("callout")
-                        .backgroundColor(AAColor.whiteColor())
-                        .borderColor(AAColor.redColor())
+                        .backgroundColor(AAColor.White)
+                        .borderColor(AAColor.Red)
                         .borderRadius(1f)
                         .borderWidth(1f)
                 )

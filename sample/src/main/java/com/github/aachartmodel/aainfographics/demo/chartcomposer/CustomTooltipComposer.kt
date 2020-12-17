@@ -262,7 +262,7 @@ function () {
                     AASeriesElement()
                         .name("Observed Data")
                         .color("#ef476f")
-                        .fillColor(AAGradientColor.deepSeaColor())
+                        .fillColor(AAGradientColor.DeepSea)
                         .data(arrayOf(
                             arrayOf(760, 801, 848, 895, 965),
                             arrayOf(733, 853, 939, 980, 1080),
@@ -358,7 +358,7 @@ function () {
                 .style(AAStyle()
                     .fontSize(10f)
                     .fontWeight(AAChartFontWeightType.Bold)
-                    .color(AAColor.grayColor()))
+                    .color(AAColor.Gray))
                 .formatter("""
 function () {
         var yValue = this.value;
@@ -382,7 +382,7 @@ function () {
                 .opposite(true)
                 .tickWidth(2f)
                 .lineWidth(1.5f)//Y轴轴线颜色
-                .lineColor(AAColor.lightGrayColor())//Y轴轴线颜色
+                .lineColor(AAColor.LightGray)//Y轴轴线颜色
                 .gridLineWidth(0f)//Y轴网格线宽度
                 .tickPositions(arrayOf(0, 2500, 5000, 7500, 10000))
                 .labels(aaYAxisLabels)

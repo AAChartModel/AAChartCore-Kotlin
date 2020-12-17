@@ -65,7 +65,7 @@ class ChartOptionsComposer {
                 .subtitle("LEGEND ON THE TOP_RIGHT SIDE WITH VERTICAL STYLE")
                 .subtitleAlign(AAChartAlignType.Left)
                 .markerRadius(0f)
-                .backgroundColor(AAColor.whiteColor())
+                .backgroundColor(AAColor.White)
                 .dataLabelsEnabled(false)
                 .yAxisGridLineWidth(0f)
                 .yAxisTitle("percent values")
@@ -100,7 +100,7 @@ class ChartOptionsComposer {
                     AASeriesElement()
                         .name("Tokyo")
                         .data(arrayOf(7.0, 6.9, 2.5, 14.5, 18.2, 21.5, 5.2, 26.5, 23.3, 45.3, 13.9, 9.6))
-                        .color(AAColor.whiteColor())
+                        .color(AAColor.White)
                         .lineWidth(10.0f)
                 ))
 
@@ -270,7 +270,7 @@ function () {
             .series(arrayOf(
                 AASeriesElement()
                     .name("2020")
-                    .color(AAGradientColor.deepSeaColor())
+                    .color(AAGradientColor.DeepSea)
                     .data(arrayOf(
                         arrayOf(12464064, 21.5),
                         arrayOf(12464928, 22.1),
@@ -307,7 +307,7 @@ function () {
 
         val aaOptions = AAOptionsConstructor.configureChartOptions(aaChartModel)
         val aaCrosshair = AACrosshair()
-            .color(AAColor.redColor())
+            .color(AAColor.Red)
             .width(1f)
             .dashStyle(AAChartLineDashStyleType.LongDashDotDot)
          aaOptions.xAxis?.crosshair(aaCrosshair)
@@ -341,7 +341,7 @@ function () {
                 .series(arrayOf(
                     AASeriesElement()
                         .name("Berlin Hot")
-                        .color(AAGradientColor.mysticMauveColor())
+                        .color(AAGradientColor.MysticMauve)
                         .data(arrayOf(7.0, 6.9, 2.5, 14.5, 18.2, 21.5, 5.2, 26.5, 23.3, 45.3, 13.9, 9.6))
                 ))
 
@@ -377,7 +377,7 @@ function () {
                  .series(arrayOf(
                      AASeriesElement()
                          .name("Berlin Hot")
-                         .color(AAGradientColor.deepSeaColor())
+                         .color(AAGradientColor.DeepSea)
                          .data(arrayOf(7.0, 6.9, 2.5, 14.5, 18.2, 21.5, 5.2, 26.5, 23.3, 45.3, 13.9, 9.6))
                  ))
 
@@ -414,7 +414,7 @@ function () {
                 .series(arrayOf(
                         AASeriesElement()
                             .name("Berlin Hot")
-                            .color(AAColor.whiteColor())
+                            .color(AAColor.White)
                             .lineWidth(7f)
                             .fillColor(fillColorGradientColor)
                             .data(arrayOf(7.0, 6.9, 2.5, 14.5, 18.2, 21.5, 5.2, 26.5, 23.3, 45.3, 13.9, 9.6))
@@ -424,13 +424,13 @@ function () {
                 ?.dataLabels(AADataLabels()
                              .enabled(true)
                              .style(AAStyle()
-                                    .color(AAColor.blackColor())
+                                    .color(AAColor.Black)
                                     .fontSize(14f)
                                     .fontWeight(AAChartFontWeightType.Thin)))
 
             val aaCrosshair = AACrosshair()
                 .dashStyle(AAChartLineDashStyleType.LongDashDot)
-                .color(AAColor.whiteColor())
+                .color(AAColor.White)
                 .width(1f)
 
             val aaLabels = AALabels()
@@ -438,13 +438,13 @@ function () {
                 .style(AAStyle()
                         .fontSize(10f)
                         .fontWeight(AAChartFontWeightType.Bold)
-                        .color(AAColor.whiteColor()))//轴文字颜色
+                        .color(AAColor.White))//轴文字颜色
 
             aaOptions.yAxis!!
                 .opposite(true)
                 .tickWidth(2f)
                 .lineWidth(1.5f)//Y轴轴线颜色
-                .lineColor(AAColor.whiteColor())//Y轴轴线颜色
+                .lineColor(AAColor.White)//Y轴轴线颜色
                 .gridLineWidth(0f)//Y轴网格线宽度
                 .crosshair(aaCrosshair)
                 .labels(aaLabels)
@@ -452,7 +452,7 @@ function () {
             aaOptions.xAxis!!
                 .tickWidth(2f)//X轴刻度线宽度
                 .lineWidth(1.5f)//X轴轴线宽度
-                .lineColor(AAColor.whiteColor())//X轴轴线颜色
+                .lineColor(AAColor.White)//X轴轴线颜色
                 .crosshair(aaCrosshair)
                 .labels(aaLabels)
 
@@ -468,7 +468,7 @@ function () {
 
             aaOptions.legend!!
                 .itemStyle(AAItemStyle()
-                        .color(AAColor.whiteColor())//字体颜色
+                        .color(AAColor.White)//字体颜色
                         .fontSize(13f)//字体大小
                         .fontWeight("thin")//字体为细体字
                 )
@@ -562,7 +562,7 @@ function () {
                 .title(AATitle()
                         .text("正负镜像柱形图")
                         .style(AAStyle()
-                                .color(AAColor.whiteColor())
+                                .color(AAColor.White)
                                 .fontSize(18f)))
                 .xAxis(AAXAxis()
                         .categories(arrayOf("一月", "二月", "三月", "四月", "五月", "六月",
@@ -831,11 +831,11 @@ function () {
                     arrayOf(0.2, "rgba(156,107,211,0.3)"),
                     arrayOf(1.0, "rgba(156,107,211,0)")
                 )
-            val gradientColorDic1: Map<String, *> = AAGradientColor.linearGradient(
+            val gradientColorDic1 = AAGradientColor.linearGradient(
                 AALinearGradientDirection.ToBottom,
                 stopsArr
             )
-            val gradientColorDic2: Map<String, *> = AAGradientColor.linearGradient(
+            val gradientColorDic2 = AAGradientColor.linearGradient(
                 AALinearGradientDirection.ToBottom,
                 "#956FD4",
                 "#3EACE5" //颜色字符串设置支持十六进制类型和 rgba 类型
@@ -874,7 +874,7 @@ function () {
             val aaLabels = AALabels()
                 .enabled(true)
                 .style(AAStyle()
-                        .color(AAColor.lightGrayColor()))
+                        .color(AAColor.LightGray))
             val aaXAxis = AAXAxis()
                 .visible(true)
                 .labels(aaLabels)
@@ -915,7 +915,7 @@ function () {
             val aaLegend = AALegend()
                 .enabled(true)
                 .itemStyle(AAItemStyle()
-                        .color(AAColor.lightGrayColor()))
+                        .color(AAColor.LightGray))
                 .floating(true)
                 .layout(AAChartLayoutType.Horizontal)
                 .align(AAChartAlignType.Left)
@@ -975,7 +975,7 @@ function () {
                 .visible(true)
                 .plotLines(arrayOf(
                         AAPlotLinesElement()
-                            .color(AAColor.redColor())
+                            .color(AAColor.Red)
                             .value(0.1523f)
                             .width(1.5f)
                             .label(AALabel()

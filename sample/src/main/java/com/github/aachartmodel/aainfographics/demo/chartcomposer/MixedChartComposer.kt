@@ -168,9 +168,9 @@ companion object {
             .stacking(AAChartStackingType.Normal)
             .legendEnabled(true)
             .colorsTheme(arrayOf(
-                AAGradientColor.oceanBlueColor(),
-                AAGradientColor.sanguineColor(),
-                AAGradientColor.lusciousLimeColor()))
+                AAGradientColor.OceanBlue,
+                AAGradientColor.Sanguine,
+                AAGradientColor.LusciousLime))
             .series(arrayOf(
                 AASeriesElement()
                     .name("新用户")
@@ -179,7 +179,7 @@ companion object {
                         AADataLabels()
                         .enabled(true)
                         .style(AAStyle()
-                                .color(AAColor.redColor())
+                                .color(AAColor.Red)
                                 .fontSize(11f))),
                 AASeriesElement()
                     .name("老用户")
@@ -622,7 +622,7 @@ companion object {
             .marker(AAMarker()
                     .fillColor("#1E90FF")
                     .lineWidth(2.0f)
-                    .lineColor(AAColor.whiteColor()
+                    .lineColor(AAColor.White
                     ))
         val pieElement = AAPie()
             .type(AAChartType.Pie)
@@ -635,25 +635,25 @@ companion object {
                     AADataElement()
                         .name("Ada")
                         .y(13.0f)
-                        .color(AAGradientColor.oceanBlueColor())
+                        .color(AAGradientColor.OceanBlue)
                     ,
                     AADataElement()
                         .name("Bob")
                         .y(13.0f)
-                        .color(AAGradientColor.sanguineColor())
+                        .color(AAGradientColor.Sanguine)
                     ,
                     AADataElement()
                         .name("Coco")
                         .y(13.0f)
-                        .color(AAGradientColor.purpleLakeColor())
+                        .color(AAGradientColor.PurpleLake)
                 ))
 
         return AAChartModel()
             .stacking(AAChartStackingType.Normal)
             .colorsTheme(arrayOf(
-                    AAGradientColor.oceanBlueColor(),
-                    AAGradientColor.sanguineColor(),
-                    AAGradientColor.purpleLakeColor()
+                    AAGradientColor.OceanBlue,
+                    AAGradientColor.Sanguine,
+                    AAGradientColor.PurpleLake
                 ))
             .dataLabelsEnabled(false)
             .series(arrayOf(

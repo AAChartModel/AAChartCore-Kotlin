@@ -801,7 +801,7 @@ object SpecialChartComposer{
                 AASeriesElement()
                     .name("Observed Data")
                     .color("#ef476f")
-                    .fillColor(AAGradientColor.firebrickColor())
+                    .fillColor(AAGradientColor.Firebrick)
                     .data(arrayOf(
                         arrayOf(760, 801, 848, 895, 965),
                         arrayOf(733, 853, 939, 980,1080),
@@ -894,7 +894,7 @@ object SpecialChartComposer{
                         .enabled(true)
                         .inside(true)
                         .verticalAlign(AAChartVerticalAlignType.Middle)
-                        .color(AAColor.blackColor())
+                        .color(AAColor.Black)
                         .style(AAStyle()
                             .fontSize(25f)
                             .textOutline("0px 0px contrast")))
@@ -921,13 +921,12 @@ object SpecialChartComposer{
                         .color("#06caf4")
                         .data(arrayOf(49.9, 71.5, 106.4, 129.2, 144.0, 176.0,
                             135.6, 148.5, 216.4, 194.1, 95.6, 54.4
-                            ))
-                    ,
+                            )),
                     AASeriesElement()
                         .name("降雨误差")
                         .type(AAChartType.Errorbar)
                         .lineWidth(2.5f)
-                        .color(AAColor.redColor())
+                        .color(AAColor.Red)
                         .data(arrayOf(
                                 arrayOf(48,   51),
                                 arrayOf(68,   73),

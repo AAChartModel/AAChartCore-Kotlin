@@ -12,7 +12,7 @@ import com.github.aachartmodel.aainfographics.demo.R
 
 class DoubleChartsLinkedWorkActivity : AppCompatActivity(),
     AAChartView.AAChartViewCallBack {
-    private var selectedGradientColor: Any = AAColor.redColor()
+    private var selectedGradientColor: Any = AAColor.Red
     private var aaChartView1: AAChartView? = null
     private var aaChartView2: AAChartView? = null
     private var gradientColorsArr: Array<Any>? = null
@@ -28,62 +28,60 @@ class DoubleChartsLinkedWorkActivity : AppCompatActivity(),
 
     private fun configureChartOptions1(): AAOptions {
         val gradientColorNamesArr = arrayOf(
-            "oceanBlue",
-            "sanguine",
-            "lusciousLime",
-            "purpleLake",
-            "freshPapaya",
-            "ultramarine",
-            "pinkSugar",
-            "lemonDrizzle",
-            "victoriaPurple",
-            "springGreens",
-            "mysticMauve",
-            "reflexSilver",
-            "neonGlowColor",
-            "berrySmoothieColor",
-            "newLeaf",
-            "cottonCandy",
-            "pixieDust",
-            "fizzyPeach",
-            "sweetDream",
-            "firebrick",
-            "wroughtIron",
-            "deepSea",
-            "coastalBreeze",
-            "eveningDelight",
-            "neonGlowColor",
-            "berrySmoothieColor"
+                "oceanBlue",
+                "sanguine",
+                "lusciousLime",
+                "purpleLake",
+                "freshPapaya",
+                "ultramarine",
+                "pinkSugar",
+                "lemonDrizzle",
+                "victoriaPurple",
+                "springGreens",
+                "mysticMauve",
+                "reflexSilver",
+                "neonGlowColor",
+                "berrySmoothieColor",
+                "newLeaf",
+                "cottonCandy",
+                "pixieDust",
+                "fizzyPeach",
+                "sweetDream",
+                "firebrick",
+                "wroughtIron",
+                "deepSea",
+                "coastalBreeze",
+                "eveningDelight",
+                "neonGlowColor",
+                "berrySmoothieColor"
         )
-        val gradientColorArr =
-            arrayOf<Map<*, *>>(
-                AAGradientColor.oceanBlueColor(),
-                AAGradientColor.sanguineColor(),
-                AAGradientColor.lusciousLimeColor(),
-                AAGradientColor.purpleLakeColor(),
-                AAGradientColor.freshPapayaColor(),
-                AAGradientColor.ultramarineColor(),
-                AAGradientColor.pinkSugarColor(),
-                AAGradientColor.lemonDrizzleColor(),
-                AAGradientColor.victoriaPurpleColor(),
-                AAGradientColor.springGreensColor(),
-                AAGradientColor.mysticMauveColor(),
-                AAGradientColor.reflexSilverColor(),
-                AAGradientColor.neonGlowColor(),
-                AAGradientColor.berrySmoothieColor(),
-                AAGradientColor.newLeafColor(),
-                AAGradientColor.cottonCandyColor(),
-                AAGradientColor.pixieDustColor(),
-                AAGradientColor.fizzyPeachColor(),
-                AAGradientColor.sweetDreamColor(),
-                AAGradientColor.firebrickColor(),
-                AAGradientColor.wroughtIronColor(),
-                AAGradientColor.deepSeaColor(),
-                AAGradientColor.coastalBreezeColor(),
-                AAGradientColor.eveningDelightColor(),
-                AAGradientColor.neonGlowColor(),
-                AAGradientColor.berrySmoothieColor()
-            )
+
+        val gradientColorArr = arrayOf(
+                AAGradientColor.OceanBlue,
+                AAGradientColor.Sanguine,
+                AAGradientColor.LusciousLime,
+                AAGradientColor.PurpleLake,
+                AAGradientColor.FreshPapaya,
+                AAGradientColor.Ultramarine,
+                AAGradientColor.PinkSugar,
+                AAGradientColor.LemonDrizzle,
+                AAGradientColor.VictoriaPurple,
+                AAGradientColor.SpringGreens,
+                AAGradientColor.MysticMauve,
+                AAGradientColor.ReflexSilver,
+                AAGradientColor.NewLeaf,
+                AAGradientColor.CottonCandy,
+                AAGradientColor.PixieDust,
+                AAGradientColor.FizzyPeach,
+                AAGradientColor.SweetDream,
+                AAGradientColor.Firebrick,
+                AAGradientColor.WroughtIron,
+                AAGradientColor.DeepSea,
+                AAGradientColor.CoastalBreeze,
+                AAGradientColor.EveningDelight,
+                AAGradientColor.NeonGlow,
+                AAGradientColor.BerrySmoothie
+        )
         gradientColorsArr = gradientColorArr as Array<Any>
         val aaChartModel: AAChartModel = AAChartModel()
             .chartType(AAChartType.Column)
@@ -96,19 +94,14 @@ class DoubleChartsLinkedWorkActivity : AppCompatActivity(),
             .inverted(true)
             .legendEnabled(false)
             .touchEventEnabled(true)
-            .series(
-                arrayOf(
+            .series(arrayOf(
                     AASeriesElement()
                         .name("Tokyo")
-                        .data(
-                            arrayOf(
+                        .data(arrayOf(
                                 211, 183, 157, 133, 111, 91, 73, 57, 43, 31, 21, 13,
                                 211, 183, 157, 133, 111, 91, 73, 57, 43, 31, 21, 13
-                            )
-                        )
-                        .colorByPoint(true)
-                )
-            )
+                            ))
+                        .colorByPoint(true)))
         val aaOptions: AAOptions = AAOptionsConstructor.configureChartOptions(aaChartModel)
         aaOptions.plotOptions?.column?.groupPadding = 0f
         return aaOptions
@@ -121,40 +114,14 @@ class DoubleChartsLinkedWorkActivity : AppCompatActivity(),
             .yAxisTitle("")
             .legendEnabled(false)
             .yAxisGridLineWidth(0f)
-            .series(
-                arrayOf(
+            .series(arrayOf(
                     AASeriesElement()
                         .name("Tokyo")
-                        .data(
-                            arrayOf(
-                                149.9,
-                                171.5,
-                                106.4,
-                                129.2,
-                                144.0,
-                                176.0,
-                                135.6,
-                                188.5,
-                                276.4,
-                                214.1,
-                                95.6,
-                                54.4,
-                                149.9,
-                                171.5,
-                                106.4,
-                                129.2,
-                                144.0,
-                                176.0,
-                                135.6,
-                                188.5,
-                                276.4,
-                                214.1,
-                                95.6,
-                                54.4
-                            )
-                        )
-                )
-            )
+                        .data(arrayOf(
+                                211,183,157,133,111,91,73,57,43,31,21,13,
+                                211,183,157,133,111,91,73,57,43,31,21,13,
+                            ))
+            ))
         val aaOptions: AAOptions = AAOptionsConstructor.configureChartOptions(aaChartModel)
         aaOptions.plotOptions?.column?.groupPadding = 0f
         return aaOptions

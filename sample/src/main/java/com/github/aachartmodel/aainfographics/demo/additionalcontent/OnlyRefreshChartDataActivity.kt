@@ -85,14 +85,12 @@ class OnlyRefreshChartDataActivity : AppCompatActivity() {
             .yAxisVisible(false)
             .title("")
             .yAxisTitle("摄氏度")
-            .colorsTheme(
-                arrayOf(
-                    AAGradientColor.sanguineColor(),
-                    AAGradientColor.deepSeaColor(),
-                    AAGradientColor.neonGlowColor(),
-                    AAGradientColor.wroughtIronColor()
-                )
-            )
+            .colorsTheme(arrayOf(
+                    AAGradientColor.Sanguine,
+                    AAGradientColor.DeepSea,
+                    AAGradientColor.NeonGlow,
+                    AAGradientColor.WroughtIron
+                ))
             .stacking(AAChartStackingType.Normal)
     }
 

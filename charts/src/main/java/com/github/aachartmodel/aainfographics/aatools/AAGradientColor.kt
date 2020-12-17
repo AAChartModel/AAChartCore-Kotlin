@@ -27,6 +27,7 @@
  */
 package com.github.aachartmodel.aainfographics.aatools
 
+
 enum class AALinearGradientDirection {
     ToTop,           //⇧⇧⇧⇧⇧⇧
     ToBottom,        //⇩⇩⇩⇩⇩⇩
@@ -39,99 +40,124 @@ enum class AALinearGradientDirection {
 }
 
 object AAGradientColor {
-    fun oceanBlueColor(): Map<String, Any> {
+    var OceanBlue = oceanBlueColor()
+    var Sanguine = sanguineColor()
+    var LusciousLime = lusciousLimeColor()
+    var PurpleLake = purpleLakeColor()
+    var FreshPapaya = freshPapayaColor()
+    var Ultramarine = ultramarineColor()
+    var PinkSugar = pinkSugarColor()
+    var LemonDrizzle = lemonDrizzleColor()
+    var VictoriaPurple = victoriaPurpleColor()
+    var SpringGreens = springGreensColor()
+    var MysticMauve = mysticMauveColor()
+    var ReflexSilver = reflexSilverColor()
+    var NeonGlow = neonGlowColor()
+    var BerrySmoothie = berrySmoothieColor()
+    var NewLeaf = newLeafColor()
+    var CottonCandy = cottonCandyColor()
+    var PixieDust = pixieDustColor()
+    var FizzyPeach = fizzyPeachColor()
+    var SweetDream = sweetDreamColor()
+    var Firebrick = firebrickColor()
+    var WroughtIron = wroughtIronColor()
+    var DeepSea = deepSeaColor()
+    var CoastalBreeze = coastalBreezeColor()
+    var EveningDelight = eveningDelightColor()
+
+    private fun oceanBlueColor(): Map<String, Any> {
         return oceanBlueColor(AALinearGradientDirection.ToTop)
     }
 
-    fun sanguineColor(): Map<String, Any> {
+    private fun sanguineColor(): Map<String, Any> {
         return sanguineColor(AALinearGradientDirection.ToTop)
     }
 
-    fun lusciousLimeColor(): Map<String, Any> {
+    private fun lusciousLimeColor(): Map<String, Any> {
         return lusciousLimeColor(AALinearGradientDirection.ToTop)
     }
 
-    fun purpleLakeColor(): Map<String, Any> {
+    private fun purpleLakeColor(): Map<String, Any> {
         return purpleLakeColor(AALinearGradientDirection.ToTop)
     }
 
-    fun freshPapayaColor(): Map<String, Any> {
+    private fun freshPapayaColor(): Map<String, Any> {
         return freshPapayaColor(AALinearGradientDirection.ToTop)
     }
 
-    fun ultramarineColor(): Map<String, Any> {
+    private fun ultramarineColor(): Map<String, Any> {
         return ultramarineColor(AALinearGradientDirection.ToTop)
     }
 
-    fun pinkSugarColor(): Map<String, Any> {
+    private fun pinkSugarColor(): Map<String, Any> {
         return pinkSugarColor(AALinearGradientDirection.ToTop)
     }
 
-    fun lemonDrizzleColor(): Map<String, Any> {
+    private fun lemonDrizzleColor(): Map<String, Any> {
         return lemonDrizzleColor(AALinearGradientDirection.ToTop)
     }
 
-    fun victoriaPurpleColor(): Map<String, Any> {
+    private fun victoriaPurpleColor(): Map<String, Any> {
         return victoriaPurpleColor(AALinearGradientDirection.ToTop)
     }
 
-    fun springGreensColor(): Map<String, Any> {
+    private fun springGreensColor(): Map<String, Any> {
         return springGreensColor(AALinearGradientDirection.ToTop)
     }
 
-    fun mysticMauveColor(): Map<String, Any> {
+    private fun mysticMauveColor(): Map<String, Any> {
         return mysticMauveColor(AALinearGradientDirection.ToTop)
     }
 
-    fun reflexSilverColor(): Map<String, Any> {
+    private fun reflexSilverColor(): Map<String, Any> {
         return reflexSilverColor(AALinearGradientDirection.ToTop)
     }
 
-    fun neonGlowColor(): Map<String, Any> {
+    private fun neonGlowColor(): Map<String, Any> {
         return neonGlowColor(AALinearGradientDirection.ToTop)
     }
 
-    fun berrySmoothieColor(): Map<String, Any> {
+    private fun berrySmoothieColor(): Map<String, Any> {
         return berrySmoothieColor(AALinearGradientDirection.ToTop)
     }
 
-    fun newLeafColor(): Map<String, Any> {
+    private fun newLeafColor(): Map<String, Any> {
         return newLeafColor(AALinearGradientDirection.ToTop)
     }
 
-    fun cottonCandyColor(): Map<String, Any> {
+    private fun cottonCandyColor(): Map<String, Any> {
         return cottonCandyColor(AALinearGradientDirection.ToTop)
     }
 
-    fun pixieDustColor(): Map<String, Any> {
+    private fun pixieDustColor(): Map<String, Any> {
         return pixieDustColor(AALinearGradientDirection.ToTop)
     }
 
-    fun fizzyPeachColor(): Map<String, Any> {
+    private fun fizzyPeachColor(): Map<String, Any> {
         return fizzyPeachColor(AALinearGradientDirection.ToTop)
     }
 
-    fun sweetDreamColor(): Map<String, Any> {
+    private fun sweetDreamColor(): Map<String, Any> {
         return sweetDreamColor(AALinearGradientDirection.ToTop)
     }
 
-    fun firebrickColor(): Map<String, Any> {
+    private fun firebrickColor(): Map<String, Any> {
         return firebrickColor(AALinearGradientDirection.ToTop)
     }
 
-    fun wroughtIronColor(): Map<String, Any> {
+    private fun wroughtIronColor(): Map<String, Any> {
         return wroughtIronColor(AALinearGradientDirection.ToTop)
     }
 
-    fun deepSeaColor(): Map<String, Any> {
+    private fun deepSeaColor(): Map<String, Any> {
         return deepSeaColor(AALinearGradientDirection.ToTop)
     }
 
-    fun coastalBreezeColor(): Map<String, Any> {
+    private fun coastalBreezeColor(): Map<String, Any> {
         return coastalBreezeColor(AALinearGradientDirection.ToTop)
     }
 
-    fun eveningDelightColor(): Map<String, Any> {
+    private fun eveningDelightColor(): Map<String, Any> {
         return eveningDelightColor(AALinearGradientDirection.ToTop)
     }
 
@@ -233,35 +259,34 @@ object AAGradientColor {
     }
 
     fun linearGradient(
-        startColor: String,
-        endColor: String
+            startColor: String,
+            endColor: String
     ): Map<String, Any> {
         return linearGradient(
-            AALinearGradientDirection.ToTop,
-            startColor,
-            endColor
+                AALinearGradientDirection.ToTop,
+                startColor,
+                endColor
         )
     }
 
     fun linearGradient(
-        direction: AALinearGradientDirection,
-        startColor: String,
-        endColor: String
+            direction: AALinearGradientDirection,
+            startColor: String,
+            endColor: String
     ): Map<String, Any> {
-        val stopsArr = arrayOf<Any>(
-            arrayOf(0, startColor),
-            arrayOf(1, endColor)
-        )
-        return linearGradient(direction, stopsArr)
+        return linearGradient(direction, arrayOf<Any>(
+                arrayOf(0, startColor),
+                arrayOf(1, endColor)
+        ))
     }
 
     fun linearGradient(
-        direction: AALinearGradientDirection,
-        stopsArr: Array<Any>
+            direction: AALinearGradientDirection,
+            stopsArr: Array<Any>
     ): Map<String, Any> {
         return mapOf(
-            "linearGradient" to linearGradientMap(direction),
-            "stops" to stopsArr
+                "linearGradient" to linearGradientMap(direction),
+                "stops" to stopsArr
         )
     }
 
@@ -275,7 +300,7 @@ object AAGradientColor {
     (0,1) ----------- (1,1)
      */
     private fun linearGradientMap(
-        direction: AALinearGradientDirection
+            direction: AALinearGradientDirection
     ): Map<String, Int> {
         when (direction) {
             AALinearGradientDirection.ToTop ->

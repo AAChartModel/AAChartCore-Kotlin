@@ -29,74 +29,88 @@ package com.github.aachartmodel.aainfographics.aatools
 
 
 object AAColor {
-
-    fun blackColor(): String {
-        return "black"
-    }
-
-    fun darkGrayColor(): String {
-        return "darkGray"
-    }
-
-    fun lightGrayColor(): String {
-        return "lightGray"
-    }
-
-    fun whiteColor(): String {
-        return "white"
-    }
-
-    fun grayColor(): String {
-        return "gray"
-    }
-
-    fun redColor(): String {
-        return "red"
-    }
-
-    fun greenColor(): String {
-        return "green"
-    }
-
-    fun blueColor(): String {
-        return "blue"
-    }
-
-    fun cyanColor(): String {
-        return "cyan"
-    }
-
-    fun yellowColor(): String {
-        return "yellow"
-    }
-
-    fun magentaColor(): String {
-        return "magenta"
-    }
-
-    fun orangeColor(): String {
-        return "orange"
-    }
-
-    fun purpleColor(): String {
-        return "purple"
-    }
-
-    fun brownColor(): String {
-        return "brown"
-    }
-
-    fun clearColor(): String {
-        return "clear"
-    }
+    var Black = blackColor()
+    var DarkGray = darkGrayColor()
+    var LightGray = lightGrayColor()
+    var White = whiteColor()
+    var Gray = grayColor()
+    var Red = redColor()
+    var Green = greenColor()
+    var Blue = blueColor()
+    var Cyan = cyanColor()
+    var Yellow = yellowColor()
+    var Magenta = magentaColor()
+    var Orange = orangeColor()
+    var Purple = purpleColor()
+    var Brown = brownColor()
+    var Clear = clearColor()
 
     fun rgbaColor(
-        red: Int,
-        green: Int,
-        blue: Int,
-        alpha: Float
+            red: Int,
+            green: Int,
+            blue: Int,
+            alpha: Float = 1f
     ): String {
         return "rgba($red,$green,$blue,$alpha)"
     }
 
+    private fun blackColor(): String {
+        return "black"
+    }
+
+    private fun darkGrayColor(): String {
+        return "darkGray"
+    }
+
+    private fun lightGrayColor(): String {
+        return "lightGray"
+    }
+
+    private fun whiteColor(): String {
+        return "white"
+    }
+
+    private fun grayColor(): String {
+        return "gray"
+    }
+
+    private fun redColor(): String {
+        return "red"
+    }
+
+    private fun greenColor(): String {
+        return "green"
+    }
+
+    private fun blueColor(): String {
+        return "blue"
+    }
+
+    private fun cyanColor(): String {
+        return "cyan"
+    }
+
+    private fun yellowColor(): String {
+        return "yellow"
+    }
+
+    private fun magentaColor(): String {
+        return "magenta"
+    }
+
+    private fun orangeColor(): String {
+        return "orange"
+    }
+
+    private fun purpleColor(): String {
+        return "purple"
+    }
+
+    private fun brownColor(): String {
+        return "brown"
+    }
+
+    private fun clearColor(): String {
+        return "clear"
+    }
 }
