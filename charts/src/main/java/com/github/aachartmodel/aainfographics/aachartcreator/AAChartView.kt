@@ -151,12 +151,12 @@ class AAChartView : WebView {
     }
 
     fun aa_drawChartWithChartModel(chartModel: AAChartModel) {
-        val aaOptions: AAOptions = AAOptionsConstructor.configureChartOptions(chartModel)
+        val aaOptions: AAOptions = chartModel.aa_toAAOptions()
         aa_drawChartWithChartOptions(aaOptions)
     }
 
     fun aa_refreshChartWithChartModel(chartModel: AAChartModel) {
-        val aaOptions: AAOptions = AAOptionsConstructor.configureChartOptions(chartModel)
+        val aaOptions: AAOptions = chartModel.aa_toAAOptions()
         aa_refreshChartWithChartOptions(aaOptions)
     }
 

@@ -55,7 +55,7 @@ class OnlyRefreshChartDataActivity : AppCompatActivity() {
     fun setUpAAChartView() {
         aaChartView = findViewById(R.id.AAChartView)
         aaChartModel = configureAAChartModel()
-        val aaOptions: AAOptions = AAOptionsConstructor.configureChartOptions(aaChartModel)
+        val aaOptions: AAOptions = aaChartModel.aa_toAAOptions()
         if (aaChartModel.chartType == AAChartType.Column) {
             aaOptions.plotOptions?.column!!
                 .groupPadding(0f)

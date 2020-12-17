@@ -73,7 +73,7 @@ class ChartOptionsComposer {
                 .colorsTheme(arrayOf("mediumspringgreen", "deepskyblue", "red", "sandybrown"))
                 .series(arrayOf(element1, element2, element3, element4))
 
-            val aaOptions = AAOptionsConstructor.configureChartOptions(aaChartModel)
+            val aaOptions = aaChartModel.aa_toAAOptions()
 
             aaOptions.legend!!
                 .enabled(true)
@@ -104,7 +104,7 @@ class ChartOptionsComposer {
                         .lineWidth(10.0f)
                 ))
 
-        val aaOptions = AAOptionsConstructor.configureChartOptions(aaChartModel)
+        val aaOptions = aaChartModel.aa_toAAOptions()
         val aaPlotBandsElementArr = arrayOf(
             AAPlotBandsElement()
                 .from(0f)
@@ -167,7 +167,7 @@ class ChartOptionsComposer {
                         .zones(zonesArr)
                 ))
 
-        val aaOptions = AAOptionsConstructor.configureChartOptions(aaChartModel)
+        val aaOptions = aaChartModel.aa_toAAOptions()
         val aaPlotLinesElementsArr = arrayOf(
             AAPlotLinesElement()
                 .color("#1e90ff")//颜色值(16进制)
@@ -259,7 +259,7 @@ function () {
             .style(AAStyle()
                 .color("#FFD700")
                 .fontSize(12f))
-        val aaOptions = AAOptionsConstructor.configureChartOptions(aaChartModel)
+        val aaOptions = aaChartModel.aa_toAAOptions()
         aaOptions.tooltip = aaTooltip
         return aaOptions
     }
@@ -305,7 +305,7 @@ function () {
                         arrayOf(12489984, 13.6)
                     ))))
 
-        val aaOptions = AAOptionsConstructor.configureChartOptions(aaChartModel)
+        val aaOptions = aaChartModel.aa_toAAOptions()
         val aaCrosshair = AACrosshair()
             .color(AAColor.Red)
             .width(1f)
@@ -345,7 +345,7 @@ function () {
                         .data(arrayOf(7.0, 6.9, 2.5, 14.5, 18.2, 21.5, 5.2, 26.5, 23.3, 45.3, 13.9, 9.6))
                 ))
 
-            val aaOptions = AAOptionsConstructor.configureChartOptions(aaChartModel)
+            val aaOptions = aaChartModel.aa_toAAOptions()
             aaOptions.xAxis?.labels?.useHTML(true)
             return aaOptions
         }
@@ -381,7 +381,7 @@ function () {
                          .data(arrayOf(7.0, 6.9, 2.5, 14.5, 18.2, 21.5, 5.2, 26.5, 23.3, 45.3, 13.9, 9.6))
                  ))
 
-            val aaOptions = AAOptionsConstructor.configureChartOptions(aaChartModel)
+            val aaOptions = aaChartModel.aa_toAAOptions()
             aaOptions.xAxis?.labels?.useHTML(true)
 
             return aaOptions
@@ -419,7 +419,7 @@ function () {
                             .fillColor(fillColorGradientColor)
                             .data(arrayOf(7.0, 6.9, 2.5, 14.5, 18.2, 21.5, 5.2, 26.5, 23.3, 45.3, 13.9, 9.6))
                     ))
-            val aaOptions = AAOptionsConstructor.configureChartOptions(aaChartModel)
+            val aaOptions = aaChartModel.aa_toAAOptions()
             aaOptions.plotOptions?.areaspline
                 ?.dataLabels(AADataLabels()
                              .enabled(true)
@@ -500,7 +500,7 @@ function () {
                         ))
 
 
-            val aaOptions = AAOptionsConstructor.configureChartOptions(aaChartModel)
+            val aaOptions = aaChartModel.aa_toAAOptions()
             val aaPlotBandsElementArr = arrayOf(
                 AAPlotBandsElement()
                     .from(-0.25f)//值域颜色带X轴起始值
@@ -819,7 +819,7 @@ function () {
                             .name("湿度")
                             .data(arrayOf(44.0999, 44.8880, 44.7770, 43.0066, 43.6660, 43.5550)
                             )))
-            val aaOptions = AAOptionsConstructor.configureChartOptions(aaChartModel)
+            val aaOptions = aaChartModel.aa_toAAOptions()
             aaOptions.plotOptions?.line?.dataLabels?.format =
                 "{point.y:.4f} ℃" //保留 Y 轴值的小数点后 4 位
             return aaOptions
@@ -1107,7 +1107,7 @@ function () {
                 .markerRadius(0f)
                 .series(arrayOf(element1, element2, element3, element4))
 
-            val aaOptions = AAOptionsConstructor.configureChartOptions(aaChartModel)
+            val aaOptions = aaChartModel.aa_toAAOptions()
             aaOptions.tooltip!!
                 .shared(true)
                 .useHTML(true)

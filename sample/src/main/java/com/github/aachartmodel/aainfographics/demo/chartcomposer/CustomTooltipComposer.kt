@@ -95,7 +95,7 @@ function () {
                 .style(AAStyle()
                         .color("#FFD700")
                         .fontSize(12f))
-            val aaOptions = AAOptionsConstructor.configureChartOptions(aaChartModel)
+            val aaOptions = aaChartModel.aa_toAAOptions()
             aaOptions.tooltip(aaTooltip)
             return aaOptions
         }
@@ -137,7 +137,7 @@ function () {
     }
              """.trimIndent()
                 )
-            val aaOptions = AAOptionsConstructor.configureChartOptions(aaChartModel)
+            val aaOptions = aaChartModel.aa_toAAOptions()
             aaOptions.tooltip = aaTooltip
             return aaOptions
         }
@@ -187,7 +187,7 @@ function () {
     }
                 """.trimIndent()
                 )
-            val aaOptions = AAOptionsConstructor.configureChartOptions(aaChartModel)
+            val aaOptions = aaChartModel.aa_toAAOptions()
             aaOptions.tooltip = aaTooltip
             return aaOptions
         }
@@ -247,7 +247,7 @@ function () {
                 )
                 .backgroundColor("#050505")
                 .borderColor("#050505")
-            val aaOptions = AAOptionsConstructor.configureChartOptions(aaChartModel)
+            val aaOptions = aaChartModel.aa_toAAOptions()
             aaOptions.tooltip = aaTooltip
             return aaOptions
         }
@@ -291,7 +291,7 @@ function () {
                     .color("#1e90ff")
                     .fontSize(12f)
                 )
-            val aaOptions = AAOptionsConstructor.configureChartOptions(aaChartModel)
+            val aaOptions = aaChartModel.aa_toAAOptions()
             aaOptions.tooltip = aaTooltip
             return aaOptions
         }
@@ -332,7 +332,7 @@ function () {
                 """.trimIndent()
                 )
 
-            val aaOptions = AAOptionsConstructor.configureChartOptions(aaChartModel)
+            val aaOptions = aaChartModel.aa_toAAOptions()
             aaOptions.yAxis?.labels(aaYAxisLabels)
 
             return aaOptions
@@ -377,7 +377,7 @@ function () {
                 """.trimIndent()
                 )
 
-            val aaOptions = AAOptionsConstructor.configureChartOptions(aaChartModel)
+            val aaOptions = aaChartModel.aa_toAAOptions()
             aaOptions.yAxis!!
                 .opposite(true)
                 .tickWidth(2f)
@@ -420,7 +420,7 @@ function () {
                 )
 
             /*Custom Tooltip Style --- 自定义图表浮动提示框样式及内容*/
-            val aaOptions = AAOptionsConstructor.configureChartOptions(aaChartModel)
+            val aaOptions = aaChartModel.aa_toAAOptions()
             aaOptions.tooltip
                 ?.shared(false)
                 ?.formatter("""
@@ -581,7 +581,7 @@ function () {
                         )
                         ))
                 )
-             val aaOptions = AAOptionsConstructor.configureChartOptions(aaChartModel)
+             val aaOptions = aaChartModel.aa_toAAOptions()
 
              aaOptions.tooltip!!
                  .useHTML(true)
@@ -649,7 +649,7 @@ function () {
                         .name("Berlin")
                         .data(arrayOf(3.9, 4.2, 5.7, 8.5, 11.9, 15.2, 17.0, 16.6, 14.2, 10.3, 6.6, 4.8))
                 ))
-            val aaOptions = AAOptionsConstructor.configureChartOptions(aaChartModel)
+            val aaOptions = aaChartModel.aa_toAAOptions()
             aaOptions.tooltip
                 ?.useHTML(true)
                 ?.formatter(tooltipFormatter)
@@ -745,7 +745,7 @@ function () {
         }
             """.trimIndent()
 
-            val aaOptions = AAOptionsConstructor.configureChartOptions(aaChartModel)
+            val aaOptions = aaChartModel.aa_toAAOptions()
             aaOptions.tooltip!!
                 //‼️以 this.point.index 这种方式获取选中的点的索引必须设置 tooltip 的 shared 为 false
                 //‼️共享时是 this.points (由多个 point 组成的 points 数组)

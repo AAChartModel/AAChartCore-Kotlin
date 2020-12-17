@@ -102,7 +102,7 @@ class DoubleChartsLinkedWorkActivity : AppCompatActivity(),
                                 211, 183, 157, 133, 111, 91, 73, 57, 43, 31, 21, 13
                             ))
                         .colorByPoint(true)))
-        val aaOptions: AAOptions = AAOptionsConstructor.configureChartOptions(aaChartModel)
+        val aaOptions: AAOptions = aaChartModel.aa_toAAOptions()
         aaOptions.plotOptions?.column?.groupPadding = 0f
         return aaOptions
     }
@@ -122,7 +122,7 @@ class DoubleChartsLinkedWorkActivity : AppCompatActivity(),
                                 211,183,157,133,111,91,73,57,43,31,21,13,
                             ))
             ))
-        val aaOptions: AAOptions = AAOptionsConstructor.configureChartOptions(aaChartModel)
+        val aaOptions: AAOptions = aaChartModel.aa_toAAOptions()
         aaOptions.plotOptions?.column?.groupPadding = 0f
         return aaOptions
     }
