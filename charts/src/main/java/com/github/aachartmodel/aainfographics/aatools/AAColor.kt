@@ -29,21 +29,21 @@ package com.github.aachartmodel.aainfographics.aatools
 
 
 object AAColor {
-    var Black = blackColor()
-    var DarkGray = darkGrayColor()
-    var LightGray = lightGrayColor()
-    var White = whiteColor()
-    var Gray = grayColor()
-    var Red = redColor()
-    var Green = greenColor()
-    var Blue = blueColor()
-    var Cyan = cyanColor()
-    var Yellow = yellowColor()
-    var Magenta = magentaColor()
-    var Orange = orangeColor()
-    var Purple = purpleColor()
-    var Brown = brownColor()
-    var Clear = clearColor()
+    val Black = blackColor()
+    val DarkGray = darkGrayColor()
+    val LightGray = lightGrayColor()
+    val White = whiteColor()
+    val Gray = grayColor()
+    val Red = redColor()
+    val Green = greenColor()
+    val Blue = blueColor()
+    val Cyan = cyanColor()
+    val Yellow = yellowColor()
+    val Magenta = magentaColor()
+    val Orange = orangeColor()
+    val Purple = purpleColor()
+    val Brown = brownColor()
+    val Clear = clearColor()
 
     fun rgbaColor(
             red: Int,
