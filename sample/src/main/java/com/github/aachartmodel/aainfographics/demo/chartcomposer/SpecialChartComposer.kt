@@ -812,54 +812,23 @@ object SpecialChartComposer{
     }
 
      fun configureWaterfallChart(): AAChartModel {
-        val dataElement1 = HashMap<String, Any>()
-        dataElement1["name"] = "启动资金"
-        dataElement1["y"] = 120000
-
-        val dataElement2 = HashMap<String, Any>()
-        dataElement2["name"] = "产品收入"
-        dataElement2["y"] = 569000
-
-        val dataElement3 = HashMap<String, Any>()
-        dataElement3["name"] = "服务收入"
-        dataElement3["y"] = 231000
-
-        val dataElement4 = HashMap<String, Any>()
-        dataElement4["name"] = "正平衡"
-        dataElement4["isIntermediateSum"] = true
-        dataElement4["color"] = "#ffd066"
-
-        val dataElement5 = HashMap<String, Any>()
-        dataElement5["name"] = "固定成本"
-        dataElement5["y"] = -342000
-
-        val dataElement6 = HashMap<String, Any>()
-        dataElement6["name"] = "可变成本"
-        dataElement6["y"] = -233000
-
-        val dataElement7 = HashMap<String, Any>()
-        dataElement7["name"] = "余额"
-        dataElement7["isSum"] = true
-        dataElement7["color"] = "#04d69f"
-
-        val seriesElement = AASeriesElement()
-            .color("#ef476f")
-            .borderWidth(0f)
-            .data(arrayOf(
-                    dataElement1,
-                    dataElement2,
-                    dataElement3,
-                    dataElement4,
-                    dataElement5,
-                    dataElement6,
-                    dataElement7
-                ))
-
         return AAChartModel()
             .chartType(AAChartType.Waterfall)
             .title("WATERFALL CHART")
             .subtitle("virtual data")
-            .series(arrayOf(seriesElement))
+            .series(arrayOf(AASeriesElement()
+                    .color("#ef476f")
+                    .borderWidth(0f)
+                    .data(arrayOf(
+                            mapOf("name" to "启动资金", "y" to 120000),
+                            mapOf("name" to "产品收入", "y" to 569000),
+                            mapOf("name" to "服务收入", "y" to 231000),
+                            mapOf("name" to "正平衡", "isIntermediateSum" to true, "color" to "#ffd066"),
+                            mapOf("name" to "固定成本", "y" to -342000),
+                            mapOf("name" to "可变成本", "y" to -233000),
+                            mapOf("name" to "余额", "isSum" to true, "color" to "#04d69f"
+                            )))
+            ))
     }
     fun configurePyramidChart(): AAChartModel  {
         return AAChartModel()
