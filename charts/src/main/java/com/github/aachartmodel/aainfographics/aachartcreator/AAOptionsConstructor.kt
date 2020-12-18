@@ -66,14 +66,12 @@ object AAOptionsConstructor {
             .valueSuffix(aaChartModel.tooltipValueSuffix) //浮动提示框的单位名称后缀
 
         val aaPlotOptions = AAPlotOptions()
-            .series(
-                AASeries()
+            .series(AASeries()
                     .stacking(aaChartModel.stacking) //设置是否百分比堆叠显示图形
             )
 
         if (aaChartModel.animationType != AAChartAnimationType.Linear) {
-            aaPlotOptions
-                .series?.animation(
+            aaPlotOptions.series?.animation(
                     AAAnimation()
                         .easing(aaChartModel.animationType)
                         .duration(aaChartModel.animationDuration)
@@ -85,10 +83,8 @@ object AAOptionsConstructor {
 
         val aaLegend = AALegend()
             .enabled(aaChartModel.legendEnabled) //是否显示 legend
-            .itemStyle(
-                AAItemStyle()
-                    .color(aaChartModel.axesTextColor)
-            )
+            .itemStyle(AAItemStyle()
+                    .color(aaChartModel.axesTextColor))
 
         val aaOptions = AAOptions()
             .chart(aaChart)
@@ -209,7 +205,7 @@ object AAOptionsConstructor {
                 .enabled(aaXAxisLabelsEnabled) //设置 x 轴是否显示文字
             if (aaXAxisLabelsEnabled!!) {
                 aaXAxisLabels.style(
-                    AAStyle()
+                        AAStyle()
                         .color(aaChartModel.axesTextColor)
                 )
             }
@@ -227,7 +223,7 @@ object AAOptionsConstructor {
                 .enabled(aaChartModel.yAxisLabelsEnabled)
             if (aaYAxisLabelsEnabled!!) {
                 aaYAxisLabels.style(
-                    AAStyle()
+                        AAStyle()
                         .color(aaChartModel.axesTextColor)
                 )
             }
@@ -239,11 +235,9 @@ object AAOptionsConstructor {
                 .allowDecimals(aaChartModel.yAxisAllowDecimals) //是否允许显示小数
                 .reversed(aaChartModel.yAxisReversed)
                 .gridLineWidth(aaChartModel.yAxisGridLineWidth) //y轴网格线宽度
-                .title(
-                    AATitle()
+                .title(AATitle()
                         .text(aaChartModel.yAxisTitle)
-                        .style(
-                            AAStyle()
+                        .style(AAStyle()
                                 .color(aaChartModel.axesTextColor)
                         )
                 ) //y 轴标题
