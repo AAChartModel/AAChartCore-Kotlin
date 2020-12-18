@@ -33,6 +33,7 @@
 
 package com.github.aachartmodel.aainfographics.aachartcreator
 
+import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.content.Context
 import android.os.Build
@@ -50,7 +51,7 @@ class AAMoveOverEventMessageModel {
     var x: Double? = null
     var y: Double? = null
     var category: String? = null
-    var offset: LinkedTreeMap<*, *>? = null
+    var offset: LinkedTreeMap<String, Any>? = null
     var index: Int? = null
 }
 
@@ -67,22 +68,19 @@ class AAChartView : WebView {
     var contentWidth: Float? = null
         set(value) {
             field = value
-            val jsStr = ("setTheChartViewContentWidth('"
-                    + field + "')")
+            val jsStr = "setTheChartViewContentWidth('$field')"
             safeEvaluateJavaScriptString(jsStr)
         }
     var contentHeight: Float? = null
         set(value) {
             field = value
-            val jsStr = ("setTheChartViewContentHeight('"
-                    + field + "')")
+            val jsStr = "setTheChartViewContentHeight('$field')"
             safeEvaluateJavaScriptString(jsStr)
         }
     var chartSeriesHidden: Boolean? = null
         set(value) {
             field = value
-            val jsStr = ("setChartSeriesHidden('"
-                    + field + "')")
+            val jsStr = "setChartSeriesHidden('$field')"
             safeEvaluateJavaScriptString(jsStr)
         }
     var isClearBackgroundColor: Boolean? = null
@@ -90,10 +88,10 @@ class AAChartView : WebView {
             field = value
             if (field == true) {
                 setBackgroundColor(0)
-                this.background?.alpha = 0
+                background?.alpha = 0
             } else {
                 setBackgroundColor(1)
-                this.background?.alpha = 255
+                background?.alpha = 255
             }
         }
     var callBack: AAChartViewCallBack? = null
@@ -122,31 +120,28 @@ class AAChartView : WebView {
         setupBasicContent()
     }
 
+    @SuppressLint("SetJavaScriptEnabled")
     private fun setupBasicContent() { // Do some initialize work.
         contentWidth = 420f
         contentHeight = 580f
         isClearBackgroundColor = false
-        this.settings.javaScriptEnabled = true
+        settings.javaScriptEnabled = true
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             setWebContentsDebuggingEnabled(true)
         }
         //把当前对象作为androidObject别名传递给js
-//js通过window.androidObject.androidMethod()就可以直接调用安卓的androidMethod方法
+        //js通过window.androidObject.androidMethod()就可以直接调用安卓的androidMethod方法
         addJavascriptInterface(this, "androidObject")
     }
 
     //js调用安卓，必须加@JavascriptInterface注释的方法才可以被js调用
     @JavascriptInterface
     fun androidMethod(message: String?): String {
-        val gson = Gson()
-        var messageBody: Map<*, *> =
-            HashMap<String, Any>()
-        messageBody = gson.fromJson(message, messageBody.javaClass)
+        var messageBody = HashMap<String, Any>()
+        messageBody = Gson().fromJson(message, messageBody.javaClass)
         val eventMessageModel: AAMoveOverEventMessageModel = getEventMessageModel(messageBody)
-        if (callBack != null) {
-            callBack!!.chartViewMoveOverEventMessage(this, eventMessageModel)
-        }
-        //       Log.i("androidMethod","++++++++++++++++显示总共调用了几次");
+        callBack?.chartViewMoveOverEventMessage(this, eventMessageModel)
+        //Log.i("androidMethod","++++++++++++++++显示总共调用了几次");
         return ""
     }
 
@@ -184,8 +179,7 @@ class AAChartView : WebView {
         animation: Boolean
     ) {
         val seriesArr = Gson().toJson(seriesElementsArr)
-        val javaScriptStr = ("onlyRefreshTheChartDataWithSeries('"
-                + seriesArr + "','" + animation + "')")
+        val javaScriptStr = "onlyRefreshTheChartDataWithSeries('$seriesArr','$animation')"
         safeEvaluateJavaScriptString(javaScriptStr)
     }
 
@@ -230,68 +224,56 @@ class AAChartView : WebView {
         shift: Boolean,
         animation: Boolean
     ) {
-        val optionsStr: String
-        optionsStr = if (options is Int
-            || options is Float
-            || options is Double
+        val optionsStr: String = if (
+                   options is Int
+                || options is Float
+                || options is Double
         ) {
             options.toString()
         } else {
             Gson().toJson(options)
         }
-        val javaScriptStr = ("addPointToChartSeries('"
-                + elementIndex + "','"
-                + optionsStr + "','"
-                + redraw + "','"
-                + shift + "','"
-                + animation + "')")
+        val javaScriptStr = "addPointToChartSeries('$elementIndex','$optionsStr','$redraw','$shift','$animation')"
         safeEvaluateJavaScriptString(javaScriptStr)
     }
 
     fun aa_showTheSeriesElementContent(elementIndex: Int) {
-        val javaScriptStr = ("showTheSeriesElementContentWithIndex('"
-                + elementIndex + "')")
+        val javaScriptStr = "showTheSeriesElementContentWithIndex('$elementIndex')"
         safeEvaluateJavaScriptString(javaScriptStr)
     }
 
     fun aa_hideTheSeriesElementContent(elementIndex: Int) {
-        val javaScriptStr = ("hideTheSeriesElementContentWithIndex('"
-                + elementIndex + "')")
+        val javaScriptStr = "hideTheSeriesElementContentWithIndex('$elementIndex')"
         safeEvaluateJavaScriptString(javaScriptStr)
     }
 
     fun aa_addElementToChartSeries(aaSeriesElement: AASeriesElement) {
         val pureElementJsonStr = Gson().toJson(aaSeriesElement)
-        val javaScriptStr = ("addElementToChartSeriesWithElement('"
-                + pureElementJsonStr + "')")
+        val javaScriptStr = "addElementToChartSeriesWithElement('$pureElementJsonStr')"
         safeEvaluateJavaScriptString(javaScriptStr)
     }
 
     fun aa_removeElementFromChartSeries(elementIndex: Int) {
-        val javaScriptStr = ("removeElementFromChartSeriesWithElementIndex('"
-                + elementIndex + "')")
+        val javaScriptStr = "removeElementFromChartSeriesWithElementIndex('$elementIndex')"
         safeEvaluateJavaScriptString(javaScriptStr)
     }
 
     fun aa_evaluateTheJavaScriptStringFunction(jsFunctionStr: String) {
         val pureJSFunctionStr: String =
             AAJSStringPurer.pureJavaScriptFunctionString(jsFunctionStr)
-        val jsFunctionNameStr = ("evaluateTheJavaScriptStringFunction('"
-                + pureJSFunctionStr + "')")
+        val jsFunctionNameStr = "evaluateTheJavaScriptStringFunction('$pureJSFunctionStr')"
         safeEvaluateJavaScriptString(jsFunctionNameStr)
     }
 
     private fun loadLocalFilesAndDrawChart(aaOptions: AAOptions) {
-        this.loadUrl("file:///android_asset/AAChartView.html")
-        this.webViewClient = object : WebViewClient() {
+        loadUrl("file:///android_asset/AAChartView.html")
+        webViewClient = object : WebViewClient() {
             override fun onPageFinished(
                 view: WebView,
                 url: String
-            ) { //                Log.i("js files load","图表加载完成!!!!!!!! ");
+            ) { //Log.i("js files load","图表加载完成!!!!!!!! ");
                 configureChartOptionsAndDrawChart(aaOptions)
-                if (callBack != null) {
-                    callBack!!.chartViewDidFinishLoad(this@AAChartView)
-                }
+                callBack?.chartViewDidFinishLoad(this@AAChartView)
             }
         }
     }
@@ -300,18 +282,14 @@ class AAChartView : WebView {
         if (isClearBackgroundColor!!) {
             chartOptions.chart!!.backgroundColor("rgba(0,0,0,0)")
         }
-        val gson = Gson()
-        val aaOptionsJsonStr = gson.toJson(chartOptions)
+        val aaOptionsJsonStr = Gson().toJson(chartOptions)
         optionsJson = aaOptionsJsonStr
-        val javaScriptStr = ("loadTheHighChartView('"
-                + aaOptionsJsonStr + "','"
-                + contentWidth + "','"
-                + contentHeight + "')")
+        val javaScriptStr = "loadTheHighChartView('$aaOptionsJsonStr','$contentWidth','$contentHeight')"
         safeEvaluateJavaScriptString(javaScriptStr)
     }
 
     private fun showJavaScriptAlertView() {
-        this.webChromeClient = object : WebChromeClient() {
+        webChromeClient = object : WebChromeClient() {
             override fun onJsAlert(
                 view: WebView,
                 url: String,
@@ -324,7 +302,7 @@ class AAChartView : WebView {
                 val resultStr = "result --->$result"
                 val alertMessageStr = urlStr + messageStr + resultStr
                 AlertDialog.Builder(context)
-                    .setTitle("JavaScript alert Information") //设置对话框标题
+                    .setTitle("JavaScript alert Information") 
                     .setMessage(alertMessageStr)
                     .setNeutralButton("sure", null)
                     .show()
@@ -333,13 +311,13 @@ class AAChartView : WebView {
         }
     }
 
-    private fun getEventMessageModel(messageBody: Map<*, *>): AAMoveOverEventMessageModel {
+    private fun getEventMessageModel(messageBody: Map<String, Any>): AAMoveOverEventMessageModel {
         val eventMessageModel = AAMoveOverEventMessageModel()
         eventMessageModel.name = messageBody["name"].toString()
         eventMessageModel.x = messageBody["x"] as Double?
         eventMessageModel.y = messageBody["y"] as Double?
         eventMessageModel.category = messageBody["category"].toString()
-        eventMessageModel.offset = messageBody["offset"] as LinkedTreeMap<*, *>?
+        eventMessageModel.offset = messageBody["offset"] as LinkedTreeMap<String, Any>?
         val index = messageBody["index"] as Double?
         eventMessageModel.index = index?.toInt()
         return eventMessageModel
@@ -347,11 +325,11 @@ class AAChartView : WebView {
 
     private fun safeEvaluateJavaScriptString(javaScriptString: String) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            evaluateJavascript("javascript:$javaScriptString") {
-                //                 Log.i("call back information","输出打印查看回调的结果"+ it);
+            evaluateJavascript("javascript:$javaScriptString") { 
+                //Log.i("call back information","输出打印查看回调的结果"+ it);
             }
         } else {
-            this.loadUrl("javascript:$javaScriptString")
+            loadUrl("javascript:$javaScriptString")
         }
     }
 }
