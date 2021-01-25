@@ -12,16 +12,16 @@ import com.github.aachartmodel.aainfographics.aachartcreator.AAChartStackingType
 import com.github.aachartmodel.aainfographics.aachartcreator.AAShadow
 
 class AASeries {
-    private var borderRadius: Float? = null
-    private var marker: AAMarker? = null
-    private var stacking: String? = null
-    private var animation: AAAnimation? = null
-    private var keys: Array<String>? = null
-    private var colorByPoint: Boolean? = null//决定了图表是否给每个数据列或每个点分配一个颜色，默认值是 false， 即默认是给每个数据类分配颜色，
-    private var connectNulls: Boolean? = null//设置折线是否断点重连
-    private var events: Map<*, *>? = null
-    private var shadow: AAShadow? = null
-    private var dataLabels: AADataLabels? = null
+    var borderRadius: Float? = null
+    var marker: AAMarker? = null
+    var stacking: String? = null
+    var animation: AAAnimation? = null
+    var keys: Array<String>? = null
+    var colorByPoint: Boolean? = null//决定了图表是否给每个数据列或每个点分配一个颜色，默认值是 false， 即默认是给每个数据类分配颜色，
+    var connectNulls: Boolean? = null//设置折线是否断点重连
+    var events: Map<*, *>? = null
+    var shadow: AAShadow? = null
+    var dataLabels: AADataLabels? = null
 
     fun borderRadius(prop: Float?): AASeries {
         borderRadius = prop
