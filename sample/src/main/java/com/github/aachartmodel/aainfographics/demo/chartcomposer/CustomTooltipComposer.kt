@@ -41,7 +41,7 @@ import com.github.aachartmodel.aainfographics.aatools.*
 
 class CustomTooltipComposer {
     companion object {
-        fun customAreaChartTooltipStyleWithFormatterFunction1(): AAOptions {
+        fun customAreaChartTooltipStyleWithSimpleFormatString(): AAOptions {
             val aaChartModel = AAChartModel()
                 .chartType(AAChartType.Area)//图形类型
                 .title("近三个月金价起伏周期图")//图表主标题
@@ -100,7 +100,7 @@ function () {
             return aaOptions
         }
 
-        fun customAreaChartTooltipStyleWithFormatterFunction2(): AAOptions {
+        fun customAreaChartTooltipStyleWithDifferentUnitSuffix(): AAOptions {
             val aaChartModel = AAChartModel()
                 .chartType(AAChartType.Area)//图形类型
                 .title("2014 ~ 2020 汪星人生存指数")//图表主标题
@@ -142,7 +142,7 @@ function () {
             return aaOptions
         }
 
-        fun customAreaChartTooltipStyleWithFormatterFunction3(): AAOptions {
+        fun customAreaChartTooltipStyleWithColorfulHtmlLabels(): AAOptions {
             val aaChartModel = AAChartModel()
                 .chartType(AAChartType.Area)//图形类型
                 .title("2014 ~ 2020 汪星人生存指数")//图表主标题
@@ -192,7 +192,7 @@ function () {
             return aaOptions
         }
 
-        fun customAreaChartTooltipStyleWithFormatterFunction4(): AAOptions {
+        fun customLineChartTooltipStyleWhenValueBeZeroDoNotShow(): AAOptions {
             val aaChartModel = AAChartModel()
                 .chartType(AAChartType.Areaspline)//图形类型
                 .title("")//图表主标题

@@ -33,14 +33,14 @@ import androidx.appcompat.app.AppCompatActivity
 import com.github.aachartmodel.aainfographics.aachartcreator.AAChartView
 import com.github.aachartmodel.aainfographics.aaoptionsmodel.AAOptions
 import com.github.aachartmodel.aainfographics.demo.R
-import com.github.aachartmodel.aainfographics.demo.chartcomposer.CustomTooltipComposer.Companion.customAreaChartTooltipStyleWithFormatterFunction1
-import com.github.aachartmodel.aainfographics.demo.chartcomposer.CustomTooltipComposer.Companion.customAreaChartTooltipStyleWithFormatterFunction2
-import com.github.aachartmodel.aainfographics.demo.chartcomposer.CustomTooltipComposer.Companion.customAreaChartTooltipStyleWithFormatterFunction3
-import com.github.aachartmodel.aainfographics.demo.chartcomposer.CustomTooltipComposer.Companion.customAreaChartTooltipStyleWithFormatterFunction4
+import com.github.aachartmodel.aainfographics.demo.chartcomposer.CustomTooltipComposer.Companion.customAreaChartTooltipStyleWithColorfulHtmlLabels
+import com.github.aachartmodel.aainfographics.demo.chartcomposer.CustomTooltipComposer.Companion.customAreaChartTooltipStyleWithDifferentUnitSuffix
+import com.github.aachartmodel.aainfographics.demo.chartcomposer.CustomTooltipComposer.Companion.customAreaChartTooltipStyleWithSimpleFormatString
 import com.github.aachartmodel.aainfographics.demo.chartcomposer.CustomTooltipComposer.Companion.customArearangeChartTooltip
 import com.github.aachartmodel.aainfographics.demo.chartcomposer.CustomTooltipComposer.Companion.customBoxplotTooltipContent
 import com.github.aachartmodel.aainfographics.demo.chartcomposer.CustomTooltipComposer.Companion.customDoubleXAxesChart
 import com.github.aachartmodel.aainfographics.demo.chartcomposer.CustomTooltipComposer.Companion.customLineChartOriginalPointPositionByConfiguringXAxisFormatterAndTooltipFormatter
+import com.github.aachartmodel.aainfographics.demo.chartcomposer.CustomTooltipComposer.Companion.customLineChartTooltipStyleWhenValueBeZeroDoNotShow
 import com.github.aachartmodel.aainfographics.demo.chartcomposer.CustomTooltipComposer.Companion.customStackedAndGroupedColumnChartTooltip
 import com.github.aachartmodel.aainfographics.demo.chartcomposer.CustomTooltipComposer.Companion.customTooltipWhichDataSourceComeFromOutSideRatherThanSeries
 import com.github.aachartmodel.aainfographics.demo.chartcomposer.CustomTooltipComposer.Companion.customYAxisLabels
@@ -63,11 +63,11 @@ class JSFormatterFunctionActivity : AppCompatActivity() {
 
     private fun configureTheChartOptions(chartType: String): AAOptions {
         when (chartType) {
-            "formatterFunction1" -> return customAreaChartTooltipStyleWithFormatterFunction1()
-            "formatterFunction2" -> return customAreaChartTooltipStyleWithFormatterFunction2()
-            "formatterFunction3" -> return customAreaChartTooltipStyleWithFormatterFunction3()
-            "formatterFunction4" -> return customAreaChartTooltipStyleWithFormatterFunction4()
-            "formatterFunction5" -> return customBoxplotTooltipContent()
+            "customAreaChartTooltipStyleWithSimpleFormatString" -> return customAreaChartTooltipStyleWithSimpleFormatString()//简单字符串拼接
+            "customAreaChartTooltipStyleWithDifferentUnitSuffix" -> return customAreaChartTooltipStyleWithDifferentUnitSuffix()//自定义不同单位后缀
+            "customAreaChartTooltipStyleWithColorfulHtmlLabels" -> return customAreaChartTooltipStyleWithColorfulHtmlLabels()//自定义多彩颜色文字
+            "customLineChartTooltipStyleWhenValueBeZeroDoNotShow" -> return customLineChartTooltipStyleWhenValueBeZeroDoNotShow()//值为0时,在tooltip中不显示
+            "customBoxplotTooltipContent" -> return customBoxplotTooltipContent()
             "customYAxisLabels" -> return customYAxisLabels()
             "customYAxisLabels2" -> return customYAxisLabels2()
             "customStackedAndGroupedColumnChartTooltip" -> return customStackedAndGroupedColumnChartTooltip()
@@ -79,6 +79,6 @@ class JSFormatterFunctionActivity : AppCompatActivity() {
                 return customTooltipWhichDataSourceComeFromOutSideRatherThanSeries()
 
         }
-        return customAreaChartTooltipStyleWithFormatterFunction1()
+        return customAreaChartTooltipStyleWithSimpleFormatString()
     }
 }
