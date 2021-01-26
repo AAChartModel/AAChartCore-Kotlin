@@ -24,6 +24,7 @@ class AAOptions {
     var legend: AALegend? = null
     var pane: AAPane? = null
     var colors: Array<Any>? = null
+    var credits: AACredits? = null
     var defaultOptions: AALang? = null
     var touchEventEnabled: Boolean? = null
 
@@ -92,7 +93,12 @@ class AAOptions {
         return this
     }
 
-    fun defaultOptions(prop: AALang): AAOptions? {
+    fun credits(prop: AACredits): AAOptions {
+        credits = prop
+        return this
+    }
+
+    fun defaultOptions(prop: AALang): AAOptions {
         defaultOptions = prop
         return this
     }
@@ -100,5 +106,12 @@ class AAOptions {
     fun touchEventEnabled(prop: Boolean?): AAOptions {
         touchEventEnabled = prop
         return this
+    }
+
+
+     init {
+        val aaCredits = AACredits()
+        aaCredits.enabled = false
+        credits = aaCredits
     }
 }

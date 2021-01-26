@@ -18,8 +18,6 @@
                 aaOptions.yAxis = aaOptions.yAxisArray
                 }
 
-            aaOptions.credits = {enabled:false};
-
             if (aaOptions.defaultOptions) {
                 Highcharts.setOptions({
                  lang: aaOptions.defaultOptions
