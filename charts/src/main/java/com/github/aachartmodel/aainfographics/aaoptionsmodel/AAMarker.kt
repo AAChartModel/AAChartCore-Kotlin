@@ -9,12 +9,12 @@
 package com.github.aachartmodel.aainfographics.aaoptionsmodel
 
 class AAMarker {
-    private var radius: Float? = null
-    private var symbol: String? = null
-    private var fillColor: String? = null//点的填充色(用来设置折线连接点的填充色)
-    private var lineWidth: Float? = null//外沿线的宽度(用来设置折线连接点的轮廓描边的宽度)
-    private var lineColor: Any? = null//外沿线的颜色(用来设置折线连接点的轮廓描边颜色，当值为空字符串时，默认取数据点或数据列的颜色。)
-    private var states: AAMarkerStates? = null
+    var radius: Float? = null
+    var symbol: String? = null
+    var fillColor: String? = null//点的填充色(用来设置折线连接点的填充色)
+    var lineWidth: Float? = null//外沿线的宽度(用来设置折线连接点的轮廓描边的宽度)
+    var lineColor: Any? = null//外沿线的颜色(用来设置折线连接点的轮廓描边颜色，当值为空字符串时，默认取数据点或数据列的颜色。)
+    var states: AAMarkerStates? = null
 
 
     fun radius(prop: Float?): AAMarker {

@@ -9,8 +9,8 @@
 package com.github.aachartmodel.aainfographics.aaoptionsmodel
 
 class AALabel {
-    private var text: String? = null
-    private var style: Any? = null
+    var text: String? = null
+    var style: Any? = null
 
     fun text(prop: String): AALabel {
         text = prop

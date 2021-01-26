@@ -39,21 +39,21 @@ import com.github.aachartmodel.aainfographics.aatools.AAJSStringPurer
 
 
 class AATooltip {
-    private var backgroundColor: String? = null
-    private var borderColor: String? = null
-    private var borderRadius: Float? = null
-    private var borderWidth: Float? = null
-    private var style: AAStyle? = null
-    private var enabled: Boolean? = null
-    private var useHTML: Boolean? = null
-    private var formatter: String? = null
-    private var headerFormat: String? = null
-    private var pointFormat: String? = null
-    private var footerFormat: String? = null
-    private var valueDecimals: Int? = null
-    private var shared: Boolean? = null
-    private var crosshairs: Boolean? = null
-    private var valueSuffix: String? = null
+    var backgroundColor: String? = null
+    var borderColor: String? = null
+    var borderRadius: Float? = null
+    var borderWidth: Float? = null
+    var style: AAStyle? = null
+    var enabled: Boolean? = null
+    var useHTML: Boolean? = null
+    var formatter: String? = null
+    var headerFormat: String? = null
+    var pointFormat: String? = null
+    var footerFormat: String? = null
+    var valueDecimals: Int? = null
+    var shared: Boolean? = null
+    var crosshairs: Boolean? = null
+    var valueSuffix: String? = null
 
     fun backgroundColor(prop: String): AATooltip {
         backgroundColor = prop

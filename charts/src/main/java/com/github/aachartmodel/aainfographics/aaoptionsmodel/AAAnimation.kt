@@ -11,8 +11,8 @@ package com.github.aachartmodel.aainfographics.aaoptionsmodel
 import com.github.aachartmodel.aainfographics.aachartcreator.AAChartAnimationType
 
 class AAAnimation {
-    private var duration: Int? = null
-    private var easing: String? = null
+    var duration: Int? = null
+    var easing: String? = null
 
     fun duration(prop: Int?): AAAnimation {
         duration = prop

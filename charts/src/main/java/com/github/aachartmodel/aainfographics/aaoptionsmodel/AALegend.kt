@@ -13,19 +13,19 @@ import com.github.aachartmodel.aainfographics.aachartcreator.AAChartLayoutType
 import com.github.aachartmodel.aainfographics.aachartcreator.AAChartVerticalAlignType
 
 class AALegend {
-    private var layout: String? =
+    var layout: String? =
         null //图例数据项的布局。布局类型： "horizontal" 或 "vertical" 即水平布局和垂直布局 默认是：horizontal.
-    private var align: String? = null //设定图例在图表区中的水平对齐方式，合法值有left，center 和 right。
-    private var verticalAlign: String? =
+    var align: String? = null //设定图例在图表区中的水平对齐方式，合法值有left，center 和 right。
+    var verticalAlign: String? =
         null //设定图例在图表区中的垂直对齐方式，合法值有 top，middle 和 bottom。垂直位置可以通过 y 选项做进一步设定。
-    private var enabled: Boolean? = null
-    private var borderColor: String? = null
-    private var borderWidth: Float? = null
-    private var itemMarginTop: Float? = null //图例的每一项的顶部外边距，单位px。 默认是：0.
-    private var itemStyle: AAItemStyle? = null
-    private var x: Float? = null
-    private var y: Float? = null
-    private var floating: Boolean? = null
+    var enabled: Boolean? = null
+    var borderColor: String? = null
+    var borderWidth: Float? = null
+    var itemMarginTop: Float? = null //图例的每一项的顶部外边距，单位px。 默认是：0.
+    var itemStyle: AAItemStyle? = null
+    var x: Float? = null
+    var y: Float? = null
+    var floating: Boolean? = null
 
     fun layout(prop: AAChartLayoutType): AALegend {
         layout = prop.value
@@ -86,11 +86,11 @@ class AALegend {
 }
 
 class AAItemStyle {
-    private var color: String? = null
-    private var cursor: String? = null
-    private var pointer: String? = null
-    private var fontSize: String? = null
-    private var fontWeight: String? = null
+    var color: String? = null
+    var cursor: String? = null
+    var pointer: String? = null
+    var fontSize: String? = null
+    var fontWeight: String? = null
 
 
     fun color(prop: String?): AAItemStyle {
