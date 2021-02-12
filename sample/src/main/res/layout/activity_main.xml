@@ -5,11 +5,10 @@
     android:layout_height="match_parent"
     tools:context=".basiccontent.MainActivity">
 
-    <ListView
-        android:id="@+id/list"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-    </ListView>
+    <ExpandableListView
+            android:id="@+id/exlist_lol"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:childDivider="#E02D2F"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
