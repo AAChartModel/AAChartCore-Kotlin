@@ -9,6 +9,7 @@
 package com.github.aachartmodel.aainfographics.aaoptionsmodel
 
 class AAXAxis {
+    var type: String? = null
     var plotBands: Array<AAPlotBandsElement>? = null
     var plotLines: Array<AAPlotLinesElement>? = null
     var categories: Array<String>? = null
@@ -37,6 +38,10 @@ class AAXAxis {
     var tickPosition: String? =
         null //刻度线相对于轴线的位置，可用的值有 inside 和 outside，分别表示在轴线的内部和外部。 默认是：outside.
 
+    fun type(prop: String): AAXAxis {
+        type = prop
+        return this
+    }
 
     fun plotBands(prop: Array<AAPlotBandsElement>): AAXAxis {
         plotBands = prop

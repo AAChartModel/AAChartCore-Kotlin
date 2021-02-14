@@ -397,11 +397,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun gotoScrollableChartActivity(chartType: String?, position: Int) {
-//        val intent =
-//            Intent(this, ScrollableChartActivity::class.java)
-//        intent.putExtra(kChartTypeKey, chartType)
-//        intent.putExtra("position", position)
-//        startActivity(intent)
+        val intent =
+            Intent(this, ScrollableChartActivity::class.java)
+        intent.putExtra(kChartTypeKey, chartType)
+        intent.putExtra("position", position)
+        startActivity(intent)
     }
 
     companion object {

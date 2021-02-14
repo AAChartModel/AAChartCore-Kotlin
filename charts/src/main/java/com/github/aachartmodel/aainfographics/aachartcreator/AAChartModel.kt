@@ -428,7 +428,7 @@ class AAChartModel {
         return this
     }
 
-    fun scrollablePlotArea(prop: AAScrollablePlotArea): AAChartModel? {
+    fun scrollablePlotArea(prop: AAScrollablePlotArea): AAChartModel {
         scrollablePlotArea = prop
         return this
     }
