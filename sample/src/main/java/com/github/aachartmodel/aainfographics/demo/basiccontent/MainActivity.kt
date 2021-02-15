@@ -136,7 +136,7 @@ class MainActivity : AppCompatActivity() {
                 "Spline Chart---曲线图"
             )
         )
-    var chartTypeArr =
+    private val chartTypeArr =
         arrayOf(
             arrayOf( /*基础类型图表*/
                 AAChartType.Column.value,
@@ -263,14 +263,14 @@ class MainActivity : AppCompatActivity() {
                 AAChartType.Spline.value
             )
         )
-    private val chartType: String? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setupExpandableListView()
     }
 
-    fun setupExpandableListView() {
+   private fun setupExpandableListView() {
         val groupTitleArr = arrayOf(
             "Basic Type Chart --- 基础类型图表",
             "Special Type Chart --- 特殊类型图表",
@@ -283,8 +283,7 @@ class MainActivity : AppCompatActivity() {
             "Double Charts Linked Work---双表联动",
             "Scrollable chart ---可滚动の图表"
         )
-        val listView =
-            findViewById(R.id.exlist_lol) as ExpandableListView
+        val listView = findViewById<ExpandableListView>(R.id.exlist_lol)
         val myAdapter =
             MyBaseExpandableListAdapter(groupTitleArr, chartTypeNameArr, this)
         listView.setAdapter(myAdapter)
@@ -313,7 +312,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun goToCommonChartActivity(chartType: String?, position: Int) {
+    private fun goToCommonChartActivity(chartType: String?, position: Int) {
         val intent =
             Intent(this, CommonChartActivity::class.java)
         intent.putExtra(kChartTypeKey, chartType)
@@ -321,28 +320,28 @@ class MainActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
-    fun goToSpecialChartActivity(chartType: String?) {
+    private fun goToSpecialChartActivity(chartType: String?) {
         val intent =
             Intent(this, SpecialChartActivity::class.java)
         intent.putExtra(kChartTypeKey, chartType)
         startActivity(intent)
     }
 
-    fun goToCustomStyleChartActivity(chartType: String?) {
+    private fun goToCustomStyleChartActivity(chartType: String?) {
         val intent =
             Intent(this, CustomStyleChartActivity::class.java)
         intent.putExtra(kChartTypeKey, chartType)
         startActivity(intent)
     }
 
-    fun goToMixedChartActivity(chartType: String?) {
+    private fun goToMixedChartActivity(chartType: String?) {
         val intent =
             Intent(this, MixedChartActivity::class.java)
         intent.putExtra(kChartTypeKey, chartType)
         startActivity(intent)
     }
 
-    fun goToDrawChartWithAAOptionsActivity(chartType: String?) {
+    private fun goToDrawChartWithAAOptionsActivity(chartType: String?) {
         val intent = Intent(
             this,
             DrawChartWithAAOptionsActivity::class.java
@@ -351,7 +350,7 @@ class MainActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
-    fun goToOnlyRefreshChartDataActivity(chartType: String?) {
+    private fun goToOnlyRefreshChartDataActivity(chartType: String?) {
         val intent = Intent(
             this,
             OnlyRefreshChartDataActivity::class.java
@@ -360,7 +359,7 @@ class MainActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
-    fun goToCustomTooltipWithJSFunctionActivity(chartType: String?) {
+    private fun goToCustomTooltipWithJSFunctionActivity(chartType: String?) {
         val intent = Intent(
             this,
             JSFormatterFunctionActivity::class.java
@@ -369,7 +368,7 @@ class MainActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
-    fun goToEvaluateJSStringFunctionActivity(chartType: String?) {
+    private fun goToEvaluateJSStringFunctionActivity(chartType: String?) {
         val intent = Intent(
             this,
             EvaluateJSStringFunctionActivity::class.java
@@ -378,7 +377,7 @@ class MainActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
-    fun goToHideOrShowChartSeriesActivity(chartType: String?) {
+    private fun goToHideOrShowChartSeriesActivity(chartType: String?) {
         val intent = Intent(
             this,
             HideOrShowChartSeriesActivity::class.java
@@ -387,7 +386,7 @@ class MainActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
-    fun goToDoubleChartsLinkedWorkActivity(chartType: String?) {
+    private fun goToDoubleChartsLinkedWorkActivity(chartType: String?) {
         val intent = Intent(
             this,
             DoubleChartsLinkedWorkActivity::class.java
@@ -396,7 +395,7 @@ class MainActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
-    fun gotoScrollableChartActivity(chartType: String?, position: Int) {
+    private fun gotoScrollableChartActivity(chartType: String?, position: Int) {
         val intent =
             Intent(this, ScrollableChartActivity::class.java)
         intent.putExtra(kChartTypeKey, chartType)
