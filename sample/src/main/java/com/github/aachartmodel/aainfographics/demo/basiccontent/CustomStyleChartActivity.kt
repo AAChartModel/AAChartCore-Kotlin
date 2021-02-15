@@ -90,6 +90,20 @@ class CustomStyleChartActivity : AppCompatActivity() {
                 return CustomStyleChartComposer.configurePentagonRadarChart()
             "HexagonRadarChart" ->
                 return CustomStyleChartComposer.configureHexagonRadarChart()
+            
+             "adjustYAxisMaxAndMinValues"-> return CustomStyleChartComposer.adjustYAxisMaxAndMinValues()
+             "customSpecialStyleDataLabelOfSingleDataElementChart"-> return CustomStyleChartComposer.customSpecialStyleDataLabelOfSingleDataElementChart()
+             "customBarChartHoverColorAndSelectColor"-> return CustomStyleChartComposer.customBarChartHoverColorAndSelectColor()
+             "customChartHoverAndSelectHaloStyle"-> return CustomStyleChartComposer.customChartHoverAndSelectHaloStyle()
+             "customSplineChartMarkerStatesHoverStyle"-> return CustomStyleChartComposer.customSplineChartMarkerStatesHoverStyle()
+             "customNormalStackingChartDataLabelsContentAndStyle"-> return CustomStyleChartComposer.customNormalStackingChartDataLabelsContentAndStyle()
+             "upsideDownPyramidChart"-> return CustomStyleChartComposer.upsideDownPyramidChart()
+             "doubleLayerPieChart"-> return CustomStyleChartComposer.doubleLayerPieChart()
+             "disableSomeOfLinesMouseTrackingEffect"-> return CustomStyleChartComposer.disableSomeOfLinesMouseTrackingEffect()
+             "configureColorfulShadowSplineChart"-> return CustomStyleChartComposer.configureColorfulShadowSplineChart()
+             "configureColorfulDataLabelsStepLineChart"-> return CustomStyleChartComposer.configureColorfulDataLabelsStepLineChart()
+             "configureColorfulGradientColorAndColorfulDataLabelsStepAreaChart"-> return CustomStyleChartComposer.configureColorfulGradientColorAndColorfulDataLabelsStepAreaChart()
+             "disableSplineChartMarkerHoverEffect"-> return CustomStyleChartComposer.disableSplineChartMarkerHoverEffect()
         }
         return CustomStyleChartComposer.configureColorfulChart()
     }
