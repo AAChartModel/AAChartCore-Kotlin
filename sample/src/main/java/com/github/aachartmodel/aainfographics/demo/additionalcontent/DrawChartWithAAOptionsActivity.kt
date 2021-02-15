@@ -31,7 +31,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 
 import com.github.aachartmodel.aainfographics.aachartcreator.AAChartView
-import com.github.aachartmodel.aainfographics.aaoptionsmodel.AAOptions
+import com.github.aachartmodel.aainfographics.aachartcreator.AAOptions
 import com.github.aachartmodel.aainfographics.demo.R
 import com.github.aachartmodel.aainfographics.demo.chartcomposer.ChartOptionsComposer.Companion.configureAAPlotBandsForChart
 import com.github.aachartmodel.aainfographics.demo.chartcomposer.ChartOptionsComposer.Companion.configureAAPlotLinesForChart

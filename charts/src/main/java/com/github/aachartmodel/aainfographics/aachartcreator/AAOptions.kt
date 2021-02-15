@@ -1,11 +1,4 @@
 /**
-//  AAChartModel.java
-//  ChartCore-Slim
-//
-//  Created by AnAn on 2018/12/08.
-//  Copyright © 2018年 An An. All rights reserved.
- */
-/**
  * ◉◉◉◉◉◉◉◉◉◉◉◉◉◉◉◉◉◉◉ ...... SOURCE CODE ......◉◉◉◉◉◉◉◉◉◉◉◉◉◉◉◉◉◉◉
  * ◉◉◉...................................................       ◉◉◉
  * ◉◉◉   https://github.com/AAChartModel/AAChartCore            ◉◉◉
@@ -35,6 +28,113 @@
 package com.github.aachartmodel.aainfographics.aachartcreator
 
 import com.github.aachartmodel.aainfographics.aaoptionsmodel.*
+
+class AAOptions {
+    var chart: AAChart? = null
+    var title: AATitle? = null
+    var subtitle: AASubtitle? = null
+    var xAxis: AAXAxis? = null
+    var yAxis: AAYAxis? = null
+    var xAxisArray: Array<AAXAxis>? = null
+    var yAxisArray: Array<AAYAxis>? = null
+    var tooltip: AATooltip? = null
+    var plotOptions: AAPlotOptions? = null
+    var series: Array<AASeriesElement>? = null
+    var legend: AALegend? = null
+    var pane: AAPane? = null
+    var colors: Array<Any>? = null
+    var credits: AACredits? = null
+    var defaultOptions: AALang? = null
+    var touchEventEnabled: Boolean? = null
+
+    fun chart(prop: AAChart): AAOptions {
+        chart = prop
+        return this
+    }
+
+    fun title(prop: AATitle): AAOptions {
+        title = prop
+        return this
+    }
+
+    fun subtitle(prop: AASubtitle): AAOptions {
+        subtitle = prop
+        return this
+    }
+
+    fun xAxis(prop: AAXAxis): AAOptions {
+        xAxis = prop
+        return this
+    }
+
+    fun yAxis(prop: AAYAxis): AAOptions {
+        yAxis = prop
+        return this
+    }
+
+    fun xAxisArray(prop: Array<AAXAxis>): AAOptions {
+        xAxisArray = prop
+        return this
+    }
+
+    fun yAxisArray(prop: Array<AAYAxis>): AAOptions {
+        yAxisArray = prop
+        return this
+    }
+
+    fun tooltip(prop: AATooltip): AAOptions {
+        tooltip = prop
+        return this
+    }
+
+    fun plotOptions(prop: AAPlotOptions): AAOptions {
+        plotOptions = prop
+        return this
+    }
+
+    fun series(prop: Array<AASeriesElement>?): AAOptions {
+        series = prop
+        return this
+    }
+
+    fun legend(prop: AALegend): AAOptions {
+        legend = prop
+        return this
+    }
+
+    fun pane(prop: AAPane?): AAOptions {
+        pane = prop
+        return this
+    }
+
+    fun colors(prop: Array<Any>?): AAOptions {
+        colors = prop
+        return this
+    }
+
+    fun credits(prop: AACredits): AAOptions {
+        credits = prop
+        return this
+    }
+
+    fun defaultOptions(prop: AALang): AAOptions {
+        defaultOptions = prop
+        return this
+    }
+
+    fun touchEventEnabled(prop: Boolean?): AAOptions {
+        touchEventEnabled = prop
+        return this
+    }
+
+
+     init {
+        val aaCredits = AACredits()
+        aaCredits.enabled = false
+        credits = aaCredits
+    }
+}
+
 
 object AAOptionsConstructor {
     fun configureChartOptions(
@@ -67,15 +167,15 @@ object AAOptionsConstructor {
 
         val aaPlotOptions = AAPlotOptions()
             .series(AASeries()
-                    .stacking(aaChartModel.stacking) //设置是否百分比堆叠显示图形
+                .stacking(aaChartModel.stacking) //设置是否百分比堆叠显示图形
             )
 
         if (aaChartModel.animationType != AAChartAnimationType.Linear) {
             aaPlotOptions.series?.animation(
-                    AAAnimation()
-                        .easing(aaChartModel.animationType)
-                        .duration(aaChartModel.animationDuration)
-                )
+                AAAnimation()
+                    .easing(aaChartModel.animationType)
+                    .duration(aaChartModel.animationDuration)
+            )
         }
 
         configureAAPlotOptionsMarkerStyle(aaChartModel, aaPlotOptions)
@@ -84,7 +184,7 @@ object AAOptionsConstructor {
         val aaLegend = AALegend()
             .enabled(aaChartModel.legendEnabled) //是否显示 legend
             .itemStyle(AAItemStyle()
-                    .color(aaChartModel.axesTextColor))
+                .color(aaChartModel.axesTextColor))
 
         val aaOptions = AAOptions()
             .chart(aaChart)
@@ -205,7 +305,7 @@ object AAOptionsConstructor {
                 .enabled(aaXAxisLabelsEnabled) //设置 x 轴是否显示文字
             if (aaXAxisLabelsEnabled!!) {
                 aaXAxisLabels.style(
-                        AAStyle()
+                    AAStyle()
                         .color(aaChartModel.axesTextColor)
                 )
             }
@@ -223,7 +323,7 @@ object AAOptionsConstructor {
                 .enabled(aaChartModel.yAxisLabelsEnabled)
             if (aaYAxisLabelsEnabled!!) {
                 aaYAxisLabels.style(
-                        AAStyle()
+                    AAStyle()
                         .color(aaChartModel.axesTextColor)
                 )
             }
@@ -236,10 +336,10 @@ object AAOptionsConstructor {
                 .reversed(aaChartModel.yAxisReversed)
                 .gridLineWidth(aaChartModel.yAxisGridLineWidth) //y轴网格线宽度
                 .title(AATitle()
-                        .text(aaChartModel.yAxisTitle)
-                        .style(AAStyle()
-                                .color(aaChartModel.axesTextColor)
-                        )
+                    .text(aaChartModel.yAxisTitle)
+                    .style(AAStyle()
+                        .color(aaChartModel.axesTextColor)
+                    )
                 ) //y 轴标题
                 .lineWidth(aaChartModel.yAxisLineWidth) //设置 y轴轴线的宽度,为0即是隐藏 y轴轴线
                 .visible(aaChartModel.yAxisVisible)

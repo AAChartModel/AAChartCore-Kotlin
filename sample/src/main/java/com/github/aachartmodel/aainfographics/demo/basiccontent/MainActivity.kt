@@ -146,7 +146,7 @@ class MainActivity : AppCompatActivity() {
                 AAChartType.Area.value,
                 AAChartType.Line.value,
                 AAChartType.Line.value,
-                AAChartType.Spline
+                AAChartType.Spline.value
             ), arrayOf( /*特殊类型图表*/
                 AAChartType.Column.value,
                 AAChartType.Pie.value,

@@ -1,6 +1,5 @@
 package com.github.aachartmodel.aainfographics.demo.additionalcontent
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.github.aachartmodel.aainfographics.aachartcreator.*

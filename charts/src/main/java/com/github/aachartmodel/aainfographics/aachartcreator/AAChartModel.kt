@@ -28,7 +28,6 @@
 
 package com.github.aachartmodel.aainfographics.aachartcreator
 
-import com.github.aachartmodel.aainfographics.aaoptionsmodel.AAOptions
 import com.github.aachartmodel.aainfographics.aaoptionsmodel.AAScrollablePlotArea
 import com.github.aachartmodel.aainfographics.aaoptionsmodel.AAStyle
 
@@ -462,6 +461,6 @@ class AAChartModel {
 }
 
 
-fun AAChartModel.aa_toAAOptions(): AAOptions{
+fun AAChartModel.aa_toAAOptions(): AAOptions {
     return AAOptionsConstructor.configureChartOptions(this)
 }

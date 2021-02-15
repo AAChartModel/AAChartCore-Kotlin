@@ -296,7 +296,7 @@ function () {
             return aaOptions
         }
 
-         fun customYAxisLabels():AAOptions {
+         fun customYAxisLabels(): AAOptions {
             val aaChartModel = AAChartModel()
                 .chartType(AAChartType.Line)//图形类型
                 .title("")//图表主标题
@@ -338,7 +338,7 @@ function () {
             return aaOptions
         }
 
-         fun customYAxisLabels2():AAOptions {
+         fun customYAxisLabels2(): AAOptions {
             val aaChartModel = AAChartModel()
                 .chartType(AAChartType.Line)//图形类型
                 .title("")//图表主标题
@@ -390,7 +390,7 @@ function () {
             return aaOptions
         }
 
-         fun customStackedAndGroupedColumnChartTooltip():AAOptions {
+         fun customStackedAndGroupedColumnChartTooltip(): AAOptions {
             val aaChartModel = AAChartModel()
                 .title("Total fruit consumption, grouped by gender")
                 .subtitle("stacked and grouped")
@@ -441,7 +441,7 @@ function () {
             return aaOptions
         }
 
-         fun customDoubleXAxesChart():AAOptions {
+         fun customDoubleXAxesChart(): AAOptions {
             val gradientColorDic1 = AAGradientColor.linearGradient(
                 AALinearGradientDirection.ToTop,
                 "#7052f4",
@@ -537,7 +537,7 @@ function () {
                 .series(arrayOf(aaSeriesElement1, aaSeriesElement2))
         }
 
-         fun customArearangeChartTooltip():AAOptions {
+         fun customArearangeChartTooltip(): AAOptions {
           val aaChartModel =  AAChartModel()
                 .chartType(AAChartType.Areasplinerange)
                 .title("Area spline range chart")

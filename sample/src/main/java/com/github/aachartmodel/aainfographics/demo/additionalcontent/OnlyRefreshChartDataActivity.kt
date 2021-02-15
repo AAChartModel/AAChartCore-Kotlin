@@ -32,7 +32,7 @@ import android.os.Handler
 import androidx.appcompat.app.AppCompatActivity
 
 import com.github.aachartmodel.aainfographics.aachartcreator.*
-import com.github.aachartmodel.aainfographics.aaoptionsmodel.AAOptions
+import com.github.aachartmodel.aainfographics.aachartcreator.AAOptions
 import com.github.aachartmodel.aainfographics.aatools.AAGradientColor
 import com.github.aachartmodel.aainfographics.demo.R
 import kotlin.math.cos

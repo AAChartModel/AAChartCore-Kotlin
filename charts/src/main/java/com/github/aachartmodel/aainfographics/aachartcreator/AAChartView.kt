@@ -39,7 +39,6 @@ import android.content.Context
 import android.os.Build
 import android.util.AttributeSet
 import android.webkit.*
-import com.github.aachartmodel.aainfographics.aaoptionsmodel.AAOptions
 import com.github.aachartmodel.aainfographics.aatools.AAJSStringPurer
 import com.google.gson.Gson
 import com.google.gson.internal.LinkedTreeMap
