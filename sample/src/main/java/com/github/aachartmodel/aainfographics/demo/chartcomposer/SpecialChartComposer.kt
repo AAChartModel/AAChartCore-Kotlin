@@ -36,7 +36,7 @@ object SpecialChartComposer{
 
 
 
-    fun configurePolarColumnChart(): AAChartModel  {
+    fun configurePolarColumnChart(): AAChartModel {
         return AAChartModel()
             .chartType(AAChartType.Column)
             .polar(true)
@@ -61,7 +61,7 @@ object SpecialChartComposer{
             ))
     }
 
-    fun configurePieChart(): AAChartModel  {
+    fun configurePieChart(): AAChartModel {
         return AAChartModel()
             .chartType(AAChartType.Pie)
             .backgroundColor("#ffffff")
@@ -81,7 +81,7 @@ object SpecialChartComposer{
                     ))))
     }
 
-    fun configureBubbleChart(): AAChartModel  {
+    fun configureBubbleChart(): AAChartModel {
         return AAChartModel()
             .chartType(AAChartType.Bubble)
             .title("AACHARTKIT BUBBLES")
@@ -653,7 +653,7 @@ object SpecialChartComposer{
 
     }
 
-    fun configureAreasplinerangeChart(): AAChartModel  {
+    fun configureAreasplinerangeChart(): AAChartModel {
         val gradientColorDic = "#ff0000"
 
         return AAChartModel()
@@ -700,7 +700,7 @@ object SpecialChartComposer{
                     ))))
     }
 
-    fun configureColumnrangeChart(): AAChartModel  {
+    fun configureColumnrangeChart(): AAChartModel {
         return AAChartModel()
             .chartType(AAChartType.Columnrange)
             .title("TEMPERATURE VARIATION BY MONTH")
@@ -741,7 +741,7 @@ object SpecialChartComposer{
                     ))))
     }
 
-    fun configureStepLineChart(): AAChartModel  {
+    fun configureStepLineChart(): AAChartModel {
         return AAChartModel()
             .chartType(AAChartType.Line)//图形类型
             .animationType(AAChartAnimationType.Bounce)//图形渲染动画类型为"bounce"
@@ -766,7 +766,7 @@ object SpecialChartComposer{
             ))
     }
 
-    fun configureStepAreaChart(): AAChartModel  {
+    fun configureStepAreaChart(): AAChartModel {
         return AAChartModel()
             .chartType(AAChartType.Area)//图形类型
             .animationType(AAChartAnimationType.Bounce)//图形渲染动画类型为"bounce"
@@ -791,7 +791,7 @@ object SpecialChartComposer{
             ))
     }
 
-    fun configureBoxplotChart(): AAChartModel  {
+    fun configureBoxplotChart(): AAChartModel {
         return AAChartModel()
             .chartType(AAChartType.Boxplot)
             .title("BOXPLOT CHART")
@@ -830,7 +830,7 @@ object SpecialChartComposer{
                             )))
             ))
     }
-    fun configurePyramidChart(): AAChartModel  {
+    fun configurePyramidChart(): AAChartModel {
         return AAChartModel()
             .chartType(AAChartType.Pyramid)
             .title("THE HEAT OF PROGRAM LANGUAGE")
@@ -848,7 +848,7 @@ object SpecialChartComposer{
                     ))))
     }
 
-    fun configureFunnelChart(): AAChartModel  {
+    fun configureFunnelChart(): AAChartModel {
         return AAChartModel()
             .chartType(AAChartType.Funnel)
             .title("THE HEAT OF PROGRAM LANGUAGE")
