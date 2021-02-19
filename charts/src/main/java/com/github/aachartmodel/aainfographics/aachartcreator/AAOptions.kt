@@ -206,13 +206,13 @@ object AAOptionsConstructor {
         aaChartModel: AAChartModel,
         aaPlotOptions: AAPlotOptions
     ) {
-        val chartType = aaChartModel.chartType
+        val aaChartType = aaChartModel.chartType
         //数据点标记相关配置，只有线性图(折线图、曲线图、折线区域填充图、曲线区域填充图,散点图)才有数据点标记
-        if (chartType == AAChartType.Area
-            || chartType == AAChartType.Areaspline
-            || chartType == AAChartType.Line
-            || chartType == AAChartType.Spline
-            || chartType == AAChartType.Scatter
+        if (   aaChartType == AAChartType.Area
+            || aaChartType == AAChartType.Areaspline
+            || aaChartType == AAChartType.Line
+            || aaChartType == AAChartType.Spline
+            || aaChartType == AAChartType.Scatter
         ) {
             val aaMarker = AAMarker()
                 .radius(aaChartModel.markerRadius) //曲线连接点半径，默认是4
@@ -235,7 +235,7 @@ object AAOptionsConstructor {
         aaPlotOptions: AAPlotOptions,
         aaChartModel: AAChartModel
     ) {
-        val chartType = aaChartModel.chartType
+        val aaChartType = aaChartModel.chartType
 
         val aaDataLabels = AADataLabels()
         if (aaChartModel.dataLabelsEnabled == true) {
@@ -244,7 +244,7 @@ object AAOptionsConstructor {
                 .style(aaChartModel.dataLabelsStyle)
         }
 
-        when (chartType) {
+        when (aaChartType) {
             AAChartType.Column -> {
                 val aaColumn = AAColumn()
                     .borderWidth(0f)
@@ -294,38 +294,51 @@ object AAOptionsConstructor {
         aaOptions: AAOptions,
         aaChartModel: AAChartModel
     ) {
-        val chartType = aaChartModel.chartType
+        val aaChartType = aaChartModel.chartType
         //x 轴和 Y 轴的相关配置,扇形图、金字塔图和漏斗图则不需要设置 X 轴和 Y 轴的相关内容
-        if (chartType != AAChartType.Pie
-            && chartType != AAChartType.Pyramid
-            && chartType != AAChartType.Funnel
+        if (   aaChartType == AAChartType.Column
+            || aaChartType == AAChartType.Bar
+            || aaChartType == AAChartType.Area
+            || aaChartType == AAChartType.Areaspline
+            || aaChartType == AAChartType.Line
+            || aaChartType == AAChartType.Spline
+            || aaChartType == AAChartType.Scatter
+            || aaChartType == AAChartType.Bubble
+            || aaChartType == AAChartType.Columnrange
+            || aaChartType == AAChartType.Arearange
+            || aaChartType == AAChartType.Areasplinerange
+            || aaChartType == AAChartType.Boxplot
+            || aaChartType == AAChartType.Waterfall
+            || aaChartType == AAChartType.Polygon
+            || aaChartType == AAChartType.Gauge
         ) {
-            val aaXAxisLabelsEnabled = aaChartModel.xAxisLabelsEnabled
-            val aaXAxisLabels = AALabels()
-                .enabled(aaXAxisLabelsEnabled) //设置 x 轴是否显示文字
-            if (aaXAxisLabelsEnabled!!) {
-                aaXAxisLabels.style(
-                    AAStyle()
-                        .color(aaChartModel.axesTextColor)
-                )
-            }
+            if (aaChartType != AAChartType.Gauge) {
+                val aaXAxisLabelsEnabled = aaChartModel.xAxisLabelsEnabled
+                val aaXAxisLabels = AALabels()
+                    .enabled(aaXAxisLabelsEnabled) //设置 x 轴是否显示文字
+                if (aaXAxisLabelsEnabled!!) {
+                    aaXAxisLabels.style(AAStyle()
+                            .color(aaChartModel.axesTextColor)
+                    )
+                }
 
-            val aaXAxis = AAXAxis()
-                .labels(aaXAxisLabels) //设置 x 轴是否显示文字
-                .reversed(aaChartModel.xAxisReversed)
-                .gridLineWidth(aaChartModel.xAxisGridLineWidth) //x轴网格线宽度
-                .categories(aaChartModel.categories)
-                .visible(aaChartModel.xAxisVisible) //x轴是否可见
-                .tickInterval(aaChartModel.xAxisTickInterval) //x轴坐标点间隔数
+                val aaXAxis = AAXAxis()
+                    .labels(aaXAxisLabels) //设置 x 轴是否显示文字
+                    .reversed(aaChartModel.xAxisReversed)
+                    .gridLineWidth(aaChartModel.xAxisGridLineWidth) //x轴网格线宽度
+                    .categories(aaChartModel.categories)
+                    .visible(aaChartModel.xAxisVisible) //x轴是否可见
+                    .tickInterval(aaChartModel.xAxisTickInterval) //x轴坐标点间隔数
+
+                aaOptions.xAxis(aaXAxis)
+            }
 
             val aaYAxisLabelsEnabled = aaChartModel.yAxisLabelsEnabled
             val aaYAxisLabels = AALabels()
                 .enabled(aaChartModel.yAxisLabelsEnabled)
             if (aaYAxisLabelsEnabled!!) {
-                aaYAxisLabels.style(
-                    AAStyle()
-                        .color(aaChartModel.axesTextColor)
-                )
+                aaYAxisLabels.style(AAStyle()
+                        .color(aaChartModel.axesTextColor))
             }
 
             val aaYAxis = AAYAxis()
@@ -338,14 +351,11 @@ object AAOptionsConstructor {
                 .title(AATitle()
                     .text(aaChartModel.yAxisTitle)
                     .style(AAStyle()
-                        .color(aaChartModel.axesTextColor)
-                    )
-                ) //y 轴标题
+                        .color(aaChartModel.axesTextColor)))
                 .lineWidth(aaChartModel.yAxisLineWidth) //设置 y轴轴线的宽度,为0即是隐藏 y轴轴线
                 .visible(aaChartModel.yAxisVisible)
 
-            aaOptions.xAxis(aaXAxis)
-                .yAxis(aaYAxis)
+            aaOptions.yAxis(aaYAxis)
         }
     }
 }
