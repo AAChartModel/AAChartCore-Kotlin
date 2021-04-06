@@ -178,7 +178,6 @@ class AAChartModel {
     var yAxisReversed: Boolean? = null         //y 轴翻转
     var tooltipEnabled: Boolean? = null        //是否显示浮动提示框(默认显示)
     var tooltipValueSuffix: String? = null     //浮动提示框单位后缀
-    var tooltipCrosshairs: Boolean? = null     //是否显示准星线(默认显示)
     var gradientColorEnable: Boolean? = null   //是否要为渐变色
     var polar: Boolean? = null                 //是否极化图形(变为雷达图)
     var margin: Array<Float>? = null           //图表外边缘和绘图区域之间的边距
@@ -298,11 +297,6 @@ class AAChartModel {
 
     fun tooltipValueSuffix(prop: String?): AAChartModel {
         tooltipValueSuffix = prop
-        return this
-    }
-
-    fun tooltipCrosshairs(prop: Boolean?): AAChartModel {
-        tooltipCrosshairs = prop
         return this
     }
 
@@ -446,7 +440,6 @@ class AAChartModel {
         dataLabelsEnabled = false
         markerSymbolStyle = AAChartSymbolStyleType.Normal
         colorsTheme = arrayOf("#fe117c", "#ffc069", "#06caf4", "#7dffc0")
-        tooltipCrosshairs = true
         gradientColorEnable = false
         polar = false
         xAxisLabelsEnabled = true
