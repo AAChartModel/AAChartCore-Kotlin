@@ -9,6 +9,6 @@
             android:id="@+id/exlist_lol"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:childDivider="#E02D2F"/>
+            android:childDivider="#D5D5D5"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

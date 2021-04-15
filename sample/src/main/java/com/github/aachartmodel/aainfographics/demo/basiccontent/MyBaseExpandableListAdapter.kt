@@ -1,18 +1,37 @@
 package com.github.aachartmodel.aainfographics.demo.basiccontent
 
 import android.content.Context
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseExpandableListAdapter
-import android.widget.ImageView
 import android.widget.TextView
 import com.github.aachartmodel.aainfographics.demo.R
 
 class MyBaseExpandableListAdapter(
     private val gData: Array<String>,
     private val iData: Array<Array<String>>,
-    private val mContext: Context
+    private val mContext: Context,
+    private val colorsArr: Array<String> = arrayOf("#5470c6",
+        "#91cc75",
+        "#fac858",
+        "#ee6666",
+        "#73c0de",
+        "#3ba272",
+        "#fc8452",
+        "#9a60b4",
+        "#ea7ccc",
+        "#5470c6",
+        "#91cc75",
+        "#fac858",
+        "#ee6666",
+        "#73c0de",
+        "#3ba272",
+        "#fc8452",
+        "#9a60b4",
+        "#ea7ccc"
+    )
 ) :
     BaseExpandableListAdapter() {
     override fun getGroupCount(): Int {
@@ -56,14 +75,11 @@ class MyBaseExpandableListAdapter(
             convertView = LayoutInflater.from(mContext).inflate(
                 R.layout.item_exlist_group, parent, false
             )
-            groupHolder =
-                ViewHolderGroup()
-            groupHolder.tv_group_name =
-                convertView.findViewById<View>(R.id.tv_group_name) as TextView
+            groupHolder = ViewHolderGroup()
+            groupHolder.tv_group_name = convertView.findViewById<View>(R.id.tv_group_name) as TextView
             convertView.tag = groupHolder
         } else {
-            groupHolder =
-                convertView.tag as ViewHolderGroup
+            groupHolder = convertView.tag as ViewHolderGroup
         }
         groupHolder.tv_group_name!!.text = gData[groupPosition]
         return convertView
@@ -83,19 +99,17 @@ class MyBaseExpandableListAdapter(
             convertView = LayoutInflater.from(mContext).inflate(
                 R.layout.item_exlist_item, parent, false
             )
-            itemHolder =
-                ViewHolderItem()
-            itemHolder.img_icon =
-                convertView.findViewById<View>(R.id.img_icon) as ImageView
-            itemHolder.tv_name =
-                convertView.findViewById<View>(R.id.tv_name) as TextView
+            itemHolder = ViewHolderItem()
+            itemHolder.tv_color_dot = convertView.findViewById<View>(R.id.tv_color_dot) as TextView
+            itemHolder.tv_name = convertView.findViewById<View>(R.id.tv_name) as TextView
             convertView.tag = itemHolder
         } else {
             itemHolder =
                 convertView.tag as ViewHolderItem
         }
-        //        itemHolder.img_icon.setImageResource(iData.get(groupPosition).get(childPosition).get);
-        itemHolder.tv_name!!.text = iData[groupPosition][childPosition]
+        val colorStr = colorsArr[groupPosition]
+        itemHolder.tv_color_dot?.setTextColor(Color.parseColor(colorStr))
+        itemHolder.tv_name?.text = iData[groupPosition][childPosition]
         return convertView
     }
 
@@ -109,7 +123,7 @@ class MyBaseExpandableListAdapter(
     }
 
     private class ViewHolderItem {
-        var img_icon: ImageView? = null
+        var tv_color_dot: TextView? = null
         var tv_name: TextView? = null
     }
 

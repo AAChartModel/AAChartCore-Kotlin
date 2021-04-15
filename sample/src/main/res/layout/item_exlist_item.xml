@@ -1,26 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="horizontal"
-    android:padding="5dp"
-    android:background="#6BBA79">
-
-    <ImageView
-        android:id="@+id/img_icon"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:src="@android:color/holo_blue_bright"
-        android:focusable="false"/>
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="horizontal"
+              android:padding="5dp"
+              android:background="#ffffff">
+    <TextView
+            android:id="@+id/tv_color_dot"
+            android:layout_width="48dp"
+            android:layout_height="match_parent"
+            android:textSize="28dp"
+            android:text="◉"
+            android:gravity="center_vertical|center"
+    ></TextView>
 
     <TextView
-        android:id="@+id/tv_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="15dp"
-        android:layout_marginTop="15dp"
-        android:focusable="false"
-        android:text="提莫"
-        android:textSize="18sp" />
+            android:id="@+id/tv_name"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:focusable="false"
+            android:text="图表名称"
+            android:gravity="center_vertical|left"
+            android:textSize="18sp"
+            android:textColor="#123456"
+    />
 
 </LinearLayout>
