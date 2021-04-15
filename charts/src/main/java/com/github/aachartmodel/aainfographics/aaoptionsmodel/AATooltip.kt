@@ -52,7 +52,6 @@ class AATooltip {
     var footerFormat: String? = null
     var valueDecimals: Int? = null
     var shared: Boolean? = null
-    var crosshairs: Boolean? = null
     var valueSuffix: String? = null
 
     fun backgroundColor(prop: String): AATooltip {
@@ -122,11 +121,6 @@ class AATooltip {
         return this
     }
 
-    fun crosshairs(prop: Boolean?): AATooltip {
-        crosshairs = prop
-        return this
-    }
-
     fun valueSuffix(prop: String?): AATooltip {
         valueSuffix = prop
         return this
@@ -135,7 +129,6 @@ class AATooltip {
     init {
         shared = true
         enabled = true
-        crosshairs = true
     }
 
 }
