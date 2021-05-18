@@ -599,14 +599,14 @@ class CustomStyleChartComposer  {
 
         fun customSpecialStyleDataLabelOfSingleDataElementChart(): AAChartModel {
             val redStopsArr = arrayOf(
-                    arrayOf(0.0, AAColor.rgbaColor(255, 0, 0, 0.6f)),
-                    arrayOf(0.5, AAColor.rgbaColor(255, 0, 0, 0.0f)),
-                    arrayOf(1.0, AAColor.rgbaColor(255, 0, 0, 0.0f))
+                arrayOf(0.0, AARgba(255, 0, 0, 0.6f)),
+                arrayOf(0.5, AARgba(255, 0, 0, 0.0f)),
+                arrayOf(1.0, AARgba(255, 0, 0, 0.0f))
                 )
             val gradientColorDic1= AAGradientColor.linearGradient(
                 AALinearGradientDirection.ToTop,
-                AAColor.rgbaColor(255, 215, 0, 0.1f),
-                AAColor.rgbaColor(255, 215, 0, 0.6f)
+                AARgba(255, 215, 0, 0.1f),
+                AARgba(255, 215, 0, 0.6f)
             )
             val formatStr =
                 "<img src=\"https://www.highcharts.com/samples/graphics/sun.png\">" +
@@ -693,8 +693,8 @@ class CustomStyleChartComposer  {
                                                     .opacity(1.0f)
                                                     .attributes(mapOf(
                                                         "stroke-width" to 150,
-                                                        "fill" to AAColor.rgbaColor(138, 43, 226, 1f),
-                                                        "stroke" to AAColor.rgbaColor(30, 144, 255, 1f)
+                                                        "fill" to AARgba(138, 43, 226, 1f),
+                                                        "stroke" to AARgba(30, 144, 255, 1f)
                                                     )))))))
         }
 
@@ -970,9 +970,9 @@ class CustomStyleChartComposer  {
         // GitHub issue https://github.com/AAChartModel/AAChartKit-Swift/issues/223
         fun configureColorfulGradientColorAndColorfulDataLabelsStepAreaChart(): AAChartModel {
             val blueStopsArr: Array<Any> = arrayOf(
-                    arrayOf(0.0, AAColor.rgbaColor(30, 144, 255, 1.0f)),
-                    arrayOf(0.5, AAColor.rgbaColor(30, 144, 255, 0.2f)),
-                    arrayOf(1.0, AAColor.rgbaColor(30, 144, 255, 0.0f))
+                arrayOf(0.0, AARgba(30, 144, 255, 1.0f)),
+                arrayOf(0.5, AARgba(30, 144, 255, 0.2f)),
+                arrayOf(1.0, AARgba(30, 144, 255, 0.0f))
                 )
             val gradientBlueColorDic = AAGradientColor.linearGradient(
                 AALinearGradientDirection.ToBottom,
@@ -980,9 +980,9 @@ class CustomStyleChartComposer  {
             )
 
             val redStopsArr: Array<Any> = arrayOf(
-                arrayOf(0.0, AAColor.rgbaColor(255, 0, 0, 1.0f)),
-                arrayOf(0.5, AAColor.rgbaColor(255, 0, 0, 0.2f)),
-                arrayOf(1.0, AAColor.rgbaColor(255, 0, 0, 0.0f))
+                arrayOf(0.0, AARgba(255, 0, 0, 1.0f)),
+                arrayOf(0.5, AARgba(255, 0, 0, 0.2f)),
+                arrayOf(1.0, AARgba(255, 0, 0, 0.0f))
             )
             val gradientRedColorDic = AAGradientColor.linearGradient(
                 AALinearGradientDirection.ToBottom,
@@ -990,9 +990,9 @@ class CustomStyleChartComposer  {
             )
 
             val goldStopsArr: Array<Any> = arrayOf(
-                arrayOf(0.0, AAColor.rgbaColor(255, 215, 0, 1.0f)),
-                arrayOf(0.5, AAColor.rgbaColor(255, 215, 0, 0.2f)),
-                arrayOf(1.0, AAColor.rgbaColor(255, 215, 0, 0.0f))
+                arrayOf(0.0, AARgba(255, 215, 0, 1.0f)),
+                arrayOf(0.5, AARgba(255, 215, 0, 0.2f)),
+                arrayOf(1.0, AARgba(255, 215, 0, 0.0f))
             )
             val gradientGoldColorDic = AAGradientColor.linearGradient(
                 AALinearGradientDirection.ToBottom,
@@ -1000,9 +1000,9 @@ class CustomStyleChartComposer  {
             )
 
             val greenStopsArr: Array<Any> = arrayOf(
-                arrayOf(0.0, AAColor.rgbaColor(50, 205, 50, 1.0f)),
-                arrayOf(0.5, AAColor.rgbaColor(50, 205, 50, 0.2f)),
-                arrayOf(1.0, AAColor.rgbaColor(50, 205, 50, 0.0f))
+                arrayOf(0.0, AARgba(50, 205, 50, 1.0f)),
+                arrayOf(0.5, AARgba(50, 205, 50, 0.2f)),
+                arrayOf(1.0, AARgba(50, 205, 50, 0.0f))
             )
             val gradientGreenColorDic = AAGradientColor.linearGradient(
                 AALinearGradientDirection.ToBottom,

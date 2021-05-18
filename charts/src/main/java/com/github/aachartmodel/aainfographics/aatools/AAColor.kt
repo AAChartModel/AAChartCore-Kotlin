@@ -27,6 +27,12 @@
  */
 package com.github.aachartmodel.aainfographics.aatools
 
+ fun AARgba(red: Int,
+            green: Int,
+            blue: Int,
+            alpha: Float = 1f): String {
+     return "rgba($red,$green,$blue,$alpha)"
+ }
 
 object AAColor {
     val Black = blackColor()

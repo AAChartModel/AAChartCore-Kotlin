@@ -669,9 +669,9 @@ companion object {
     //GitHub issue https://github.com/AAChartModel/AAChartKit/issues/921
     private fun configureNegativeColorMixedAreasplineChart(): AAChartModel? {
         val blueStopsArr: Array<Any> = arrayOf(
-                arrayOf(0.0, AAColor.rgbaColor(30, 144, 255, 0.0f)),
-                arrayOf(0.5, AAColor.rgbaColor(30, 144, 255, 0.0f)),
-                arrayOf(1.0, AAColor.rgbaColor(30, 144, 255, 0.6f))
+                arrayOf(0.0, AARgba(30, 144, 255, 0.0f)),
+                arrayOf(0.5, AARgba(30, 144, 255, 0.0f)),
+                arrayOf(1.0, AARgba(30, 144, 255, 0.6f))
             )
         val gradientBlueColorDic = AAGradientColor.linearGradient(
             AALinearGradientDirection.ToTop,
@@ -679,9 +679,9 @@ companion object {
         )
 
         val redStopsArr: Array<Any> = arrayOf(
-            arrayOf(0.0, AAColor.rgbaColor(255, 0, 0, 0.6f)),
-            arrayOf(0.5, AAColor.rgbaColor(255, 0, 0, 0.0f)),
-            arrayOf(1.0, AAColor.rgbaColor(255, 0, 0, 0.0f))
+            arrayOf(0.0, AARgba(255, 0, 0, 0.6f)),
+            arrayOf(0.5, AARgba(255, 0, 0, 0.0f)),
+            arrayOf(1.0, AARgba(255, 0, 0, 0.0f))
         )
         val gradientRedColorDic = AAGradientColor.linearGradient(
             AALinearGradientDirection.ToTop,
@@ -703,8 +703,8 @@ companion object {
                         -7.0, -6.9, -2.5, -14.5, -18.2, -21.5, -5.2, -26.5, -23.3, -45.3, -13.9, -9.6
                     ))
                     .lineWidth(5f)
-                    .color(AAColor.rgbaColor(30, 144, 255, 1.0f))
-                    .negativeColor(AAColor.rgbaColor(255, 0, 0, 1.0f))
+                    .color(AARgba(30, 144, 255, 1.0f))
+                    .negativeColor(AARgba(255, 0, 0, 1.0f))
                     .fillColor(gradientBlueColorDic)
                     .negativeFillColor(gradientRedColorDic)
                     .threshold(0f) //default:0

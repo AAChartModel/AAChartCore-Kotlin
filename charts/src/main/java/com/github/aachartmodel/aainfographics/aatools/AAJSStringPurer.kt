@@ -1,12 +1,4 @@
 /**
- * Copyright (C), 2015-2019, 飞牛集达有限公司
- * FileName: AAJSStringPurer
- * Author: ios-fn
- * Date: 2019-06-16 19:05
- * Description:
- * History:
- */
-/**
  * ◉◉◉◉◉◉◉◉◉◉◉◉◉◉◉◉◉◉◉ ...... SOURCE CODE ......◉◉◉◉◉◉◉◉◉◉◉◉◉◉◉◉◉◉◉
  * ◉◉◉...................................................       ◉◉◉
  * ◉◉◉   https://github.com/AAChartModel/AAChartCore            ◉◉◉
