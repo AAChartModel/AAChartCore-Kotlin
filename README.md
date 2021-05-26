@@ -139,7 +139,7 @@ You're all set, enjoy!
 
 4. Finally add this line to your proguard file:
 ```kotlin
--keep class com.github.aachartmodel.aainfographics.* { *; }
+-keep class com.github.aachartmodel.aainfographics.** { *; }
 ```
 
 🌹🌹🌹Congratulations! Everything was done!!! You will get what you want!!!
