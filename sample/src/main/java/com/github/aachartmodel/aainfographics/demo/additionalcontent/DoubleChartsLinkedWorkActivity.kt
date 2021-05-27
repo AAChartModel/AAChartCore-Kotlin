@@ -83,45 +83,45 @@ class DoubleChartsLinkedWorkActivity : AppCompatActivity(),
                 AAGradientColor.BerrySmoothie
         )
         gradientColorsArr = gradientColorArr as Array<Any>
-        val aaChartModel: AAChartModel = AAChartModel()
-            .chartType(AAChartType.Column)
-            .title("")
-            .yAxisTitle("")
-            .categories(gradientColorNamesArr)
-            .colorsTheme(gradientColorArr as Array<Any>)
-            .xAxisReversed(true)
-            .yAxisReversed(true)
-            .inverted(true)
-            .legendEnabled(false)
-            .touchEventEnabled(true)
-            .series(arrayOf(
+        val aaChartModel: AAChartModel = AAChartModel.Builder(this)
+            .setChartType(AAChartType.Column)
+            .setTitle("")
+            .setYAxisTitle("")
+            .setCategories(*gradientColorNamesArr)
+            .setColorsTheme(gradientColorArr)
+            .setXAxisReversed(true)
+            .setYAxisReversed(true)
+            .setInverted(true)
+            .setLegendEnabled(false)
+            .setTouchEventEnabled(true)
+            .setSeries(
                     AASeriesElement()
                         .name("Tokyo")
                         .data(arrayOf(
                                 211, 183, 157, 133, 111, 91, 73, 57, 43, 31, 21, 13,
                                 211, 183, 157, 133, 111, 91, 73, 57, 43, 31, 21, 13
                             ))
-                        .colorByPoint(true)))
+                        .colorByPoint(true)).build()
         val aaOptions: AAOptions = aaChartModel.aa_toAAOptions()
         aaOptions.plotOptions?.column?.groupPadding = 0f
         return aaOptions
     }
 
     private fun configureChartOptions2(): AAOptions {
-        val aaChartModel: AAChartModel = AAChartModel()
-            .chartType(AAChartType.Column)
-            .title("")
-            .yAxisTitle("")
-            .legendEnabled(false)
-            .yAxisGridLineWidth(0f)
-            .series(arrayOf(
+        val aaChartModel: AAChartModel = AAChartModel.Builder(this)
+            .setChartType(AAChartType.Column)
+            .setTitle("")
+            .setYAxisTitle("")
+            .setLegendEnabled(false)
+            .setYAxisGridLineWidth(0f)
+            .setSeries(
                     AASeriesElement()
                         .name("Tokyo")
                         .data(arrayOf(
                                 211,183,157,133,111,91,73,57,43,31,21,13,
                                 211,183,157,133,111,91,73,57,43,31,21,13,
                             ))
-            ))
+            ).build()
         val aaOptions: AAOptions = aaChartModel.aa_toAAOptions()
         aaOptions.plotOptions?.column?.groupPadding = 0f
         return aaOptions

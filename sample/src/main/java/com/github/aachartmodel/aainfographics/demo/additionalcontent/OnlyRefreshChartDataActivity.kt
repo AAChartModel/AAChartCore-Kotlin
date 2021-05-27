@@ -79,19 +79,20 @@ class OnlyRefreshChartDataActivity : AppCompatActivity() {
     private fun configureChartBasicContent(): AAChartModel {
         val intent = intent
         val chartType = intent.getStringExtra("chartType")
-        return AAChartModel()
-            .chartType(convertStringToEnum(chartType!!))
-            .xAxisVisible(true)
-            .yAxisVisible(false)
-            .title("")
-            .yAxisTitle("摄氏度")
-            .colorsTheme(arrayOf(
+        return AAChartModel.Builder(this)
+            .setChartType(convertStringToEnum(chartType!!))
+            .setXAxisVisible(true)
+            .setYAxisVisible(false)
+            .setTitle("")
+            .setYAxisTitle("摄氏度")
+            .setColorsTheme(arrayOf(
                     AAGradientColor.Sanguine,
                     AAGradientColor.DeepSea,
                     AAGradientColor.NeonGlow,
                     AAGradientColor.WroughtIron
                 ))
-            .stacking(AAChartStackingType.Normal)
+            .setStacking(AAChartStackingType.Normal)
+            .build()
     }
 
     private fun convertStringToEnum(chartTypeStr: String): AAChartType {

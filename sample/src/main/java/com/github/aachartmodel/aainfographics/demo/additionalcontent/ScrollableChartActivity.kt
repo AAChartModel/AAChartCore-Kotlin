@@ -31,21 +31,22 @@ class ScrollableChartActivity : AppCompatActivity() {
 
         val seriesDataArray = configureSeriesDataArray() as Array<Any>
 
-        val aaChartModel = AAChartModel()
-            .chartType(chartTypeEnum)
-            .title("")
-            .yAxisTitle("")
-            .legendEnabled(false)
-            .yAxisGridLineWidth(0f)
-            .scrollablePlotArea(
+        val aaChartModel = AAChartModel.Builder(this)
+            .setChartType(chartTypeEnum)
+            .setTitle("")
+            .setYAxisTitle("")
+            .setLegendEnabled(false)
+            .setYAxisGridLineWidth(0f)
+            .setScrollablePlotArea(
                 AAScrollablePlotArea()
                     .minWidth(3000)
                     .scrollPositionX(1f))
-            .series(arrayOf(
+            .setSeries(
                     AASeriesElement()
                         .name("Tokyo")
                         .data(seriesDataArray)
-                ))
+                )
+            .build()
 
         this.aaChartModel = aaChartModel
         configureTheStyleForDifferentTypeChart(chartTypeEnum, position)
