@@ -75,13 +75,27 @@ class ChartOptionsComposer {
 
             val aaOptions = aaChartModel.aa_toAAOptions()
 
+            aaOptions.yAxis?.labels?.format = "{value} %"//给y轴添加单位
+
+            aaOptions.xAxis!!
+                    .gridLineColor(AAColor.DarkGray)
+                    .gridLineWidth(1f)
+                    .minorGridLineColor(AAColor.LightGray)
+                    .minorGridLineWidth(0.5f)
+                    .minorTickInterval("auto")
+
+            aaOptions.yAxis!!
+                    .gridLineColor(AAColor.DarkGray)
+                    .gridLineWidth(1f)
+                    .minorGridLineColor(AAColor.LightGray)
+                    .minorGridLineWidth(0.5f)
+                    .minorTickInterval("auto")
+
             aaOptions.legend!!
                 .enabled(true)
                 .verticalAlign(AAChartVerticalAlignType.Top)
                 .layout(AAChartLayoutType.Vertical)
                 .align(AAChartAlignType.Right)
-
-            aaOptions.yAxis?.labels?.format = "{value} %"//给y轴添加单位
 
             aaOptions.defaultOptions = AALang()
                 .resetZoom("重置缩放比例")
