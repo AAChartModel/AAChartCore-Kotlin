@@ -48,6 +48,7 @@ class CustomTooltipComposer {
                 .subtitle("金价(元/克)")//图表副标题
                 .markerSymbolStyle(AAChartSymbolStyleType.BorderBlank)//折线连接点样式为外边缘空白
                 .dataLabelsEnabled(false)
+                .zoomType(AAChartZoomType.X)
                 .categories(arrayOf(
                     "10-01", "10-02", "10-03", "10-04", "10-05", "10-06", "10-07", "10-08", "10-09", "10-10", "10-11",
                     "10-12", "10-13", "10-14", "10-15", "10-16", "10-17", "10-18", "10-19", "10-20", "10-21", "10-22",
@@ -97,6 +98,12 @@ function () {
                         .fontSize(12f))
             val aaOptions = aaChartModel.aa_toAAOptions()
             aaOptions.tooltip(aaTooltip)
+
+            aaOptions.chart!!
+                    .resetZoomButton(AAResetZoomButton()
+                            .theme(mapOf(("display" to "none"))) //隐藏图表缩放后的默认显示的缩放按钮
+                    )
+
             return aaOptions
         }
 
