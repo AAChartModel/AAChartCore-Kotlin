@@ -32,9 +32,9 @@ import com.github.aachartmodel.aainfographics.aaoptionsmodel.*
 import com.github.aachartmodel.aainfographics.aatools.*
 import java.util.*
 
-class MixedChartComposer {
-companion object {
-    internal fun arearangeMixedLine(): AAChartModel {
+object MixedChartComposer {
+
+     fun arearangeMixedLine(): AAChartModel {
         return AAChartModel()
             .title("LANGUAGE MARKET SHARES JANUARY,2020 TO MAY")
             .subtitle("virtual data")
@@ -177,8 +177,8 @@ companion object {
                     .data(arrayOf(82.89,67.54,62.07,59.43,67.02,67.09,35.66,71.78,81.61,78.85,79.12,72.30))
                     .dataLabels(
                         AADataLabels()
-                        .enabled(true)
-                        .style(AAStyle()
+                            .enabled(true)
+                            .style(AAStyle()
                                 .color(AAColor.Red)
                                 .fontSize(11f))),
                 AASeriesElement()
@@ -186,21 +186,21 @@ companion object {
                     .data(arrayOf(198.66,330.81,151.95,160.12,222.56,229.05,128.53,250.91,224.47,473.99,126.85,260.50))
                     .dataLabels(
                         AADataLabels()
-                        .enabled(true)
-                        .style(AAStyle()
-                            .color("#000000")
-                            .fontSize(11f))),
+                            .enabled(true)
+                            .style(AAStyle()
+                                .color("#000000")
+                                .fontSize(11f))),
                 AASeriesElement()
                     .name("总量")
                     .type(AAChartType.Line)
                     .data(arrayOf(281.55,398.35,214.02,219.55,289.57,296.14,164.18,322.69,306.08,552.84,205.97,332.79))
                     .dataLabels(
                         AADataLabels()
-                        .enabled(true)
-                        .style(AAStyle()
-                            .color("#000000")
-                            .fontSize(15f)
-                            .fontWeight(AAChartFontWeightType.Bold)))))
+                            .enabled(true)
+                            .style(AAStyle()
+                                .color("#000000")
+                                .fontSize(15f)
+                                .fontWeight(AAChartFontWeightType.Bold)))))
     }
 
     fun dashStyleTypeMixedChart(): AAChartModel {
@@ -472,8 +472,8 @@ companion object {
                     .name("线性回归线")
                     .type(AAChartType.Line)
                     .data(arrayOf(
-                            arrayOf(0.014, 3.078),
-                            arrayOf(0.969, 4.655)))
+                        arrayOf(0.014, 3.078),
+                        arrayOf(0.969, 4.655)))
                     .color("#FF0000")))
     }
 
@@ -620,59 +620,59 @@ companion object {
             .type(AAChartType.Line)
             .data(arrayOf(3, 2.67, 3, 6.33, 3.33))
             .marker(AAMarker()
-                    .fillColor("#1E90FF")
-                    .lineWidth(2.0f)
-                    .lineColor(AAColor.White
-                    ))
+                .fillColor("#1E90FF")
+                .lineWidth(2.0f)
+                .lineColor(AAColor.White
+                ))
         val pieElement = AAPie()
             .type(AAChartType.Pie)
             .center(arrayOf(100, 80))
             .size(100f)
             .showInLegend(true)
             .dataLabels(AADataLabels()
-                    .enabled(false))
+                .enabled(false))
             .data(arrayOf(
-                    AADataElement()
-                        .name("Ada")
-                        .y(13.0f)
-                        .color(AAGradientColor.OceanBlue)
-                    ,
-                    AADataElement()
-                        .name("Bob")
-                        .y(13.0f)
-                        .color(AAGradientColor.Sanguine)
-                    ,
-                    AADataElement()
-                        .name("Coco")
-                        .y(13.0f)
-                        .color(AAGradientColor.PurpleLake)
-                ))
+                AADataElement()
+                    .name("Ada")
+                    .y(13.0f)
+                    .color(AAGradientColor.OceanBlue)
+                ,
+                AADataElement()
+                    .name("Bob")
+                    .y(13.0f)
+                    .color(AAGradientColor.Sanguine)
+                ,
+                AADataElement()
+                    .name("Coco")
+                    .y(13.0f)
+                    .color(AAGradientColor.PurpleLake)
+            ))
 
         return AAChartModel()
             .stacking(AAChartStackingType.Normal)
             .colorsTheme(arrayOf(
-                    AAGradientColor.OceanBlue,
-                    AAGradientColor.Sanguine,
-                    AAGradientColor.PurpleLake
-                ))
+                AAGradientColor.OceanBlue,
+                AAGradientColor.Sanguine,
+                AAGradientColor.PurpleLake
+            ))
             .dataLabelsEnabled(false)
             .series(arrayOf(
-                    columnElement1,
-                    columnElement2,
-                    columnElement3,
-                    lineElement,
-                    pieElement as AASeriesElement
-                ))
+                columnElement1,
+                columnElement2,
+                columnElement3,
+                lineElement,
+                pieElement as AASeriesElement
+            ))
     }
 
 
     //GitHub issue https://github.com/AAChartModel/AAChartKit/issues/921
     private fun configureNegativeColorMixedAreasplineChart(): AAChartModel? {
         val blueStopsArr: Array<Any> = arrayOf(
-                arrayOf(0.0, AARgba(30, 144, 255, 0.0f)),
-                arrayOf(0.5, AARgba(30, 144, 255, 0.0f)),
-                arrayOf(1.0, AARgba(30, 144, 255, 0.6f))
-            )
+            arrayOf(0.0, AARgba(30, 144, 255, 0.0f)),
+            arrayOf(0.5, AARgba(30, 144, 255, 0.0f)),
+            arrayOf(1.0, AARgba(30, 144, 255, 0.6f))
+        )
         val gradientBlueColorDic = AAGradientColor.linearGradient(
             AALinearGradientDirection.ToTop,
             blueStopsArr
@@ -713,4 +713,4 @@ companion object {
 
 
 }
-}
+
