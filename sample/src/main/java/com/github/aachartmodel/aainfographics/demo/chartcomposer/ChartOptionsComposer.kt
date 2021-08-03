@@ -151,21 +151,10 @@ object ChartOptionsComposer {
 
     fun configureAAPlotLinesForChart(): AAOptions {
         val zonesArr:Array<Any> = arrayOf(
-            mapOf(
-                "value" to 12,
-                "color" to "#1e90ff"
-            ),
-            mapOf(
-                "value" to 24,
-                "color" to "#ef476f"
-            ),
-            mapOf(
-                "value" to 36,
-                "color" to "#04d69f"
-            ),
-            mapOf(
-                "color" to "#ffd066"
-            )
+            mapOf("value" to 12, "color" to "#1e90ff"),
+            mapOf("value" to 24, "color" to "#ef476f"),
+            mapOf("value" to 36, "color" to "#04d69f"),
+            mapOf("color" to "#ffd066")
         )
 
         val aaChartModel = AAChartModel()
