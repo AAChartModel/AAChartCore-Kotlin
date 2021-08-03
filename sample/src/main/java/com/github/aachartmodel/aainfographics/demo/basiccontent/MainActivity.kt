@@ -314,7 +314,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun goToCommonChartActivity(chartType: String?, position: Int) {
         val intent =
-            Intent(this, CommonChartActivity::class.java)
+            Intent(this, BasicChartActivity::class.java)
         intent.putExtra(kChartTypeKey, chartType)
         intent.putExtra("position", position)
         startActivity(intent)

@@ -39,9 +39,9 @@ import com.github.aachartmodel.aainfographics.aatools.AAGradientColor
 import com.github.aachartmodel.aainfographics.aatools.AALinearGradientDirection
 import com.github.aachartmodel.aainfographics.demo.R
 import com.google.gson.Gson
-import kotlinx.android.synthetic.main.activity_common_chart.*
+import kotlinx.android.synthetic.main.activity_basic_chart.*
 
-class CommonChartActivity : AppCompatActivity(), RadioGroup.OnCheckedChangeListener,
+class BasicChartActivity : AppCompatActivity(), RadioGroup.OnCheckedChangeListener,
     CompoundButton.OnCheckedChangeListener, AAChartView.AAChartViewCallBack {
 
     private var aaChartModel = AAChartModel()
@@ -49,7 +49,7 @@ class CommonChartActivity : AppCompatActivity(), RadioGroup.OnCheckedChangeListe
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_common_chart)
+        setContentView(R.layout.activity_basic_chart)
 
         setUpAAChartView()
         setUpRadioButtonsAndSwitches()
@@ -58,7 +58,6 @@ class CommonChartActivity : AppCompatActivity(), RadioGroup.OnCheckedChangeListe
     private fun setUpAAChartView() {
         aaChartView = findViewById(R.id.AAChartView)
         aaChartView?.setBackgroundColor(0)
-        aaChartView?.background?.alpha = 0
         aaChartView?.callBack = this
         aaChartModel = configureAAChartModel()
         aaChartView?.aa_drawChartWithChartModel(aaChartModel)
@@ -242,11 +241,11 @@ class CommonChartActivity : AppCompatActivity(), RadioGroup.OnCheckedChangeListe
             symbol5.visibility = View.GONE
 
         } else {
-            symbol1.text = AAChartSymbolType.Circle.value
-            symbol2.text = AAChartSymbolType.Square.value
-            symbol3.text = AAChartSymbolType.Diamond.value
-            symbol4.text = AAChartSymbolType.Triangle.value
-            symbol5.text = AAChartSymbolType.TriangleDown.value
+            symbol1.text = "⊙"
+            symbol2.text = "◆"
+            symbol3.text = "■"
+            symbol4.text = "▲"
+            symbol5.text = "▼"
         }
 
 

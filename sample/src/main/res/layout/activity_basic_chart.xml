@@ -1,62 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".basiccontent.CommonChartActivity">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/aaChartCoreThemeColor"
+        tools:context=".basiccontent.BasicChartActivity">
 
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/aaChartCoreThemeColor"
-        android:orientation="vertical">
-
-
-        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="130dp"
             android:background="@color/aaChartCoreThemeColor"
             android:orientation="vertical">
 
-            <RadioGroup
+        <RadioGroup
                 android:id="@+id/radioGroup1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
-                <RadioButton
+            <RadioButton
                     android:id="@+id/stacking1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="no stacking"
+                    android:text="no\nstacking"
                     android:textColor="@color/mediumGray" />
 
-                <RadioButton
+            <RadioButton
                     android:id="@+id/stacking2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="normalStacking"
+                    android:text="normal\nstacking"
                     android:textColor="@color/mediumGray" />
 
-                <RadioButton
+            <RadioButton
                     android:id="@+id/stacking3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="percentStacking"
+                    android:text="percent\nstacking"
                     android:textColor="@color/mediumGray" />
-            </RadioGroup>
+        </RadioGroup>
 
-            <RadioGroup
+        <RadioGroup
                 android:id="@+id/radioGroup2"
                 android:layout_width="match_parent"
                 android:layout_height="38dp"
                 android:orientation="horizontal">
 
-                <RadioButton
+            <RadioButton
                     android:id="@+id/symbol1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -64,7 +59,7 @@
                     android:text="1"
                     android:textColor="@color/mediumGray" />
 
-                <RadioButton
+            <RadioButton
                     android:id="@+id/symbol2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -72,7 +67,7 @@
                     android:text="2"
                     android:textColor="@color/mediumGray" />
 
-                <RadioButton
+            <RadioButton
                     android:id="@+id/symbol3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -80,7 +75,7 @@
                     android:text="3"
                     android:textColor="@color/mediumGray" />
 
-                <RadioButton
+            <RadioButton
                     android:id="@+id/symbol4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -88,57 +83,57 @@
                     android:text="4"
                     android:textColor="@color/mediumGray" />
 
-                <RadioButton
+            <RadioButton
                     android:id="@+id/symbol5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="5"
                     android:textColor="@color/mediumGray" />
-            </RadioGroup>
+        </RadioGroup>
 
-            <LinearLayout
+        <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
-                <Switch
+            <Switch
                     android:id="@+id/switch1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1" />
 
-                <Switch
+            <Switch
                     android:id="@+id/switch2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1" />
 
-                <Switch
+            <Switch
                     android:id="@+id/switch3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1" />
 
-                <Switch
+            <Switch
                     android:id="@+id/switch4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1" />
 
-                <Switch
+            <Switch
                     android:id="@+id/switch5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1" />
-            </LinearLayout>
+        </LinearLayout>
 
-            <LinearLayout
+        <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
 
-                <TextView
+            <TextView
                     android:id="@+id/textView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -146,7 +141,7 @@
                     android:text="xReversed"
                     android:textColor="@color/mediumGray" />
 
-                <TextView
+            <TextView
                     android:id="@+id/textView2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -154,7 +149,7 @@
                     android:text="yReversed"
                     android:textColor="@color/mediumGray" />
 
-                <TextView
+            <TextView
                     android:id="@+id/textView3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -162,7 +157,7 @@
                     android:text="xInverted"
                     android:textColor="@color/mediumGray" />
 
-                <TextView
+            <TextView
                     android:id="@+id/textView4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -170,24 +165,23 @@
                     android:text="polarization"
                     android:textColor="@color/mediumGray" />
 
-                <TextView
+            <TextView
                     android:id="@+id/textView5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="dataShow"
                     android:textColor="@color/mediumGray" />
-            </LinearLayout>
-
         </LinearLayout>
 
+    </LinearLayout>
 
-        <com.github.aachartmodel.aainfographics.aachartcreator.AAChartView
+
+    <com.github.aachartmodel.aainfographics.aachartcreator.AAChartView
             android:id="@+id/AAChartView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/aaChartCoreThemeColor" />
-    </LinearLayout>
+</LinearLayout>
 
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>

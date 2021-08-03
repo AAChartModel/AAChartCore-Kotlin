@@ -22,7 +22,7 @@
         <activity android:name=".basiccontent.SpecialChartActivity" />
         <activity android:name=".basiccontent.CustomStyleChartActivity" />
         <activity android:name=".basiccontent.MixedChartActivity" />
-        <activity android:name=".basiccontent.CommonChartActivity" />
+        <activity android:name=".basiccontent.BasicChartActivity" />
         <activity android:name=".additionalcontent.JSFormatterFunctionActivity" />
         <activity android:name=".additionalcontent.DrawChartWithAAOptionsActivity" />
         <activity android:name=".additionalcontent.EvaluateJSStringFunctionActivity" />
