@@ -73,7 +73,7 @@ class DrawChartWithAAOptionsActivity : AppCompatActivity() {
             "customLegendStyle" -> return customChartLegendStyle()
             "AAPlotBandsForChart" -> return configureAAPlotBandsForChart()
             "AAPlotLinesForChart" -> return configureAAPlotLinesForChart()
-            "customAATooltipWithJSFuntion" -> return customAATooltipWithJSFunction()
+            "customAATooltipWithJSFunction" -> return customAATooltipWithJSFunction()
             "customXAxisCrosshairStyle" -> return customXAxisCrosshairStyle()
             "XAxisLabelsFontColorWithHTMLString" -> return configureXAxisLabelsFontColorWithHTMLString()
             "XAxisLabelsFontColorAndFontSizeWithHTMLString" -> return configureXAxisLabelsFontColorAndFontSizeWithHTMLString()
