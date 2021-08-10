@@ -28,6 +28,7 @@
 package com.github.aachartmodel.aainfographics.aachartcreator
 
 import com.github.aachartmodel.aainfographics.aaoptionsmodel.*
+import com.github.aachartmodel.aainfographics.aatools.AAColor
 
 class AAOptions {
     var chart: AAChart? = null
@@ -216,7 +217,7 @@ object AAOptionsConstructor {
                     .radius(aaChartModel.markerRadius) //曲线连接点半径，默认是4
                     .symbol(aaChartModel.markerSymbol?.value) //曲线点类型："circle", "square", "diamond", "triangle","triangle-down"，默认是"circle"
                 if (aaChartModel.markerSymbolStyle == AAChartSymbolStyleType.InnerBlank) {
-                    aaMarker.fillColor("#ffffff") //点的填充色(用来设置折线连接点的填充色)
+                    aaMarker.fillColor(AAColor.White) //点的填充色(用来设置折线连接点的填充色)
                         .lineWidth(2f) //外沿线的宽度(用来设置折线连接点的轮廓描边的宽度)
                         .lineColor("") //外沿线的颜色(用来设置折线连接点的轮廓描边颜色，当值为空字符串时，默认取数据点或数据列的颜色)
                 } else if (aaChartModel.markerSymbolStyle == AAChartSymbolStyleType.BorderBlank) {
