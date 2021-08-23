@@ -76,25 +76,28 @@ object ChartOptionsComposer {
 
         aaOptions.yAxis?.labels?.format = "{value} %"//给y轴添加单位
 
-        aaOptions.xAxis!!
-            .gridLineColor(AAColor.DarkGray)
+        aaOptions.xAxis?.apply {
+             gridLineColor(AAColor.DarkGray)
             .gridLineWidth(1f)
             .minorGridLineColor(AAColor.LightGray)
             .minorGridLineWidth(0.5f)
             .minorTickInterval("auto")
+        }
 
-        aaOptions.yAxis!!
-            .gridLineColor(AAColor.DarkGray)
+        aaOptions.yAxis?.apply {
+             gridLineColor(AAColor.DarkGray)
             .gridLineWidth(1f)
             .minorGridLineColor(AAColor.LightGray)
             .minorGridLineWidth(0.5f)
             .minorTickInterval("auto")
+        }
 
-        aaOptions.legend!!
-            .enabled(true)
+        aaOptions.legend?.apply {
+             enabled(true)
             .verticalAlign(AAChartVerticalAlignType.Top)
             .layout(AAChartLayoutType.Vertical)
             .align(AAChartAlignType.Right)
+        }
 
         aaOptions.defaultOptions = AALang()
             .resetZoom("重置缩放比例")
@@ -442,21 +445,23 @@ function () {
                 .fontWeight(AAChartFontWeightType.Bold)
                 .color(AAColor.White))//轴文字颜色
 
-        aaOptions.yAxis!!
-            .opposite(true)
+        aaOptions.yAxis?.apply {
+             opposite(true)
             .tickWidth(2f)
             .lineWidth(1.5f)//Y轴轴线颜色
             .lineColor(AAColor.White)//Y轴轴线颜色
             .gridLineWidth(0f)//Y轴网格线宽度
             .crosshair(aaCrosshair)
             .labels(aaLabels)
+        }
 
-        aaOptions.xAxis!!
-            .tickWidth(2f)//X轴刻度线宽度
+        aaOptions.xAxis?.apply {
+             tickWidth(2f)//X轴刻度线宽度
             .lineWidth(1.5f)//X轴轴线宽度
             .lineColor(AAColor.White)//X轴轴线颜色
             .crosshair(aaCrosshair)
             .labels(aaLabels)
+        }
 
 
         //设定图例项的CSS样式。只支持有关文本的CSS样式设定。
@@ -468,12 +473,13 @@ function () {
      }
      */
 
-        aaOptions.legend!!
-            .itemStyle(AAItemStyle()
+        aaOptions.legend?.apply {
+            itemStyle(
+            AAItemStyle()
                 .color(AAColor.White)//字体颜色
                 .fontSize(13f)//字体大小
                 .fontWeight("thin")//字体为细体字
-            )
+        )}
 
         return aaOptions
     }
@@ -1110,14 +1116,18 @@ function () {
             .series(arrayOf(element1, element2, element3, element4))
 
         val aaOptions = aaChartModel.aa_toAAOptions()
-        aaOptions.tooltip!!
-            .shared(true)
+        aaOptions.tooltip?.apply {
+             shared(true)
             .useHTML(true)
             .headerFormat("<small>{point.key} 摄氏度</small><table>")
-            .pointFormat("<tr><td style=\\\"color: {series.color}\\\">{series.name}: </td>"
-                    + "<td style=\\\"text-align: right\\\"><b>{point.y}EUR</b></td></tr>")
+            .pointFormat(
+                "<tr><td style=\\\"color: {series.color}\\\">{series.name}: </td>"
+                        + "<td style=\\\"text-align: right\\\"><b>{point.y}EUR</b></td></tr>"
+            )
             .footerFormat("</table>")
             .valueDecimals(2)
+        }
+
         return aaOptions
     }
 
