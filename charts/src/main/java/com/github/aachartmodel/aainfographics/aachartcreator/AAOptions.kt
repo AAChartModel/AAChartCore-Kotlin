@@ -227,6 +227,7 @@ object AAOptionsConstructor {
                 val aaSeries = aaPlotOptions.series
                 aaSeries?.marker(aaMarker)
             }
+            else -> {}
         }
     }
 
@@ -235,8 +236,6 @@ object AAOptionsConstructor {
         aaPlotOptions: AAPlotOptions,
         aaChartModel: AAChartModel
     ) {
-        val aaChartType = aaChartModel.chartType
-
         val aaDataLabels = AADataLabels()
         if (aaChartModel.dataLabelsEnabled == true) {
             aaDataLabels
@@ -244,7 +243,7 @@ object AAOptionsConstructor {
                 .style(aaChartModel.dataLabelsStyle)
         }
 
-        when (aaChartType) {
+        when (aaChartModel.chartType) {
             AAChartType.Column -> {
                 val aaColumn = AAColumn()
                     .borderWidth(0f)
