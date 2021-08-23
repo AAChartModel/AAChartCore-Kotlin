@@ -620,16 +620,16 @@ function () {
         val categories = arrayOf(
             "Jan", "Feb", "Mar", "Apr", "May", "Jun","Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
         )
-        val categoryJSArrStr = javaScriptArrayStringWithJavaArray(categories as Array<Any>)!!
+        val categoryJSArrStr = (categories as Array<Any>).aa_toJSArray()
 
-        var tooltipFormatter = """
+        val tooltipFormatter = """
 function () {
         return  'The value for <b>' + $categoryJSArrStr[this.x] +
         '</b> is <b>' + this.y + '</b> ' + "℃";
         }
             """.trimIndent()
 
-        var xAxisLabelsFormatter = """
+        val xAxisLabelsFormatter = """
 function () {
         return $categoryJSArrStr[this.value];
         }
@@ -665,6 +665,7 @@ function () {
         return aaOptions
     }
 
+    @Suppress("NonAsciiCharacters")
     fun customTooltipWhichDataSourceComeFromOutSideRatherThanSeries(): AAOptions {
         val aaChartModel = AAChartModel()
             .chartType(AAChartType.Column) //图表类型
@@ -697,6 +698,15 @@ function () {
         }
         val 有效时长数组 =
             arrayOf<Any>(39, 42, 57, 85, 19, 15, 17, 16, 14, 13, 66, 48)
+
+
+
+        fun randomNumber(): Int {
+            val max = 38
+            val min = 1
+            return (Math.random() * (max - min) + min).toInt()
+        }
+
         val 切换次数数组 = arrayOf<Any>(
             randomNumber(), randomNumber(), randomNumber(),
             randomNumber(), randomNumber(), randomNumber(),
@@ -715,14 +725,14 @@ function () {
             randomNumber(), randomNumber(), randomNumber(),
             randomNumber(), randomNumber(), randomNumber()
         )
-        val 总时长JS数组 = javaScriptArrayStringWithJavaArray(总时长数组 as Array<Any>)
-        val 有效时长JS数组 = javaScriptArrayStringWithJavaArray(有效时长数组)
-        val 看近时长JS数组 = javaScriptArrayStringWithJavaArray(看近时长数组)
-        val 看中时长JS数组 = javaScriptArrayStringWithJavaArray(看中时长数组)
-        val 看远时长JS数组 = javaScriptArrayStringWithJavaArray(看远时长数组)
-        val 切换次数JS数组 = javaScriptArrayStringWithJavaArray(切换次数数组)
-        val 停止次数JS数组 = javaScriptArrayStringWithJavaArray(停止次数数组)
-        val 干预次数JS数组 = javaScriptArrayStringWithJavaArray(干预次数数组)
+        val 总时长JS数组 = (总时长数组 as Array<Any>).aa_toJSArray()
+        val 有效时长JS数组 = (有效时长数组).aa_toJSArray()
+        val 看近时长JS数组 = (看近时长数组).aa_toJSArray()
+        val 看中时长JS数组 = (看中时长数组).aa_toJSArray()
+        val 看远时长JS数组 = (看远时长数组).aa_toJSArray()
+        val 切换次数JS数组 = (切换次数数组).aa_toJSArray()
+        val 停止次数JS数组 = (停止次数数组).aa_toJSArray()
+        val 干预次数JS数组 = (干预次数数组).aa_toJSArray()
 
         var jsFormatterStr: String? = """
 function () {
@@ -753,32 +763,28 @@ function () {
             """.trimIndent()
 
         val aaOptions = aaChartModel.aa_toAAOptions()
-        aaOptions.tooltip!!
+        aaOptions.tooltip?.apply {
             //‼️以 this.point.index 这种方式获取选中的点的索引必须设置 tooltip 的 shared 为 false
             //‼️共享时是 this.points (由多个 point 组成的 points 数组)
             //‼️非共享时是 this.point 单个 point 对象
-            .shared(false)
+             shared(false)
             .useHTML(true)
             .formatter(jsFormatterStr!!)
             .backgroundColor("#000000") //黑色背景色
             .borderColor("#FFD700") //边缘颜色纯金色
-            .style(AAStyle()
-                .color("#FFD700") //文字颜色纯金色
-                .fontSize(12f))
+            .style(
+                AAStyle()
+                    .color("#FFD700") //文字颜色纯金色
+                    .fontSize(12f)
+            )
+        }
         return aaOptions
     }
 
-
-    private fun randomNumber(): Int {
-        val max = 38
-        val min = 1
-        return (Math.random() * (max - min) + min).toInt()
-    }
-
-    private fun javaScriptArrayStringWithJavaArray(javaArray: Array<Any>): String {
+    private fun Array<Any>.aa_toJSArray(): String {
         var originalJsArrStr = ""
-        for (i in javaArray!!.indices) {
-            val element = javaArray[i]
+        for (i in this.indices) {
+            val element = this[i]
             originalJsArrStr = "$originalJsArrStr'$element',"
         }
         return "[$originalJsArrStr]"
