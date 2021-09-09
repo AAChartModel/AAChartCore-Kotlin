@@ -8,6 +8,8 @@
  */
 package com.github.aachartmodel.aainfographics.aaoptionsmodel
 
+import com.github.aachartmodel.aainfographics.aachartcreator.AAChartFontWeightType
+
 
 class AAStyle {
     var background: String? = null
@@ -33,6 +35,8 @@ class AAStyle {
     var transition: String? = null
     var whiteSpace: String? = null
     var width: Number? = null
+
+
     fun background(prop: String?): AAStyle {
         background = prop
         return this
@@ -49,7 +53,9 @@ class AAStyle {
     }
 
     fun borderRadius(prop: Number?): AAStyle {
-        borderRadius = prop.toString() + "px"
+        prop?.let {
+            borderRadius = "${prop}px"
+        }
         return this
     }
 
@@ -69,12 +75,14 @@ class AAStyle {
     }
 
     fun fontSize(prop: Number?): AAStyle {
-        fontSize = prop.toString() + "px"
+        prop?.let {
+            fontSize = "${prop}px"
+        }
         return this
     }
 
-    fun fontWeight(prop: String?): AAStyle {
-        fontWeight = prop
+    fun fontWeight(prop: AAChartFontWeightType?): AAStyle {
+        fontWeight = prop?.value
         return this
     }
 
@@ -165,7 +173,7 @@ class AAStyle {
         fun style(
             color: String?,
             fontSize: Float?,
-            fontWeight: String?
+            fontWeight: AAChartFontWeightType?
         ): AAStyle {
             return style(color, fontSize, fontWeight, null)
         }
@@ -173,7 +181,7 @@ class AAStyle {
         fun style(
             color: String?,
             fontSize: Float?,
-            fontWeight: String?,
+            fontWeight: AAChartFontWeightType?,
             textOutline: String?
         ): AAStyle {
             return AAStyle()

@@ -173,6 +173,25 @@ object ChartOptionsComposer {
             ))
 
         val aaOptions = aaChartModel.aa_toAAOptions()
+
+        val aaStyle = AAStyle()
+            .color("#FFD700") //#FFD700(纯金色)
+            .backgroundColor(AAColor.Black)
+            .borderRadius(5)
+            .border("6px solid #000000")
+            .opacity(1.0)
+            .fontWeight(AAChartFontWeightType.Bold)
+
+        val aaStyle1 = AAStyle()
+            .color(AAColor.Red) //#FFD700(纯金色)
+            .backgroundColor(AAColor.Black)
+            .borderRadius(5)
+            .border("2px solid red")
+            .opacity(1.0)
+            .fontWeight(AAChartFontWeightType.Bold)
+            .padding("6px")
+            .fontSize(16)
+
         val aaPlotLinesElementsArr = arrayOf(
             AAPlotLinesElement()
                 .color("#1e90ff")//颜色值(16进制)
@@ -181,10 +200,9 @@ object ChartOptionsComposer {
                 .value(12f) //所在位置
                 .zIndex(1) //层叠,标示线在图表中显示的层叠级别，值越大，显示越向前
                 .label(AALabel()
+                    .useHTML(true)
                     .text("PLOT LINES ONE")
-                    .style(AAStyle()
-                        .color("#1e90ff")
-                        .fontWeight(AAChartFontWeightType.Bold))),
+                    .style(aaStyle1)),
             AAPlotLinesElement()
                 .color("#ef476f")//颜色值(16进制)
                 .dashStyle(AAChartLineDashStyleType.LongDashDot)//样式：Dash,Dot,Solid等,默认Solid
@@ -192,10 +210,9 @@ object ChartOptionsComposer {
                 .value(24f) //所在位置
                 .zIndex(1) //层叠,标示线在图表中显示的层叠级别，值越大，显示越向前
                 .label(AALabel()
+                    .useHTML(true)
                     .text("PLOT LINES TWO")
-                    .style(AAStyle()
-                        .color("#ef476f")
-                        .fontWeight(AAChartFontWeightType.Bold))),
+                    .style(aaStyle)),
             AAPlotLinesElement()
                 .color("#1e90ff")//颜色值(16进制)
                 .dashStyle(AAChartLineDashStyleType.LongDash)//样式：Dash,Dot,Solid等,默认Solid
@@ -203,11 +220,10 @@ object ChartOptionsComposer {
                 .value(36f) //所在位置
                 .zIndex(1) //层叠,标示线在图表中显示的层叠级别，值越大，显示越向前
                 .label(AALabel()
+                    .useHTML(true)
                     .text("PLOT LINES THREE")
-                    .style(AAStyle()
-                        .color("#04d69f")
-                        .fontWeight(AAChartFontWeightType.Bold)))
-        )
+                    .style(aaStyle))
+            )
         aaOptions.yAxis?.plotLines(aaPlotLinesElementsArr)
 
         return aaOptions
