@@ -101,8 +101,10 @@ class AAStyle {
         return this
     }
 
-    fun padding(prop: String?): AAStyle {
-        padding = prop
+    fun padding(prop: Number?): AAStyle {
+        prop?.let {
+            padding = "${prop}px"
+        }
         return this
     }
 

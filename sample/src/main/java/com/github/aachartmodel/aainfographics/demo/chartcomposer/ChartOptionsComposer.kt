@@ -189,7 +189,7 @@ object ChartOptionsComposer {
             .border("2px solid red")
             .opacity(1.0)
             .fontWeight(AAChartFontWeightType.Bold)
-            .padding("6px")
+            .padding(6)
             .fontSize(16)
 
         val aaPlotLinesElementsArr = arrayOf(
