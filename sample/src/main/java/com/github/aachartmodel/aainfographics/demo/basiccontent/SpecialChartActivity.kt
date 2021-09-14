@@ -68,8 +68,6 @@ class SpecialChartActivity : AppCompatActivity() {
             AAChartType.Pyramid.value -> return SpecialChartComposer.configurePyramidChart()
             AAChartType.Funnel.value -> return SpecialChartComposer.configureFunnelChart()
             AAChartType.Errorbar.value -> return SpecialChartComposer.configureErrorbarChart()
-            else -> {
-            }
         }
 
         return null

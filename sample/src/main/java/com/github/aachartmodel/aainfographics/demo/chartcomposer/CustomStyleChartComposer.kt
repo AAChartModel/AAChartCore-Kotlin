@@ -922,7 +922,8 @@ object CustomStyleChartComposer  {
             .markerSymbol(AAChartSymbolType.Circle)
             .markerRadius(8.0f)
             .markerSymbolStyle(AAChartSymbolStyleType.InnerBlank)
-            .series(arrayOf(AASeriesElement()
+            .series(arrayOf(
+                AASeriesElement()
                 .name("2017")
                 .step(true)
                 .dataLabels(AADataLabels()
