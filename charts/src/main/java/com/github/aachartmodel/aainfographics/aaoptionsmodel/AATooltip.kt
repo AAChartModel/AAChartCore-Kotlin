@@ -52,6 +52,7 @@ class AATooltip {
     var footerFormat: String? = null
     var valueDecimals: Int? = null
     var shared: Boolean? = null
+    var shadow: Boolean? = null
     var valueSuffix: String? = null
 
     fun backgroundColor(prop: String): AATooltip {
@@ -120,6 +121,11 @@ class AATooltip {
         shared = prop
         return this
     }
+    
+    fun shadow(prop: Boolean?): AATooltip {
+        shadow = prop
+        return this
+    }
 
     fun valueSuffix(prop: String?): AATooltip {
         valueSuffix = prop
@@ -129,6 +135,7 @@ class AATooltip {
     init {
         shared = true
         enabled = true
+        shadow = true
     }
 
 }
