@@ -104,6 +104,8 @@ class CustomStyleChartActivity : AppCompatActivity() {
              "configureColorfulDataLabelsStepLineChart"-> return CustomStyleChartComposer.configureColorfulDataLabelsStepLineChart()
              "configureColorfulGradientColorAndColorfulDataLabelsStepAreaChart"-> return CustomStyleChartComposer.configureColorfulGradientColorAndColorfulDataLabelsStepAreaChart()
              "disableSplineChartMarkerHoverEffect"-> return CustomStyleChartComposer.disableSplineChartMarkerHoverEffect()
+             "configureMaxAndMinDataLabelsForChart"-> return CustomStyleChartComposer.configureMaxAndMinDataLabelsForChart()
+             "customVerticalXAxisCategoriesLabelsByHTMLBreakLineTag"-> return CustomStyleChartComposer.customVerticalXAxisCategoriesLabelsByHTMLBreakLineTag()
         }
         return CustomStyleChartComposer.configureColorfulChart()
     }
