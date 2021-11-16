@@ -74,6 +74,9 @@ object ChartOptionsComposer {
 
         val aaOptions = aaChartModel.aa_toAAOptions()
 
+        //https://github.com/AAChartModel/AAChartCore-Kotlin/issues/61
+        aaOptions.chart?.animation = false //turn off animation
+
         aaOptions.yAxis?.labels?.format = "{value} %"//给y轴添加单位
 
         aaOptions.xAxis?.apply {

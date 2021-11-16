@@ -19,7 +19,7 @@ class AAChart {
     var panning: Boolean? = null
     var panKey: String? = null
     var polar: Boolean? = null
-    var animation: AAAnimation? = null
+    var animation: Any? = null //AAAnimation | Boolean
     var inverted: Boolean? = null
 
     /*图表外边缘和绘图区域之间的边距。 数组中的数字分别表示顶部，右侧，底部和左侧 ([👆,👉,👇,👈])。
@@ -68,7 +68,7 @@ class AAChart {
         return this
     }
 
-    fun animation(prop: AAAnimation): AAChart {
+    fun animation(prop: Any): AAChart {
         animation = prop
         return this
     }
