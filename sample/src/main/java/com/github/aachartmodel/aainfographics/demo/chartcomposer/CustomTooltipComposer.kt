@@ -135,10 +135,10 @@ function () {
                 """
 function () {
         var s = '第' + '<b>' +  this.x + '</b>' + '年' + '<br/>';
-        var colorDot1 = '<span style=\"' + 'color:#1e90ff; font-size:13px\"' + '>◉</span> ';
-        var colorDot2 = '<span style=\"' + 'color:#ef476f; font-size:13px\"' + '>◉</span> ';
-        var s1 = colorDot1  + this.points[0].series.name + ': ' + this.points[0].y + '只' + '<br/>';
-        var s2 =  colorDot2 + this.points[1].series.name + ': ' + this.points[1].y + '棵';
+        let colorDot1 = '<span style=\"' + 'color:#1e90ff; font-size:13px\"' + '>◉</span> ';
+        let colorDot2 = '<span style=\"' + 'color:#ef476f; font-size:13px\"' + '>◉</span> ';
+        let s1 = colorDot1  + this.points[0].series.name + ': ' + this.points[0].y + '只' + '<br/>';
+        let s2 =  colorDot2 + this.points[1].series.name + ': ' + this.points[1].y + '棵';
         s += s1 + s2;
         return s;
     }
@@ -149,57 +149,8 @@ function () {
         return aaOptions
     }
 
+
     fun customAreaChartTooltipStyleWithColorfulHtmlLabels(): AAOptions {
-        val aaChartModel = AAChartModel()
-            .chartType(AAChartType.Area)//图形类型
-            .title("2014 ~ 2020 汪星人生存指数")//图表主标题
-            .subtitle("数据来源：www.无任何可靠依据.com")//图表副标题
-            .markerSymbolStyle(AAChartSymbolStyleType.BorderBlank)//折线连接点样式为外边缘空白
-            .dataLabelsEnabled(false)
-            .categories(arrayOf("临床一期", "临床二期", "临床三期"))
-            .series(arrayOf(
-                AASeriesElement()
-                    .name("上市")
-                    .data(arrayOf(0, 0, 7)),
-                AASeriesElement()
-                    .name("中止")
-                    .data(arrayOf(4, 5, 1)),
-                AASeriesElement()
-                    .name("无进展")
-                    .data(arrayOf(2, 0, 1)),
-                AASeriesElement()
-                    .name("进行中")
-                    .data(arrayOf(3, 5, 2))
-            ))
-
-        val aaTooltip = AATooltip()
-            .useHTML(true)
-            .formatter(
-                """
-function () {
-        var colorDot0 = '<span style=\"' + 'color:red; font-size:13px\"' + '>◉</span> ';
-        var colorDot1 = '<span style=\"' + 'color:mediumspringgreen; font-size:13px\"' + '>◉</span> ';
-        var colorDot2 = '<span style=\"' + 'color:deepskyblue; font-size:13px\"' + '>◉</span> ';
-        var colorDot3 = '<span style=\"' + 'color:sandybrown; font-size:13px\"' + '>◉</span> ';
-        var colorDotArr = [colorDot0, colorDot1, colorDot2, colorDot3];
-        var wholeContentString = this.points[0].x + '<br/>';
-        for (var i = 0;i < 4;i++) {
-            var yValue = this.points[i].y;
-            if (yValue != 0) {
-                var prefixStr = colorDotArr[i];
-                wholeContentString += prefixStr + this.points[i].series.name + ': ' + this.points[i].y + '<br/>';
-            }
-        }
-        return wholeContentString;
-    }
-                """.trimIndent()
-            )
-        val aaOptions = aaChartModel.aa_toAAOptions()
-        aaOptions.tooltip = aaTooltip
-        return aaOptions
-    }
-
-    fun customLineChartTooltipStyleWhenValueBeZeroDoNotShow(): AAOptions {
         val aaChartModel = AAChartModel()
             .chartType(AAChartType.Areaspline)//图形类型
             .title("")//图表主标题
@@ -237,23 +188,70 @@ function () {
             .formatter(
                 """
 function () {
-        var colorsArr = ["mediumspringgreen", "deepskyblue", "red", "sandybrown"];
-        var wholeContentString ='<span style=\"' + 'color:lightGray; font-size:13px\"' + '>◉ Time: ' + this.x + ' year</span><br/>';
-        for (var i = 0;i < 4;i++) {
-            var thisPoint = this.points[i];
-            var yValue = thisPoint.y;
+        let wholeContentStr ='<span style=\"' + 'color:lightGray; font-size:13px\"' + '>◉ Time: ' + this.x + ' year</span><br/>';
+        let length = this.points.length;
+        for (let i = 0; i < length; i++) {
+            let thisPoint = this.points[i];
+            let yValue = thisPoint.y;
             if (yValue != 0) {
-                var spanStyleStartStr = '<span style=\"' + 'color:'+ colorsArr[i] + '; font-size:13px\"' + '>◉ ';
-                var spanStyleEndStr = '</span> <br/>';
-                wholeContentString += spanStyleStartStr + thisPoint.series.name + ': ' + thisPoint.y + '℃' + spanStyleEndStr;
+                let spanStyleStartStr = '<span style=\"' + 'color:'+ thisPoint.color + '; font-size:13px\"' + '>◉ ';
+                let spanStyleEndStr = '</span> <br/>';
+                wholeContentStr += spanStyleStartStr + thisPoint.series.name + ': ' + thisPoint.y + '℃' + spanStyleEndStr;
             }
         }
-        return wholeContentString;
+        return wholeContentStr;
     }
                 """.trimIndent()
             )
             .backgroundColor("#050505")
             .borderColor("#050505")
+        val aaOptions = aaChartModel.aa_toAAOptions()
+        aaOptions.tooltip = aaTooltip
+        return aaOptions
+    }
+
+    fun customLineChartTooltipStyleWhenValueBeZeroDoNotShow(): AAOptions {
+        val aaChartModel = AAChartModel()
+            .chartType(AAChartType.Area)//图形类型
+            .title("2014 ~ 2020 汪星人生存指数")//图表主标题
+            .subtitle("数据来源：www.无任何可靠依据.com")//图表副标题
+            .markerSymbolStyle(AAChartSymbolStyleType.BorderBlank)//折线连接点样式为外边缘空白
+            .dataLabelsEnabled(false)
+            .categories(arrayOf("临床一期", "临床二期", "临床三期"))
+            .series(arrayOf(
+                AASeriesElement()
+                    .name("上市")
+                    .data(arrayOf(0, 0, 7)),
+                AASeriesElement()
+                    .name("中止")
+                    .data(arrayOf(4, 5, 1)),
+                AASeriesElement()
+                    .name("无进展")
+                    .data(arrayOf(2, 0, 1)),
+                AASeriesElement()
+                    .name("进行中")
+                    .data(arrayOf(3, 5, 2))
+            ))
+
+        val aaTooltip = AATooltip()
+            .useHTML(true)
+            .formatter(
+                """
+    function () {
+        let wholeContentStr = this.points[0].x + '<br/>';
+        let length = this.points.length;
+        for (let i = 0; i < length; i++) {
+            let thisPoint = this.points[i];
+            let yValue = thisPoint.y;
+            if (yValue != 0) {
+                let prefixStr = '<span style=\"' + 'color:'+ thisPoint.color + '; font-size:13px\"' + '>◉ ';
+                wholeContentStr += prefixStr + thisPoint.series.name + ': ' + yValue + '<br/>';
+            }
+        }
+        return wholeContentStr;
+    }
+                """.trimIndent()
+            )
         val aaOptions = aaChartModel.aa_toAAOptions()
         aaOptions.tooltip = aaTooltip
         return aaOptions
