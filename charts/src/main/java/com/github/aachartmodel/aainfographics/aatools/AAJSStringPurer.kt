@@ -30,21 +30,21 @@ package com.github.aachartmodel.aainfographics.aatools
 
 object AAJSStringPurer {
 
-    fun pureJavaScriptFunctionString(jsFunctionStr: String): String {
-        var pureJSFunctionStr = jsFunctionStr
-        pureJSFunctionStr = pureJSFunctionStr.replace("'", "\"")
-        pureJSFunctionStr = pureJSFunctionStr.replace("\u0000", "")
-        pureJSFunctionStr = pureJSFunctionStr.replace("\n", "")
-        pureJSFunctionStr = pureJSFunctionStr.replace("\\", "\\\\")
-        pureJSFunctionStr = pureJSFunctionStr.replace("\"", "\\\"")
-//        pureJSFunctionStr = pureJSFunctionStr.replace("\'", "\\\'");
-        pureJSFunctionStr = pureJSFunctionStr.replace("\n", "\\n")
-        pureJSFunctionStr = pureJSFunctionStr.replace("\r", "\\r")
-//        pureJSFunctionStr = pureJSFunctionStr.replace("\f", "\\f")
-        pureJSFunctionStr = pureJSFunctionStr.replace("\u2028", "\\u2028")
-        pureJSFunctionStr = pureJSFunctionStr.replace("\u2029", "\\u2029")
+    fun pureJavaScriptFunctionString(JSStr: String): String {
+        var pureJSStr = JSStr
+        pureJSStr = pureJSStr.replace("'", "\"")
+        pureJSStr = pureJSStr.replace("\u0000", "")
+        pureJSStr = pureJSStr.replace("\n", "")
+        pureJSStr = pureJSStr.replace("\\", "\\\\")
+        pureJSStr = pureJSStr.replace("\"", "\\\"")
+        pureJSStr = pureJSStr.replace("\'", "\\\'");
+        pureJSStr = pureJSStr.replace("\n", "\\n")
+        pureJSStr = pureJSStr.replace("\r", "\\r")
+//        pureJSStr = pureJSStr.replace("\f", "\\f")
+        pureJSStr = pureJSStr.replace("\u2028", "\\u2028")
+        pureJSStr = pureJSStr.replace("\u2029", "\\u2029")
 
-        return pureJSFunctionStr
+        return pureJSStr
     }
 
 }
