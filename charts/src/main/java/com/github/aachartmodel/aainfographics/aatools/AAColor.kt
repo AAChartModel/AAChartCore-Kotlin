@@ -34,6 +34,13 @@ package com.github.aachartmodel.aainfographics.aatools
      return "rgba($red,$green,$blue,$alpha)"
  }
 
+fun AARgb(red: Int,
+          green: Int,
+          blue: Int,
+          alpha: Float = 1f): String {
+    return AARgba(red, green, blue, 1f)
+}
+
 object AAColor {
     val Black = blackColor()
     val DarkGray = darkGrayColor()
