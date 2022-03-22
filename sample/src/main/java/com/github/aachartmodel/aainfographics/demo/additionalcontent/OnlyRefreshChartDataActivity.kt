@@ -72,7 +72,7 @@ class OnlyRefreshChartDataActivity : AppCompatActivity() {
 
     private fun configureAAChartModel(): AAChartModel {
         val aaChartModel = configureChartBasicContent()
-        aaChartModel.series(this.configureChartSeriesArray())
+        aaChartModel.series(this.configureChartSeriesArray() as Array<Any>)
         return aaChartModel
     }
 

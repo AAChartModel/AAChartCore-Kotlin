@@ -260,7 +260,7 @@ object SpecialChartComposer {
             .yAxisTitle("kg")
             .markerRadius(8f)
             .markerSymbolStyle(AAChartSymbolStyleType.InnerBlank)
-            .series(seriesElements)
+            .series(seriesElements as Array<Any>)
     }
 
     fun  configureArearangeChart(): AAChartModel {
