@@ -90,7 +90,7 @@ class CustomStyleChartActivity : AppCompatActivity() {
                 return CustomStyleChartComposer.configurePentagonRadarChart()
             "HexagonRadarChart" ->
                 return CustomStyleChartComposer.configureHexagonRadarChart()
-            
+
              "adjustYAxisMaxAndMinValues"-> return CustomStyleChartComposer.adjustYAxisMaxAndMinValues()
              "customSpecialStyleDataLabelOfSingleDataElementChart"-> return CustomStyleChartComposer.customSpecialStyleDataLabelOfSingleDataElementChart()
              "customBarChartHoverColorAndSelectColor"-> return CustomStyleChartComposer.customBarChartHoverColorAndSelectColor()
@@ -106,6 +106,16 @@ class CustomStyleChartActivity : AppCompatActivity() {
              "disableSplineChartMarkerHoverEffect"-> return CustomStyleChartComposer.disableSplineChartMarkerHoverEffect()
              "configureMaxAndMinDataLabelsForChart"-> return CustomStyleChartComposer.configureMaxAndMinDataLabelsForChart()
              "customVerticalXAxisCategoriesLabelsByHTMLBreakLineTag"-> return CustomStyleChartComposer.customVerticalXAxisCategoriesLabelsByHTMLBreakLineTag()
+
+            "noMoreGroupingAndOverlapEachOtherColumnChart" ->
+                return CustomStyleChartComposer.noMoreGroupingAndOverlapEachOtherColumnChart()
+            "noMoreGroupingAndNestedColumnChart" ->
+                return CustomStyleChartComposer.noMoreGroupingAndNestedColumnChart()
+            "topRoundedCornersStackingColumnChart" ->
+                return CustomStyleChartComposer.topRoundedCornersStackingColumnChart()
+            "freeStyleRoundedCornersStackingColumnChart" ->
+                return CustomStyleChartComposer.freeStyleRoundedCornersStackingColumnChart()
+
         }
         return CustomStyleChartComposer.configureColorfulChart()
     }

@@ -78,6 +78,10 @@ class MainActivity : AppCompatActivity() {
                 "disableSplineChartMarkerHoverEffect---禁用曲线图的手指滑动 marker 点的光圈变化放大的效果",
                 "configureMaxAndMinDataLabelsForChart---为图表最大值最小值添加 DataLabels 标记",
                 "customVerticalXAxisCategoriesLabelsByHTMLBreakLineTag---通过 HTML 的换行标签来实现图表的 X 轴的 分类文字标签的换行效果",
+                "noMoreGroupingAndOverlapEachOtherColumnChart---不分组的相互重叠柱状图📊",
+                "noMoreGroupingAndNestedColumnChart---不分组的嵌套柱状图📊",
+                "topRoundedCornersStackingColumnChart---顶部为圆角的堆积柱状图📊",
+                "freeStyleRoundedCornersStackingColumnChart---各个圆角自由独立设置的堆积柱状图📊",
             ), arrayOf(
                 "customLegendStyle",
                 "drawChartWithOptionsOne",
@@ -206,6 +210,10 @@ class MainActivity : AppCompatActivity() {
                 "disableSplineChartMarkerHoverEffect",
                 "configureMaxAndMinDataLabelsForChart",
                 "customVerticalXAxisCategoriesLabelsByHTMLBreakLineTag",
+                "noMoreGroupingAndOverlapEachOtherColumnChart",
+                "noMoreGroupingAndNestedColumnChart",
+                "topRoundedCornersStackingColumnChart",
+                "freeStyleRoundedCornersStackingColumnChart",
             ), arrayOf( /*使用AAOptions绘制图表*/
                 "customLegendStyle",
                 "AAPlotBandsForChart",
