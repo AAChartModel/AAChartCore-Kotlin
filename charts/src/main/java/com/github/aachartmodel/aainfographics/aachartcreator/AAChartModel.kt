@@ -245,7 +245,7 @@ class AAChartModel(
     var legendEnabled: Boolean? = true,
     var backgroundColor: Any? = "#ffffff",
     var borderRadius: Float? = 0f,
-    var series: Array<AASeriesElement>? = null,
+    var series: Array<Any>? = null,
     var touchEventEnabled: Boolean? = null,
     var scrollablePlotArea: AAScrollablePlotArea? = null
 ) {
@@ -455,7 +455,7 @@ class AAChartModel(
         return this
     }
 
-    fun series(prop: Array<AASeriesElement>): AAChartModel {
+    fun series(prop: Array<Any>): AAChartModel {
         series = prop
         return this
     }
@@ -519,7 +519,7 @@ class AAChartModel(
         private var legendEnabled: Boolean? = true
         private var backgroundColor: Any? = "#ffffff"
         private var borderRadius: Float? = 0f
-        private var series: Array<AASeriesElement>? = null
+        private var series: Array<Any>? = null
         private var touchEventEnabled: Boolean? = null
         private var scrollablePlotArea: AAScrollablePlotArea? = null
 
