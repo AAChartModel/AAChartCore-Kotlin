@@ -40,7 +40,7 @@ class AAOptions {
     var yAxisArray: Array<AAYAxis>? = null
     var tooltip: AATooltip? = null
     var plotOptions: AAPlotOptions? = null
-    var series: Array<AASeriesElement>? = null
+    var series: Array<Any>? = null
     var legend: AALegend? = null
     var pane: AAPane? = null
     var colors: Array<Any>? = null
@@ -93,7 +93,7 @@ class AAOptions {
         return this
     }
 
-    fun series(prop: Array<AASeriesElement>?): AAOptions {
+    fun series(prop: Array<Any>?): AAOptions {
         series = prop
         return this
     }
