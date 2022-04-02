@@ -49,6 +49,8 @@ class AAXAxis {
     var tickLength: Float? = null//坐标轴刻度线的长度。 默认是：10.
     var tickPosition: String? =
         null //刻度线相对于轴线的位置，可用的值有 inside 和 outside，分别表示在轴线的内部和外部。 默认是：outside.
+    var tickPositions: Array<Any>? = null // Custom x-axis coordinates
+
 
     fun type(prop: String): AAXAxis {
         type = prop
@@ -223,6 +225,11 @@ class AAXAxis {
 
     fun tickPosition(prop: String): AAXAxis {
         tickPosition = prop
+        return this
+    }
+
+    fun tickPositions(prop: Array<Any>): AAXAxis {
+        tickPositions = prop
         return this
     }
 }
