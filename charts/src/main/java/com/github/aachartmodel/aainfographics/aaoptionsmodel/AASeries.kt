@@ -31,6 +31,11 @@ class AASeries {
     var events: Map<*, *>? = null
     var shadow: AAShadow? = null
     var dataLabels: AADataLabels? = null
+    var states: AAStates? = null
+    var pointInterval: Int? = null
+    var pointIntervalUnit: String? = null
+    var pointPlacement: Any? = null
+    var pointStart: Float? = null
 
     fun borderColor(prop: String?): AASeries {
         borderColor = prop
@@ -109,6 +114,31 @@ class AASeries {
 
     fun dataLabels(prop: AADataLabels): AASeries {
         dataLabels = prop
+        return this
+    }
+
+    fun states(prop: AAStates): AASeries {
+        states = prop
+        return this
+    }
+
+    fun pointInterval(prop: Int): AASeries {
+        pointInterval = prop
+        return this
+    }
+
+    fun pointIntervalUnit(prop: String): AASeries {
+        pointIntervalUnit = prop
+        return this
+    }
+
+    fun pointPlacement(prop: Any): AASeries {
+        pointPlacement = prop
+        return this
+    }
+
+    fun pointStart(prop: Float): AASeries {
+        pointStart = prop
         return this
     }
 }
