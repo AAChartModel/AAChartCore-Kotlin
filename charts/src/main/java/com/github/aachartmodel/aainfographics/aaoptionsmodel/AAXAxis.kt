@@ -8,7 +8,16 @@
  */
 package com.github.aachartmodel.aainfographics.aaoptionsmodel
 
+enum class AAChartAxisType(val value: String) {
+    Linear("linear"),
+    Logarithmic("logarithmic"),
+    Datetime("datetime"),
+    Category("category"),
+}
+
 class AAXAxis {
+    var alternateGridColor: Any? = null
+    var title: AATitle? = null
     var type: String? = null
     var dateTimeLabelFormats: AADateTimeLabelFormats? = null
     var plotBands: Array<AAPlotBandsElement>? = null
@@ -52,9 +61,18 @@ class AAXAxis {
         null //刻度线相对于轴线的位置，可用的值有 inside 和 outside，分别表示在轴线的内部和外部。 默认是：outside.
     var tickPositions: Array<Any>? = null // Custom x-axis coordinates
 
+    fun alternateGridColor(prop: Any): AAXAxis {
+        alternateGridColor = prop
+        return this
+    }
 
-    fun type(prop: String): AAXAxis {
-        type = prop
+    fun title(prop: AATitle): AAXAxis {
+        title = prop
+        return this
+    }
+
+    fun type(prop: AAChartAxisType): AAXAxis {
+        type = prop.value
         return this
     }
 
