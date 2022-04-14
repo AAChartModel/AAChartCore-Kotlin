@@ -143,7 +143,7 @@ class ScrollableChartActivity : AppCompatActivity() {
                 .subtitle(AASubtitle()
                         .text(pureJSStr))
                 .xAxis(AAXAxis()
-                        .type("category"))
+                        .type(AAChartAxisType.Category))
                 .series(arrayOf(element))
             this.aaOptions = aaOptions
         } else {
