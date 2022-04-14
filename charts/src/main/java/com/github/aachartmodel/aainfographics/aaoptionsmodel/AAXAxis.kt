@@ -10,6 +10,7 @@ package com.github.aachartmodel.aainfographics.aaoptionsmodel
 
 class AAXAxis {
     var type: String? = null
+    var dateTimeLabelFormats: AADateTimeLabelFormats? = null
     var plotBands: Array<AAPlotBandsElement>? = null
     var plotLines: Array<AAPlotLinesElement>? = null
     var categories: Array<String>? = null
@@ -54,6 +55,11 @@ class AAXAxis {
 
     fun type(prop: String): AAXAxis {
         type = prop
+        return this
+    }
+
+    fun dateTimeLabelFormats(prop: AADateTimeLabelFormats): AAXAxis {
+        dateTimeLabelFormats = prop
         return this
     }
 
