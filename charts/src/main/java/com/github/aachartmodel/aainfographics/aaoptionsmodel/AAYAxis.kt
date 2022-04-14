@@ -9,7 +9,9 @@
 package com.github.aachartmodel.aainfographics.aaoptionsmodel
 
 class AAYAxis {
+    var alternateGridColor: Any? = null
     var title: AATitle? = null
+    var type: String? = null
     var dateTimeLabelFormats: AADateTimeLabelFormats? = null
     var plotBands: Array<AAPlotBandsElement>? = null
     var plotLines: Array<AAPlotLinesElement>? = null
@@ -18,7 +20,6 @@ class AAYAxis {
     var gridLineWidth: Float? = null// y 轴网格线宽度
     var gridLineColor: String? = null  // y 轴网格线颜色
     var gridLineDashStyle: String? = null //网格线线条样式，所有可用的线条样式参考：Highcharts线条样式
-    var alternateGridColor: String? = null  //backcolor of every other grid line area
     var gridLineInterpolation: String? =
         null //Polar charts only. Whether the grid lines should draw as a polygon with straight lines between categories, or as circles. Can be either circle or polygon. 默认是：null.
     var labels: AALabels? = null//用于设置 y 轴文字相关的
@@ -54,9 +55,18 @@ class AAYAxis {
     var tickPosition: String? =
         null //刻度线相对于轴线的位置，可用的值有 inside 和 outside，分别表示在轴线的内部和外部。 默认是：outside.
 
+    fun alternateGridColor(prop: Any): AAYAxis {
+        alternateGridColor = prop
+        return this
+    }
 
     fun title(prop: AATitle): AAYAxis {
         title = prop
+        return this
+    }
+
+    fun type(prop: AAChartAxisType): AAYAxis {
+        type = prop.value
         return this
     }
 
@@ -97,11 +107,6 @@ class AAYAxis {
 
     fun gridLineDashStyle(prop: String): AAYAxis {
         gridLineDashStyle = prop
-        return this
-    }
-
-    fun alternateGridColor(prop: String): AAYAxis {
-        alternateGridColor = prop
         return this
     }
 
