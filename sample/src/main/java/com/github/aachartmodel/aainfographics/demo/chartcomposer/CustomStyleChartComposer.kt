@@ -924,13 +924,13 @@ object CustomStyleChartComposer  {
             .markerSymbolStyle(AAChartSymbolStyleType.InnerBlank)
             .series(arrayOf(
                 AASeriesElement()
-                .name("2017")
-                .step(true)
-                .dataLabels(AADataLabels()
-                    .style(AAStyle()
-                        .color("#1e90ff")
-                        .fontSize(11f)))
-                .data(arrayOf(2.10, 2.54, 2.78, 3.62, 4.41, 4.09, 3.83, 4.47, 4.20, 3.94, 3.80, 3.58, 3.19, 4.30, 3.69, 3.52, 3.02, 3.30)),
+                    .name("2017")
+                    .step(true)
+                    .dataLabels(AADataLabels()
+                        .style(AAStyle()
+                            .color("#1e90ff")
+                            .fontSize(11f)))
+                    .data(arrayOf(2.10, 2.54, 2.78, 3.62, 4.41, 4.09, 3.83, 4.47, 4.20, 3.94, 3.80, 3.58, 3.19, 4.30, 3.69, 3.52, 3.02, 3.30)),
                 AASeriesElement()
                     .name("2018")
                     .step(true)
