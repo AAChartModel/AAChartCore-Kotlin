@@ -52,8 +52,13 @@ class AATooltip {
     var footerFormat: String? = null
     var valueDecimals: Int? = null
     var shared: Boolean? = null
-    var shadow: Boolean? = null
     var valueSuffix: String? = null
+    var followTouchMove: Boolean? = null //https://api.highcharts.com.cn/highcharts#chart.panning
+    var shadow: Boolean? = null
+    var padding: Float? = null
+    var pointFormatter: String? = null
+    var positioner: String? = null
+    var dateTimeLabelFormats: AADateTimeLabelFormats? = null
 
     fun backgroundColor(prop: String): AATooltip {
         backgroundColor = prop
@@ -121,14 +126,39 @@ class AATooltip {
         shared = prop
         return this
     }
-    
-    fun shadow(prop: Boolean?): AATooltip {
+
+    fun valueSuffix(prop: String?): AATooltip {
+        valueSuffix = prop
+        return this
+    }
+
+    fun followTouchMove(prop: Boolean): AATooltip {
+        followTouchMove = prop
+        return this
+    }
+
+    fun shadow(prop: Boolean): AATooltip {
         shadow = prop
         return this
     }
 
-    fun valueSuffix(prop: String?): AATooltip {
-        valueSuffix = prop
+    fun padding(prop: Float): AATooltip {
+        padding = prop
+        return this
+    }
+
+    fun pointFormatter(prop: String): AATooltip {
+        pointFormatter = prop
+        return this
+    }
+
+    fun positioner(prop: String): AATooltip {
+        positioner = prop
+        return this
+    }
+
+    fun dateTimeLabelFormats(prop: AADateTimeLabelFormats): AATooltip {
+        dateTimeLabelFormats = prop
         return this
     }
 
