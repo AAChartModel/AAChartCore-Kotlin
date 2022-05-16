@@ -37,7 +37,9 @@ package com.github.aachartmodel.aainfographics.demo.chartcomposer
 
 import com.github.aachartmodel.aainfographics.aachartcreator.*
 import com.github.aachartmodel.aainfographics.aaoptionsmodel.*
-import com.github.aachartmodel.aainfographics.aatools.*
+import com.github.aachartmodel.aainfographics.aatools.AAColor
+import com.github.aachartmodel.aainfographics.aatools.AAGradientColor
+import com.github.aachartmodel.aainfographics.aatools.AALinearGradientDirection
 
 object ChartOptionsComposer {
 
@@ -156,13 +158,6 @@ object ChartOptionsComposer {
     }
 
     fun configureAAPlotLinesForChart(): AAOptions {
-        val zonesArr:Array<Any> = arrayOf(
-            mapOf("value" to 12, "color" to "#1e90ff"),
-            mapOf("value" to 24, "color" to "#ef476f"),
-            mapOf("value" to 36, "color" to "#04d69f"),
-            mapOf("color" to "#ffd066")
-        )
-
         val aaChartModel = AAChartModel()
             .chartType(AAChartType.Areaspline)//图形类型
             .dataLabelsEnabled(false)
@@ -172,7 +167,19 @@ object ChartOptionsComposer {
                     .data(arrayOf(7.0, 6.9, 2.5, 14.5, 18.2, 21.5, 5.2, 26.5, 23.3, 45.3, 13.9, 9.6))
                     .fillOpacity(0.5f)
                     .lineWidth(10f)
-                    .zones(zonesArr)
+                    .zones(arrayOf(
+                        AAZonesElement()
+                            .value(12)
+                            .color("#1e90ff"),
+                        AAZonesElement()
+                            .value(24)
+                            .color("#ef476f"),
+                        AAZonesElement()
+                            .value(36)
+                            .color("#04d69f"),
+                        AAZonesElement()
+                            .color("#ffd066")
+                    ))
             ))
 
         val aaOptions = aaChartModel.aa_toAAOptions()
