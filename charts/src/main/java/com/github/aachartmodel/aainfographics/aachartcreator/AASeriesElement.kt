@@ -30,6 +30,7 @@ package com.github.aachartmodel.aainfographics.aachartcreator
 import com.github.aachartmodel.aainfographics.aaoptionsmodel.AADataLabels
 import com.github.aachartmodel.aainfographics.aaoptionsmodel.AAMarker
 import com.github.aachartmodel.aainfographics.aaoptionsmodel.AATooltip
+import com.github.aachartmodel.aainfographics.aaoptionsmodel.AAZonesElement
 
 
 /**
@@ -74,7 +75,7 @@ class AASeriesElement {
     private var states: Any? = null
     private var colorByPoint: Boolean? = null
     private var zIndex: Int? = null
-    private var zones: Array<Any>? = null
+    private var zones: Array<AAZonesElement>? = null
     private var shadow: AAShadow? = null
     private var stack: String? = null
     private var tooltip: AATooltip? = null
@@ -223,7 +224,7 @@ class AASeriesElement {
         return this
     }
 
-    fun zones(prop: Array<Any>): AASeriesElement {
+    fun zones(prop: Array<AAZonesElement>): AASeriesElement {
         zones = prop
         return this
     }
