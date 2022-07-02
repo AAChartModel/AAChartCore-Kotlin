@@ -160,7 +160,6 @@ object CustomStyleChartComposer  {
         return AAChartModel()
             .chartType(AAChartType.Column)
             .title("Discontinuous Data Chart")
-            .yAxisTitle("")
             .dataLabelsEnabled(true)
             .tooltipEnabled(true)
             .series(arrayOf(
@@ -206,7 +205,6 @@ object CustomStyleChartComposer  {
         return AAChartModel()
             .chartType(AAChartType.Spline)
             .categories(arrayOf("一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"))
-            .yAxisTitle("")
             .markerRadius(0f)
             .yAxisLineWidth(0f)
             .yAxisGridLineWidth(0f)
@@ -239,7 +237,6 @@ object CustomStyleChartComposer  {
         return AAChartModel()
             .chartType(AAChartType.Areaspline)
             .categories(arrayOf("一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"))
-            .yAxisTitle("")
             .markerRadius(0f)
             .yAxisLineWidth(0f)
             .yAxisGridLineWidth(0f)
@@ -269,7 +266,6 @@ object CustomStyleChartComposer  {
         return AAChartModel()
             .chartType(AAChartType.Spline)
             .categories(arrayOf("一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"))
-            .yAxisTitle("")
             .markerRadius(0f)
             .yAxisLineWidth(0f)
             .yAxisGridLineWidth(0f)
@@ -297,7 +293,6 @@ object CustomStyleChartComposer  {
         return AAChartModel()
             .chartType(AAChartType.Areaspline)
             .categories(arrayOf("一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"))
-            .yAxisTitle("")
             .markerRadius(8f)//marker点半径为8个像素
             .markerSymbolStyle(AAChartSymbolStyleType.InnerBlank)//marker点为空心效果
             .markerSymbol(AAChartSymbolType.Circle)//marker点为圆形点○
@@ -430,7 +425,6 @@ object CustomStyleChartComposer  {
 
         return AAChartModel()
             .chartType(AAChartType.Scatter)
-            .yAxisTitle("")
             .yAxisMax(3.5f)
             .yAxisGridLineWidth(0f)
             .stacking(AAChartStackingType.Normal)
@@ -449,7 +443,6 @@ object CustomStyleChartComposer  {
     internal fun configureTriangleRadarChart(): AAChartModel {
         return AAChartModel()
             .chartType(AAChartType.Area)
-            .yAxisTitle("")
             .yAxisMax(15.0f)
             .yAxisGridLineWidth(0f)
             .xAxisVisible(false)
@@ -471,7 +464,6 @@ object CustomStyleChartComposer  {
     internal fun configureQuadrangleRadarChart(): AAChartModel {
         return AAChartModel()
             .chartType(AAChartType.Area)
-            .yAxisTitle("")
             .yAxisMax(15.0f)
             .yAxisGridLineWidth(0f)
             .xAxisVisible(false)
@@ -493,7 +485,6 @@ object CustomStyleChartComposer  {
     internal fun configurePentagonRadarChart(): AAChartModel {
         return AAChartModel()
             .chartType(AAChartType.Area)
-            .yAxisTitle("")
             .yAxisMax(15.0f)
             .yAxisGridLineWidth(0f)
             .xAxisVisible(false)
@@ -515,7 +506,6 @@ object CustomStyleChartComposer  {
     internal fun configureHexagonRadarChart(): AAChartModel {
         return AAChartModel()
             .chartType(AAChartType.Area)
-            .yAxisTitle("")
             .yAxisMax(15.0f)
             .yAxisGridLineWidth(0f)
             .xAxisVisible(false)
