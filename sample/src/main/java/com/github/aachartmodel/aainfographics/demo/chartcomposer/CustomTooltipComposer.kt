@@ -153,8 +153,6 @@ function () {
     fun customAreaChartTooltipStyleWithColorfulHtmlLabels(): AAOptions {
         val aaChartModel = AAChartModel()
             .chartType(AAChartType.Areaspline)//图形类型
-            .title("")//图表主标题
-            .subtitle("")//图表副标题
             .markerSymbolStyle(AAChartSymbolStyleType.BorderBlank)//折线连接点样式为外边缘空白
             .dataLabelsEnabled(false)
             .colorsTheme(arrayOf("#04d69f", "#1e90ff", "#ef476f", "#ffd066"))
@@ -304,8 +302,6 @@ function () {
     fun customYAxisLabels(): AAOptions {
         val aaChartModel = AAChartModel()
             .chartType(AAChartType.Line)//图形类型
-            .title("")//图表主标题
-            .subtitle("")//图表副标题
             .markerSymbolStyle(AAChartSymbolStyleType.BorderBlank)//折线连接点样式为外边缘空白
             .dataLabelsEnabled(false)
             .colorsTheme(arrayOf("#04d69f", "#1e90ff", "#ef476f", "#ffd066"))
@@ -346,8 +342,6 @@ function () {
     fun customYAxisLabels2(): AAOptions {
         val aaChartModel = AAChartModel()
             .chartType(AAChartType.Line)//图形类型
-            .title("")//图表主标题
-            .subtitle("")//图表副标题
             .markerSymbolStyle(AAChartSymbolStyleType.BorderBlank)//折线连接点样式为外边缘空白
             .dataLabelsEnabled(false)
             .colorsTheme(arrayOf("#04d69f", "#1e90ff", "#ef476f", "#ffd066"))

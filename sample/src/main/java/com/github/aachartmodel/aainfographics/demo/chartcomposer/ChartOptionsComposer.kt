@@ -1125,8 +1125,6 @@ function () {
 
         val aaChartModel = AAChartModel()
             .chartType(AAChartType.Areaspline) //图表类型
-            .title("") //图表主标题
-            .subtitle("") //图表副标题
             .colorsTheme(arrayOf("#04d69f", "#1e90ff", "#ef476f", "#ffd066"))
             .stacking(AAChartStackingType.Normal)
             .yAxisTitle("") //设置 Y 轴标题
