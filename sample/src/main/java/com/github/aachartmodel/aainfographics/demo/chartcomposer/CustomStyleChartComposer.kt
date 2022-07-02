@@ -335,7 +335,6 @@ object CustomStyleChartComposer  {
         return AAChartModel()
             .chartType(AAChartType.Spline)
             .backgroundColor("#4b2b7f")
-            .yAxisTitle("")//设置Y轴标题
             .dataLabelsEnabled(false)//是否显示值
             .tooltipEnabled(true)
             .markerRadius(0f)
@@ -356,7 +355,6 @@ object CustomStyleChartComposer  {
 
         return AAChartModel()
             .chartType(AAChartType.Column)
-            .yAxisTitle("")//设置Y轴标题
             .dataLabelsEnabled(false)//是否显示值
             .tooltipEnabled(false)
             .markerRadius(0f)
@@ -380,7 +378,6 @@ object CustomStyleChartComposer  {
 
         return AAChartModel()
             .chartType(AAChartType.Area)
-            .yAxisTitle("")//设置Y轴标题
             .yAxisGridLineWidth(0f)
             .categories(arrayOf("Jan", "Feb", "Mar", "Apr", "May", "Jun", "July", "Aug", "Spe", "Oct", "Nov", "Dec"))
             .dataLabelsEnabled(false)//是否显示值

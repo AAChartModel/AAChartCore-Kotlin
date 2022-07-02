@@ -661,7 +661,6 @@ function () {
     fun customTooltipWhichDataSourceComeFromOutSideRatherThanSeries(): AAOptions {
         val aaChartModel = AAChartModel()
             .chartType(AAChartType.Column) //图表类型
-            .yAxisTitle("") //设置 Y 轴标题
             .yAxisLineWidth(1f) //Y轴轴线线宽为0即是隐藏Y轴轴线
             .yAxisGridLineWidth(1f) //y轴横向分割线宽度为1(为0即是隐藏分割线)
             .xAxisGridLineWidth(1f) //x轴横向分割线宽度为1(为0即是隐藏分割线)

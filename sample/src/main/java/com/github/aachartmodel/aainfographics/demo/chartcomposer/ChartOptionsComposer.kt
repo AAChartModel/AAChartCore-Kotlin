@@ -1125,7 +1125,6 @@ function () {
             .chartType(AAChartType.Areaspline) //图表类型
             .colorsTheme(arrayOf("#04d69f", "#1e90ff", "#ef476f", "#ffd066"))
             .stacking(AAChartStackingType.Normal)
-            .yAxisTitle("") //设置 Y 轴标题
             .yAxisVisible(false)
             .markerRadius(0f)
             .series(arrayOf(element1, element2, element3, element4))
