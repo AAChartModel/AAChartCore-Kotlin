@@ -205,8 +205,6 @@ object CustomStyleChartComposer  {
     fun configureChartWithShadowStyle(): AAChartModel {
         return AAChartModel()
             .chartType(AAChartType.Spline)
-            .title("")
-            .subtitle("")
             .categories(arrayOf("一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"))
             .yAxisTitle("")
             .markerRadius(0f)
@@ -240,8 +238,6 @@ object CustomStyleChartComposer  {
 
         return AAChartModel()
             .chartType(AAChartType.Areaspline)
-            .title("")
-            .subtitle("")
             .categories(arrayOf("一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"))
             .yAxisTitle("")
             .markerRadius(0f)
@@ -272,8 +268,6 @@ object CustomStyleChartComposer  {
 
         return AAChartModel()
             .chartType(AAChartType.Spline)
-            .title("")
-            .subtitle("")
             .categories(arrayOf("一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"))
             .yAxisTitle("")
             .markerRadius(0f)
@@ -302,8 +296,6 @@ object CustomStyleChartComposer  {
 
         return AAChartModel()
             .chartType(AAChartType.Areaspline)
-            .title("")
-            .subtitle("")
             .categories(arrayOf("一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"))
             .yAxisTitle("")
             .markerRadius(8f)//marker点半径为8个像素
@@ -441,8 +433,6 @@ object CustomStyleChartComposer  {
 
         return AAChartModel()
             .chartType(AAChartType.Scatter)
-            .title("")
-            .subtitle("")
             .yAxisTitle("")
             .yAxisMax(3.5f)
             .yAxisGridLineWidth(0f)
@@ -462,8 +452,6 @@ object CustomStyleChartComposer  {
     internal fun configureTriangleRadarChart(): AAChartModel {
         return AAChartModel()
             .chartType(AAChartType.Area)
-            .title("")
-            .subtitle("")
             .yAxisTitle("")
             .yAxisMax(15.0f)
             .yAxisGridLineWidth(0f)
@@ -486,8 +474,6 @@ object CustomStyleChartComposer  {
     internal fun configureQuadrangleRadarChart(): AAChartModel {
         return AAChartModel()
             .chartType(AAChartType.Area)
-            .title("")
-            .subtitle("")
             .yAxisTitle("")
             .yAxisMax(15.0f)
             .yAxisGridLineWidth(0f)
@@ -510,8 +496,6 @@ object CustomStyleChartComposer  {
     internal fun configurePentagonRadarChart(): AAChartModel {
         return AAChartModel()
             .chartType(AAChartType.Area)
-            .title("")
-            .subtitle("")
             .yAxisTitle("")
             .yAxisMax(15.0f)
             .yAxisGridLineWidth(0f)
@@ -534,8 +518,6 @@ object CustomStyleChartComposer  {
     internal fun configureHexagonRadarChart(): AAChartModel {
         return AAChartModel()
             .chartType(AAChartType.Area)
-            .title("")
-            .subtitle("")
             .yAxisTitle("")
             .yAxisMax(15.0f)
             .yAxisGridLineWidth(0f)
