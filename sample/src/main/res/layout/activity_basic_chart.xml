@@ -15,7 +15,7 @@
             android:orientation="vertical">
 
         <RadioGroup
-                android:id="@+id/radioGroup1"
+                android:id="@+id/stackingTypeRadioGroup"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">

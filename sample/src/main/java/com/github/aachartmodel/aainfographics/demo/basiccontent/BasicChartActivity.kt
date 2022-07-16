@@ -241,13 +241,11 @@ class BasicChartActivity : AppCompatActivity(), RadioGroup.OnCheckedChangeListen
 
 
     private fun setUpRadioButtonsAndSwitches() {
-
-        val radioGroup1 = findViewById<RadioGroup>(R.id.radioGroup1)
-        radioGroup1.setOnCheckedChangeListener(this)
+        val stackingTypeRadioGroup = findViewById<RadioGroup>(R.id.stackingTypeRadioGroup)
+        stackingTypeRadioGroup.setOnCheckedChangeListener(this)
 
         val cornerStyleTypeRadioGroup = findViewById<RadioGroup>(R.id.cornerStyleTypeRadioGroup)
         cornerStyleTypeRadioGroup.setOnCheckedChangeListener(this)
-
 
         val markerSymbolTypeRadioGroup: RadioGroup = findViewById(R.id.markerSymbolTypeRadioGroup)
         markerSymbolTypeRadioGroup.setOnCheckedChangeListener(this)
@@ -277,7 +275,7 @@ class BasicChartActivity : AppCompatActivity(), RadioGroup.OnCheckedChangeListen
      * @param checkedId 其中的每个RadioButton的Id
      */
     override fun onCheckedChanged(group: RadioGroup, checkedId: Int) {
-        if (group.id == R.id.radioGroup1) {
+        if (group.id == R.id.stackingTypeRadioGroup) {
             when (group.checkedRadioButtonId) {
                 R.id.stacking1 -> aaChartModel.stacking(AAChartStackingType.False)
                 R.id.stacking2 -> aaChartModel.stacking(AAChartStackingType.Normal)
@@ -317,7 +315,6 @@ class BasicChartActivity : AppCompatActivity(), RadioGroup.OnCheckedChangeListen
         }
 
         aaChartView?.aa_refreshChartWithChartModel(aaChartModel)
-
     }
 
     override fun chartViewDidFinishLoad(aaChartView: AAChartView) {
