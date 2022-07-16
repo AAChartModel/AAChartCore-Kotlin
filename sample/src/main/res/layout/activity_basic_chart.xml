@@ -10,7 +10,7 @@
 
     <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="130dp"
+            android:layout_height="170dp"
             android:background="@color/aaChartCoreThemeColor"
             android:orientation="vertical">
 
@@ -46,7 +46,38 @@
         </RadioGroup>
 
         <RadioGroup
-                android:id="@+id/radioGroup2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/cornerStyleTypeRadioGroup"
+                android:orientation="horizontal">
+
+            <RadioButton
+                    android:id="@+id/squareCornersRadio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="@color/lightGray"
+                    android:text="square\ncorners" />
+
+            <RadioButton
+                    android:id="@+id/roundedCornersRadio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="@color/lightGray"
+                    android:text="rounded\ncorners" />
+
+            <RadioButton
+                    android:id="@+id/wedgeCornersRadio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="@color/lightGray"
+                    android:text="wedge\ncorners" />
+        </RadioGroup>
+
+        <RadioGroup
+                android:id="@+id/markerSymbolTypeRadioGroup"
                 android:layout_width="match_parent"
                 android:layout_height="38dp"
                 android:orientation="horizontal">
@@ -126,6 +157,12 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1" />
+
+            <Switch
+                    android:id="@+id/markerHideSwitch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
         </LinearLayout>
 
         <LinearLayout
@@ -172,6 +209,14 @@
                     android:layout_weight="1"
                     android:text="dataShow"
                     android:textColor="@color/mediumGray" />
+
+            <TextView
+                    android:id="@+id/markerHideTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="@color/lightGray"
+                    android:text="markerHide" />
         </LinearLayout>
 
     </LinearLayout>
