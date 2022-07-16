@@ -40,11 +40,12 @@ import com.github.aachartmodel.aainfographics.aatools.AALinearGradientDirection
 import com.github.aachartmodel.aainfographics.demo.R
 import com.google.gson.Gson
 
-class BasicChartActivity : AppCompatActivity(), RadioGroup.OnCheckedChangeListener,
+open class BasicChartActivity : AppCompatActivity(), RadioGroup.OnCheckedChangeListener,
     CompoundButton.OnCheckedChangeListener, AAChartView.AAChartViewCallBack {
 
-    private var aaChartModel = AAChartModel()
-    private var aaChartView: AAChartView? = null
+    var aaChartModel = AAChartModel()
+    var aaChartView: AAChartView? = null
+    var chartType: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -66,7 +67,7 @@ class BasicChartActivity : AppCompatActivity(), RadioGroup.OnCheckedChangeListen
 
     private fun configureAAChartModel(): AAChartModel {
         val intent = intent
-        val chartType = intent.getStringExtra("chartType")
+        chartType = intent.getStringExtra("chartType")
         val position = intent.getIntExtra("position", 0)
         val chartTypeEnum = convertStringToEnum(chartType)
 
@@ -277,9 +278,9 @@ class BasicChartActivity : AppCompatActivity(), RadioGroup.OnCheckedChangeListen
     override fun onCheckedChanged(group: RadioGroup, checkedId: Int) {
         if (group.id == R.id.stackingTypeRadioGroup) {
             when (group.checkedRadioButtonId) {
-                R.id.stacking1 -> aaChartModel.stacking(AAChartStackingType.False)
-                R.id.stacking2 -> aaChartModel.stacking(AAChartStackingType.Normal)
-                R.id.stacking3 -> aaChartModel.stacking(AAChartStackingType.Percent)
+                R.id.noStackingRadio -> aaChartModel.stacking(AAChartStackingType.False)
+                R.id.normalStackingRadio -> aaChartModel.stacking(AAChartStackingType.Normal)
+                R.id.percentStackingRadio -> aaChartModel.stacking(AAChartStackingType.Percent)
             }
         } else {
             if (aaChartModel.chartType == AAChartType.Bar
