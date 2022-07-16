@@ -32,6 +32,7 @@ import android.view.View
 import android.widget.CompoundButton
 import android.widget.RadioGroup
 import android.widget.Switch
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 
 import com.github.aachartmodel.aainfographics.aachartcreator.*
@@ -95,6 +96,7 @@ class BasicChartActivity : AppCompatActivity(), RadioGroup.OnCheckedChangeListen
             .build()
 
         configureTheStyleForDifferentTypeChart(chartType,position)
+        configureViewsVisibility(chartType)
 
         return aaChartModel
     }
@@ -109,6 +111,23 @@ class BasicChartActivity : AppCompatActivity(), RadioGroup.OnCheckedChangeListen
             configureAreaChartAndAreasplineChartStyle(chartType)
         } else if (chartType == AAChartType.Line.value || chartType == AAChartType.Spline.value) {
             configureLineChartAndSplineChartStyle(chartType)
+        }
+    }
+
+    fun configureViewsVisibility(chartType: String) {
+        val squareCornersRadio: RadioGroup = findViewById(R.id.cornerStyleTypeRadioGroup)
+        val markerSymbolTypeRadioGroup: RadioGroup = findViewById(R.id.markerSymbolTypeRadioGroup)
+        if (chartType == AAChartType.Column.value || chartType == AAChartType.Bar.value) {
+            squareCornersRadio.visibility = View.VISIBLE
+            markerSymbolTypeRadioGroup.visibility = View.GONE
+
+            val markerHideSwitch: Switch = findViewById(R.id.markerHideSwitch)
+            markerHideSwitch.visibility = View.GONE
+            val markerHideTextView: TextView = findViewById(R.id.markerHideTextView)
+            markerHideTextView.visibility = View.GONE
+        } else {
+            squareCornersRadio.visibility = View.GONE
+            markerSymbolTypeRadioGroup.visibility = View.VISIBLE
         }
     }
 
@@ -228,8 +247,8 @@ class BasicChartActivity : AppCompatActivity(), RadioGroup.OnCheckedChangeListen
         val radioGroup1 = findViewById<RadioGroup>(R.id.radioGroup1)
         radioGroup1.setOnCheckedChangeListener(this)
 
-        val radioGroup2 = findViewById<RadioGroup>(R.id.radioGroup2)
-        radioGroup2.setOnCheckedChangeListener(this)
+        val cornerStyleTypeRadioGroup = findViewById<RadioGroup>(R.id.cornerStyleTypeRadioGroup)
+        cornerStyleTypeRadioGroup.setOnCheckedChangeListener(this)
 
         if (aaChartModel.chartType == AAChartType.Bar
             || aaChartModel.chartType == AAChartType.Column
