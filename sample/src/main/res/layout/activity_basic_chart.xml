@@ -134,31 +134,31 @@
                 android:orientation="horizontal">
 
             <Switch
-                    android:id="@+id/switch1"
+                    android:id="@+id/xReversedSwitch"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1" />
 
             <Switch
-                    android:id="@+id/switch2"
+                    android:id="@+id/yReversedSwitch"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1" />
 
             <Switch
-                    android:id="@+id/switch3"
+                    android:id="@+id/xInvertedSwitch"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1" />
 
             <Switch
-                    android:id="@+id/switch4"
+                    android:id="@+id/polarSwitch"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1" />
 
             <Switch
-                    android:id="@+id/switch5"
+                    android:id="@+id/dataShowSwitch"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1" />
@@ -168,6 +168,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1" />
+
         </LinearLayout>
 
         <LinearLayout
