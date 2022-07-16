@@ -29,10 +29,8 @@ class AdvancedUpdatingFeatureActivity : BasicChartActivity() {
                     R.id.percentStackingRadio -> stackingType = AAChartStackingType.Percent
                 }
                 val aaPlotOptions: AAPlotOptions = AAPlotOptions()
-                    .series(
-                        AASeries()
-                            .stacking(stackingType)
-                    )
+                    .series(AASeries()
+                            .stacking(stackingType))
                 options = aaPlotOptions
             }
             R.id.cornerStyleTypeRadioGroup -> {
@@ -45,16 +43,12 @@ class AdvancedUpdatingFeatureActivity : BasicChartActivity() {
                 val aaPlotOptions: AAPlotOptions
                 aaPlotOptions = if (chartType == AAChartType.Column.value) {
                     AAPlotOptions()
-                        .column(
-                            AAColumn()
-                                .borderRadius(borderRadius)
-                        )
+                        .column(AAColumn()
+                                .borderRadius(borderRadius))
                 } else {
                     AAPlotOptions()
-                        .bar(
-                            AABar()
-                                .borderRadius(borderRadius)
-                        )
+                        .bar(AABar()
+                                .borderRadius(borderRadius))
                 }
                 options = aaPlotOptions
             }
@@ -68,13 +62,9 @@ class AdvancedUpdatingFeatureActivity : BasicChartActivity() {
                     R.id.triangleDownSymbolRadio -> markerSymbol = AAChartSymbolType.TriangleDown
                 }
                 val aaPlotOptions: AAPlotOptions = AAPlotOptions()
-                    .series(
-                        AASeries()
-                            .marker(
-                                AAMarker()
-                                    .symbol(markerSymbol.value)
-                            )
-                    )
+                    .series(AASeries()
+                            .marker(AAMarker()
+                                    .symbol(markerSymbol.value)))
                 options = aaPlotOptions
             }
         }
@@ -119,61 +109,41 @@ class AdvancedUpdatingFeatureActivity : BasicChartActivity() {
                     options = if (this.aaChartModel.polar == true) {
                         AAOptions()
                             .chart(aaChart)
-                            .plotOptions(
-                                AAPlotOptions()
-                                    .column(
-                                        AAColumn()
+                            .plotOptions(AAPlotOptions()
+                                    .column(AAColumn()
                                             .pointPadding(0f)
-                                            .groupPadding(0.005f)
-                                    )
-                            )
+                                            .groupPadding(0.005f)))
                     } else {
                         AAOptions()
                             .chart(aaChart)
-                            .plotOptions(
-                                AAPlotOptions()
-                                    .column(
-                                        AAColumn()
+                            .plotOptions(AAPlotOptions()
+                                    .column(AAColumn()
                                             .pointPadding(0.1f)
-                                            .groupPadding(0.2f)
-                                    )
-                            )
+                                            .groupPadding(0.2f)))
                     }
                 } else if (this.aaChartModel.chartType == AAChartType.Bar) {
                     options = if (this.aaChartModel.polar == true)  {
                         AAOptions()
                             .chart(aaChart)
-                            .plotOptions(
-                                AAPlotOptions()
-                                    .bar(
-                                        AABar()
+                            .plotOptions(AAPlotOptions()
+                                    .bar(AABar()
                                             .pointPadding(0f)
-                                            .groupPadding(0.005f)
-                                    )
-                            )
+                                            .groupPadding(0.005f)))
                     } else {
                         AAOptions()
                             .chart(aaChart)
-                            .plotOptions(
-                                AAPlotOptions()
-                                    .bar(
-                                        AABar()
+                            .plotOptions(AAPlotOptions()
+                                    .bar(AABar()
                                             .pointPadding(0.1f)
-                                            .groupPadding(0.2f)
-                                    )
-                            )
+                                            .groupPadding(0.2f)))
                     }
                 }
             }
             R.id.dataShowSwitch -> {
                 val aaPlotOptions: AAPlotOptions = AAPlotOptions()
-                    .series(
-                        AASeries()
-                            .dataLabels(
-                                AADataLabels()
-                                    .enabled(isChecked)
-                            )
-                    )
+                    .series(AASeries()
+                            .dataLabels(AADataLabels()
+                                    .enabled(isChecked)))
                 options = aaPlotOptions
             }
             R.id.markerHideSwitch -> {
@@ -184,10 +154,8 @@ class AdvancedUpdatingFeatureActivity : BasicChartActivity() {
                     .enabled(true)
                     .radius(6f)
                 val aaPlotOptions: AAPlotOptions = AAPlotOptions()
-                    .series(
-                        AASeries()
-                            .marker(aaMarker)
-                    )
+                    .series(AASeries()
+                            .marker(aaMarker))
                 options = aaPlotOptions
             }
         }
