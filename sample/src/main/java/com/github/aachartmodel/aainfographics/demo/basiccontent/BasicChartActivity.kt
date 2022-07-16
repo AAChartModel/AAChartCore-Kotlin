@@ -34,13 +34,11 @@ import android.widget.RadioGroup
 import android.widget.Switch
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-
 import com.github.aachartmodel.aainfographics.aachartcreator.*
 import com.github.aachartmodel.aainfographics.aatools.AAGradientColor
 import com.github.aachartmodel.aainfographics.aatools.AALinearGradientDirection
 import com.github.aachartmodel.aainfographics.demo.R
 import com.google.gson.Gson
-import kotlinx.android.synthetic.main.activity_basic_chart.*
 
 class BasicChartActivity : AppCompatActivity(), RadioGroup.OnCheckedChangeListener,
     CompoundButton.OnCheckedChangeListener, AAChartView.AAChartViewCallBack {
@@ -254,20 +252,23 @@ class BasicChartActivity : AppCompatActivity(), RadioGroup.OnCheckedChangeListen
         val markerSymbolTypeRadioGroup: RadioGroup = findViewById(R.id.markerSymbolTypeRadioGroup)
         markerSymbolTypeRadioGroup.setOnCheckedChangeListener(this)
 
-        val boolSwitch1 = findViewById<Switch>(R.id.switch1)
+        val boolSwitch1: Switch = findViewById(R.id.xReversedSwitch)
         boolSwitch1.setOnCheckedChangeListener(this)
 
-        val boolSwitch2 = findViewById<Switch>(R.id.switch2)
+        val boolSwitch2: Switch = findViewById(R.id.yReversedSwitch)
         boolSwitch2.setOnCheckedChangeListener(this)
 
-        val boolSwitch3 = findViewById<Switch>(R.id.switch3)
+        val boolSwitch3: Switch = findViewById(R.id.polarSwitch)
         boolSwitch3.setOnCheckedChangeListener(this)
 
-        val boolSwitch4 = findViewById<Switch>(R.id.switch4)
+        val boolSwitch4: Switch = findViewById(R.id.xInvertedSwitch)
         boolSwitch4.setOnCheckedChangeListener(this)
 
-        val boolSwitch5 = findViewById<Switch>(R.id.switch5)
+        val boolSwitch5: Switch = findViewById(R.id.dataShowSwitch)
         boolSwitch5.setOnCheckedChangeListener(this)
+
+        val boolSwitch6: Switch = findViewById(R.id.markerHideSwitch)
+        boolSwitch6.setOnCheckedChangeListener(this)
     }
 
     /**
@@ -307,11 +308,12 @@ class BasicChartActivity : AppCompatActivity(), RadioGroup.OnCheckedChangeListen
 
     override fun onCheckedChanged(buttonView: CompoundButton, isChecked: Boolean) {
         when (buttonView.id) {
-            R.id.switch1 -> aaChartModel.xAxisReversed(isChecked)
-            R.id.switch2 -> aaChartModel.yAxisReversed(isChecked)
-            R.id.switch3 -> aaChartModel.inverted(isChecked)
-            R.id.switch4 -> aaChartModel.polar(isChecked)
-            R.id.switch5 -> aaChartModel.dataLabelsEnabled(isChecked)
+            R.id.xReversedSwitch -> aaChartModel.xAxisReversed(isChecked)
+            R.id.yReversedSwitch -> aaChartModel.yAxisReversed(isChecked)
+            R.id.xInvertedSwitch -> aaChartModel.inverted(isChecked)
+            R.id.polarSwitch -> aaChartModel.polar(isChecked)
+            R.id.dataShowSwitch -> aaChartModel.dataLabelsEnabled(isChecked)
+            R.id.markerHideSwitch -> aaChartModel.markerRadius(if (isChecked) 0f else 6f)
         }
 
         aaChartView?.aa_refreshChartWithChartModel(aaChartModel)
