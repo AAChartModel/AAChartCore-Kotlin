@@ -250,23 +250,9 @@ class BasicChartActivity : AppCompatActivity(), RadioGroup.OnCheckedChangeListen
         val cornerStyleTypeRadioGroup = findViewById<RadioGroup>(R.id.cornerStyleTypeRadioGroup)
         cornerStyleTypeRadioGroup.setOnCheckedChangeListener(this)
 
-        if (aaChartModel.chartType == AAChartType.Bar
-            || aaChartModel.chartType == AAChartType.Column
-        ) {
-            symbol1.text = "Rect Corner"
-            symbol2.text = "Round Corner"
-            symbol3.text = "Sharp Corner"
-            symbol4.visibility = View.GONE
-            symbol5.visibility = View.GONE
 
-        } else {
-            symbol1.text = "⊙"
-            symbol2.text = "◆"
-            symbol3.text = "■"
-            symbol4.text = "▲"
-            symbol5.text = "▼"
-        }
-
+        val markerSymbolTypeRadioGroup: RadioGroup = findViewById(R.id.markerSymbolTypeRadioGroup)
+        markerSymbolTypeRadioGroup.setOnCheckedChangeListener(this)
 
         val boolSwitch1 = findViewById<Switch>(R.id.switch1)
         boolSwitch1.setOnCheckedChangeListener(this)
@@ -301,17 +287,17 @@ class BasicChartActivity : AppCompatActivity(), RadioGroup.OnCheckedChangeListen
                 || aaChartModel.chartType == AAChartType.Column
             ) {
                 when (group.checkedRadioButtonId) {
-                    R.id.symbol1 -> aaChartModel.borderRadius(0f)
-                    R.id.symbol2 -> aaChartModel.borderRadius(5f)
-                    R.id.symbol3 -> aaChartModel.borderRadius(1000f)
+                    R.id.squareCornersRadio -> aaChartModel.borderRadius(1f)
+                    R.id.roundedCornersRadio -> aaChartModel.borderRadius(10f)
+                    R.id.wedgeCornersRadio -> aaChartModel.borderRadius(1000f)
                 }
             } else {
                 when (group.checkedRadioButtonId) {
-                    R.id.symbol1 -> aaChartModel.markerSymbol(AAChartSymbolType.Circle)
-                    R.id.symbol2 -> aaChartModel.markerSymbol(AAChartSymbolType.Diamond)
-                    R.id.symbol3 -> aaChartModel.markerSymbol(AAChartSymbolType.Square)
-                    R.id.symbol4 -> aaChartModel.markerSymbol(AAChartSymbolType.Triangle)
-                    R.id.symbol5 -> aaChartModel.markerSymbol(AAChartSymbolType.TriangleDown)
+                    R.id.circleSymbolRadio -> aaChartModel.markerSymbol(AAChartSymbolType.Circle)
+                    R.id.squareSymbolRadio -> aaChartModel.markerSymbol(AAChartSymbolType.Square)
+                    R.id.diamondSymbolRadio -> aaChartModel.markerSymbol(AAChartSymbolType.Diamond)
+                    R.id.triangleSymbolRadio -> aaChartModel.markerSymbol(AAChartSymbolType.Triangle)
+                    R.id.triangleDownSymbolRadio -> aaChartModel.markerSymbol(AAChartSymbolType.TriangleDown)
                 }
             }
         }
