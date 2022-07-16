@@ -115,6 +115,8 @@ class CustomStyleChartActivity : AppCompatActivity() {
                 return CustomStyleChartComposer.topRoundedCornersStackingColumnChart()
             "freeStyleRoundedCornersStackingColumnChart" ->
                 return CustomStyleChartComposer.freeStyleRoundedCornersStackingColumnChart()
+            "customColumnChartBorderStyleAndStatesHoverColor" ->
+                return CustomStyleChartComposer.customColumnChartBorderStyleAndStatesHoverColor()
 
         }
         return CustomStyleChartComposer.configureColorfulChart()

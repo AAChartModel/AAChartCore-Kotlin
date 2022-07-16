@@ -1244,5 +1244,38 @@ object CustomStyleChartComposer  {
                 ))
     }
 
+    //https://github.com/AAChartModel/AAChartKit-Swift/issues/365
+    fun customColumnChartBorderStyleAndStatesHoverColor(): AAChartModel {
+        return AAChartModel()
+            .chartType(AAChartType.Column)
+            .stacking(AAChartStackingType.Normal)
+            .colorsTheme(arrayOf(AAColor.DarkGray, AAColor.LightGray)) //Colors theme
+            .categories(arrayOf(
+                    "January", "February", "March", "April", "May", "June",
+                    "July", "August", "September", "October", "November", "December"
+                ))
+            .series(
+                arrayOf(
+                    AASeriesElement()
+                        .name("Berlin Hot")
+                        .borderColor(AAColor.White)
+                        .borderWidth(3f)
+                        .borderRadius(10f)
+                        .states(AAStates()
+                                .hover(AAHover()
+                                        .color(AAColor.Red)))
+                        .data(arrayOf(7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6)),
+                    AASeriesElement()
+                        .name("Beijing Hot")
+                        .borderColor(AAColor.White)
+                        .borderWidth(3f)
+                        .borderRadius(10f)
+                        .states(AAStates()
+                                .hover(AAHover()
+                                        .color("dodgerblue"))) // Dodgerblue／道奇藍／#1e90ff十六进制颜色代码
+                        .data(arrayOf(0.2, 0.8, 5.7, 11.3, 17.0, 22.0, 24.8, 24.1, 20.1, 14.1, 8.6, 2.5))
+                )
+            )
+    }
 
 }
