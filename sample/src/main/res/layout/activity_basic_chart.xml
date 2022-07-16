@@ -21,28 +21,28 @@
                 android:orientation="horizontal">
 
             <RadioButton
-                    android:id="@+id/stacking1"
+                    android:id="@+id/noStackingRadio"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="no\nstacking"
-                    android:textColor="@color/mediumGray" />
+                    android:textColor="@color/lightGray"
+                    android:text="noStacking" />
 
             <RadioButton
-                    android:id="@+id/stacking2"
+                    android:id="@+id/normalStackingRadio"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="normal\nstacking"
-                    android:textColor="@color/mediumGray" />
+                    android:textColor="@color/lightGray"
+                    android:text="normalStacking" />
 
             <RadioButton
-                    android:id="@+id/stacking3"
+                    android:id="@+id/percentStackingRadio"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="percent\nstacking"
-                    android:textColor="@color/mediumGray" />
+                    android:textColor="@color/lightGray"
+                    android:text="percentStacking" />
         </RadioGroup>
 
         <RadioGroup
