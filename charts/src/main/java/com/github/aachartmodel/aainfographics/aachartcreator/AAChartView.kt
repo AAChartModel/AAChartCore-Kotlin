@@ -42,7 +42,6 @@ import android.webkit.*
 import com.github.aachartmodel.aainfographics.aatools.AAJSStringPurer
 import com.google.gson.Gson
 import com.google.gson.internal.LinkedTreeMap
-import java.util.*
 
 
 class AAMoveOverEventMessageModel {
@@ -186,17 +185,26 @@ class AAChartView : WebView {
         options: Any,
         redraw: Boolean
     ) {
-        var classNameStr = options.javaClass.simpleName
-        classNameStr = classNameStr.replace("AA", "")
-        //convert fist character to be lowercase string
-        val firstChar = classNameStr.substring(0, 1)
-        val lowercaseFirstStr = firstChar.toLowerCase()
-        classNameStr = classNameStr.substring(1)
-        val finalClassName = lowercaseFirstStr + classNameStr
-        val finalOptionsMap = HashMap<Any?, Any?>()
-        finalOptionsMap[finalClassName] = options
-        val optionsStr = Gson().toJson(finalOptionsMap)
-        val javaScriptStr = "updateChart('$optionsStr','$redraw')"
+        val isAAOptionsClass = options is AAOptions
+        val finalOptionsMapStr: String
+        if (isAAOptionsClass) {
+            val aaOptionsMapStr = Gson().toJson(options)
+            finalOptionsMapStr = aaOptionsMapStr
+        } else {
+            var classNameStr = options.javaClass.simpleName
+            classNameStr = classNameStr.replace("AA", "")
+
+            //convert fist character to be lowercase string
+            val firstChar = classNameStr.substring(0, 1)
+            val lowercaseFirstStr = firstChar.toLowerCase()
+            classNameStr = classNameStr.substring(1)
+            val finalClassName = lowercaseFirstStr + classNameStr
+            val finalOptionsMap = HashMap<String, Any>()
+            finalOptionsMap[finalClassName] = options
+            val optionsStr = Gson().toJson(finalOptionsMap)
+            finalOptionsMapStr = optionsStr
+        }
+        val javaScriptStr = "updateChart('$finalOptionsMapStr','$redraw')"
         safeEvaluateJavaScriptString(javaScriptStr)
     }
 
