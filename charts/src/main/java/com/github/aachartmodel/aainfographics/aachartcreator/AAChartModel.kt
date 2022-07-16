@@ -72,25 +72,25 @@ enum class AAChartAnimationType(val value: String) {
 }
 
 enum class AAChartType(val value: String) {
-    Column("column"),
-    Bar("bar"),
-    Area("area"),
-    Areaspline("areaspline"),
-    Line("line"),
-    Spline("spline"),
-    Scatter("scatter"),
-    Pie("pie"),
-    Bubble("bubble"),
-    Pyramid("pyramid"),
-    Funnel("funnel"),
-    Columnrange("columnrange"),
-    Arearange("arearange"),
-    Areasplinerange("areasplinerange"),
-    Boxplot("boxplot"),
-    Waterfall("waterfall"),
-    Polygon("polygon"),
-    Gauge("gauge"),
-    Errorbar("errorbar"),
+    Column("column"), //Column series display one column per value along an X axis.
+    Bar("bar"), //A bar series is a special type of column series where the columns are horizontal.
+    Area("area"), //The area series type.
+    Areaspline("areaspline"), //The area spline series is an area series where the graph between the points is smoothed into a spline.
+    Line("line"), //A line series displays information as a series of data points connected by straight line segments.
+    Spline("spline"), //A spline series is a special type of line series, where the segments between the data points are smoothed.
+    Scatter("scatter"), //A scatter plot uses cartesian coordinates to display values for two variables for a set of data.
+    Pie("pie"), //A pie chart is a circular graphic which is divided into slices to illustrate numerical proportion.
+    Bubble("bubble"), //A bubble series is a three dimensional series type where each point renders an X, Y and Z value. Each points is drawn as a bubble where the position along the X and Y axes mark the X and Y values, and the size of the bubble relates to the Z value.
+    Pyramid("pyramid"), //A pyramid series is a special type of funnel, without neck and reversed by default.
+    Funnel("funnel"), //Funnel charts are a type of chart often used to visualize stages in a sales project, where the top are the initial stages with the most clients. It requires that the modules/funnel.js file is loaded.
+    Columnrange("columnrange"), //The column range is a cartesian series type with higher and lower Y values along an X axis. To display horizontal bars, set chart.inverted to true.
+    Arearange("arearange"), //The area range series is a carteseian series with higher and lower values for each point along an X axis, where the area between the values is shaded.
+    Areasplinerange("areasplinerange"), //The area spline range is a cartesian series type with higher and lower Y values along an X axis. The area inside the range is colored, and the graph outlining the area is a smoothed spline.
+    Boxplot("boxplot"), //A box plot is a convenient way of depicting groups of data through their five-number summaries: the smallest observation (sample minimum), lower quartile (Q1), median (Q2), upper quartile (Q3), and largest observation (sample maximum).
+    Waterfall("waterfall"), //A waterfall chart displays sequentially introduced positive or negative values in cumulative columns.
+    Polygon("polygon"), //A polygon series can be used to draw any freeform shape in the cartesian coordinate system. A fill is applied with the color option, and stroke is applied through lineWidth and lineColor options.
+    Gauge("gauge"), //Gauges are circular plots displaying one or more values with a dial pointing to values along the perimeter.
+    Errorbar("errorbar"), //Error bars are a graphical representation of the variability of data and are used on graphs to indicate the error, or uncertainty in a reported measurement.
 }
 
 enum class AAChartZoomType(val value: String) {
@@ -107,11 +107,11 @@ enum class AAChartStackingType(val value: String) {
 }
 
 enum class AAChartSymbolType(val value: String) {
-    Circle("circle"),
-    Square("square"),
-    Diamond("diamond"),
-    Triangle("triangle"),
-    TriangleDown("triangle-down"),
+    Circle("circle"),              //◉ ◉ ◉
+    Square("square"),              //■ ■ ■
+    Diamond("diamond"),            //◆ ◆ ◆
+    Triangle("triangle"),          //▲ ▲ ▲
+    TriangleDown("triangle-down"), //▼ ▼ ▼
 }
 
 enum class AAChartSymbolStyleType(val value: String) {
@@ -138,17 +138,17 @@ enum class AAChartVerticalAlignType(val value: String) {
 }
 
 enum class AAChartLineDashStyleType(val value: String) {
-    Solid("Solid"),
-    ShortDash("ShortDash"),
-    ShortDot("ShortDot"),
-    ShortDashDot("ShortDashDot"),
-    ShortDashDotDot("ShortDashDotDot"),
-    Dot("Dot"),
-    Dash("Dash"),
-    LongDash("LongDash"),
-    DashDot("DashDot"),
-    LongDashDot("LongDashDot"),
-    LongDashDotDot("LongDashDotDot"),
+    Solid("Solid"),                      //———————————————————————————————————
+    ShortDash("ShortDash"),              //— — — — — — — — — — — — — — — — — —
+    ShortDot("ShortDot"),                //ⵈⵈⵈⵈⵈⵈⵈⵈⵈⵈⵈⵈⵈⵈⵈⵈⵈⵈⵈⵈⵈⵈⵈⵈⵈⵈⵈⵈ
+    ShortDashDot("ShortDashDot"),        //—‧—‧—‧—‧—‧—‧—‧—‧—‧—‧—‧—‧—‧—‧—‧—‧—‧—‧
+    ShortDashDotDot("ShortDashDotDot"),  //—‧‧—‧‧—‧‧—‧‧—‧‧—‧‧—‧‧—‧‧—‧‧—‧‧—‧‧—‧‧
+    Dot("Dot"),                          //‧‧‧‧‧‧‧‧‧‧‧‧‧‧‧‧‧‧‧‧‧‧‧‧‧‧‧‧‧‧‧‧‧‧‧
+    Dash("Dash"),                        //—— —— —— —— —— —— —— —— —— —— —— ——
+    LongDash("LongDash"),                //——— ——— ——— ——— ——— ——— ——— ——— ———
+    DashDot("DashDot"),                  //——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧
+    LongDashDot("LongDashDot"),          //———‧———‧———‧———‧———‧———‧———‧———‧———‧
+    LongDashDotDot("LongDashDotDot"),    //———‧‧———‧‧———‧‧———‧‧———‧‧———‧‧———‧‧
 }
 
 enum class AAChartFontWeightType(val value: String) {
