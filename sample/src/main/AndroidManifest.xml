@@ -30,6 +30,7 @@
         <activity android:name=".additionalcontent.OnlyRefreshChartDataActivity" />
         <activity android:name=".additionalcontent.DoubleChartsLinkedWorkActivity" />
         <activity android:name=".additionalcontent.ScrollableChartActivity" />
+        <activity android:name=".additionalcontent.AdvancedUpdatingFeatureActivity" />
     </application>
 
 </manifest>
