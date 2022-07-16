@@ -140,6 +140,15 @@ class MainActivity : AppCompatActivity() {
                 "Step Line Chart--- 直方折线图",
                 "Line Chart---折线图",
                 "Spline Chart---曲线图"
+            ), arrayOf(
+                "Column Chart---柱形图",
+                "Bar Chart---条形图",
+                "Area Chart---折线填充图",
+                "Areaspline Chart---曲线填充图",
+                "Step Area Chart--- 直方折线填充图",
+                "Step Line Chart--- 直方折线图",
+                "Line Chart---折线图",
+                "Spline Chart---曲线图"
             )
         )
     private val chartTypeArr =
@@ -177,7 +186,8 @@ class MainActivity : AppCompatActivity() {
                 "negativeColorMixedBubble",
                 "polygonMixedScatter",
                 "polarChartMixed"
-            ), arrayOf( /*自定义样式图表*/
+            ), arrayOf(
+                /*自定义样式图表*/
                 "colorfulChart",
                 "gradientColorfulChart",
                 "discontinuousDataChart",
@@ -273,7 +283,16 @@ class MainActivity : AppCompatActivity() {
                 AAChartType.Line.value,
                 AAChartType.Line.value,
                 AAChartType.Spline.value
-            )
+            ), arrayOf( /*高级更新*/
+                AAChartType.Column.value,
+                AAChartType.Bar.value,
+                AAChartType.Area.value,
+                AAChartType.Areaspline.value,
+                AAChartType.Area.value,
+                AAChartType.Line.value,
+                AAChartType.Line.value,
+                AAChartType.Spline.value
+            ),
         )
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -293,8 +312,9 @@ class MainActivity : AppCompatActivity() {
             "JS Function For AAOptionns ---通过带有 JS 函数的 Options 绘图",
             "Evaluate JS String Function---执行js函数",
             "Double Charts Linked Work---双表联动",
-            "Scrollable chart ---可滚动の图表"
-        )
+            "Scrollable chart ---可滚动の图表",
+            "Chart Options Advanced Updating---图表高级更新",
+            )
         val listView = findViewById<ExpandableListView>(R.id.exlist_lol)
         val myAdapter =
             MyBaseExpandableListAdapter(groupTitleArr, chartTypeNameArr, this)
@@ -314,6 +334,7 @@ class MainActivity : AppCompatActivity() {
                 7 -> goToEvaluateJSStringFunctionActivity(chartType)
                 8 -> goToDoubleChartsLinkedWorkActivity(chartType)
                 9 -> gotoScrollableChartActivity(chartType, childPosition)
+                10 -> goToAdvancedUpdatingFeatureActivity(chartType,childPosition);
             }
             Toast.makeText(
                 this@MainActivity,
@@ -410,6 +431,16 @@ class MainActivity : AppCompatActivity() {
     private fun gotoScrollableChartActivity(chartType: String?, position: Int) {
         val intent =
             Intent(this, ScrollableChartActivity::class.java)
+        intent.putExtra(kChartTypeKey, chartType)
+        intent.putExtra("position", position)
+        startActivity(intent)
+    }
+
+    fun goToAdvancedUpdatingFeatureActivity(chartType: String?, position: Int) {
+        val intent = Intent(
+            this,
+            AdvancedUpdatingFeatureActivity::class.java
+        )
         intent.putExtra(kChartTypeKey, chartType)
         intent.putExtra("position", position)
         startActivity(intent)
