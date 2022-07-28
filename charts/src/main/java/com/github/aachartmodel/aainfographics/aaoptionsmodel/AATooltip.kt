@@ -39,7 +39,7 @@ import com.github.aachartmodel.aainfographics.aatools.AAJSStringPurer
 
 
 class AATooltip {
-    var backgroundColor: String? = null
+    var backgroundColor: Any? = null
     var borderColor: String? = null
     var borderRadius: Float? = null
     var borderWidth: Float? = null
@@ -60,7 +60,7 @@ class AATooltip {
     var positioner: String? = null
     var dateTimeLabelFormats: AADateTimeLabelFormats? = null
 
-    fun backgroundColor(prop: String): AATooltip {
+    fun backgroundColor(prop: Any): AATooltip {
         backgroundColor = prop
         return this
     }

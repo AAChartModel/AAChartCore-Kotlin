@@ -79,6 +79,11 @@ object ChartOptionsComposer {
         //https://github.com/AAChartModel/AAChartCore-Kotlin/issues/61
         aaOptions.chart?.animation = false //turn off animation
 
+        aaOptions.tooltip?.apply {
+             backgroundColor(AAGradientColor.Firebrick)
+            .style(AAStyle.style(AAColor.White))
+        }
+
         aaOptions.yAxis?.labels?.format = "{value} %"//给y轴添加单位
 
         aaOptions.xAxis?.apply {
