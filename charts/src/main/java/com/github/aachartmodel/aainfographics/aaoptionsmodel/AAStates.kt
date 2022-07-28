@@ -28,6 +28,8 @@ class AAHover {
     var brightness: Float? = null
     var color: String? = null
     var halo: AAHalo? = null
+    var lineWidth: Number? = null
+    var lineWidthPlus: Number? = null
     fun borderColor(prop: String?): AAHover {
         borderColor = prop
         return this
@@ -45,6 +47,16 @@ class AAHover {
 
     fun halo(prop: AAHalo?): AAHover {
         halo = prop
+        return this
+    }
+
+    fun lineWidth(prop: Number?): AAHover {
+        lineWidth = prop
+        return this
+    }
+
+    fun lineWidthPlus(prop: Number?): AAHover {
+        lineWidthPlus = prop
         return this
     }
 }
