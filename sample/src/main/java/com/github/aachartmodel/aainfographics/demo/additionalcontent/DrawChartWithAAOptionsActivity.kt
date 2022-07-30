@@ -49,6 +49,7 @@ import com.github.aachartmodel.aainfographics.demo.chartcomposer.ChartOptionsCom
 import com.github.aachartmodel.aainfographics.demo.chartcomposer.ChartOptionsComposer.customChartLegendStyle
 import com.github.aachartmodel.aainfographics.demo.chartcomposer.ChartOptionsComposer.customLineChartDataLabelsFormat
 import com.github.aachartmodel.aainfographics.demo.chartcomposer.ChartOptionsComposer.customXAxisCrosshairStyle
+import com.github.aachartmodel.aainfographics.demo.chartcomposer.ChartOptionsComposer.doubleLayerHalfPieChart
 import com.github.aachartmodel.aainfographics.demo.chartcomposer.ChartOptionsComposer.gaugeChartWithPlotBand
 import com.github.aachartmodel.aainfographics.demo.chartcomposer.ChartOptionsComposer.simpleGaugeChart
 
@@ -88,6 +89,7 @@ class DrawChartWithAAOptionsActivity : AppCompatActivity() {
             "customAreaChartTooltipStyleLikeHTMLTable" -> return customAreaChartTooltipStyleLikeHTMLTable()
             "simpleGaugeChart" -> return simpleGaugeChart()
             "gaugeChartWithPlotBand" -> return gaugeChartWithPlotBand()
+            "doubleLayerHalfPieChart" -> return doubleLayerHalfPieChart()
         }
         return configureAAPlotBandsForChart()
     }

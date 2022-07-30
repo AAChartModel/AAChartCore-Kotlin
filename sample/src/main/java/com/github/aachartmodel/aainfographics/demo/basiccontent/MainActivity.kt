@@ -108,7 +108,8 @@ class MainActivity : AppCompatActivity() {
                 "configureDoubleYAxesMarketDepthChart",
                 "customAreaChartTooltipStyleLikeHTMLTable",
                 "simpleGaugeChart",
-                "gaugeChartWithPlotBand"
+                "gaugeChartWithPlotBand",
+                "doubleLayerHalfPieChart",
             ), arrayOf(
                 "Column Chart---柱形图",
                 "Bar Chart---条形图",
@@ -258,7 +259,8 @@ class MainActivity : AppCompatActivity() {
                 "configureDoubleYAxesMarketDepthChart",
                 "customAreaChartTooltipStyleLikeHTMLTable",
                 "simpleGaugeChart",
-                "gaugeChartWithPlotBand"
+                "gaugeChartWithPlotBand",
+                "doubleLayerHalfPieChart"
             ), arrayOf( /*即时刷新📈📊图表数据*/
                 AAChartType.Column.value,
                 AAChartType.Bar.value,
