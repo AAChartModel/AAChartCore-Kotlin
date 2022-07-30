@@ -65,10 +65,10 @@ object ChartOptionsComposer {
             .title("CUSTOM LEGEND STYLE")
             .subtitle("LEGEND ON THE TOP_RIGHT SIDE WITH VERTICAL STYLE")
             .subtitleAlign(AAChartAlignType.Left)
-            .markerRadius(0f)
+            .markerRadius(0)
             .backgroundColor(AAColor.White)
             .dataLabelsEnabled(false)
-            .yAxisGridLineWidth(0f)
+            .yAxisGridLineWidth(0)
             .yAxisTitle("percent values")
             .stacking(AAChartStackingType.Normal)
             .colorsTheme(arrayOf("mediumspringgreen", "deepskyblue", "red", "sandybrown"))
@@ -88,17 +88,17 @@ object ChartOptionsComposer {
 
         aaOptions.xAxis?.apply {
              gridLineColor(AAColor.DarkGray)
-            .gridLineWidth(1f)
+            .gridLineWidth(1)
             .minorGridLineColor(AAColor.LightGray)
-            .minorGridLineWidth(0.5f)
+            .minorGridLineWidth(0.5)
             .minorTickInterval("auto")
         }
 
         aaOptions.yAxis?.apply {
              gridLineColor(AAColor.DarkGray)
-            .gridLineWidth(1f)
+            .gridLineWidth(1)
             .minorGridLineColor(AAColor.LightGray)
-            .minorGridLineWidth(0.5f)
+            .minorGridLineWidth(0.5)
             .minorTickInterval("auto")
         }
 
@@ -121,40 +121,40 @@ object ChartOptionsComposer {
         val aaChartModel = AAChartModel()
             .chartType(AAChartType.Spline)//图形类型
             .dataLabelsEnabled(false)
-            .markerRadius(0f)
+            .markerRadius(0)
             .series(arrayOf(
                 AASeriesElement()
                     .name("Tokyo")
                     .data(arrayOf(7.0, 6.9, 2.5, 14.5, 18.2, 21.5, 5.2, 26.5, 23.3, 45.3, 13.9, 9.6))
                     .color(AAColor.White)
-                    .lineWidth(10.0f)
+                    .lineWidth(10.0)
             ))
 
         val aaOptions = aaChartModel.aa_toAAOptions()
         val aaPlotBandsElementArr = arrayOf(
             AAPlotBandsElement()
-                .from(0f)
-                .to(5f)
+                .from(0)
+                .to(5)
                 .color("#BC2B44"),
             AAPlotBandsElement()
-                .from(5f)
-                .to(10f)
+                .from(5)
+                .to(10)
                 .color("#EC6444"),
             AAPlotBandsElement()
-                .from(10f)
-                .to(15f)
+                .from(10)
+                .to(15)
                 .color("#f19742"),
             AAPlotBandsElement()
-                .from(15f)
-                .to(20f)
+                .from(15)
+                .to(20)
                 .color("#f3da60"),
             AAPlotBandsElement()
-                .from(20f)
-                .to(25f)
+                .from(20)
+                .to(25)
                 .color("#9bd040"),
             AAPlotBandsElement()
-                .from(25f)
-                .to(50f)
+                .from(25)
+                .to(50)
                 .color("#acf08f")
         )
 
@@ -211,8 +211,8 @@ object ChartOptionsComposer {
             AAPlotLinesElement()
                 .color("#1e90ff")//颜色值(16进制)
                 .dashStyle(AAChartLineDashStyleType.LongDashDotDot)//样式：Dash,Dot,Solid等,默认Solid
-                .width(1f) //标示线粗细
-                .value(12f) //所在位置
+                .width(1) //标示线粗细
+                .value(12) //所在位置
                 .zIndex(1) //层叠,标示线在图表中显示的层叠级别，值越大，显示越向前
                 .label(AALabel()
                     .useHTML(true)
@@ -221,8 +221,8 @@ object ChartOptionsComposer {
             AAPlotLinesElement()
                 .color("#ef476f")//颜色值(16进制)
                 .dashStyle(AAChartLineDashStyleType.LongDashDot)//样式：Dash,Dot,Solid等,默认Solid
-                .width(1f) //标示线粗细
-                .value(24f) //所在位置
+                .width(1) //标示线粗细
+                .value(24) //所在位置
                 .zIndex(1) //层叠,标示线在图表中显示的层叠级别，值越大，显示越向前
                 .label(AALabel()
                     .useHTML(true)
@@ -231,8 +231,8 @@ object ChartOptionsComposer {
             AAPlotLinesElement()
                 .color("#1e90ff")//颜色值(16进制)
                 .dashStyle(AAChartLineDashStyleType.LongDash)//样式：Dash,Dot,Solid等,默认Solid
-                .width(1f) //标示线粗细
-                .value(36f) //所在位置
+                .width(1) //标示线粗细
+                .value(36) //所在位置
                 .zIndex(1) //层叠,标示线在图表中显示的层叠级别，值越大，显示越向前
                 .label(AALabel()
                     .useHTML(true)
@@ -264,7 +264,7 @@ object ChartOptionsComposer {
             .series(arrayOf(
                 AASeriesElement()
                     .name("2020")
-                    .lineWidth(3f)
+                    .lineWidth(3)
                     .color("#FFD700"/*纯金色*/)
                     .fillOpacity(0.5f)
                     .data(arrayOf(
@@ -294,7 +294,7 @@ function () {
             .borderColor("#000000")
             .style(AAStyle()
                 .color("#FFD700")
-                .fontSize(12f))
+                .fontSize(12))
         val aaOptions = aaChartModel.aa_toAAOptions()
         aaOptions.tooltip = aaTooltip
         return aaOptions
@@ -344,7 +344,7 @@ function () {
         val aaOptions = aaChartModel.aa_toAAOptions()
         val aaCrosshair = AACrosshair()
             .color(AAColor.Red)
-            .width(1f)
+            .width(1)
             .dashStyle(AAChartLineDashStyleType.LongDashDotDot)
         aaOptions.xAxis?.crosshair(aaCrosshair)
         return aaOptions
@@ -371,7 +371,7 @@ function () {
             .stacking(AAChartStackingType.Normal)
             .categories(categories)
             .dataLabelsEnabled(false)
-            .markerRadius(0f)
+            .markerRadius(0)
             .series(arrayOf(
                 AASeriesElement()
                     .name("Berlin Hot")
@@ -405,7 +405,7 @@ function () {
             .stacking(AAChartStackingType.Normal)
             .categories(categories)
             .dataLabelsEnabled(false)
-            .markerRadius(0f)
+            .markerRadius(0)
             .series(arrayOf(
                 AASeriesElement()
                     .name("Berlin Hot")
@@ -439,12 +439,12 @@ function () {
             .yAxisVisible(true)
             .categories(arrayOf("一月", "二月", "三月", "四月", "五月", "六月",
                 "七月", "八月", "九月", "十月", "十一月", "十二月"))
-            .markerRadius(0f)
+            .markerRadius(0)
             .series(arrayOf(
                 AASeriesElement()
                     .name("Berlin Hot")
                     .color(AAColor.White)
-                    .lineWidth(7f)
+                    .lineWidth(7)
                     .fillColor(fillColorGradientColor)
                     .data(arrayOf(7.0, 6.9, 2.5, 14.5, 18.2, 21.5, 5.2, 26.5, 23.3, 45.3, 13.9, 9.6))
             ))
@@ -454,34 +454,34 @@ function () {
                 .enabled(true)
                 .style(AAStyle()
                     .color(AAColor.Black)
-                    .fontSize(14f)
+                    .fontSize(14)
                     .fontWeight(AAChartFontWeightType.Thin)))
 
         val aaCrosshair = AACrosshair()
             .dashStyle(AAChartLineDashStyleType.LongDashDot)
             .color(AAColor.White)
-            .width(1f)
+            .width(1)
 
         val aaLabels = AALabels()
             .useHTML(true)
             .style(AAStyle()
-                .fontSize(10f)
+                .fontSize(10)
                 .fontWeight(AAChartFontWeightType.Bold)
                 .color(AAColor.White))//轴文字颜色
 
         aaOptions.yAxis?.apply {
              opposite(true)
-            .tickWidth(2f)
-            .lineWidth(1.5f)//Y轴轴线颜色
+            .tickWidth(2)
+            .lineWidth(1.5)//Y轴轴线颜色
             .lineColor(AAColor.White)//Y轴轴线颜色
-            .gridLineWidth(0f)//Y轴网格线宽度
+            .gridLineWidth(0)//Y轴网格线宽度
             .crosshair(aaCrosshair)
             .labels(aaLabels)
         }
 
         aaOptions.xAxis?.apply {
-             tickWidth(2f)//X轴刻度线宽度
-            .lineWidth(1.5f)//X轴轴线宽度
+             tickWidth(2)//X轴刻度线宽度
+            .lineWidth(1.5)//X轴轴线宽度
             .lineColor(AAColor.White)//X轴轴线颜色
             .crosshair(aaCrosshair)
             .labels(aaLabels)
@@ -501,7 +501,7 @@ function () {
             itemStyle(
             AAItemStyle()
                 .color(AAColor.White)//字体颜色
-                .fontSize(13f)//字体大小
+                .fontSize(13)//字体大小
                 .fontWeight("thin")//字体为细体字
         )}
 
@@ -512,13 +512,13 @@ function () {
             .chartType(AAChartType.Areaspline)
             .categories(arrayOf("一月", "二月", "三月", "四月", "五月", "六月",
                 "七月", "八月", "九月", "十月", "十一月", "十二月"))
-            .yAxisGridLineWidth(0f)
-            .markerRadius(8f)
+            .yAxisGridLineWidth(0)
+            .markerRadius(8)
             .markerSymbolStyle(AAChartSymbolStyleType.InnerBlank)
             .series(arrayOf(
                 AASeriesElement()
                     .name("New York Hot")
-                    .lineWidth(5.0f)
+                    .lineWidth(5.0)
                     .color("rgba(220,20,60,1)")////猩红色, alpha 透明度 1
                     .data(arrayOf(7.0, 6.9, 2.5, 14.5, 18.2, 21.5, 5.2, 26.5, 23.3, 45.3, 13.9, 9.6)),
                 AASeriesElement()
@@ -532,18 +532,18 @@ function () {
         val aaOptions = aaChartModel.aa_toAAOptions()
         val aaPlotBandsElementArr = arrayOf(
             AAPlotBandsElement()
-                .from(-0.25f)//值域颜色带X轴起始值
-                .to(4.75f)//值域颜色带X轴结束值
+                .from(-0.25)//值域颜色带X轴起始值
+                .to(4.75)//值域颜色带X轴结束值
                 .color("#06caf4")//值域颜色带填充色
             ,
             AAPlotBandsElement()
-                .from(4.75f)
-                .to(8.25f)
+                .from(4.75)
+                .to(8.25)
                 .color("#ffd066")
             ,
             AAPlotBandsElement()
-                .from(8.25f)
-                .to(11.25f)
+                .from(8.25)
+                .to(11.25)
                 .color("#04d69f")
         )
 
@@ -572,10 +572,10 @@ function () {
                 .enabled(true)//设置 y 轴是否显示数字
                 .style(AAStyle()
                     .color("#ff0000")//yAxis Label font color
-                    .fontSize(15f)//yAxis Label font size
+                    .fontSize(15)//yAxis Label font size
                     .fontWeight(AAChartFontWeightType.Bold)//yAxis Label font weight
                 ))
-            .gridLineWidth(0f)// Y 轴网格线宽度
+            .gridLineWidth(0)// Y 轴网格线宽度
             .title(AATitle()
                 .text("收入"))//Y 轴标题
 
@@ -592,7 +592,7 @@ function () {
                 .text("正负镜像柱形图")
                 .style(AAStyle()
                     .color(AAColor.White)
-                    .fontSize(18f)))
+                    .fontSize(18)))
             .xAxis(AAXAxis()
                 .categories(arrayOf("一月", "二月", "三月", "四月", "五月", "六月",
                     "七月", "八月", "九月", "十月", "十一月", "十二月")))
@@ -604,8 +604,8 @@ function () {
                         .easing(AAChartAnimationType.EaseInCirc)))
                 .column(AAColumn()
                     .grouping(false)
-                    .borderWidth(0f)
-                    .borderRadius(5f)))
+                    .borderWidth(0)
+                    .borderRadius(5)))
             .series(arrayOf(
                 AASeriesElement()
                     .name("收入")
@@ -625,13 +625,13 @@ function () {
 
         val aaXAxis = AAXAxis()
             .visible(true)
-            .min(0f)
+            .min(0)
             .categories(arrayOf("Java", "Swift", "Python", "Ruby", "PHP", "Go","C",
                 "C#", "C++", "Perl", "R", "MATLAB", "SQL"))
 
         val aaYAxisTitleStyle = AAStyle()
             .color("#1e90ff")//Title font color
-            .fontSize(14f)//Title font size
+            .fontSize(14)//Title font size
             .fontWeight(AAChartFontWeightType.Bold)//Title font weight
             .textOutline("0px 0px contrast")
 
@@ -639,7 +639,7 @@ function () {
             .enabled(true)//设置 y 轴是否显示数字
             .style(AAStyle()
                 .color("#ff0000")//yAxis Label font color
-                .fontSize(15f)//yAxis Label font size
+                .fontSize(15)//yAxis Label font size
                 .fontWeight(AAChartFontWeightType.Bold))//yAxis Label font weight
 
 
@@ -676,10 +676,10 @@ function () {
         )
 
         val aaMarker = AAMarker()
-            .radius(7f)//曲线连接点半径，默认是4
+            .radius(7)//曲线连接点半径，默认是4
             .symbol(AAChartSymbolType.Circle.value)//曲线点类型："circle", "square", "diamond", "triangle","triangle-down"，默认是"circle"
             .fillColor("#ffffff")//点的填充色(用来设置折线连接点的填充色)
-            .lineWidth(3f)//外沿线的宽度(用来设置折线连接点的轮廓描边的宽度)
+            .lineWidth(3)//外沿线的宽度(用来设置折线连接点的轮廓描边的宽度)
             .lineColor("")//外沿线的颜色(用来设置折线连接点的轮廓描边颜色，当值为空字符串时，默认取数据点或数据列的颜色)
 
         val element1 = AASeriesElement()
@@ -718,13 +718,13 @@ function () {
 
         val aaXAxis = AAXAxis()
             .visible(true)
-            .min(0f)
+            .min(0)
             .categories(arrayOf("一月", "二月", "三月", "四月", "五月", "六月",
                 "七月", "八月", "九月", "十月", "十一月", "十二月"))
 
         val yAxis1 = AAYAxis()
             .visible(true)
-            .gridLineWidth(0f)
+            .gridLineWidth(0)
             .labels(AALabels()
                 .enabled(true)//设置 y 轴是否显示数字
                 .format("{value}°C")
@@ -738,7 +738,7 @@ function () {
 
         val yAxis2 = AAYAxis()
             .visible(true)
-            .gridLineWidth(0f)
+            .gridLineWidth(0)
             .labels(AALabels()
                 .enabled(true)//设置 y 轴是否显示数字
                 .format("{value}°mm")
@@ -751,7 +751,7 @@ function () {
 
         val yAxis3 = AAYAxis()
             .visible(true)
-            .gridLineWidth(0f)
+            .gridLineWidth(0)
             .labels(AALabels()
                 .enabled(true)//设置 y 轴是否显示数字
                 .format("{value}°mb")
@@ -773,9 +773,9 @@ function () {
             .floating(true)
             .layout(AAChartLayoutType.Vertical)
             .align(AAChartAlignType.Left)
-            .x(80f)
+            .x(80)
             .verticalAlign(AAChartVerticalAlignType.Top)
-            .y(55f)
+            .y(55)
 
         val element1 = AASeriesElement()
             .name("降雨量")
@@ -822,7 +822,7 @@ function () {
             .title("最近三十分钟数据展示")
             .titleStyle(AAStyle()
                 .color("#0F0F0F")
-                .fontSize(20f))
+                .fontSize(20))
             //坐标轴字体颜色
             .axesTextColor("#0F0F0F")
             //背景颜色
@@ -839,9 +839,9 @@ function () {
             //y轴标题
             .yAxisTitle("湿度%")
             //y轴最大值
-            .yAxisMax(100.0f)
+            .yAxisMax(100.0)
             //y轴最小值
-            .yAxisMin(0.0f)
+            .yAxisMin(0.0)
             .yAxisAllowDecimals(true) //y轴数据
             .series(arrayOf(
                 AASeriesElement()
@@ -907,24 +907,24 @@ function () {
         val aaXAxis = AAXAxis()
             .visible(true)
             .labels(aaLabels)
-            .min(0f)
+            .min(0)
             .categories(category)
         val aaYAxisTitleStyle = AAStyle()
             .color("#1e90ff") //Title font color
-            .fontSize(14f) //Title font size
+            .fontSize(14) //Title font size
             .fontWeight(AAChartFontWeightType.Bold) //Title font weight
             .textOutline("0px 0px contrast")
         val yAxis1 = AAYAxis()
             .visible(true)
             .labels(aaLabels)
-            .gridLineWidth(0f)
+            .gridLineWidth(0)
             .title(AATitle()
                 .text("已贯通 / 计划贯通")
                 .style(aaYAxisTitleStyle))
         val yAxis2 = AAYAxis()
             .visible(true)
             .labels(aaLabels)
-            .gridLineWidth(0f)
+            .gridLineWidth(0)
             .title(AATitle()
                 .text("贯通率")
                 .style(aaYAxisTitleStyle))
@@ -948,20 +948,20 @@ function () {
             .floating(true)
             .layout(AAChartLayoutType.Horizontal)
             .align(AAChartAlignType.Left)
-            .x(30f)
+            .x(30)
             .verticalAlign(AAChartVerticalAlignType.Top)
-            .y(10f)
+            .y(10)
         val goalValuesElement: AASeriesElement = AASeriesElement()
             .name("计划贯通")
             .type(AAChartType.Column)
-            .borderWidth(0f)
+            .borderWidth(0)
             .color(gradientColorDic1)
             .yAxis(0)
             .data(goalValuesArr as Array<Any>)
         val realValuesElement: AASeriesElement = AASeriesElement()
             .name("已贯通")
             .type(AAChartType.Column)
-            .borderWidth(0f)
+            .borderWidth(0)
             .color(gradientColorDic2)
             .yAxis(0)
             .data(realValuesArr as Array<Any>)
@@ -969,10 +969,10 @@ function () {
             .name("贯通率")
             .type(AAChartType.Line)
             .marker(AAMarker()
-                .radius(7f) //曲线连接点半径，默认是4
+                .radius(7) //曲线连接点半径，默认是4
                 .symbol(AAChartSymbolType.Circle.value) //曲线点类型："circle", "square", "diamond", "triangle","triangle-down"，默认是"circle"
                 .fillColor("#ffffff") //点的填充色(用来设置折线连接点的填充色)
-                .lineWidth(3f) //外沿线的宽度(用来设置折线连接点的轮廓描边的宽度)
+                .lineWidth(3) //外沿线的宽度(用来设置折线连接点的轮廓描边的宽度)
                 .lineColor("") //外沿线的颜色(用来设置折线连接点的轮廓描边颜色，当值为空字符串时，默认取数据点或数据列的颜色)
             )
             .color("#F02FC2")
@@ -1005,8 +1005,8 @@ function () {
             .plotLines(arrayOf(
                 AAPlotLinesElement()
                     .color(AAColor.Red)
-                    .value(0.1523f)
-                    .width(1.5f)
+                    .value(0.1523)
+                    .width(1.5)
                     .dashStyle(AAChartLineDashStyleType.LongDashDotDot)
                     .label(AALabel()
                         .text("实际价格")
@@ -1014,31 +1014,31 @@ function () {
                     )))
         val yAxis1 = AAYAxis()
             .visible(true)
-            .lineWidth(1f)
+            .lineWidth(1)
             .title(AATitle()
                 .text(""))
-            .tickWidth(1f)
-            .tickLength(5f)
+            .tickWidth(1)
+            .tickLength(5)
             .tickPosition("inside")
-            .gridLineWidth(1f)
+            .gridLineWidth(1)
             .labels(AALabels()
                 .enabled(true) //设置 y 轴是否显示数字
                 .align(AAChartAlignType.Left)
-                .x(8f))
+                .x(8))
         val yAxis2 = AAYAxis()
             .opposite(true)
             .visible(true)
-            .lineWidth(1f)
+            .lineWidth(1)
             .title(AATitle()
                 .text(""))
-            .tickWidth(1f)
-            .tickLength(5f)
+            .tickWidth(1)
+            .tickLength(5)
             .tickPosition("inside")
-            .gridLineWidth(0f)
+            .gridLineWidth(0)
             .labels(AALabels()
                 .enabled(true) //设置 y 轴是否显示数字
                 .align(AAChartAlignType.Right)
-                .x(-8f))
+                .x(-8))
         val aaTooltip = AATooltip()
             .enabled(true)
             .headerFormat("<span style=\\\"font-size=10px;\\\">Price: {point.key}</span><br/>")
@@ -1131,7 +1131,7 @@ function () {
             .colorsTheme(arrayOf("#04d69f", "#1e90ff", "#ef476f", "#ffd066"))
             .stacking(AAChartStackingType.Normal)
             .yAxisVisible(false)
-            .markerRadius(0f)
+            .markerRadius(0)
             .series(arrayOf(element1, element2, element3, element4))
 
         val aaOptions = aaChartModel.aa_toAAOptions()
@@ -1155,15 +1155,15 @@ function () {
             .chart(AAChart()
                 .type(AAChartType.Gauge))
             .pane(AAPane()
-                .startAngle(-150f)
-                .endAngle(150f))
+                .startAngle(-150)
+                .endAngle(150))
             .yAxis(AAYAxis()
-                .min(0f)
-                .max(100f)
+                .min(0)
+                .max(100)
                 .plotBands(arrayOf(
                     AAPlotBandsElement()
-                        .from(0f)
-                        .to(60f)
+                        .from(0)
+                        .to(60)
                         .color("#FF0000"))))
             .series(arrayOf(
                 AASeriesElement()
@@ -1178,25 +1178,25 @@ function () {
             .title(AATitle()
                 .text("速度仪"))
             .pane(AAPane()
-                .startAngle(-150f)
-                .endAngle(150f))
+                .startAngle(-150)
+                .endAngle(150))
             .yAxis(AAYAxis()
-                .min(0f)
-                .max(200f)
+                .min(0)
+                .max(200)
                 .title(AATitle()
                     .text("km/h"))
                 .plotBands(arrayOf(
                     AAPlotBandsElement()
-                        .from(0f)
-                        .to(120f)
+                        .from(0)
+                        .to(120)
                         .color("#ffc069"),
                     AAPlotBandsElement()
-                        .from(120f)
-                        .to(160f)
+                        .from(120)
+                        .to(160)
                         .color("#fe117c"),
                     AAPlotBandsElement()
-                        .from(160f)
-                        .to(200f)
+                        .from(160)
+                        .to(200)
                         .color("#06caf4")
                 )))
             .series(arrayOf(
@@ -1217,7 +1217,7 @@ function () {
                     .name("Past")
                     .size("40%") //尺寸大小
                     .innerSize("30%") //内部圆环半径大小占比
-                    .borderWidth(0f) //描边的宽度
+                    .borderWidth(0) //描边的宽度
                     .allowPointSelect(false) //是否允许在点击数据点标记(扇形图点击选中的块发生位移)
                     .data(arrayOf(
                         arrayOf("Firefox Past", 3336.2),
@@ -1230,7 +1230,7 @@ function () {
                     .name("Now")
                     .size("80%") //尺寸大小
                     .innerSize("70%") //内部圆环半径大小占比
-                    .borderWidth(0f) //描边的宽度
+                    .borderWidth(0) //描边的宽度
                     .allowPointSelect(false) //是否允许在点击数据点标记(扇形图点击选中的块发生位移)
                     .data(arrayOf(
                         arrayOf("Firefox Now", 336.2),
@@ -1242,8 +1242,8 @@ function () {
 
         val aaOptions: AAOptions = aaChartModel.aa_toAAOptions()
         aaOptions.plotOptions?.pie?.apply {
-            startAngle(-90f)
-            endAngle(90f)
+            startAngle(-90)
+            endAngle(90)
         }
 
         return aaOptions
