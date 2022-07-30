@@ -1148,8 +1148,7 @@ object CustomStyleChartComposer  {
                     .name("正确做题")
                     .color("#00D9CD")
                     .data(arrayOf(28, 18, 26, 40, 40, 46, 39))
-            )
-            )
+            ))
     }
 
     //https://github.com/AAChartModel/AAChartKit/issues/1271
@@ -1174,8 +1173,7 @@ object CustomStyleChartComposer  {
                     .data(arrayOf(28, 18, 26, 40, 40, 46, 39))
                     .grouping(false)
                     .pointPadding(0.2f)
-            )
-            )
+            ))
     }
 
     //https://github.com/AAChartModel/AAChartKit/issues/842
@@ -1197,8 +1195,7 @@ object CustomStyleChartComposer  {
                 AASeriesElement()
                     .name("Beijing Hot")
                     .data(arrayOf(1.16, 1.67, 2.64, 2.86, 3.00, 3.21, 4.14, 4.07, 3.68, 3.11, 3.41, 3.25, 3.32, 3.07, 3.92, 3.05, 2.18, 3.24))
-            )
-            )
+            ))
     }
 
     //https://github.com/AAChartModel/AAChartKit-Swift/issues/323
@@ -1273,8 +1270,7 @@ object CustomStyleChartComposer  {
                         .hover(AAHover()
                             .color("dodgerblue"))) // Dodgerblue／道奇藍／#1e90ff十六进制颜色代码
                     .data(arrayOf(0.2, 0.8, 5.7, 11.3, 17.0, 22.0, 24.8, 24.1, 20.1, 14.1, 8.6, 2.5))
-            )
-            )
+            ))
     }
 
     //https://github.com/AAChartModel/AAChartKit/issues/1291
@@ -1323,10 +1319,8 @@ object CustomStyleChartComposer  {
                         AAZonesElement()
                             .value(7f)
                             .color(AAColor.Purple)
-                    )
-                    )
-            )
-            )
+                    ))
+            ))
     }
 
     //https://github.com/AAChartModel/AAChartKit/issues/1291
@@ -1503,8 +1497,7 @@ object CustomStyleChartComposer  {
                     .name("Red Dot")
                     .type(AAChartType.Scatter)
                     .data(dataArr)
-            )
-            )
+            ))
     }
 
     //https://github.com/AAChartModel/AAChartKit/issues/1351
