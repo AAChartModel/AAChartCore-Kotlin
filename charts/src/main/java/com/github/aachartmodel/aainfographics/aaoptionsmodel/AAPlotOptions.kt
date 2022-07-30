@@ -86,13 +86,13 @@ class AAColumn {
         null//Padding between each column or bar, in x axis units. 默认是：0.1.
     var groupPadding: Float? =
         null//Padding between each value groups, in x axis units. 默认是：0.2.
-    var borderWidth: Float? = null
+    var borderWidth: Number? = null
     var colorByPoint: Boolean? =
         null//对每个不同的点设置颜色(当图表类型为 AAColumn 时,设置为 AAColumn 对象的属性,当图表类型为 bar 时,应该设置为 bar 对象的属性才有效)
     var dataLabels: AADataLabels? = null
     var stacking: String? = null
-    var borderRadius: Float? = null
-    var yAxis: Float? = null
+    var borderRadius: Number? = null
+    var yAxis: Int? = null
 
     fun name(prop: String): AAColumn {
         name = prop
@@ -129,7 +129,7 @@ class AAColumn {
         return this
     }
 
-    fun borderWidth(prop: Float?): AAColumn {
+    fun borderWidth(prop: Number?): AAColumn {
         borderWidth = prop
         return this
     }
@@ -149,12 +149,12 @@ class AAColumn {
         return this
     }
 
-    fun borderRadius(prop: Float?): AAColumn {
+    fun borderRadius(prop: Number?): AAColumn {
         borderRadius = prop
         return this
     }
 
-    fun yAxis(prop: Float?): AAColumn {
+    fun yAxis(prop: Int?): AAColumn {
         yAxis = prop
         return this
     }
@@ -173,13 +173,13 @@ class AABar {
         null//Padding between each column or bar, in x axis units. 默认是：0.1.
     var groupPadding: Float? =
         null//Padding between each value groups, in x axis units. 默认是：0.2.
-    var borderWidth: Float? = null
+    var borderWidth: Number? = null
     var colorByPoint: Boolean? =
         null//对每个不同的点设置颜色(当图表类型为 AABar 时,设置为 AABar 对象的属性,当图表类型为 bar 时,应该设置为 bar 对象的属性才有效)
     var dataLabels: AADataLabels? = null
     var stacking: String? = null
-    var borderRadius: Float? = null
-    var yAxis: Float? = null
+    var borderRadius: Number? = null
+    var yAxis: Int? = null
 
     fun name(prop: String): AABar {
         name = prop
@@ -216,7 +216,7 @@ class AABar {
         return this
     }
 
-    fun borderWidth(prop: Float?): AABar {
+    fun borderWidth(prop: Number?): AABar {
         borderWidth = prop
         return this
     }
@@ -236,12 +236,12 @@ class AABar {
         return this
     }
 
-    fun borderRadius(prop: Float?): AABar {
+    fun borderRadius(prop: Number?): AABar {
         borderRadius = prop
         return this
     }
 
-    fun yAxis(prop: Float?): AABar {
+    fun yAxis(prop: Int?): AABar {
         yAxis = prop
         return this
     }
@@ -287,13 +287,13 @@ class AAAreaspline {
 class AAPie {
     var type: String? = null
     var dataLabels: AADataLabels? = null
-    var size: Float? = null
+    var size: Number? = null
     var allowPointSelect: Boolean? = null
     var cursor: String? = null
     var showInLegend: Boolean? = null
-    var startAngle: Float? = null
-    var endAngle: Float? = null
-    var depth: Float? = null
+    var startAngle: Number? = null
+    var endAngle: Number? = null
+    var depth: Number? = null
     var center: Any? = null
     var data: Array<Any>? = null
 
@@ -308,7 +308,7 @@ class AAPie {
         return this
     }
 
-    fun size(prop: Float?): AAPie {
+    fun size(prop: Number?): AAPie {
         size = prop
         return this
     }
@@ -328,17 +328,17 @@ class AAPie {
         return this
     }
 
-    fun startAngle(prop: Float?): AAPie {
+    fun startAngle(prop: Number?): AAPie {
         startAngle = prop
         return this
     }
 
-    fun endAngle(prop: Float?): AAPie {
+    fun endAngle(prop: Number?): AAPie {
         endAngle = prop
         return this
     }
 
-    fun depth(prop: Float?): AAPie {
+    fun depth(prop: Number?): AAPie {
         depth = prop
         return this
     }
@@ -356,16 +356,16 @@ class AAPie {
 }
 
 class AAColumnrange {
-    var borderRadius: Float? = null
-    var borderWidth: Float? = null
+    var borderRadius: Number? = null
+    var borderWidth: Number? = null
     var dataLabels: AADataLabels? = null
 
-    fun borderRadius(prop: Float?): AAColumnrange {
+    fun borderRadius(prop: Number?): AAColumnrange {
         borderRadius = prop
         return this
     }
 
-    fun borderWidth(prop: Float?): AAColumnrange {
+    fun borderWidth(prop: Number?): AAColumnrange {
         borderWidth = prop
         return this
     }

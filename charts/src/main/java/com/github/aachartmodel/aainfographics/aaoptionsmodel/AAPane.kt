@@ -3,9 +3,9 @@ package com.github.aachartmodel.aainfographics.aaoptionsmodel
 class AAPane {
     var background: AABackground? = null
     var center: Array<Any>? = null
-    var endAngle: Float? = null
-    var size: Float? = null
-    var startAngle: Float? = null
+    var endAngle: Number? = null
+    var size: Number? = null
+    var startAngle: Number? = null
     fun background(prop: AABackground?): AAPane {
         background = prop
         return this
@@ -16,17 +16,17 @@ class AAPane {
         return this
     }
 
-    fun endAngle(prop: Float?): AAPane {
+    fun endAngle(prop: Number?): AAPane {
         endAngle = prop
         return this
     }
 
-    fun size(prop: Float?): AAPane {
+    fun size(prop: Number?): AAPane {
         size = prop
         return this
     }
 
-    fun startAngle(prop: Float?): AAPane {
+    fun startAngle(prop: Number?): AAPane {
         startAngle = prop
         return this
     }
@@ -35,10 +35,10 @@ class AAPane {
 class AABackground {
     var backgroundColor: Any? = null
     var borderColor: String? = null
-    var borderWidth: Float? = null
+    var borderWidth: Number? = null
     var className: String? = null
-    var innerRadius: Float? = null
-    var outerRadius: Float? = null
+    var innerRadius: Number? = null
+    var outerRadius: Number? = null
     var shape: String? = null
     fun backgroundColor(prop: Any?): AABackground {
         backgroundColor = prop
@@ -50,7 +50,7 @@ class AABackground {
         return this
     }
 
-    fun borderWidth(prop: Float?): AABackground {
+    fun borderWidth(prop: Number?): AABackground {
         borderWidth = prop
         return this
     }
@@ -60,12 +60,12 @@ class AABackground {
         return this
     }
 
-    fun innerRadius(prop: Float?): AABackground {
+    fun innerRadius(prop: Number?): AABackground {
         innerRadius = prop
         return this
     }
 
-    fun outerRadius(prop: Float?): AABackground {
+    fun outerRadius(prop: Number?): AABackground {
         outerRadius = prop
         return this
     }

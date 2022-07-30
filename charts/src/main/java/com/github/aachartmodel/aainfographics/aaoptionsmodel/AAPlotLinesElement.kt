@@ -42,8 +42,8 @@ class AAPlotLinesElement {
 
     private var color: Any? = null
     private var dashStyle: String? = null
-    private var width: Float? = null
-    private var value: Float? = null
+    private var width: Number? = null
+    private var value: Number? = null
     private var zIndex: Int? = null
     private var label: AALabel? = null
 
@@ -57,12 +57,12 @@ class AAPlotLinesElement {
         return this
     }
 
-    fun width(prop: Float?): AAPlotLinesElement {
+    fun width(prop: Number?): AAPlotLinesElement {
         width = prop
         return this
     }
 
-    fun value(prop: Float?): AAPlotLinesElement {
+    fun value(prop: Number?): AAPlotLinesElement {
         value = prop
         return this
     }
