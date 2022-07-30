@@ -24,7 +24,7 @@ class AABuilder(context: Context) {
     private var axesTextColor: String? = null
     private var chartType: AAChartType? = AAChartType.Line
     private var stacking: AAChartStackingType? = AAChartStackingType.False
-    private var markerRadius: Float? = 6f
+    private var markerRadius: Number? = 6f
     private var markerSymbol: AAChartSymbolType? = null
     private var markerSymbolStyle: AAChartSymbolStyleType? = AAChartSymbolStyleType.Normal
     private var zoomType: AAChartZoomType? = AAChartZoomType.None
@@ -35,26 +35,26 @@ class AABuilder(context: Context) {
     private var tooltipValueSuffix: String? = null
     private var gradientColorEnable: Boolean? = false
     private var polar: Boolean? = false
-    private var margin: Array<Float>? = null
+    private var margin: Array<Number>? = null
     private var dataLabelsEnabled: Boolean? = false
     private var dataLabelsStyle: AAStyle? = null
     private var xAxisLabelsEnabled: Boolean? = true
     private var xAxisTickInterval: Int? = null
     private var categories: Array<String>? = null
-    private var xAxisGridLineWidth: Float? = 0f
+    private var xAxisGridLineWidth: Number? = 0f
     private var xAxisVisible: Boolean? = null
     private var yAxisVisible: Boolean? = null
     private var yAxisLabelsEnabled: Boolean? = true
     private var yAxisTitle: String? = null
-    private var yAxisLineWidth: Float? = null
-    private var yAxisMin: Float? = null
-    private var yAxisMax: Float? = null
+    private var yAxisLineWidth: Number? = null
+    private var yAxisMin: Number? = null
+    private var yAxisMax: Number? = null
     private var yAxisAllowDecimals: Boolean? = null
-    private var yAxisGridLineWidth: Float? = 1f
+    private var yAxisGridLineWidth: Number? = 1f
     private var colorsTheme: Array<Any>? = arrayOf("#fe117c", "#ffc069", "#06caf4", "#7dffc0")
     private var legendEnabled: Boolean? = true
     private var backgroundColor: Any? = "#ffffff"
-    private var borderRadius: Float? = 0f
+    private var borderRadius: Number? = 0f
     private var series: Array<Any>? = null
     private var touchEventEnabled: Boolean? = null
     private var scrollablePlotArea: AAScrollablePlotArea? = null
@@ -189,7 +189,7 @@ class AABuilder(context: Context) {
         return this
     }
 
-    fun setMarkerRadius(prop: Float): AABuilder {
+    fun setMarkerRadius(prop: Number): AABuilder {
         markerRadius = prop
         return this
     }
@@ -249,12 +249,12 @@ class AABuilder(context: Context) {
         return this
     }
 
-    fun setMargin(vararg prop: Float): AABuilder {
+    fun setMargin(vararg prop: Number): AABuilder {
         margin = prop.map { it }.toTypedArray()
         return this
     }
 
-    fun setMargin(top: Float, left: Float, bottom: Float, right: Float): AABuilder =
+    fun setMargin(top: Number, left: Number, bottom: Number, right: Number): AABuilder =
         setMargin(top, left, bottom, right)
 
     fun setMargin(topResId: Int, leftResId: Int, bottomResId: Int, rightResId: Int): AABuilder =
@@ -295,7 +295,7 @@ class AABuilder(context: Context) {
         setCategories(*stringResIds.map { stringResId -> getString(stringResId) }
             .toTypedArray())
 
-    fun setXAxisGridLineWidth(prop: Float): AABuilder {
+    fun setXAxisGridLineWidth(prop: Number): AABuilder {
         xAxisGridLineWidth = prop
         return this
     }
@@ -303,7 +303,7 @@ class AABuilder(context: Context) {
     fun setXAxisGridLineWidth(dimenResId: Int): AABuilder =
         setXAxisGridLineWidth(getDimen(dimenResId))
 
-    fun setYAxisGridLineWidth(prop: Float): AABuilder {
+    fun setYAxisGridLineWidth(prop: Number): AABuilder {
         yAxisGridLineWidth = prop
         return this
     }
@@ -334,7 +334,7 @@ class AABuilder(context: Context) {
     fun setYAxisTitle(stringResId: Int, vararg formatArgs: Any?): AABuilder =
         setYAxisTitle(getString(stringResId, formatArgs))
 
-    fun setYAxisLineWidth(prop: Float): AABuilder {
+    fun setYAxisLineWidth(prop: Number): AABuilder {
         yAxisLineWidth = prop
         return this
     }
@@ -342,7 +342,7 @@ class AABuilder(context: Context) {
     fun setYAxisLineWidth(dimenResId: Int): AABuilder =
         setYAxisLineWidth(getDimen(dimenResId))
 
-    fun setYAxisMin(prop: Float?): AABuilder {
+    fun setYAxisMin(prop: Number?): AABuilder {
         yAxisMin = prop
         return this
     }
@@ -350,7 +350,7 @@ class AABuilder(context: Context) {
     fun setYAxisMin(dimenResId: Int): AABuilder =
         setYAxisMin(getDimen(dimenResId))
 
-    fun setYAxisMax(prop: Float?): AABuilder {
+    fun setYAxisMax(prop: Number?): AABuilder {
         yAxisMax = prop
         return this
     }
@@ -390,7 +390,7 @@ class AABuilder(context: Context) {
     fun setBackgroundColor(colorResId: Int): AABuilder =
         setBackgroundColor(getColor(colorResId).toColorString())
 
-    fun setBorderRadius(prop: Float): AABuilder {
+    fun setBorderRadius(prop: Number): AABuilder {
         borderRadius = prop
         return this
     }
