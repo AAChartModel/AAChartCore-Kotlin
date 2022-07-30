@@ -10,10 +10,10 @@ package com.github.aachartmodel.aainfographics.aaoptionsmodel
 
 class AAMarker {
     var enabled: Boolean? = null
-    var radius: Float? = null
+    var radius: Number? = null
     var symbol: String? = null
     var fillColor: String? = null//点的填充色(用来设置折线连接点的填充色)
-    var lineWidth: Float? = null//外沿线的宽度(用来设置折线连接点的轮廓描边的宽度)
+    var lineWidth: Number? = null//外沿线的宽度(用来设置折线连接点的轮廓描边的宽度)
     var lineColor: Any? = null//外沿线的颜色(用来设置折线连接点的轮廓描边颜色，当值为空字符串时，默认取数据点或数据列的颜色。)
     var states: AAMarkerStates? = null
 
@@ -22,7 +22,7 @@ class AAMarker {
         return this
     }
 
-    fun radius(prop: Float?): AAMarker {
+    fun radius(prop: Number?): AAMarker {
         radius = prop
         return this
     }
@@ -37,7 +37,7 @@ class AAMarker {
         return this
     }
 
-    fun lineWidth(prop: Float?): AAMarker {
+    fun lineWidth(prop: Number?): AAMarker {
         lineWidth = prop
         return this
     }
@@ -66,10 +66,10 @@ class AAMarkerHover {
     var enabled: Boolean? = null
     var fillColor: String? = null
     var lineColor: String? = null
-    var lineWidth: Float? = null
-    var lineWidthPlus: Float? = null
-    var radius: Float? = null
-    var radiusPlus: Float? = null
+    var lineWidth: Number? = null
+    var lineWidthPlus: Number? = null
+    var radius: Number? = null
+    var radiusPlus: Number? = null
 
 
     fun enabled(prop: Boolean?): AAMarkerHover {
@@ -87,22 +87,22 @@ class AAMarkerHover {
         return this
     }
 
-    fun lineWidth(prop: Float?): AAMarkerHover {
+    fun lineWidth(prop: Number?): AAMarkerHover {
         lineWidth = prop
         return this
     }
 
-    fun lineWidthPlus(prop: Float?): AAMarkerHover {
+    fun lineWidthPlus(prop: Number?): AAMarkerHover {
         lineWidthPlus = prop
         return this
     }
 
-    fun radius(prop: Float?): AAMarkerHover {
+    fun radius(prop: Number?): AAMarkerHover {
         radius = prop
         return this
     }
 
-    fun radiusPlus(prop: Float?): AAMarkerHover {
+    fun radiusPlus(prop: Number?): AAMarkerHover {
         radiusPlus = prop
         return this
     }
