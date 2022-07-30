@@ -1349,24 +1349,24 @@ object CustomStyleChartComposer  {
                         2048, 1024, 1024, 1024, 1024,
                         AADataElement()
                             .y(2048f)
-                            .color(AAColor.rgbaColor(30, 144, 255, 1.0f))))
+                            .color(AARgba(30, 144, 255, 1.0f))))
                     .zoneAxis("x")
                     .zones(arrayOf(
                         AAZonesElement()
                             .value(1)
-                            .color(AAColor.rgbaColor(30, 144, 255, 1.0f)),
+                            .color(AARgba(30, 144, 255, 1.0f)),
                         AAZonesElement()
                             .value(2)
-                            .color(AAColor.rgbaColor(30, 144, 255, 0.8f)),
+                            .color(AARgba(30, 144, 255, 0.8f)),
                         AAZonesElement()
                             .value(3)
-                            .color(AAColor.rgbaColor(30, 144, 255, 0.6f)),
+                            .color(AARgba(30, 144, 255, 0.6f)),
                         AAZonesElement()
                             .value(4)
-                            .color(AAColor.rgbaColor(30, 144, 255, 0.4f)),
+                            .color(AARgba(30, 144, 255, 0.4f)),
                         AAZonesElement()
                             .value(5)
-                            .color(AAColor.rgbaColor(30, 144, 255, 0.2f)))),
+                            .color(AARgba(30, 144, 255, 0.2f)))),
                 AASeriesElement()
                     .name(AAColor.Red)
                     .lineWidth(20.0f)
@@ -1374,24 +1374,24 @@ object CustomStyleChartComposer  {
                         2048, 1024, 1024, 1024, 1024,
                         AADataElement()
                             .y(2048f)
-                            .color(AAColor.rgbaColor(255, 0, 0, 1.0f))))
+                            .color(AARgba(255, 0, 0, 1.0f))))
                     .zoneAxis("x")
                     .zones(arrayOf(
                         AAZonesElement()
                             .value(1)
-                            .color(AAColor.rgbaColor(255, 0, 0, 1.0f)),
+                            .color(AARgba(255, 0, 0, 1.0f)),
                         AAZonesElement()
                             .value(2)
-                            .color(AAColor.rgbaColor(255, 0, 0, 0.8f)),
+                            .color(AARgba(255, 0, 0, 0.8f)),
                         AAZonesElement()
                             .value(3)
-                            .color(AAColor.rgbaColor(255, 0, 0, 0.6f)),
+                            .color(AARgba(255, 0, 0, 0.6f)),
                         AAZonesElement()
                             .value(4)
-                            .color(AAColor.rgbaColor(255, 0, 0, 0.4f)),
+                            .color(AARgba(255, 0, 0, 0.4f)),
                         AAZonesElement()
                             .value(5)
-                            .color(AAColor.rgbaColor(255, 0, 0, 0.2f)))),
+                            .color(AARgba(255, 0, 0, 0.2f)))),
                 AASeriesElement()
                     .name(AAColor.Yellow)
                     .lineWidth(20.0f)
@@ -1399,24 +1399,24 @@ object CustomStyleChartComposer  {
                         2048, 1024, 1024, 1024, 1024,
                         AADataElement()
                             .y(2048f)
-                            .color(AAColor.rgbaColor(255, 215, 0, 1.0f))))
+                            .color(AARgba(255, 215, 0, 1.0f))))
                     .zoneAxis("x")
                     .zones(arrayOf(
                         AAZonesElement()
                             .value(1)
-                            .color(AAColor.rgbaColor(255, 215, 0, 1.0f)),
+                            .color(AARgba(255, 215, 0, 1.0f)),
                         AAZonesElement()
                             .value(2)
-                            .color(AAColor.rgbaColor(255, 215, 0, 0.8f)),
+                            .color(AARgba(255, 215, 0, 0.8f)),
                         AAZonesElement()
                             .value(3)
-                            .color(AAColor.rgbaColor(255, 215, 0, 0.6f)),
+                            .color(AARgba(255, 215, 0, 0.6f)),
                         AAZonesElement()
                             .value(4)
-                            .color(AAColor.rgbaColor(255, 215, 0, 0.4f)),
+                            .color(AARgba(255, 215, 0, 0.4f)),
                         AAZonesElement()
                             .value(5)
-                            .color(AAColor.rgbaColor(255, 215, 0, 0.2f)))),
+                            .color(AARgba(255, 215, 0, 0.2f)))),
                 AASeriesElement()
                     .name(AAColor.Green)
                     .lineWidth(20.0f)
@@ -1424,24 +1424,24 @@ object CustomStyleChartComposer  {
                         2048, 1024, 1024, 1024, 1024,
                         AADataElement()
                             .y(2048f)
-                            .color(AAColor.rgbaColor(50, 205, 50, 1.0f))))
+                            .color(AARgba(50, 205, 50, 1.0f))))
                     .zoneAxis("x")
                     .zones(arrayOf(
                         AAZonesElement()
                             .value(1)
-                            .color(AAColor.rgbaColor(50, 205, 50, 1.0f)),
+                            .color(AARgba(50, 205, 50, 1.0f)),
                         AAZonesElement()
                             .value(2)
-                            .color(AAColor.rgbaColor(50, 205, 50, 0.8f)),
+                            .color(AARgba(50, 205, 50, 0.8f)),
                         AAZonesElement()
                             .value(3)
-                            .color(AAColor.rgbaColor(50, 205, 50, 0.6f)),
+                            .color(AARgba(50, 205, 50, 0.6f)),
                         AAZonesElement()
                             .value(4)
-                            .color(AAColor.rgbaColor(50, 205, 50, 0.4f)),
+                            .color(AARgba(50, 205, 50, 0.4f)),
                         AAZonesElement()
                             .value(5)
-                            .color(AAColor.rgbaColor(50, 205, 50, 0.2f)))),
+                            .color(AARgba(50, 205, 50, 0.2f)))),
                 AASeriesElement()
                     .name(AAColor.Purple)
                     .lineWidth(20.0f)
@@ -1449,24 +1449,24 @@ object CustomStyleChartComposer  {
                         2048, 1024, 1024, 1024, 1024,
                         AADataElement()
                             .y(2048f)
-                            .color(AAColor.rgbaColor(138, 43, 226, 1.0f))))
+                            .color(AARgba(138, 43, 226, 1.0f))))
                     .zoneAxis("x")
                     .zones(arrayOf(
                         AAZonesElement()
                             .value(1)
-                            .color(AAColor.rgbaColor(138, 43, 226, 1.0f)),
+                            .color(AARgba(138, 43, 226, 1.0f)),
                         AAZonesElement()
                             .value(2)
-                            .color(AAColor.rgbaColor(138, 43, 226, 0.8f)),
+                            .color(AARgba(138, 43, 226, 0.8f)),
                         AAZonesElement()
                             .value(3)
-                            .color(AAColor.rgbaColor(138, 43, 226, 0.6f)),
+                            .color(AARgba(138, 43, 226, 0.6f)),
                         AAZonesElement()
                             .value(4)
-                            .color(AAColor.rgbaColor(138, 43, 226, 0.4f)),
+                            .color(AARgba(138, 43, 226, 0.4f)),
                         AAZonesElement()
                             .value(5)
-                            .color(AAColor.rgbaColor(138, 43, 226, 0.2f))))
+                            .color(AARgba(138, 43, 226, 0.2f))))
             ))
     }
 
