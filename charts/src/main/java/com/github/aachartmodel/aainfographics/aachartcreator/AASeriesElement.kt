@@ -76,6 +76,7 @@ class AASeriesElement {
     private var colorByPoint: Boolean? = null
     private var zIndex: Int? = null
     private var zones: Array<AAZonesElement>? = null
+    private var zoneAxis: String? = null
     private var shadow: AAShadow? = null
     private var stack: String? = null
     private var tooltip: AATooltip? = null
@@ -226,6 +227,11 @@ class AASeriesElement {
 
     fun zones(prop: Array<AAZonesElement>): AASeriesElement {
         zones = prop
+        return this
+    }
+
+    fun zoneAxis(prop: String?): AASeriesElement {
+        zoneAxis = prop
         return this
     }
 
