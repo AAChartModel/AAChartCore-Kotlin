@@ -178,7 +178,7 @@ object MixedChartComposer {
                             .enabled(true)
                             .style(AAStyle()
                                 .color(AAColor.Red)
-                                .fontSize(11f))),
+                                .fontSize(11))),
                 AASeriesElement()
                     .name("老用户")
                     .data(arrayOf(198.66,330.81,151.95,160.12,222.56,229.05,128.53,250.91,224.47,473.99,126.85,260.50))
@@ -187,7 +187,7 @@ object MixedChartComposer {
                             .enabled(true)
                             .style(AAStyle()
                                 .color("#000000")
-                                .fontSize(11f))),
+                                .fontSize(11))),
                 AASeriesElement()
                     .name("总量")
                     .type(AAChartType.Line)
@@ -197,7 +197,7 @@ object MixedChartComposer {
                             .enabled(true)
                             .style(AAStyle()
                                 .color("#000000")
-                                .fontSize(15f)
+                                .fontSize(15)
                                 .fontWeight(AAChartFontWeightType.Bold)))))
     }
 
@@ -206,30 +206,30 @@ object MixedChartComposer {
             .chartType(AAChartType.Spline)//图形类型
             .dataLabelsEnabled(false)//是否显示数字
             .stacking(AAChartStackingType.Normal)
-            .markerRadius(0f)
+            .markerRadius(0)
             .series(arrayOf(
                 AASeriesElement()
                     .name("SolidLine")
-                    .lineWidth(3f)
+                    .lineWidth(3)
                     .data(arrayOf(50, 320, 230, 370, 230, 400, 320)),
                 AASeriesElement()
                     .name("Dash")
-                    .lineWidth(3f)
+                    .lineWidth(3)
                     .dashStyle(AAChartLineDashStyleType.Dash)
                     .data(arrayOf(50, 320, 230, 370, 230, 400, 320)),
                 AASeriesElement()
                     .name("DashDot")
-                    .lineWidth(3f)
+                    .lineWidth(3)
                     .dashStyle(AAChartLineDashStyleType.DashDot)
                     .data(arrayOf(50, 320, 230, 370, 230, 400, 320)),
                 AASeriesElement()
                     .name("LongDash")
-                    .lineWidth(3f)
+                    .lineWidth(3)
                     .dashStyle(AAChartLineDashStyleType.LongDash)
                     .data(arrayOf(50, 320, 230, 370, 230, 400, 320)),
                 AASeriesElement()
                     .name("LongDashDot")
-                    .lineWidth(3f)
+                    .lineWidth(3)
                     .dashStyle(AAChartLineDashStyleType.LongDashDot)
                     .data(arrayOf(50, 320, 230, 370, 230, 400, 320))
             ))
@@ -249,7 +249,7 @@ object MixedChartComposer {
                     ))
                     .color("#0088FF")
                     .negativeColor("#FF0000")
-                    .threshold(4f)//default:0
+                    .threshold(4)//default:0
             ))
     }
 
@@ -259,7 +259,7 @@ object MixedChartComposer {
             .chartType(AAChartType.Scatter)
             .markerSymbolStyle(AAChartSymbolStyleType.InnerBlank)
             .markerSymbol(AAChartSymbolType.Circle)
-            .markerRadius(8f)
+            .markerRadius(8)
             .series(arrayOf(
                 AASeriesElement()
                     .name("Scatter")
@@ -506,7 +506,7 @@ object MixedChartComposer {
                     ))
                     .color("#0088FF")
                     .negativeColor("#FF0000")
-                    .threshold(4f)//default:0
+                    .threshold(4)//default:0
             ))
     }
 
@@ -619,30 +619,30 @@ object MixedChartComposer {
             .data(arrayOf(3, 2.67, 3, 6.33, 3.33))
             .marker(AAMarker()
                 .fillColor("#1E90FF")
-                .lineWidth(2.0f)
+                .lineWidth(2.0)
                 .lineColor(AAColor.White
                 ))
         val pieElement = AAPie()
             .type(AAChartType.Pie)
             .center(arrayOf(100, 80))
-            .size(100f)
+            .size(100)
             .showInLegend(true)
             .dataLabels(AADataLabels()
                 .enabled(false))
             .data(arrayOf(
                 AADataElement()
                     .name("Ada")
-                    .y(13.0f)
+                    .y(13.0)
                     .color(AAGradientColor.OceanBlue)
                 ,
                 AADataElement()
                     .name("Bob")
-                    .y(13.0f)
+                    .y(13.0)
                     .color(AAGradientColor.Sanguine)
                 ,
                 AADataElement()
                     .name("Coco")
-                    .y(13.0f)
+                    .y(13.0)
                     .color(AAGradientColor.PurpleLake)
             ))
 
@@ -690,9 +690,9 @@ object MixedChartComposer {
             .chartType(AAChartType.Area)
             .legendEnabled(false)
             .dataLabelsEnabled(false)
-            .markerRadius(5f)
+            .markerRadius(5)
             .markerSymbolStyle(AAChartSymbolStyleType.InnerBlank)
-            .yAxisGridLineWidth(0f)
+            .yAxisGridLineWidth(0)
             .series(arrayOf(
                 AASeriesElement()
                     .name("Column")
@@ -700,12 +700,12 @@ object MixedChartComposer {
                         7.0, 6.9, 2.5, 14.5, 18.2, 21.5, 5.2, 26.5, 23.3, 45.3, 13.9, 9.6,
                         -7.0, -6.9, -2.5, -14.5, -18.2, -21.5, -5.2, -26.5, -23.3, -45.3, -13.9, -9.6
                     ))
-                    .lineWidth(5f)
+                    .lineWidth(5)
                     .color(AARgba(30, 144, 255, 1.0f))
                     .negativeColor(AARgba(255, 0, 0, 1.0f))
                     .fillColor(gradientBlueColorDic)
                     .negativeFillColor(gradientRedColorDic)
-                    .threshold(0f) //default:0
+                    .threshold(0) //default:0
             ))
     }
 
