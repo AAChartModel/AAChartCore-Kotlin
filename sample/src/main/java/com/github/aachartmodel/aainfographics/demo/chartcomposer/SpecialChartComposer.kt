@@ -34,8 +34,6 @@ import java.util.*
 
 object SpecialChartComposer {
 
-
-
     fun configurePolarColumnChart(): AAChartModel {
         return AAChartModel()
             .chartType(AAChartType.Column)
@@ -258,7 +256,7 @@ object SpecialChartComposer {
             .chartType(AAChartType.Scatter)
             .title("Height and weight distribution by sex")
             .yAxisTitle("kg")
-            .markerRadius(8f)
+            .markerRadius(8)
             .markerSymbolStyle(AAChartSymbolStyleType.InnerBlank)
             .series(seriesElements as Array<Any>)
     }
@@ -750,7 +748,7 @@ object SpecialChartComposer {
             .subtitle("2020/08/08")//图形副标题
             .dataLabelsEnabled(false)//是否显示数字
             .markerSymbolStyle(AAChartSymbolStyleType.BorderBlank)//折线连接点样式
-            .markerRadius(7f)//折线连接点半径长度,为0时相当于没有折线连接点
+            .markerRadius(7)//折线连接点半径长度,为0时相当于没有折线连接点
             .series(arrayOf(
                 AASeriesElement()
                     .name("Berlin")
@@ -775,7 +773,7 @@ object SpecialChartComposer {
             .subtitle("2049/08/08")//图形副标题
             .dataLabelsEnabled(false)//是否显示数字
             .markerSymbolStyle(AAChartSymbolStyleType.InnerBlank)//折线连接点样式
-            .markerRadius(0f)//折线连接点半径长度,为0时相当于没有折线连接点
+            .markerRadius(0)//折线连接点半径长度,为0时相当于没有折线连接点
             .series(arrayOf(
                 AASeriesElement()
                     .name("Berlin")
@@ -819,7 +817,7 @@ object SpecialChartComposer {
             .subtitle("virtual data")
             .series(arrayOf(AASeriesElement()
                     .color("#ef476f")
-                    .borderWidth(0f)
+                    .borderWidth(0)
                     .data(arrayOf(
                             mapOf("name" to "启动资金", "y" to 120000),
                             mapOf("name" to "产品收入", "y" to 569000),
@@ -864,7 +862,7 @@ object SpecialChartComposer {
                         .verticalAlign(AAChartVerticalAlignType.Middle)
                         .color(AAColor.Black)
                         .style(AAStyle()
-                            .fontSize(25f)
+                            .fontSize(25)
                             .textOutline("0px 0px contrast")))
                     .data(arrayOf(
                         arrayOf("Swift",       11850),
@@ -893,7 +891,7 @@ object SpecialChartComposer {
                     AASeriesElement()
                         .name("降雨误差")
                         .type(AAChartType.Errorbar)
-                        .lineWidth(2.5f)
+                        .lineWidth(2.5)
                         .color(AAColor.Red)
                         .data(arrayOf(
                                 arrayOf(48,   51),
