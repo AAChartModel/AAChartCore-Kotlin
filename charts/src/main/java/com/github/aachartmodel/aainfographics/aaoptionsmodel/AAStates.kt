@@ -92,7 +92,7 @@ class AASelect {
 class AAHalo {
     var attributes: Map<*, *>? = null
     var opacity: Float? = null
-    var size: Float? = null
+    var size: Number? = null
 
     fun attributes(prop: Map<*, *>?): AAHalo {
         attributes = prop
@@ -104,7 +104,7 @@ class AAHalo {
         return this
     }
 
-    fun size(prop: Float?): AAHalo {
+    fun size(prop: Number?): AAHalo {
         size = prop
         return this
     }

@@ -10,22 +10,22 @@ package com.github.aachartmodel.aainfographics.aaoptionsmodel
 
 class AAShadow {
     private var color: String? = null
-    private var offsetX: Float? = null
-    private var offsetY: Float? = null
+    private var offsetX: Number? = null
+    private var offsetY: Number? = null
     private var opacity: Float? = null
-    private var width: Float? = null
+    private var width: Number? = null
 
     fun color(prop: String): AAShadow {
         color = prop
         return this
     }
 
-    fun offsetX(prop: Float?): AAShadow {
+    fun offsetX(prop: Number?): AAShadow {
         offsetX = prop
         return this
     }
 
-    fun offsetY(prop: Float?): AAShadow {
+    fun offsetY(prop: Number?): AAShadow {
         offsetY = prop
         return this
     }
@@ -35,7 +35,7 @@ class AAShadow {
         return this
     }
 
-    fun width(prop: Float?): AAShadow {
+    fun width(prop: Number?): AAShadow {
         width = prop
         return this
     }

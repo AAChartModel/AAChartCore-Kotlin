@@ -16,8 +16,8 @@ class AATitle {
     private var style: AAStyle? = null
     private var align: String? = null
     private var verticalAlign: String? = null
-    private var x: Float? = null
-    private var y: Float? = null
+    private var x: Number? = null
+    private var y: Number? = null
     private var userHTML: Boolean? = null
 
     fun text(prop: String?): AATitle {
@@ -40,12 +40,12 @@ class AATitle {
         return this
     }
 
-    fun x(prop: Float?): AATitle {
+    fun x(prop: Number?): AATitle {
         x = prop
         return this
     }
 
-    fun y(prop: Float?): AATitle {
+    fun y(prop: Number?): AATitle {
         y = prop
         return this
     }

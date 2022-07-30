@@ -15,9 +15,9 @@ class AASeries {
     var borderColor //The border color, It is only valid for column, bar, pie, columnrange, pyramid and funnel chart types
             : String? = null
     var borderWidth //The border width, It is only valid for column, bar, pie, columnrange, pyramid and funnel chart types
-            : Float? = null
+            : Number? = null
     var borderRadius //The corner radius of the border surrounding each column or bar.
-            : Float? = null
+            : Number? = null
     var borderRadiusTopLeft: Any? = null
     var borderRadiusTopRight: Any? = null
     var borderRadiusBottomLeft: Any? = null
@@ -35,19 +35,19 @@ class AASeries {
     var pointInterval: Int? = null
     var pointIntervalUnit: String? = null
     var pointPlacement: Any? = null
-    var pointStart: Float? = null
+    var pointStart: Number? = null
 
     fun borderColor(prop: String?): AASeries {
         borderColor = prop
         return this
     }
 
-    fun borderWidth(prop: Float?): AASeries {
+    fun borderWidth(prop: Number?): AASeries {
         borderWidth = prop
         return this
     }
 
-    fun borderRadius(prop: Float?): AASeries {
+    fun borderRadius(prop: Number?): AASeries {
         borderRadius = prop
         return this
     }
@@ -137,7 +137,7 @@ class AASeries {
         return this
     }
 
-    fun pointStart(prop: Float): AASeries {
+    fun pointStart(prop: Number): AASeries {
         pointStart = prop
         return this
     }

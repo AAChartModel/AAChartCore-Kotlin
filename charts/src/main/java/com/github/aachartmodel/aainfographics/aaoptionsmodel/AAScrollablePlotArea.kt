@@ -1,19 +1,19 @@
 package com.github.aachartmodel.aainfographics.aaoptionsmodel
 
 class AAScrollablePlotArea {
-    var minHeight: Int? = null
-    var minWidth: Int? = null
+    var minHeight: Number? = null
+    var minWidth: Number? = null
     var opacity: Float? = null
-    var scrollPositionX: Float? = null
-    var scrollPositionY: Float? = null
+    var scrollPositionX: Number? = null
+    var scrollPositionY: Number? = null
 
 
-    fun minHeight(prop: Int?): AAScrollablePlotArea {
+    fun minHeight(prop: Number?): AAScrollablePlotArea {
         minHeight = prop
         return this
     }
 
-    fun minWidth(prop: Int?): AAScrollablePlotArea {
+    fun minWidth(prop: Number?): AAScrollablePlotArea {
         minWidth = prop
         return this
     }
@@ -23,12 +23,12 @@ class AAScrollablePlotArea {
         return this
     }
 
-    fun scrollPositionX(prop: Float?): AAScrollablePlotArea {
+    fun scrollPositionX(prop: Number?): AAScrollablePlotArea {
         scrollPositionX = prop
         return this
     }
 
-    fun scrollPositionY(prop: Float?): AAScrollablePlotArea {
+    fun scrollPositionY(prop: Number?): AAScrollablePlotArea {
         scrollPositionY = prop
         return this
     }

@@ -41,8 +41,8 @@ import com.github.aachartmodel.aainfographics.aatools.AAJSStringPurer
 class AATooltip {
     var backgroundColor: Any? = null
     var borderColor: String? = null
-    var borderRadius: Float? = null
-    var borderWidth: Float? = null
+    var borderRadius: Number? = null
+    var borderWidth: Number? = null
     var style: AAStyle? = null
     var enabled: Boolean? = null
     var useHTML: Boolean? = null
@@ -55,7 +55,7 @@ class AATooltip {
     var valueSuffix: String? = null
     var followTouchMove: Boolean? = null //https://api.highcharts.com.cn/highcharts#chart.panning
     var shadow: Boolean? = null
-    var padding: Float? = null
+    var padding: Number? = null
     var pointFormatter: String? = null
     var positioner: String? = null
     var dateTimeLabelFormats: AADateTimeLabelFormats? = null
@@ -70,12 +70,12 @@ class AATooltip {
         return this
     }
 
-    fun borderRadius(prop: Float?): AATooltip {
+    fun borderRadius(prop: Number?): AATooltip {
         borderRadius = prop
         return this
     }
 
-    fun borderWidth(prop: Float?): AATooltip {
+    fun borderWidth(prop: Number?): AATooltip {
         borderWidth = prop
         return this
     }
@@ -142,7 +142,7 @@ class AATooltip {
         return this
     }
 
-    fun padding(prop: Float): AATooltip {
+    fun padding(prop: Number): AATooltip {
         padding = prop
         return this
     }

@@ -167,14 +167,14 @@ class AAStyle {
 
         fun style(
             color: String?,
-            fontSize: Float?
+            fontSize: Number?
         ): AAStyle {
             return style(color, fontSize, null)
         }
 
         fun style(
             color: String?,
-            fontSize: Float?,
+            fontSize: Number?,
             fontWeight: AAChartFontWeightType?
         ): AAStyle {
             return style(color, fontSize, fontWeight, null)
@@ -182,7 +182,7 @@ class AAStyle {
 
         fun style(
             color: String?,
-            fontSize: Float?,
+            fontSize: Number?,
             fontWeight: AAChartFontWeightType?,
             textOutline: String?
         ): AAStyle {

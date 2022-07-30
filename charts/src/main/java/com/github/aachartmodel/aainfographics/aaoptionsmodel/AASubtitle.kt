@@ -17,8 +17,8 @@ class AASubtitle {
     private var style: AAStyle? = null
     private var align: String? = null
     private var verticalAlign: String? = null
-    private var x: Float? = null
-    private var y: Float? = null
+    private var x: Number? = null
+    private var y: Number? = null
     private var userHTML: Boolean? = null
 
     fun text(prop: String?): AASubtitle {
@@ -41,12 +41,12 @@ class AASubtitle {
         return this
     }
 
-    fun x(prop: Float?): AASubtitle {
+    fun x(prop: Number?): AASubtitle {
         x = prop
         return this
     }
 
-    fun y(prop: Float?): AASubtitle {
+    fun y(prop: Number?): AASubtitle {
         y = prop
         return this
     }
