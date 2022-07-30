@@ -71,7 +71,7 @@ class AAYAxis: AAAxis() {
         return this
     }
 
-    fun gridLineWidth(prop: Float?): AAYAxis {
+    fun gridLineWidth(prop: Number?): AAYAxis {
         gridLineWidth = prop
         return this
     }
@@ -96,7 +96,7 @@ class AAYAxis: AAAxis() {
         return this
     }
 
-    fun lineWidth(prop: Float?): AAYAxis {
+    fun lineWidth(prop: Number?): AAYAxis {
         lineWidth = prop
         return this
     }
@@ -106,17 +106,17 @@ class AAYAxis: AAAxis() {
         return this
     }
 
-    fun off(prop: Float?): AAYAxis {
+    fun off(prop: Number?): AAYAxis {
         off = prop
         return this
     }
 
-    fun max(prop: Float?): AAYAxis {
+    fun max(prop: Number?): AAYAxis {
         max = prop
         return this
     }
 
-    fun min(prop: Float?): AAYAxis {
+    fun min(prop: Number?): AAYAxis {
         min = prop
         return this
     }
@@ -141,7 +141,7 @@ class AAYAxis: AAAxis() {
         return this
     }
 
-    fun minorGridLineWidth(prop: Float?): AAYAxis {
+    fun minorGridLineWidth(prop: Number?): AAYAxis {
         minorGridLineWidth = prop
         return this
     }
@@ -156,7 +156,7 @@ class AAYAxis: AAAxis() {
         return this
     }
 
-    fun minorTickLength(prop: Float?): AAYAxis {
+    fun minorTickLength(prop: Number?): AAYAxis {
         minorTickLength = prop
         return this
     }
@@ -166,7 +166,7 @@ class AAYAxis: AAAxis() {
         return this
     }
 
-    fun minorTickWidth(prop: Float?): AAYAxis {
+    fun minorTickWidth(prop: Number?): AAYAxis {
         minorTickWidth = prop
         return this
     }
@@ -206,12 +206,12 @@ class AAYAxis: AAAxis() {
         return this
     }
 
-    fun tickWidth(prop: Float?): AAYAxis {
+    fun tickWidth(prop: Number?): AAYAxis {
         tickWidth = prop
         return this
     }
 
-    fun tickLength(prop: Float?): AAYAxis {
+    fun tickLength(prop: Number?): AAYAxis {
         tickLength = prop
         return this
     }
