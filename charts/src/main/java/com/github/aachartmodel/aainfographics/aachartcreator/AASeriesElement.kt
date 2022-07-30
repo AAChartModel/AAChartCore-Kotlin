@@ -45,13 +45,13 @@ class AASeriesElement {
     private var name: String? = null
     private var data: Array<Any>? = null
     private var lineWidth //折线图、曲线图、直方折线图、折线填充图、曲线填充图、直方折线填充图的线条宽度
-            : Float? = null
+            : Number? = null
     private var borderColor //The border color, It is only valid for column, bar, pie, columnrange, pyramid and funnel chart types
             : String? = null
     private var borderWidth //The border width, It is only valid for column, bar, pie, columnrange, pyramid and funnel chart types
-            : Float? = null
+            : Number? = null
     private var borderRadius //The corner radius of the border surrounding each column or bar.
-            : Float? = null
+            : Number? = null
     private var borderRadiusTopLeft: Any? = null
     private var borderRadiusTopRight: Any? = null
     private var borderRadiusBottomLeft: Any? = null
@@ -61,7 +61,7 @@ class AASeriesElement {
     private var fillOpacity //折线填充图、曲线填充图、直方折线填充图等填充图类型的填充颜色透明度
             : Float? = null
     private var threshold //The threshold, also called zero level or base level. For line type series this is only used in conjunction with negativeColor. default：0.
-            : Float? = null
+            : Number? = null
     private var negativeColor // The color for the parts of the graph or points that are below the threshold
             : String? = null
     private var negativeFillColor: Any? = null
@@ -105,7 +105,7 @@ class AASeriesElement {
         return this
     }
 
-    fun lineWidth(prop: Float?): AASeriesElement {
+    fun lineWidth(prop: Number?): AASeriesElement {
         lineWidth = prop
         return this
     }
@@ -115,12 +115,12 @@ class AASeriesElement {
         return this
     }
 
-    fun borderWidth(prop: Float?): AASeriesElement {
+    fun borderWidth(prop: Number?): AASeriesElement {
         borderWidth = prop
         return this
     }
 
-    fun borderRadius(prop: Float?): AASeriesElement {
+    fun borderRadius(prop: Number?): AASeriesElement {
         borderRadius = prop
         return this
     }
@@ -160,7 +160,7 @@ class AASeriesElement {
         return this
     }
 
-    fun threshold(prop: Float?): AASeriesElement {
+    fun threshold(prop: Number?): AASeriesElement {
         threshold = prop
         return this
     }
@@ -269,7 +269,7 @@ class AASeriesElement {
 
 class AADataElement {
     private var name: String? = null
-    private var y: Float? = null
+    private var y: Number? = null
     private var color: Any? = null
     private var dataLabels: AADataLabels? = null
     private var marker: AAMarker? = null
@@ -279,7 +279,7 @@ class AADataElement {
         return this
     }
 
-    fun y(prop: Float?): AADataElement {
+    fun y(prop: Number?): AADataElement {
         y = prop
         return this
     }
@@ -302,22 +302,22 @@ class AADataElement {
 
 class AAShadow {
     private var color: String? = null
-    private var offsetX: Float? = null
-    private var offsetY: Float? = null
+    private var offsetX: Number? = null
+    private var offsetY: Number? = null
     private var opacity: Float? = null
-    private var width: Float? = null
+    private var width: Number? = null
 
     fun color(prop: String): AAShadow {
         color = prop
         return this
     }
 
-    fun offsetX(prop: Float?): AAShadow {
+    fun offsetX(prop: Number?): AAShadow {
         offsetX = prop
         return this
     }
 
-    fun offsetY(prop: Float?): AAShadow {
+    fun offsetY(prop: Number?): AAShadow {
         offsetY = prop
         return this
     }
@@ -327,7 +327,7 @@ class AAShadow {
         return this
     }
 
-    fun width(prop: Float?): AAShadow {
+    fun width(prop: Number?): AAShadow {
         width = prop
         return this
     }
