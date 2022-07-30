@@ -17,18 +17,18 @@ class AADataLabels {
     var inside: Boolean? = null
     var style: AAStyle? = null
     var format: String? = null
-    var rotation: Float? = null
+    var rotation: Number? = null
     var allowOverlap: Boolean? = null
     var useHTML: Boolean? = null
-    var distance: Float? = null
+    var distance: Number? = null
     var verticalAlign: String? = null
-    var x: Float? = null
-    var y: Float? = null
+    var x: Number? = null
+    var y: Number? = null
     var color: String? = null
     var backgroundColor: String? = null
     var borderColor: String? = null
-    var borderRadius: Float? = null
-    var borderWidth: Float? = null
+    var borderRadius: Number? = null
+    var borderWidth: Number? = null
     var shape: String? = null
     var crop: Boolean? = null
     var overflow: String? = null
@@ -62,7 +62,7 @@ class AADataLabels {
         return this
     }
 
-    fun rotation(prop: Float?): AADataLabels {
+    fun rotation(prop: Number?): AADataLabels {
         rotation = prop
         return this
     }
@@ -77,7 +77,7 @@ class AADataLabels {
         return this
     }
 
-    fun distance(prop: Float?): AADataLabels {
+    fun distance(prop: Number?): AADataLabels {
         distance = prop
         return this
     }
@@ -87,12 +87,12 @@ class AADataLabels {
         return this
     }
 
-    fun x(prop: Float?): AADataLabels {
+    fun x(prop: Number?): AADataLabels {
         x = prop
         return this
     }
 
-    fun y(prop: Float?): AADataLabels {
+    fun y(prop: Number?): AADataLabels {
         y = prop
         return this
     }
@@ -112,12 +112,12 @@ class AADataLabels {
         return this
     }
 
-    fun borderRadius(prop: Float?): AADataLabels {
+    fun borderRadius(prop: Number?): AADataLabels {
         borderRadius = prop
         return this
     }
 
-    fun borderWidth(prop: Float?): AADataLabels {
+    fun borderWidth(prop: Number?): AADataLabels {
         borderWidth = prop
         return this
     }

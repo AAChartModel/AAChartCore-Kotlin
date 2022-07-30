@@ -38,11 +38,11 @@ package com.github.aachartmodel.aainfographics.aaoptionsmodel
 import com.github.aachartmodel.aainfographics.aachartcreator.AAChartLineDashStyleType
 
 class AACrosshair {
-    var width: Float? = null
+    var width: Number? = null
     var color: String? = null
     var dashStyle: AAChartLineDashStyleType? = null
 
-    fun width(prop: Float?): AACrosshair {
+    fun width(prop: Number?): AACrosshair {
         width = prop
         return this
     }
