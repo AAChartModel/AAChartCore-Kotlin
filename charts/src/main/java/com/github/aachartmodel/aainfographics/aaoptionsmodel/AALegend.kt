@@ -20,11 +20,11 @@ class AALegend {
         null //设定图例在图表区中的垂直对齐方式，合法值有 top，middle 和 bottom。垂直位置可以通过 y 选项做进一步设定。
     var enabled: Boolean? = null
     var borderColor: String? = null
-    var borderWidth: Float? = null
-    var itemMarginTop: Float? = null //图例的每一项的顶部外边距，单位px。 默认是：0.
+    var borderWidth: Number? = null
+    var itemMarginTop: Number? = null //图例的每一项的顶部外边距，单位px。 默认是：0.
     var itemStyle: AAItemStyle? = null
-    var x: Float? = null
-    var y: Float? = null
+    var x: Number? = null
+    var y: Number? = null
     var floating: Boolean? = null
 
     fun layout(prop: AAChartLayoutType): AALegend {
@@ -52,12 +52,12 @@ class AALegend {
         return this
     }
 
-    fun BorderWidth(prop: Float?): AALegend {
+    fun borderWidth(prop: Number?): AALegend {
         borderWidth = prop
         return this
     }
 
-    fun itemMarginTop(prop: Float?): AALegend {
+    fun itemMarginTop(prop: Number?): AALegend {
         itemMarginTop = prop
         return this
     }
@@ -67,12 +67,12 @@ class AALegend {
         return this
     }
 
-    fun x(prop: Float?): AALegend {
+    fun x(prop: Number?): AALegend {
         x = prop
         return this
     }
 
-    fun y(prop: Float?): AALegend {
+    fun y(prop: Number?): AALegend {
         y = prop
         return this
     }
@@ -108,8 +108,10 @@ class AAItemStyle {
         return this
     }
 
-    fun fontSize(prop: Float?): AAItemStyle {
-        fontSize = prop!!.toString() + "px"
+    fun fontSize(prop: Number?): AAItemStyle {
+        prop?.let {
+            fontSize = "${prop}px"
+        }
         return this
     }
 
