@@ -214,7 +214,7 @@ class AAChartModel(
     var axesTextColor: String? = null,
     var chartType: AAChartType? = AAChartType.Line,
     var stacking: AAChartStackingType? = AAChartStackingType.False,
-    var markerRadius: Float? = 6f,
+    var markerRadius: Number? = 6f,
     var markerSymbol: AAChartSymbolType? = null,
     var markerSymbolStyle: AAChartSymbolStyleType? = AAChartSymbolStyleType.Normal,
     var zoomType: AAChartZoomType? = AAChartZoomType.None,
@@ -225,26 +225,26 @@ class AAChartModel(
     var tooltipValueSuffix: String? = null,
     var gradientColorEnable: Boolean? = false,
     var polar: Boolean? = false,
-    var margin: Array<Float>? = null,
+    var margin: Array<Number>? = null,
     var dataLabelsEnabled: Boolean? = false,
     var dataLabelsStyle: AAStyle? = null,
     var xAxisLabelsEnabled: Boolean? = true,
     var xAxisTickInterval: Int? = null,
     var categories: Array<String>? = null,
-    var xAxisGridLineWidth: Float? = 0f,
+    var xAxisGridLineWidth: Number? = 0f,
     var xAxisVisible: Boolean? = null,
     var yAxisVisible: Boolean? = null,
     var yAxisLabelsEnabled: Boolean? = true,
     var yAxisTitle: String? = null,
-    var yAxisLineWidth: Float? = null,
-    var yAxisMin: Float? = null,
-    var yAxisMax: Float? = null,
+    var yAxisLineWidth: Number? = null,
+    var yAxisMin: Number? = null,
+    var yAxisMax: Number? = null,
     var yAxisAllowDecimals: Boolean? = null,
-    var yAxisGridLineWidth: Float? = 1f,
+    var yAxisGridLineWidth: Number? = 1f,
     var colorsTheme: Array<Any>? = arrayOf("#fe117c", "#ffc069", "#06caf4", "#7dffc0"),
     var legendEnabled: Boolean? = true,
     var backgroundColor: Any? = "#ffffff",
-    var borderRadius: Float? = 0f,
+    var borderRadius: Number? = 0f,
     var series: Array<Any>? = null,
     var touchEventEnabled: Boolean? = null,
     var scrollablePlotArea: AAScrollablePlotArea? = null
@@ -300,7 +300,7 @@ class AAChartModel(
         return this
     }
 
-    fun markerRadius(prop: Float?): AAChartModel {
+    fun markerRadius(prop: Number?): AAChartModel {
         markerRadius = prop
         return this
     }
@@ -355,7 +355,7 @@ class AAChartModel(
         return this
     }
 
-    fun margin(prop: Array<Float>?): AAChartModel {
+    fun margin(prop: Array<Number>?): AAChartModel {
         margin = prop
         return this
     }
@@ -385,12 +385,12 @@ class AAChartModel(
         return this
     }
 
-    fun xAxisGridLineWidth(prop: Float?): AAChartModel {
+    fun xAxisGridLineWidth(prop: Number?): AAChartModel {
         xAxisGridLineWidth = prop
         return this
     }
 
-    fun yAxisGridLineWidth(prop: Float?): AAChartModel {
+    fun yAxisGridLineWidth(prop: Number?): AAChartModel {
         yAxisGridLineWidth = prop
         return this
     }
@@ -415,17 +415,17 @@ class AAChartModel(
         return this
     }
 
-    fun yAxisLineWidth(prop: Float?): AAChartModel {
+    fun yAxisLineWidth(prop: Number?): AAChartModel {
         yAxisLineWidth = prop
         return this
     }
 
-    fun yAxisMin(prop: Float?): AAChartModel {
+    fun yAxisMin(prop: Number?): AAChartModel {
         yAxisMin = prop
         return this
     }
 
-    fun yAxisMax(prop: Float?): AAChartModel {
+    fun yAxisMax(prop: Number?): AAChartModel {
         yAxisMax = prop
         return this
     }
@@ -450,7 +450,7 @@ class AAChartModel(
         return this
     }
 
-    fun borderRadius(prop: Float?): AAChartModel {
+    fun borderRadius(prop: Number?): AAChartModel {
         borderRadius = prop
         return this
     }
