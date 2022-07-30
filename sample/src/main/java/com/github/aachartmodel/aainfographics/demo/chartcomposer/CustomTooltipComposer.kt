@@ -62,7 +62,7 @@ object CustomTooltipComposer {
             .series(arrayOf(
                 AASeriesElement()
                     .name("2020")
-                    .lineWidth(3f)
+                    .lineWidth(3)
                     .color("#FFD700"/*纯金色*/)
                     .fillOpacity(0.5f)
                     .data(arrayOf(
@@ -95,7 +95,7 @@ function () {
             .borderColor("#000000")
             .style(AAStyle()
                 .color("#FFD700")
-                .fontSize(12f))
+                .fontSize(12))
         val aaOptions = aaChartModel.aa_toAAOptions()
         aaOptions.tooltip(aaTooltip)
 
@@ -119,12 +119,12 @@ function () {
             .series(arrayOf(
                 AASeriesElement()
                     .name("🐶狗子")
-                    .lineWidth(5f)
+                    .lineWidth(5)
                     .fillOpacity(0.5f)
                     .data(arrayOf(0.45, 0.43, 0.50, 0.55, 0.58, 0.62, 0.83, 0.39, 0.56, 0.67, 0.50, 0.34, 0.50, 0.67, 0.58, 0.29, 0.46, 0.23, 0.47, 0.46, 0.38, 0.56, 0.48, 0.36)),
                 AASeriesElement()
                     .name("🌲树木")
-                    .lineWidth(5f)
+                    .lineWidth(5)
                     .fillOpacity(0.5f)
                     .data(arrayOf(0.38, 0.31, 0.32, 0.32, 0.64, 0.66, 0.86, 0.47, 0.52, 0.75, 0.52, 0.56, 0.54, 0.60, 0.46, 0.63, 0.54, 0.51, 0.58, 0.64, 0.60, 0.45, 0.36, 0.67))
             ))
@@ -157,26 +157,26 @@ function () {
             .dataLabelsEnabled(false)
             .colorsTheme(arrayOf("#04d69f", "#1e90ff", "#ef476f", "#ffd066"))
             .stacking(AAChartStackingType.Normal)
-            .markerRadius(0f)
+            .markerRadius(0)
             .series(arrayOf(
                 AASeriesElement()
                     .name("Tokyo Hot")
-                    .lineWidth(5.0f)
+                    .lineWidth(5.0)
                     .fillOpacity(0.4f)
                     .data(arrayOf(0.45, 0.43, 0.50, 0.55, 0.58, 0.62, 0.83, 0.39, 0.56, 0.67, 0.50, 0.34, 0.50, 0.67, 0.58, 0.29, 0.46, 0.23, 0.47, 0.46, 0.38, 0.56, 0.48, 0.36)),
                 AASeriesElement()
                     .name("Berlin Hot")
-                    .lineWidth(5.0f)
+                    .lineWidth(5.0)
                     .fillOpacity(0.4f)
                     .data(arrayOf(0.38, 0.31, 0.32, 0.32, 0.64, 0.66, 0.86, 0.47, 0.52, 0.75, 0.52, 0.56, 0.54, 0.60, 0.46, 0.63, 0.54, 0.51, 0.58, 0.64, 0.60, 0.45, 0.36, 0.67)),
                 AASeriesElement()
                     .name("New York Hot")
-                    .lineWidth(5.0f)
+                    .lineWidth(5.0)
                     .fillOpacity(0.4f)
                     .data(arrayOf(0.46, 0.32, 0.53, 0.58, 0.86, 0.68, 0.85, 0.73, 0.69, 0.71, 0.91, 0.74, 0.60, 0.50, 0.39, 0.67, 0.55, 0.49, 0.65, 0.45, 0.64, 0.47, 0.63, 0.64)),
                 AASeriesElement()
                     .name("London Hot")
-                    .lineWidth(5.0f)
+                    .lineWidth(5.0)
                     .fillOpacity(0.4f)
                     .data(arrayOf(0.60, 0.51, 0.52, 0.53, 0.64, 0.84, 0.65, 0.68, 0.63, 0.47, 0.72, 0.60, 0.65, 0.74, 0.66, 0.65, 0.71, 0.59, 0.65, 0.77, 0.52, 0.53, 0.58, 0.53))
             ))
@@ -292,7 +292,7 @@ function () {
             .borderColor("#000000")
             .style(AAStyle()
                 .color("#1e90ff")
-                .fontSize(12f)
+                .fontSize(12)
             )
         val aaOptions = aaChartModel.aa_toAAOptions()
         aaOptions.tooltip = aaTooltip
@@ -306,11 +306,11 @@ function () {
             .dataLabelsEnabled(false)
             .colorsTheme(arrayOf("#04d69f", "#1e90ff", "#ef476f", "#ffd066"))
             .stacking(AAChartStackingType.Normal)
-            .markerRadius(8f)
+            .markerRadius(8)
             .series(arrayOf(
                 AASeriesElement()
                     .name("Tokyo Hot")
-                    .lineWidth(5.0f)
+                    .lineWidth(5.0)
                     .fillOpacity(0.4f)
                     .data(arrayOf(29.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4))))
 
@@ -346,16 +346,16 @@ function () {
             .dataLabelsEnabled(false)
             .colorsTheme(arrayOf("#04d69f", "#1e90ff", "#ef476f", "#ffd066"))
             .stacking(AAChartStackingType.Normal)
-            .markerRadius(8f)
+            .markerRadius(8)
             .series(arrayOf(AASeriesElement()
                 .name("Tokyo Hot")
-                .lineWidth(5.0f)
+                .lineWidth(5.0)
                 .fillOpacity(0.4f)
                 .data(arrayOf(229.9, 771.5, 1106.4, 1129.2, 6644.0, 1176.0, 8835.6, 148.5, 8816.4, 6694.1, 7795.6, 9954.4))))
 
         val aaYAxisLabels = AALabels()
             .style(AAStyle()
-                .fontSize(10f)
+                .fontSize(10)
                 .fontWeight(AAChartFontWeightType.Bold)
                 .color(AAColor.Gray))
             .formatter("""
@@ -379,10 +379,10 @@ function () {
         val aaOptions = aaChartModel.aa_toAAOptions()
         aaOptions.yAxis!!
             .opposite(true)
-            .tickWidth(2f)
-            .lineWidth(1.5f)//Y轴轴线颜色
+            .tickWidth(2)
+            .lineWidth(1.5)//Y轴轴线颜色
             .lineColor(AAColor.LightGray)//Y轴轴线颜色
-            .gridLineWidth(0f)//Y轴网格线宽度
+            .gridLineWidth(0)//Y轴网格线宽度
             .tickPositions(arrayOf(0, 2500, 5000, 7500, 10000))
             .labels(aaYAxisLabels)
 
@@ -460,7 +460,7 @@ function () {
             .text("2015 年德国人口金字塔")
             .style(AAStyle()
                 .color("#000000")
-                .fontSize(12.0f))
+                .fontSize(12.0))
 
         val aaCategories = arrayOf("0-4", "5-9", "10-14", "15-19", "20-24", "25-29",
             "30-34", "35-39", "40-44", "45-49", "50-54", "55-59", "60-64", "65-69", "70-74",
@@ -481,7 +481,7 @@ function () {
                 .step(1))
 
         val aaYAxis = AAYAxis()
-            .gridLineWidth(0f)// Y 轴网格线宽度
+            .gridLineWidth(0)// Y 轴网格线宽度
             .title(AATitle()
                 .text(""))//Y 轴标题
             .labels(AALabels()
@@ -491,8 +491,8 @@ function () {
 }
                     """.trimIndent()
                 ))
-            .min(-4000000f)
-            .max(4000000f)
+            .min(-4000000)
+            .max(4000000)
 
         val aaPlotOptions = AAPlotOptions()
             .series(AASeries()
@@ -603,7 +603,7 @@ function () {
             .borderColor("#000000")
             .style(AAStyle()
                 .color("#FFD700")
-                .fontSize(12f))
+                .fontSize(12))
 
         return aaOptions
     }
@@ -632,7 +632,7 @@ function () {
             .title("THE HEAT OF PROGRAMMING LANGUAGE")
             .subtitle("Virtual Data")
             .dataLabelsEnabled(false)
-            .yAxisGridLineWidth(0f)
+            .yAxisGridLineWidth(0)
             .touchEventEnabled(true)
             .series(arrayOf(
                 AASeriesElement()
@@ -661,15 +661,15 @@ function () {
     fun customTooltipWhichDataSourceComeFromOutSideRatherThanSeries(): AAOptions {
         val aaChartModel = AAChartModel()
             .chartType(AAChartType.Column) //图表类型
-            .yAxisLineWidth(1f) //Y轴轴线线宽为0即是隐藏Y轴轴线
-            .yAxisGridLineWidth(1f) //y轴横向分割线宽度为1(为0即是隐藏分割线)
-            .xAxisGridLineWidth(1f) //x轴横向分割线宽度为1(为0即是隐藏分割线)
+            .yAxisLineWidth(1) //Y轴轴线线宽为0即是隐藏Y轴轴线
+            .yAxisGridLineWidth(1) //y轴横向分割线宽度为1(为0即是隐藏分割线)
+            .xAxisGridLineWidth(1) //x轴横向分割线宽度为1(为0即是隐藏分割线)
             .colorsTheme(arrayOf("#FFD700" /*纯金色*/))
             .categories(arrayOf(
                 "一月", "二月", "三月", "四月", "五月", "六月",
                 "七月", "八月", "九月", "十月", "十一月", "十二月"
             ))
-            .yAxisMax(110f)
+            .yAxisMax(110)
             .series(arrayOf(
                 AASeriesElement()
                     .name("2017")
@@ -762,11 +762,9 @@ function () {
             .formatter(jsFormatterStr!!)
             .backgroundColor("#000000") //黑色背景色
             .borderColor("#FFD700") //边缘颜色纯金色
-            .style(
-                AAStyle()
+            .style(AAStyle()
                     .color("#FFD700") //文字颜色纯金色
-                    .fontSize(12f)
-            )
+                    .fontSize(12))
         }
         return aaOptions
     }
