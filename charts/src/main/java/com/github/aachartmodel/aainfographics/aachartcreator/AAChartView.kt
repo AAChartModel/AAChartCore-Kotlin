@@ -65,13 +65,13 @@ class AAChartView : WebView {
         )
     }
 
-    var contentWidth: Float? = null
+    var contentWidth: Number? = null
         set(value) {
             field = value
             val jsStr = "setTheChartViewContentWidth('$field')"
             safeEvaluateJavaScriptString(jsStr)
         }
-    var contentHeight: Float? = null
+    var contentHeight: Number? = null
         set(value) {
             field = value
             val jsStr = "setTheChartViewContentHeight('$field')"
