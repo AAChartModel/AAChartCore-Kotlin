@@ -43,7 +43,9 @@ class MainActivity : AppCompatActivity() {
                 "scatterMixedLine",
                 "negativeColorMixedBubble",
                 "polygonMixedScatter",
-                "polarChartMixed"
+                "polarChartMixed",
+                "configurePieMixedLineMixedColumnChart",
+                "configureNegativeColorMixedAreasplineChart",
             ), arrayOf(
                 "colorfulChart",
                 "gradientColorfulChart",
@@ -190,7 +192,9 @@ class MainActivity : AppCompatActivity() {
                 "scatterMixedLine",
                 "negativeColorMixedBubble",
                 "polygonMixedScatter",
-                "polarChartMixed"
+                "polarChartMixed",
+                "configurePieMixedLineMixedColumnChart",
+                "configureNegativeColorMixedAreasplineChart",
             ), arrayOf(
                 /*自定义样式图表*/
                 "colorfulChart",

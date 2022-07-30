@@ -34,7 +34,7 @@ import java.util.*
 
 object MixedChartComposer {
 
-     fun arearangeMixedLine(): AAChartModel {
+    fun arearangeMixedLine(): AAChartModel {
         return AAChartModel()
             .title("LANGUAGE MARKET SHARES JANUARY,2020 TO MAY")
             .subtitle("virtual data")
@@ -600,7 +600,7 @@ object MixedChartComposer {
             ))
     }
 
-    fun configurePieMixedLineMixedColumnChart(): AAChartModel? {
+    fun configurePieMixedLineMixedColumnChart(): AAChartModel {
         val columnElement1 = AASeriesElement()
             .name("Anna")
             .type(AAChartType.Column)
@@ -659,13 +659,13 @@ object MixedChartComposer {
                 columnElement2,
                 columnElement3,
                 lineElement,
-                pieElement as AASeriesElement
+                pieElement
             ))
     }
 
 
     //GitHub issue https://github.com/AAChartModel/AAChartKit/issues/921
-    private fun configureNegativeColorMixedAreasplineChart(): AAChartModel? {
+    fun configureNegativeColorMixedAreasplineChart(): AAChartModel {
         val blueStopsArr: Array<Any> = arrayOf(
             arrayOf(0.0, AARgba(30, 144, 255, 0.0f)),
             arrayOf(0.5, AARgba(30, 144, 255, 0.0f)),

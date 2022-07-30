@@ -65,6 +65,8 @@ class MixedChartActivity : AppCompatActivity() {
             "negativeColorMixedBubble" -> return MixedChartComposer.negativeColorMixedBubble()
             "polygonMixedScatter" -> return MixedChartComposer.polygonMixedScatter()
             "polarChartMixed" -> return MixedChartComposer.polarChartMixedChart()
+            "configurePieMixedLineMixedColumnChart" -> return MixedChartComposer.configurePieMixedLineMixedColumnChart()
+            "configureNegativeColorMixedAreasplineChart" -> return MixedChartComposer.configureNegativeColorMixedAreasplineChart()
         }
         return MixedChartComposer.arearangeMixedLine()
     }
