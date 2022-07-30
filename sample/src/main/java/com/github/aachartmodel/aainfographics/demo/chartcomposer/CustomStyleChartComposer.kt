@@ -1139,16 +1139,16 @@ object CustomStyleChartComposer  {
             .yAxisMin(0f)
             .borderRadius(5f)
             .series(arrayOf(
-                    AAColumn()
-                        .name("总做题")
-                        .color("#D8D8D8")
-                        .data(arrayOf(30, 20, 28, 40, 42, 48, 50))
-                        .grouping(false),
-                    AAColumn()
-                        .name("正确做题")
-                        .color("#00D9CD")
-                        .data(arrayOf(28, 18, 26, 40, 40, 46, 39))
-                )
+                AAColumn()
+                    .name("总做题")
+                    .color("#D8D8D8")
+                    .data(arrayOf(30, 20, 28, 40, 42, 48, 50))
+                    .grouping(false),
+                AAColumn()
+                    .name("正确做题")
+                    .color("#00D9CD")
+                    .data(arrayOf(28, 18, 26, 40, 40, 46, 39))
+            )
             )
     }
 
@@ -1162,19 +1162,19 @@ object CustomStyleChartComposer  {
             .yAxisMin(0f)
             .borderRadius(5f)
             .series(arrayOf(
-                    AAColumn()
-                        .name("总目标")
-                        .color("DeepSkyBlue")
-                        .data(arrayOf(30, 20, 28, 40, 42, 48, 50))
-                        .grouping(false)
-                        .pointPadding(0.05f),
-                    AAColumn()
-                        .name("完成度")
-                        .color("#FF3030") //Firebrick1 color
-                        .data(arrayOf(28, 18, 26, 40, 40, 46, 39))
-                        .grouping(false)
-                        .pointPadding(0.2f)
-                )
+                AAColumn()
+                    .name("总目标")
+                    .color("DeepSkyBlue")
+                    .data(arrayOf(30, 20, 28, 40, 42, 48, 50))
+                    .grouping(false)
+                    .pointPadding(0.05f),
+                AAColumn()
+                    .name("完成度")
+                    .color("#FF3030") //Firebrick1 color
+                    .data(arrayOf(28, 18, 26, 40, 40, 46, 39))
+                    .grouping(false)
+                    .pointPadding(0.2f)
+            )
             )
     }
 
@@ -1186,18 +1186,18 @@ object CustomStyleChartComposer  {
             .title("Top Rounded Corners Stacking Column Chart")
             .colorsTheme(arrayOf("#fe117c", "#ffc069", "#06caf4"))
             .series(arrayOf(
-                    AASeriesElement()
-                        .name("Tokyo Hot")
-                        .borderRadiusTopLeft("50%")
-                        .borderRadiusTopRight("50%")
-                        .data(arrayOf(2.10, 2.54, 2.78, 3.62, 4.41, 4.09, 3.83, 4.47, 4.20, 3.94, 3.80, 3.58, 3.19, 4.30, 3.69, 3.52, 3.02, 3.3)),
-                    AASeriesElement()
-                        .name("Berlin Hot")
-                        .data(arrayOf(1.56, 1.91, 2.45, 3.87, 3.24, 4.90, 4.61, 4.10, 4.17, 3.85, 4.17, 3.46, 3.46, 3.55, 3.50, 4.13, 2.58, 2.28)),
-                    AASeriesElement()
-                        .name("Beijing Hot")
-                        .data(arrayOf(1.16, 1.67, 2.64, 2.86, 3.00, 3.21, 4.14, 4.07, 3.68, 3.11, 3.41, 3.25, 3.32, 3.07, 3.92, 3.05, 2.18, 3.24))
-                )
+                AASeriesElement()
+                    .name("Tokyo Hot")
+                    .borderRadiusTopLeft("50%")
+                    .borderRadiusTopRight("50%")
+                    .data(arrayOf(2.10, 2.54, 2.78, 3.62, 4.41, 4.09, 3.83, 4.47, 4.20, 3.94, 3.80, 3.58, 3.19, 4.30, 3.69, 3.52, 3.02, 3.3)),
+                AASeriesElement()
+                    .name("Berlin Hot")
+                    .data(arrayOf(1.56, 1.91, 2.45, 3.87, 3.24, 4.90, 4.61, 4.10, 4.17, 3.85, 4.17, 3.46, 3.46, 3.55, 3.50, 4.13, 2.58, 2.28)),
+                AASeriesElement()
+                    .name("Beijing Hot")
+                    .data(arrayOf(1.16, 1.67, 2.64, 2.86, 3.00, 3.21, 4.14, 4.07, 3.68, 3.11, 3.41, 3.25, 3.32, 3.07, 3.92, 3.05, 2.18, 3.24))
+            )
             )
     }
 
@@ -1210,38 +1210,38 @@ object CustomStyleChartComposer  {
             .stacking(AAChartStackingType.Normal)
             .title("Free-Style Rounded Corners Stacking Column Chart")
             .colorsTheme(arrayOf(
-                    AAGradientColor.linearGradient(AARgb(128, 255, 165), AARgb(1  , 191, 236)),
-                    AAGradientColor.linearGradient(AARgb(0  , 221, 255), AARgb(77 , 119, 255)),
-                    AAGradientColor.linearGradient(AARgb(55 , 162, 255), AARgb(116, 21 , 219)),
-                    AAGradientColor.linearGradient(AARgb(255, 0  , 135), AARgb(135, 0  , 157)),
-                    AAGradientColor.linearGradient(AARgb(255, 191, 0  ), AARgb(224, 62 , 76 ))
-                ))
+                AAGradientColor.linearGradient(AARgb(128, 255, 165), AARgb(1  , 191, 236)),
+                AAGradientColor.linearGradient(AARgb(0  , 221, 255), AARgb(77 , 119, 255)),
+                AAGradientColor.linearGradient(AARgb(55 , 162, 255), AARgb(116, 21 , 219)),
+                AAGradientColor.linearGradient(AARgb(255, 0  , 135), AARgb(135, 0  , 157)),
+                AAGradientColor.linearGradient(AARgb(255, 191, 0  ), AARgb(224, 62 , 76 ))
+            ))
             .series(arrayOf(
-                    AASeriesElement()
-                        .name("Tokyo Hot")
-                        .borderRadiusTopLeft("50%")
-                        .borderRadiusTopRight("50%")
-                        .data(arrayOf(2.10, 2.54, 2.78, 3.62, 4.41, 4.09, 3.83, 4.47, 4.20, 3.94, 3.80, 3.58, 3.19, 4.30, 3.69, 3.52, 3.02, 3.30)),
-                    AASeriesElement()
-                        .name("Berlin Hot")
-                        .borderRadiusBottomLeft("50%")
-                        .borderRadiusBottomRight("50%")
-                        .data(arrayOf(1.56, 1.91, 2.45, 3.87, 3.24, 4.90, 4.61, 4.10, 4.17, 3.85, 4.17, 3.46, 3.46, 3.55, 3.50, 4.13, 2.58, 2.28)),
-                    AASeriesElement()
-                        .name("Beijing Hot")
-                        .borderRadiusTopLeft("50%")
-                        .borderRadiusBottomRight("50%")
-                        .data(arrayOf(1.16, 1.67, 2.64, 2.86, 3.00, 3.21, 4.14, 4.07, 3.68, 3.11, 3.41, 3.25, 3.32, 3.07, 3.92, 3.05, 2.18, 3.24)),
-                    AASeriesElement()
-                        .name("London Hot")
-                        .borderRadiusTopRight("50%")
-                        .borderRadiusBottomRight("50%")
-                        .data(arrayOf(5.59, 3.09, 4.09, 6.14, 5.33, 6.05, 5.71, 6.22, 6.56, 4.75, 5.27, 6.02, 5.22, 5.77, 6.19, 5.68, 4.33, 5.48)),
-                    AASeriesElement()
-                        .name("NewYork Hot")
-                        .borderRadius(20f)
-                        .data(arrayOf(2.10, 2.54, 2.78, 3.62, 4.41, 4.09, 3.83, 4.47, 4.20, 3.94, 3.80, 3.58, 3.19, 4.30, 3.69, 3.52, 3.02, 3.30))
-                ))
+                AASeriesElement()
+                    .name("Tokyo Hot")
+                    .borderRadiusTopLeft("50%")
+                    .borderRadiusTopRight("50%")
+                    .data(arrayOf(2.10, 2.54, 2.78, 3.62, 4.41, 4.09, 3.83, 4.47, 4.20, 3.94, 3.80, 3.58, 3.19, 4.30, 3.69, 3.52, 3.02, 3.30)),
+                AASeriesElement()
+                    .name("Berlin Hot")
+                    .borderRadiusBottomLeft("50%")
+                    .borderRadiusBottomRight("50%")
+                    .data(arrayOf(1.56, 1.91, 2.45, 3.87, 3.24, 4.90, 4.61, 4.10, 4.17, 3.85, 4.17, 3.46, 3.46, 3.55, 3.50, 4.13, 2.58, 2.28)),
+                AASeriesElement()
+                    .name("Beijing Hot")
+                    .borderRadiusTopLeft("50%")
+                    .borderRadiusBottomRight("50%")
+                    .data(arrayOf(1.16, 1.67, 2.64, 2.86, 3.00, 3.21, 4.14, 4.07, 3.68, 3.11, 3.41, 3.25, 3.32, 3.07, 3.92, 3.05, 2.18, 3.24)),
+                AASeriesElement()
+                    .name("London Hot")
+                    .borderRadiusTopRight("50%")
+                    .borderRadiusBottomRight("50%")
+                    .data(arrayOf(5.59, 3.09, 4.09, 6.14, 5.33, 6.05, 5.71, 6.22, 6.56, 4.75, 5.27, 6.02, 5.22, 5.77, 6.19, 5.68, 4.33, 5.48)),
+                AASeriesElement()
+                    .name("NewYork Hot")
+                    .borderRadius(20f)
+                    .data(arrayOf(2.10, 2.54, 2.78, 3.62, 4.41, 4.09, 3.83, 4.47, 4.20, 3.94, 3.80, 3.58, 3.19, 4.30, 3.69, 3.52, 3.02, 3.30))
+            ))
     }
 
     //https://github.com/AAChartModel/AAChartKit-Swift/issues/365
@@ -1251,31 +1251,311 @@ object CustomStyleChartComposer  {
             .stacking(AAChartStackingType.Normal)
             .colorsTheme(arrayOf(AAColor.DarkGray, AAColor.LightGray)) //Colors theme
             .categories(arrayOf(
-                    "January", "February", "March", "April", "May", "June",
-                    "July", "August", "September", "October", "November", "December"
-                ))
-            .series(
-                arrayOf(
-                    AASeriesElement()
-                        .name("Berlin Hot")
-                        .borderColor(AAColor.White)
-                        .borderWidth(3f)
-                        .borderRadius(10f)
-                        .states(AAStates()
-                                .hover(AAHover()
-                                        .color(AAColor.Red)))
-                        .data(arrayOf(7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6)),
-                    AASeriesElement()
-                        .name("Beijing Hot")
-                        .borderColor(AAColor.White)
-                        .borderWidth(3f)
-                        .borderRadius(10f)
-                        .states(AAStates()
-                                .hover(AAHover()
-                                        .color("dodgerblue"))) // Dodgerblue／道奇藍／#1e90ff十六进制颜色代码
-                        .data(arrayOf(0.2, 0.8, 5.7, 11.3, 17.0, 22.0, 24.8, 24.1, 20.1, 14.1, 8.6, 2.5))
-                )
+                "January", "February", "March", "April", "May", "June",
+                "July", "August", "September", "October", "November", "December"
+            ))
+            .series(arrayOf(
+                AASeriesElement()
+                    .name("Berlin Hot")
+                    .borderColor(AAColor.White)
+                    .borderWidth(3f)
+                    .borderRadius(10f)
+                    .states(AAStates()
+                        .hover(AAHover()
+                            .color(AAColor.Red)))
+                    .data(arrayOf(7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6)),
+                AASeriesElement()
+                    .name("Beijing Hot")
+                    .borderColor(AAColor.White)
+                    .borderWidth(3f)
+                    .borderRadius(10f)
+                    .states(AAStates()
+                        .hover(AAHover()
+                            .color("dodgerblue"))) // Dodgerblue／道奇藍／#1e90ff十六进制颜色代码
+                    .data(arrayOf(0.2, 0.8, 5.7, 11.3, 17.0, 22.0, 24.8, 24.1, 20.1, 14.1, 8.6, 2.5))
+            )
             )
     }
+
+    //https://github.com/AAChartModel/AAChartKit/issues/1291
+    fun customLineChartWithColorfulMarkersAndLines(): AAChartModel {
+        return AAChartModel()
+            .chartType(AAChartType.Line)
+            .title("Custom Line Chart With Colorful Markers And Lines")
+            .markerRadius(18.0f) //marker点半径为8个像素
+            .yAxisLineWidth(0f)
+            .yAxisGridLineWidth(0f)
+            .legendEnabled(false)
+            .series(arrayOf(
+                AASeriesElement()
+                    .name("Tokyo Hot")
+                    .lineWidth(5.0f)
+                    .marker(AAMarker()
+                        .states(AAMarkerStates()
+                            .hover(AAMarkerHover()
+                                .radius(40f)
+                                .lineWidth(5f))))
+                    .data(arrayOf(
+                        2, 4, 8, 16, 32, 64, 128,
+                        AADataElement()
+                            .y(256.0f)
+                            .color(AAColor.Red)))
+                    .zoneAxis("x")
+                    .zones(arrayOf(
+                        AAZonesElement()
+                            .value(1f)
+                            .color(AAColor.Red),
+                        AAZonesElement()
+                            .value(2f)
+                            .color(AAColor.Orange),
+                        AAZonesElement()
+                            .value(3f)
+                            .color(AAColor.Yellow),
+                        AAZonesElement()
+                            .value(4f)
+                            .color(AAColor.Green),
+                        AAZonesElement()
+                            .value(5f)
+                            .color(AAColor.Cyan),
+                        AAZonesElement()
+                            .value(6f)
+                            .color(AAColor.Blue),
+                        AAZonesElement()
+                            .value(7f)
+                            .color(AAColor.Purple)
+                    )
+                    )
+            )
+            )
+    }
+
+    //https://github.com/AAChartModel/AAChartKit/issues/1291
+    //https://github.com/AAChartModel/AAChartKit/issues/1293
+    fun customLineChartWithColorfulMarkersAndLines2(): AAChartModel {
+        return AAChartModel()
+            .chartType(AAChartType.Line)
+            .title("Custom Line Chart With Colorful Markers And Lines")
+            .markerRadius(25.0f) //marker点半径为8个像素
+            .markerSymbol(AAChartSymbolType.Circle)
+            .yAxisLineWidth(0f)
+            .yAxisGridLineWidth(0f)
+            .legendEnabled(true)
+            .stacking(AAChartStackingType.Normal)
+            .series(arrayOf(
+                AASeriesElement()
+                    .name(AAColor.Blue)
+                    .lineWidth(20.0f)
+                    .data(arrayOf(
+                        2048, 1024, 1024, 1024, 1024,
+                        AADataElement()
+                            .y(2048f)
+                            .color(AAColor.rgbaColor(30, 144, 255, 1.0f))))
+                    .zoneAxis("x")
+                    .zones(arrayOf(
+                        AAZonesElement()
+                            .value(1)
+                            .color(AAColor.rgbaColor(30, 144, 255, 1.0f)),
+                        AAZonesElement()
+                            .value(2)
+                            .color(AAColor.rgbaColor(30, 144, 255, 0.8f)),
+                        AAZonesElement()
+                            .value(3)
+                            .color(AAColor.rgbaColor(30, 144, 255, 0.6f)),
+                        AAZonesElement()
+                            .value(4)
+                            .color(AAColor.rgbaColor(30, 144, 255, 0.4f)),
+                        AAZonesElement()
+                            .value(5)
+                            .color(AAColor.rgbaColor(30, 144, 255, 0.2f)))),
+                AASeriesElement()
+                    .name(AAColor.Red)
+                    .lineWidth(20.0f)
+                    .data(arrayOf(
+                        2048, 1024, 1024, 1024, 1024,
+                        AADataElement()
+                            .y(2048f)
+                            .color(AAColor.rgbaColor(255, 0, 0, 1.0f))))
+                    .zoneAxis("x")
+                    .zones(arrayOf(
+                        AAZonesElement()
+                            .value(1)
+                            .color(AAColor.rgbaColor(255, 0, 0, 1.0f)),
+                        AAZonesElement()
+                            .value(2)
+                            .color(AAColor.rgbaColor(255, 0, 0, 0.8f)),
+                        AAZonesElement()
+                            .value(3)
+                            .color(AAColor.rgbaColor(255, 0, 0, 0.6f)),
+                        AAZonesElement()
+                            .value(4)
+                            .color(AAColor.rgbaColor(255, 0, 0, 0.4f)),
+                        AAZonesElement()
+                            .value(5)
+                            .color(AAColor.rgbaColor(255, 0, 0, 0.2f)))),
+                AASeriesElement()
+                    .name(AAColor.Yellow)
+                    .lineWidth(20.0f)
+                    .data(arrayOf(
+                        2048, 1024, 1024, 1024, 1024,
+                        AADataElement()
+                            .y(2048f)
+                            .color(AAColor.rgbaColor(255, 215, 0, 1.0f))))
+                    .zoneAxis("x")
+                    .zones(arrayOf(
+                        AAZonesElement()
+                            .value(1)
+                            .color(AAColor.rgbaColor(255, 215, 0, 1.0f)),
+                        AAZonesElement()
+                            .value(2)
+                            .color(AAColor.rgbaColor(255, 215, 0, 0.8f)),
+                        AAZonesElement()
+                            .value(3)
+                            .color(AAColor.rgbaColor(255, 215, 0, 0.6f)),
+                        AAZonesElement()
+                            .value(4)
+                            .color(AAColor.rgbaColor(255, 215, 0, 0.4f)),
+                        AAZonesElement()
+                            .value(5)
+                            .color(AAColor.rgbaColor(255, 215, 0, 0.2f)))),
+                AASeriesElement()
+                    .name(AAColor.Green)
+                    .lineWidth(20.0f)
+                    .data(arrayOf(
+                        2048, 1024, 1024, 1024, 1024,
+                        AADataElement()
+                            .y(2048f)
+                            .color(AAColor.rgbaColor(50, 205, 50, 1.0f))))
+                    .zoneAxis("x")
+                    .zones(arrayOf(
+                        AAZonesElement()
+                            .value(1)
+                            .color(AAColor.rgbaColor(50, 205, 50, 1.0f)),
+                        AAZonesElement()
+                            .value(2)
+                            .color(AAColor.rgbaColor(50, 205, 50, 0.8f)),
+                        AAZonesElement()
+                            .value(3)
+                            .color(AAColor.rgbaColor(50, 205, 50, 0.6f)),
+                        AAZonesElement()
+                            .value(4)
+                            .color(AAColor.rgbaColor(50, 205, 50, 0.4f)),
+                        AAZonesElement()
+                            .value(5)
+                            .color(AAColor.rgbaColor(50, 205, 50, 0.2f)))),
+                AASeriesElement()
+                    .name(AAColor.Purple)
+                    .lineWidth(20.0f)
+                    .data(arrayOf(
+                        2048, 1024, 1024, 1024, 1024,
+                        AADataElement()
+                            .y(2048f)
+                            .color(AAColor.rgbaColor(138, 43, 226, 1.0f))))
+                    .zoneAxis("x")
+                    .zones(arrayOf(
+                        AAZonesElement()
+                            .value(1)
+                            .color(AAColor.rgbaColor(138, 43, 226, 1.0f)),
+                        AAZonesElement()
+                            .value(2)
+                            .color(AAColor.rgbaColor(138, 43, 226, 0.8f)),
+                        AAZonesElement()
+                            .value(3)
+                            .color(AAColor.rgbaColor(138, 43, 226, 0.6f)),
+                        AAZonesElement()
+                            .value(4)
+                            .color(AAColor.rgbaColor(138, 43, 226, 0.4f)),
+                        AAZonesElement()
+                            .value(5)
+                            .color(AAColor.rgbaColor(138, 43, 226, 0.2f))))
+            ))
+    }
+
+
+    //https://github.com/AAChartModel/AAChartKit/issues/1294
+    fun drawLineChartWithPointsCoordinates(): AAChartModel {
+        val dataArr = arrayOf<Any>(
+            arrayOf(0, 200),
+            arrayOf(0, 300),
+            arrayOf(0, 400),
+            arrayOf(1, 100),
+            arrayOf(2, 120),
+            arrayOf(3, 130)
+        )
+        return AAChartModel()
+            .chartType(AAChartType.Scatter)
+            .title("Draw Line Chart With Points Coordinates")
+            .markerSymbol(AAChartSymbolType.Circle)
+            .markerSymbolStyle(AAChartSymbolStyleType.BorderBlank)
+            .markerRadius(8f)
+            .colorsTheme(arrayOf(AAColor.Red))
+            .series(arrayOf(
+                AASeriesElement()
+                    .type(AAChartType.Line)
+                    .enableMouseTracking(false)
+                    .showInLegend(false)
+                    .marker(AAMarker()
+                        .enabled(false))
+                    .states(AAStates()
+                        .inactive(AAInactive()
+                            .enabled(false)))
+                    .data(dataArr),
+                AASeriesElement()
+                    .name("Red Dot")
+                    .type(AAChartType.Scatter)
+                    .data(dataArr)
+            )
+            )
+    }
+
+    //https://github.com/AAChartModel/AAChartKit/issues/1351
+    fun configureSpecialStyleColumnForNegativeDataMixedPositiveData(): AAChartModel {
+        val categoriesArr = arrayOf(
+            "立春", "雨水", "惊蛰", "春分", "清明", "谷雨", "立夏", "小满", "芒种", "夏至", "小暑", "大暑",
+            "立秋", "处暑", "白露", "秋分", "寒露", "霜降", "立冬", "小雪", "大雪", "冬至", "小寒", "大寒"
+        )
+        val dataArr = arrayOf(
+            -70, -69, -25, -145, -182, -215, -52, -265, -233, -453, -139, -96,
+            +70, +69, +25, +145, +182, +215, +52, +265, +233, +453, +139, +96
+        )
+        val newDataArr = ArrayList<AADataElement>()
+        for (dataElementValue in dataArr) {
+            val aaDataLabels = AADataLabels()
+                .enabled(true)
+                .verticalAlign(AAChartVerticalAlignType.Middle)
+                .x(0f)
+                .y(-10f)
+            if (dataElementValue < 0) {
+                val negativeDataElement = AADataElement()
+                    .y(-dataElementValue.toFloat())
+                    .color(AAColor.Green)
+                    .dataLabels(
+                        aaDataLabels
+                            .format("-{y} 美元")
+                            .style(AAStyle.style(AAColor.Green, 11f, AAChartFontWeightType.Thin))
+                    )
+                newDataArr.add(negativeDataElement)
+            } else {
+                val positiveDataElement = AADataElement()
+                    .y(dataElementValue.toFloat())
+                    .color(AAColor.Red)
+                    .dataLabels(
+                        aaDataLabels
+                            .format("+{y} 美元")
+                            .style(AAStyle.style(AAColor.Red, 11f, AAChartFontWeightType.Thin))
+                    )
+                newDataArr.add(positiveDataElement)
+            }
+        }
+        return AAChartModel()
+            .chartType(AAChartType.Column)
+            .categories(categoriesArr)
+            .tooltipEnabled(false)
+            .yAxisVisible(false)
+            .series(arrayOf(
+                AASeriesElement()
+                    .name("虚构数据")
+                    .data(newDataArr.toTypedArray())))
+    }
+
 
 }

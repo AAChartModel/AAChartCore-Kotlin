@@ -118,6 +118,15 @@ class CustomStyleChartActivity : AppCompatActivity() {
             "customColumnChartBorderStyleAndStatesHoverColor" ->
                 return CustomStyleChartComposer.customColumnChartBorderStyleAndStatesHoverColor()
 
+            "customLineChartWithColorfulMarkersAndLines" ->
+                return CustomStyleChartComposer.customLineChartWithColorfulMarkersAndLines()
+            "customLineChartWithColorfulMarkersAndLines2" ->
+                return CustomStyleChartComposer.customLineChartWithColorfulMarkersAndLines2()
+            "drawLineChartWithPointsCoordinates" ->
+                return CustomStyleChartComposer.drawLineChartWithPointsCoordinates()
+            "configureSpecialStyleColumnForNegativeDataMixedPositiveData" ->
+                return CustomStyleChartComposer.configureSpecialStyleColumnForNegativeDataMixedPositiveData()
+
         }
         return CustomStyleChartComposer.configureColorfulChart()
     }
