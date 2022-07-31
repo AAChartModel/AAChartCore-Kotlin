@@ -16,25 +16,29 @@ class MainActivity : AppCompatActivity() {
                 "Bar Chart---条形图",
                 "Area Chart---折线填充图",
                 "Areaspline Chart---曲线填充图",
-                "Step Area Chart--- 直方折线填充图",
-                "Step Line Chart--- 直方折线图",
+                "Step Area Chart---直方折线填充图",
+                "Step Line Chart---直方折线图",
                 "Line Chart---折线图",
                 "Spline Chart---曲线图"
             ), arrayOf(
-                "Polar Chart---极地图图",
+                "Polar Column Chart---玫瑰图",
+                "Polar Bar Chart---径向条形图",
+                "Polar Line Chart---蜘蛛图",
+                "Polar Area Chart---雷达图",
+                "Step Line Chart---直方折线图",
+                "Step Area Chart---直方折线填充图",
                 "Pie Chart---扇形图",
                 "Bubble Chart---气泡图",
                 "Scatter Chart---散点图",
                 "Arearange Chart---区域范围图",
-                "Columnrange Chart--- 柱形范围图",
-                "Step Line Chart--- 直方折线图",
-                "Step Area Chart--- 直方折线填充图",
-                "Boxplot Chart--- 箱线图",
-                "Waterfall Chart--- 瀑布图",
+                "Columnrange Chart---柱形范围图",
+                "Boxplot Chart---箱线图",
+                "Waterfall Chart---瀑布图",
                 "Pyramid Chart---金字塔图",
                 "Funnel Chart---漏斗图",
-                "Errorbar Chart---误差图"
-            ), arrayOf(
+                "Errorbar Chart---误差图",
+                "Gauge Chart---仪表图",
+                ), arrayOf(
                 "arearangeMixedLine",
                 "columnrangeMixedLine",
                 "stackingColumnMixedLine",
@@ -115,8 +119,8 @@ class MainActivity : AppCompatActivity() {
                 "Bar Chart---条形图",
                 "Area Chart---折线填充图",
                 "Areaspline Chart---曲线填充图",
-                "Step Area Chart--- 直方折线填充图",
-                "Step Line Chart--- 直方折线图",
+                "Step Area Chart---直方折线填充图",
+                "Step Line Chart---直方折线图",
                 "Line Chart---折线图",
                 "Spline Chart---曲线图",
                 "Scatter Chart---散点图"
@@ -144,8 +148,8 @@ class MainActivity : AppCompatActivity() {
                 "Bar Chart---条形图",
                 "Area Chart---折线填充图",
                 "Areaspline Chart---曲线填充图",
-                "Step Area Chart--- 直方折线填充图",
-                "Step Line Chart--- 直方折线图",
+                "Step Area Chart---直方折线填充图",
+                "Step Line Chart---直方折线图",
                 "Line Chart---折线图",
                 "Spline Chart---曲线图"
             ), arrayOf(
@@ -153,8 +157,8 @@ class MainActivity : AppCompatActivity() {
                 "Bar Chart---条形图",
                 "Area Chart---折线填充图",
                 "Areaspline Chart---曲线填充图",
-                "Step Area Chart--- 直方折线填充图",
-                "Step Line Chart--- 直方折线图",
+                "Step Area Chart---直方折线填充图",
+                "Step Line Chart---直方折线图",
                 "Line Chart---折线图",
                 "Spline Chart---曲线图"
             )
@@ -172,18 +176,22 @@ class MainActivity : AppCompatActivity() {
                 AAChartType.Spline.value
             ), arrayOf( /*特殊类型图表*/
                 AAChartType.Column.value,
+                AAChartType.Bar.value,
+                AAChartType.Line.value,
+                AAChartType.Area.value,
                 AAChartType.Pie.value,
                 AAChartType.Bubble.value,
                 AAChartType.Scatter.value,
                 AAChartType.Arearange.value,
                 AAChartType.Columnrange.value,
-                AAChartType.Line.value,
-                AAChartType.Area.value,
+                AAChartType.Spline.value,
+                AAChartType.Areaspline.value,
                 AAChartType.Boxplot.value,
                 AAChartType.Waterfall.value,
                 AAChartType.Pyramid.value,
                 AAChartType.Funnel.value,
-                AAChartType.Errorbar.value
+                AAChartType.Errorbar.value,
+                AAChartType.Gauge.value,
             ), arrayOf( /*Mixed Chart---混合图*/
                 "arearangeMixedLine",
                 "columnrangeMixedLine",
@@ -319,9 +327,9 @@ class MainActivity : AppCompatActivity() {
 
    private fun setupExpandableListView() {
         val groupTitleArr = arrayOf(
-            "Basic Type Chart --- 基础类型图表",
-            "Special Type Chart --- 特殊类型图表",
-            "Mixed Chart --- 混合图形",
+            "Basic Type Chart ---基础类型图表",
+            "Special Type Chart ---特殊类型图表",
+            "Mixed Chart ---混合图形",
             "Custom Style Chart---一些自定义风格样式图表",
             "Draw Chart With AAOptions---通过Options绘图",
             "Only Refresh data ---即时刷新图表数据",

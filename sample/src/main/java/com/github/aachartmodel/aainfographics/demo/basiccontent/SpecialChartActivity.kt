@@ -55,22 +55,26 @@ class SpecialChartActivity : AppCompatActivity() {
     private fun configureChartModelWithChartType(chartType: String): AAChartModel? {
         when (chartType) {
             AAChartType.Column.value -> return SpecialChartComposer.configurePolarColumnChart()
+            AAChartType.Bar.value -> return SpecialChartComposer.configurePolarBarChart()
+            AAChartType.Line.value -> return SpecialChartComposer.configurePolarLineChart()
+            AAChartType.Area.value -> return SpecialChartComposer.configurePolarAreaChart()
             AAChartType.Pie.value -> return SpecialChartComposer.configurePieChart()
             AAChartType.Bubble.value -> return SpecialChartComposer.configureBubbleChart()
             AAChartType.Scatter.value -> return SpecialChartComposer.configureScatterChart()
             AAChartType.Arearange.value -> return SpecialChartComposer.configureArearangeChart()
             AAChartType.Areasplinerange.value -> return SpecialChartComposer.configureAreasplinerangeChart()
             AAChartType.Columnrange.value -> return SpecialChartComposer.configureColumnrangeChart()
-            AAChartType.Line.value -> return SpecialChartComposer.configureStepLineChart()
-            AAChartType.Area.value -> return SpecialChartComposer.configureStepAreaChart()
+            AAChartType.Spline.value -> return SpecialChartComposer.configureStepLineChart()
+            AAChartType.Areaspline.value -> return SpecialChartComposer.configureStepAreaChart()
             AAChartType.Boxplot.value -> return SpecialChartComposer.configureBoxplotChart()
             AAChartType.Waterfall.value -> return SpecialChartComposer.configureWaterfallChart()
             AAChartType.Pyramid.value -> return SpecialChartComposer.configurePyramidChart()
             AAChartType.Funnel.value -> return SpecialChartComposer.configureFunnelChart()
             AAChartType.Errorbar.value -> return SpecialChartComposer.configureErrorbarChart()
+            AAChartType.Gauge.value -> return SpecialChartComposer.configureGaugeChart()
         }
 
-        return null
+        return SpecialChartComposer.configurePolarColumnChart()
     }
 
 }

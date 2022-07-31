@@ -28,9 +28,11 @@
 package com.github.aachartmodel.aainfographics.demo.chartcomposer
 
 import com.github.aachartmodel.aainfographics.aachartcreator.*
-import com.github.aachartmodel.aainfographics.aaoptionsmodel.*
-import com.github.aachartmodel.aainfographics.aatools.*
-import java.util.*
+import com.github.aachartmodel.aainfographics.aaoptionsmodel.AADataLabels
+import com.github.aachartmodel.aainfographics.aaoptionsmodel.AAStyle
+import com.github.aachartmodel.aainfographics.aaoptionsmodel.AATooltip
+import com.github.aachartmodel.aainfographics.aatools.AAColor
+import com.github.aachartmodel.aainfographics.aatools.AAGradientColor
 
 object SpecialChartComposer {
 
@@ -55,6 +57,85 @@ object SpecialChartComposer {
             .series(arrayOf(
                 AASeriesElement()
                     .name("2018")
+                    .colorByPoint(true)
+                    .data(arrayOf(7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6))
+            ))
+    }
+
+    fun configurePolarBarChart(): AAChartModel {
+        return AAChartModel()
+            .chartType(AAChartType.Bar)
+            .polar(true)
+            .dataLabelsEnabled(false)
+            .categories(arrayOf(
+                "January",
+                "February",
+                "March",
+                "April",
+                "May",
+                "June",
+                "July",
+                "August",
+                "September",
+                "October",
+                "November",
+                "December"))
+            .series(arrayOf(
+                AASeriesElement()
+                    .name("2018")
+                    .colorByPoint(true)
+                    .data(arrayOf(7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6))
+            ))
+    }
+
+    fun configurePolarLineChart(): AAChartModel {
+        return AAChartModel()
+            .chartType(AAChartType.Line)
+            .polar(true)
+            .dataLabelsEnabled(false)
+            .categories(arrayOf(
+                "January",
+                "February",
+                "March",
+                "April",
+                "May",
+                "June",
+                "July",
+                "August",
+                "September",
+                "October",
+                "November",
+                "December"))
+            .series(arrayOf(
+                AASeriesElement()
+                    .name("2018")
+                    .colorByPoint(true)
+                    .data(arrayOf(7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6))
+            ))
+    }
+
+    fun configurePolarAreaChart(): AAChartModel {
+        return AAChartModel()
+            .chartType(AAChartType.Area)
+            .polar(true)
+            .dataLabelsEnabled(false)
+            .categories(arrayOf(
+                "January",
+                "February",
+                "March",
+                "April",
+                "May",
+                "June",
+                "July",
+                "August",
+                "September",
+                "October",
+                "November",
+                "December"))
+            .series(arrayOf(
+                AASeriesElement()
+                    .name("2018")
+                    .colorByPoint(true)
                     .data(arrayOf(7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6))
             ))
     }
@@ -65,7 +146,7 @@ object SpecialChartComposer {
             .backgroundColor("#ffffff")
             .title("LANGUAGE MARKET SHARES JANUARY,2020 TO MAY")
             .subtitle("virtual data")
-            .colorsTheme(arrayOf("#0c9674", "#7dffc0", "#d11b5f", "#facd32", "#ffffa0",))
+            .colorsTheme(arrayOf("#0c9674", "#7dffc0", "#d11b5f", "#facd32", "#ffffa0"))
             .dataLabelsEnabled(true)//是否直接显示扇形图数据
             .yAxisTitle("℃")
             .series(arrayOf(
@@ -911,6 +992,43 @@ object SpecialChartComposer {
                                 .pointFormat("(误差范围: {point.low}-{point.high} mm)<br/>"))))
     }
 
-
+    fun configureGaugeChart(): AAChartModel {
+        return AAChartModel()
+            .title("多边形图")
+            .dataLabelsEnabled(false)
+            .markerSymbolStyle(AAChartSymbolStyleType.InnerBlank)
+            .markerRadius(8)
+            .series(arrayOf(
+                AASeriesElement()
+                    .name("目标")
+                    .type(AAChartType.Polygon)
+                    .data(arrayOf(
+                        arrayOf(153, 42),
+                        arrayOf(149, 46),
+                        arrayOf(149, 55),
+                        arrayOf(152, 60),
+                        arrayOf(159, 70),
+                        arrayOf(170, 77),
+                        arrayOf(180, 70),
+                        arrayOf(180, 60),
+                        arrayOf(173, 52),
+                        arrayOf(166, 45)))
+                    .lineWidth(6),
+                AASeriesElement()
+                    .name("实际完成")
+                    .type(AAChartType.Polygon)
+                    .data(arrayOf(
+                        arrayOf(153 * 1.6, 42 * 1.6),
+                        arrayOf(149 * 1.6, 46 * 1.6),
+                        arrayOf(149 * 1.6, 55 * 1.6),
+                        arrayOf(152 * 1.6, 60 * 1.6),
+                        arrayOf(159 * 1.6, 70 * 1.6),
+                        arrayOf(170 * 1.6, 77 * 1.6),
+                        arrayOf(180 * 1.6, 70 * 1.6),
+                        arrayOf(180 * 1.6, 60 * 1.6),
+                        arrayOf(173 * 1.6, 52 * 1.6),
+                        arrayOf(166 * 1.6, 45 * 1.6)))
+                    .lineWidth(6)))
+    }
 
 }
