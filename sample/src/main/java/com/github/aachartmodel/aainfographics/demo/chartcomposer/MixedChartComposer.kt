@@ -649,9 +649,7 @@ object MixedChartComposer {
         return AAChartModel()
             .stacking(AAChartStackingType.Normal)
             .colorsTheme(arrayOf(
-                AAGradientColor.OceanBlue,
-                AAGradientColor.Sanguine,
-                AAGradientColor.PurpleLake
+                "#fe117c", "#ffc069", "#06caf4", "#7dffc0"
             ))
             .dataLabelsEnabled(false)
             .series(arrayOf(
@@ -697,7 +695,7 @@ object MixedChartComposer {
                 AASeriesElement()
                     .name("Column")
                     .data(arrayOf(
-                        7.0, 6.9, 2.5, 14.5, 18.2, 21.5, 5.2, 26.5, 23.3, 45.3, 13.9, 9.6,
+                        +7.0, +6.9, +2.5, +14.5, +18.2, +21.5, +5.2, +26.5, +23.3, +45.3, +13.9, +9.6,
                         -7.0, -6.9, -2.5, -14.5, -18.2, -21.5, -5.2, -26.5, -23.3, -45.3, -13.9, -9.6
                     ))
                     .lineWidth(5)
