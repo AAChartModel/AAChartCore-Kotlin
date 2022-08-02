@@ -992,7 +992,25 @@ object SpecialChartComposer {
                                 .pointFormat("(误差范围: {point.low}-{point.high} mm)<br/>"))))
     }
 
+
     fun configureGaugeChart(): AAChartModel {
+        return AAChartModel()
+            .title("速度仪")
+            .yAxisTitle("km/h")
+            .yAxisMin(0)
+            .yAxisMax(1000)
+            .yAxisGridLineWidth(0)
+            .series(arrayOf(
+                    AASeriesElement()
+                        .name("速度")
+                        .type(AAChartType.Gauge)
+                        .data(arrayOf(888))
+                        .color(AAColor.Red)
+                        .tooltip(AATooltip()
+                                .valueSuffix("km/h"))))
+    }
+
+    fun configurePolygonChart(): AAChartModel {
         return AAChartModel()
             .title("多边形图")
             .dataLabelsEnabled(false)

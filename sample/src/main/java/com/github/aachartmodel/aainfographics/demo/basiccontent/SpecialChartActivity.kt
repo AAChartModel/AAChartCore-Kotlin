@@ -72,6 +72,7 @@ class SpecialChartActivity : AppCompatActivity() {
             AAChartType.Funnel.value -> return SpecialChartComposer.configureFunnelChart()
             AAChartType.Errorbar.value -> return SpecialChartComposer.configureErrorbarChart()
             AAChartType.Gauge.value -> return SpecialChartComposer.configureGaugeChart()
+            AAChartType.Polygon.value -> return SpecialChartComposer.configurePolygonChart()
         }
 
         return SpecialChartComposer.configurePolarColumnChart()
