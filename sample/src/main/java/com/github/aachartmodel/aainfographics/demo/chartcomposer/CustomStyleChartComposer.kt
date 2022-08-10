@@ -165,8 +165,7 @@ object CustomStyleChartComposer  {
             .series(arrayOf(
                 AASeriesElement()
                     .name("Tokyo")
-                    .data(arrayOf(
-                        arrayOf<Any?>(6.9, 9.5, 14.5, 18.2, 21.5, null, null, null, null, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6)))
+                    .data(arrayOf(6.9, 9.5, 14.5, 18.2, 21.5, "null", "null", "null", "null", 25.2, 26.5, 23.3, 18.3, 13.9, 9.6))
                     .color(AAGradientColor.DeepSea)))
     }
 
