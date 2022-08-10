@@ -58,10 +58,10 @@ object ChartOptionsComposer {
 
         val element4 = AASeriesElement()
             .name("Custom symbol")
-            .data(arrayOf(0.60, 0.51, 0.52, 0.53, 0.64, 0.84, 0.65, 0.68, 0.63, 0.47, 0.72, 0.60, 0.65, 0.74, 0.66, 0.65, 0.71, 0.59, 0.65, 0.77, 0.52, 0.53, 0.58, 0.53))
+            .data(arrayOf(0.60, 0.51, 0.52, 0.53, 0.64, "null", "null", "null", "null", "null", "null", "null", 0.65, 0.74, 0.66, 0.65, 0.71, 0.59, 0.65, 0.77, 0.52, 0.53, 0.58, 0.53))
 
         val aaChartModel = AAChartModel()
-            .chartType(AAChartType.Areaspline)
+            .chartType(AAChartType.Line)
             .title("CUSTOM LEGEND STYLE")
             .subtitle("LEGEND ON THE TOP_RIGHT SIDE WITH VERTICAL STYLE")
             .subtitleAlign(AAChartAlignType.Left)
@@ -112,6 +112,8 @@ object ChartOptionsComposer {
         aaOptions.defaultOptions = AALang()
             .resetZoom("重置缩放比例")
             .thousandsSep(",")
+
+        aaOptions.plotOptions?.series?.connectNulls(true)
 
         return aaOptions
     }
