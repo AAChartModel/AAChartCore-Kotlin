@@ -144,17 +144,12 @@ class AASVGAttributes {
         return this
     }
 
+    // convert to dictionary in kotlin with let
     fun toDic(): Map<String, Any> {
         val dic: MutableMap<String, Any> = HashMap()
-        if (strokeWidth != null) {
-            dic["stroke-width"] = strokeWidth!!
-        }
-        if (fill != null) {
-            dic["fill"] = fill!!
-        }
-        if (stroke != null) {
-            dic["stroke"] = stroke!!
-        }
+        strokeWidth?.let { dic["stroke-width"] = it }
+        fill?.let { dic["fill"] = it }
+        stroke?.let { dic["stroke"] = it }
         return dic
     }
 
