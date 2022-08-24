@@ -28,59 +28,59 @@ class DoubleChartsLinkedWorkActivity : AppCompatActivity(),
 
     private fun configureChartOptions1(): AAOptions {
         val gradientColorNamesArr = arrayOf(
-                "oceanBlue",
-                "sanguine",
-                "lusciousLime",
-                "purpleLake",
-                "freshPapaya",
-                "ultramarine",
-                "pinkSugar",
-                "lemonDrizzle",
-                "victoriaPurple",
-                "springGreens",
-                "mysticMauve",
-                "reflexSilver",
-                "neonGlowColor",
-                "berrySmoothieColor",
-                "newLeaf",
-                "cottonCandy",
-                "pixieDust",
-                "fizzyPeach",
-                "sweetDream",
-                "firebrick",
-                "wroughtIron",
-                "deepSea",
-                "coastalBreeze",
-                "eveningDelight",
-                "neonGlowColor",
-                "berrySmoothieColor"
+            "oceanBlue",
+            "sanguine",
+            "lusciousLime",
+            "purpleLake",
+            "freshPapaya",
+            "ultramarine",
+            "pinkSugar",
+            "lemonDrizzle",
+            "victoriaPurple",
+            "springGreens",
+            "mysticMauve",
+            "reflexSilver",
+            "neonGlowColor",
+            "berrySmoothieColor",
+            "newLeaf",
+            "cottonCandy",
+            "pixieDust",
+            "fizzyPeach",
+            "sweetDream",
+            "firebrick",
+            "wroughtIron",
+            "deepSea",
+            "coastalBreeze",
+            "eveningDelight",
+            "neonGlowColor",
+            "berrySmoothieColor"
         )
 
         val gradientColorArr = arrayOf(
-                AAGradientColor.OceanBlue,
-                AAGradientColor.Sanguine,
-                AAGradientColor.LusciousLime,
-                AAGradientColor.PurpleLake,
-                AAGradientColor.FreshPapaya,
-                AAGradientColor.Ultramarine,
-                AAGradientColor.PinkSugar,
-                AAGradientColor.LemonDrizzle,
-                AAGradientColor.VictoriaPurple,
-                AAGradientColor.SpringGreens,
-                AAGradientColor.MysticMauve,
-                AAGradientColor.ReflexSilver,
-                AAGradientColor.NewLeaf,
-                AAGradientColor.CottonCandy,
-                AAGradientColor.PixieDust,
-                AAGradientColor.FizzyPeach,
-                AAGradientColor.SweetDream,
-                AAGradientColor.Firebrick,
-                AAGradientColor.WroughtIron,
-                AAGradientColor.DeepSea,
-                AAGradientColor.CoastalBreeze,
-                AAGradientColor.EveningDelight,
-                AAGradientColor.NeonGlow,
-                AAGradientColor.BerrySmoothie
+            AAGradientColor.OceanBlue,
+            AAGradientColor.Sanguine,
+            AAGradientColor.LusciousLime,
+            AAGradientColor.PurpleLake,
+            AAGradientColor.FreshPapaya,
+            AAGradientColor.Ultramarine,
+            AAGradientColor.PinkSugar,
+            AAGradientColor.LemonDrizzle,
+            AAGradientColor.VictoriaPurple,
+            AAGradientColor.SpringGreens,
+            AAGradientColor.MysticMauve,
+            AAGradientColor.ReflexSilver,
+            AAGradientColor.NewLeaf,
+            AAGradientColor.CottonCandy,
+            AAGradientColor.PixieDust,
+            AAGradientColor.FizzyPeach,
+            AAGradientColor.SweetDream,
+            AAGradientColor.Firebrick,
+            AAGradientColor.WroughtIron,
+            AAGradientColor.DeepSea,
+            AAGradientColor.CoastalBreeze,
+            AAGradientColor.EveningDelight,
+            AAGradientColor.NeonGlow,
+            AAGradientColor.BerrySmoothie
         )
         gradientColorsArr = gradientColorArr as Array<Any>
         val aaChartModel: AAChartModel = AAChartModel.Builder(this)
@@ -94,14 +94,13 @@ class DoubleChartsLinkedWorkActivity : AppCompatActivity(),
             .setInverted(true)
             .setLegendEnabled(false)
             .setTouchEventEnabled(true)
-            .setSeries(
-                    AASeriesElement()
-                        .name("Tokyo")
-                        .data(arrayOf(
-                                211, 183, 157, 133, 111, 91, 73, 57, 43, 31, 21, 13,
-                                211, 183, 157, 133, 111, 91, 73, 57, 43, 31, 21, 13
-                            ))
-                        .colorByPoint(true)).build()
+            .setSeries(AASeriesElement()
+                .name("Tokyo")
+                .data(arrayOf(
+                    211, 183, 157, 133, 111, 91, 73, 57, 43, 31, 21, 13,
+                    211, 183, 157, 133, 111, 91, 73, 57, 43, 31, 21, 13
+                ))
+                .colorByPoint(true)).build()
         val aaOptions: AAOptions = aaChartModel.aa_toAAOptions()
         aaOptions.plotOptions?.column?.groupPadding = 0f
         return aaOptions
@@ -114,13 +113,12 @@ class DoubleChartsLinkedWorkActivity : AppCompatActivity(),
             .setYAxisTitle("")
             .setLegendEnabled(false)
             .setYAxisGridLineWidth(0f)
-            .setSeries(
-                    AASeriesElement()
-                        .name("Tokyo")
-                        .data(arrayOf(
-                                211,183,157,133,111,91,73,57,43,31,21,13,
-                                211,183,157,133,111,91,73,57,43,31,21,13,
-                            ))
+            .setSeries(AASeriesElement()
+                .name("Tokyo")
+                .data(arrayOf(
+                    211,183,157,133,111,91,73,57,43,31,21,13,
+                    211,183,157,133,111,91,73,57,43,31,21,13,
+                ))
             ).build()
         val aaOptions: AAOptions = aaChartModel.aa_toAAOptions()
         aaOptions.plotOptions?.column?.groupPadding = 0f
