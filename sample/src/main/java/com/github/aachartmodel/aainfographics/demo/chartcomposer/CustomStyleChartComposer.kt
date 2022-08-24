@@ -639,20 +639,22 @@ object CustomStyleChartComposer  {
                             .halo(AAHalo()
                                 .size(130)
                                 .opacity(0.8f)
-                                .attributes(mapOf(
-                                    "stroke-width" to 50,
-                                    "fill" to "#00BFFF",
-                                    "stroke" to "#00FA9A"
-                                ))))
+                                .attributes(
+                                    AASVGAttributes()
+                                        .strokeWidth(50)
+                                        .fill("#00BFFF")
+                                        .stroke("#00FA9A")
+                                )))
                         .select(AASelect()
                             .halo(AAHalo()
                                 .size(130)
                                 .opacity(1.0f)
-                                .attributes(mapOf(
-                                    "stroke-width" to 150,
-                                    "fill" to AARgba(138, 43, 226, 1.0f),
-                                    "stroke" to AARgba(30, 144, 255, 1.0f)
-                                )))))))
+                                .attributes(
+                                    AASVGAttributes()
+                                        .strokeWidth(150)
+                                        .fill(AARgba(138, 43, 226, 1.0f))
+                                        .stroke(AARgba(30, 144, 255, 1.0f))
+                                ))))))
     }
 
     fun customSplineChartMarkerStatesHoverStyle(): AAChartModel {

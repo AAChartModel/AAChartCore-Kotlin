@@ -90,12 +90,12 @@ class AASelect {
 }
 
 class AAHalo {
-    var attributes: Map<*, *>? = null
+    var attributes: Map<String, *>? = null
     var opacity: Float? = null
     var size: Number? = null
 
-    fun attributes(prop: Map<*, *>?): AAHalo {
-        attributes = prop
+    fun attributes(prop: AASVGAttributes?): AAHalo {
+        attributes = prop?.toDic()
         return this
     }
 
@@ -122,5 +122,41 @@ class AAInactive {
         opacity = prop
         return this
     }
+}
+
+class AASVGAttributes {
+    var fill: String? = null
+    var stroke: String? = null
+    var strokeWidth: Number? = null
+
+    fun fill(prop: String?): AASVGAttributes {
+        fill = prop
+        return this
+    }
+
+    fun stroke(prop: String?): AASVGAttributes {
+        stroke = prop
+        return this
+    }
+
+    fun strokeWidth(prop: Number?): AASVGAttributes {
+        strokeWidth = prop
+        return this
+    }
+
+    fun toDic(): Map<String, Any> {
+        val dic: MutableMap<String, Any> = HashMap()
+        if (strokeWidth != null) {
+            dic["stroke-width"] = strokeWidth!!
+        }
+        if (fill != null) {
+            dic["fill"] = fill!!
+        }
+        if (stroke != null) {
+            dic["stroke"] = stroke!!
+        }
+        return dic
+    }
+
 }
 
