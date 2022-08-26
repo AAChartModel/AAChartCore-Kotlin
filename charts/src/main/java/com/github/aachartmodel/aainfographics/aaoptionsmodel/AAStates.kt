@@ -31,12 +31,19 @@ class AAStates {
 
 
 class AAHover {
+    var enabled: Boolean? = null
     var borderColor: String? = null
     var brightness: Float? = null
     var color: String? = null
     var halo: AAHalo? = null
     var lineWidth: Number? = null
     var lineWidthPlus: Number? = null
+
+    fun enabled(prop: Boolean?): AAHover {
+        enabled = prop
+        return this
+    }
+
     fun borderColor(prop: String?): AAHover {
         borderColor = prop
         return this
