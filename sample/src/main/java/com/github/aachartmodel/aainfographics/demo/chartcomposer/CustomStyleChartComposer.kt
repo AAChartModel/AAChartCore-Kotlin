@@ -683,6 +683,35 @@ object CustomStyleChartComposer  {
                     .data(arrayOf(7.0, 6.9, 2.5, 14.5, 18.2, 21.5, 5.2, 26.5, 23.3, 45.3, 13.9, 9.6))))
     }
 
+    //Issue: https://github.com/AAChartModel/AAChartKit/issues/948
+    fun splineChartHoverLineWithNoChangeAndCustomMarkerStatesHoverStyle(): AAChartModel {
+        return AAChartModel()
+            .chartType(AAChartType.Spline)
+            .title("Spline Chart Hover Line Width No Change && Custom Marker States Hover Style")
+            .categories(arrayOf(
+                "一月", "二月", "三月", "四月", "五月", "六月",
+                "七月", "八月", "九月", "十月", "十一月", "十二月"))
+            .markerRadius(8.0) //marker点半径为8个像素
+            .yAxisLineWidth(0)
+            .yAxisGridLineWidth(0)
+            .legendEnabled(false)
+            .markerSymbolStyle(AAChartSymbolStyleType.InnerBlank)
+            .series(arrayOf(
+                AASeriesElement()
+                    .name("Tokyo Hot")
+                    .lineWidth(5.0)
+                    .color(AAColor.Red)
+                    .states(AAStates()
+                        .hover(AAHover()
+                            .enabled(true)
+                            .lineWidthPlus(0))) //手指盘旋或选中图表时,禁止线条变粗
+                    .marker(AAMarker()
+                        .states(AAMarkerStates()
+                            .hover(AAMarkerHover()
+                                .fillColor(AAColor.Red) //设置手指选中点的颜色为红色
+                                .radius(40))))
+                    .data(arrayOf(7.0, 6.9, 2.5, 14.5, 18.2, 21.5, 5.2, 26.5, 23.3, 45.3, 13.9, 9.6))))
+    }
 
     //Issue: https://github.com/AAChartModel/AAChartKit/issues/827
     fun customNormalStackingChartDataLabelsContentAndStyle(): AAChartModel {
@@ -708,6 +737,7 @@ object CustomStyleChartComposer  {
         )
 
         val aaDataLabels = AADataLabels()
+            .enabled(true)
             .y(-10)
             .format("{total} mm")
             .color(AAColor.Red)

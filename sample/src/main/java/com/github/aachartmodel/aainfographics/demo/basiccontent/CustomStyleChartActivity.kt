@@ -96,6 +96,7 @@ class CustomStyleChartActivity : AppCompatActivity() {
              "customBarChartHoverColorAndSelectColor"-> return CustomStyleChartComposer.customBarChartHoverColorAndSelectColor()
              "customChartHoverAndSelectHaloStyle"-> return CustomStyleChartComposer.customChartHoverAndSelectHaloStyle()
              "customSplineChartMarkerStatesHoverStyle"-> return CustomStyleChartComposer.customSplineChartMarkerStatesHoverStyle()
+            "splineChartHoverLineWithNoChangeAndCustomMarkerStatesHoverStyle" -> return CustomStyleChartComposer.splineChartHoverLineWithNoChangeAndCustomMarkerStatesHoverStyle()
              "customNormalStackingChartDataLabelsContentAndStyle"-> return CustomStyleChartComposer.customNormalStackingChartDataLabelsContentAndStyle()
              "upsideDownPyramidChart"-> return CustomStyleChartComposer.upsideDownPyramidChart()
              "doubleLayerPieChart"-> return CustomStyleChartComposer.doubleLayerPieChart()
