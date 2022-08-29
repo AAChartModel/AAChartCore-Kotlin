@@ -10,6 +10,7 @@ package com.github.aachartmodel.aainfographics.aaoptionsmodel
 
 import com.github.aachartmodel.aainfographics.aachartcreator.AAChartType
 import com.github.aachartmodel.aainfographics.aachartcreator.AAChartZoomType
+import com.github.aachartmodel.aainfographics.aatools.AAJSStringPurer
 
 class AAChart {
     var type: String? = null
@@ -31,6 +32,9 @@ class AAChart {
     var marginLeft: Number? = null//👈
     var scrollablePlotArea: AAScrollablePlotArea? = null
     var resetZoomButton: AAResetZoomButton? = null
+    var zoomType: String? = null
+    var events: AAChartEvents? = null
+    var height: Number? = null
     
 
     fun type(prop: AAChartType?): AAChart {
@@ -134,4 +138,41 @@ class AAResetZoomButton {
         theme = prop
         return this
     }
+}
+
+
+class AAChartEvents {
+    var load: String? = null
+    var redraw: String? = null
+    var render: String? = null
+    var selection: String? = null
+
+    fun load(prop: String): AAChartEvents {
+        var pureJSFunctionStr = "($prop)"
+        pureJSFunctionStr = AAJSStringPurer.pureJavaScriptFunctionString(pureJSFunctionStr)
+        load = pureJSFunctionStr
+        return this
+    }
+
+    fun redraw(prop: String): AAChartEvents {
+        var pureJSFunctionStr = "($prop)"
+        pureJSFunctionStr = AAJSStringPurer.pureJavaScriptFunctionString(pureJSFunctionStr)
+        redraw = pureJSFunctionStr
+        return this
+    }
+
+    fun render(prop: String): AAChartEvents {
+        var pureJSFunctionStr = "($prop)"
+        pureJSFunctionStr = AAJSStringPurer.pureJavaScriptFunctionString(pureJSFunctionStr)
+        render = pureJSFunctionStr
+        return this
+    }
+
+    fun selection(prop: String): AAChartEvents {
+        var pureJSFunctionStr = "($prop)"
+        pureJSFunctionStr = AAJSStringPurer.pureJavaScriptFunctionString(pureJSFunctionStr)
+        selection = pureJSFunctionStr
+        return this
+    }
+
 }
