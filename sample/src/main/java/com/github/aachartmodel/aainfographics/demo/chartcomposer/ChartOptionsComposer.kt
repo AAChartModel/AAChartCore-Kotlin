@@ -1251,4 +1251,27 @@ function () {
         return aaOptions
     }
 
+//https://github.com/AAChartModel/AAChartCore-Kotlin/issues/134
+    fun customTitleStyle(): AAOptions {
+        val aaChartModel = AAChartModel()
+            .legendEnabled(false)
+            .categories(arrayOf(
+                    "Jan", "Feb", "Mar", "Apr", "May", "Jun",
+                    "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
+                ))
+            .series(arrayOf(
+                    AASeriesElement()
+                        .data(arrayOf(149.9, 171.5, 106.4, 129.2, 144.0, 176.0, 135.6, 188.5, 276.4, 214.1, 95.6, 54.4))
+            ))
+        val aaOptions = aaChartModel.aa_toAAOptions()
+        aaOptions.chart?.marginBottom = 100
+        aaOptions.title?.apply {
+             text("This is the custom title")
+            .align(AAChartAlignType.Center)
+            .verticalAlign(AAChartVerticalAlignType.Bottom)
+            .y(10)
+        }
+        return aaOptions
+    }
+
 }
