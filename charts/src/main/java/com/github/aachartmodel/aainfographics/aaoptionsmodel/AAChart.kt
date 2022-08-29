@@ -112,8 +112,23 @@ class AAChart {
         return this
     }
     
-    fun resetZoomButton(prop: AAResetZoomButton): AAChart? {
+    fun resetZoomButton(prop: AAResetZoomButton): AAChart {
         resetZoomButton = prop
+        return this
+    }
+
+    fun zoomType(zoomType: String?): AAChart {
+        this.zoomType = zoomType
+        return this
+    }
+
+    fun events(events: AAChartEvents?): AAChart {
+        this.events = events
+        return this
+    }
+
+    fun height(height: Number?): AAChart {
+        this.height = height
         return this
     }
 
