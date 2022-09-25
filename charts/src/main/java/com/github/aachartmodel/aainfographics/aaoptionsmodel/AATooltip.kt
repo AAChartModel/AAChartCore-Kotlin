@@ -44,6 +44,7 @@ class AATooltip {
     var borderRadius: Number? = null
     var borderWidth: Number? = null
     var style: AAStyle? = null
+    var shape: String? = null
     var enabled: Boolean? = null
     var useHTML: Boolean? = null
     var formatter: String? = null
@@ -82,6 +83,11 @@ class AATooltip {
 
     fun style(prop: AAStyle): AATooltip {
         style = prop
+        return this
+    }
+
+    fun shape(prop: String): AATooltip {
+        shape = prop
         return this
     }
 
