@@ -82,13 +82,10 @@ object JSFunctionForAAChartEventsComposer {
 
     fun generalDrawingChart(): AAOptions {
         return AAOptions()
-            .chart(
-                AAChart()
+            .chart(AAChart()
                     .backgroundColor(AAColor.White)
-                    .events(
-                        AAChartEvents()
-                            .load(
-                                """function () {
+                    .events(AAChartEvents()
+                            .load("""function () {
                 var ren = this.renderer,
                     colors = Highcharts.getOptions().colors,
                     rightArrow = ['M', 0, 0, 'L', 100, 0, 'L', 95, 5, 'M', 100, 0, 'L', 95, -5],
@@ -311,22 +308,17 @@ object JSFunctionForAAChartEventsComposer {
                             )
                     )
             )
-            .title(
-                AATitle()
+            .title(AATitle()
                     .text("Highcharts export server overview")
-                    .style(AAStyle.style(AAColor.Black))
-            )
+                    .style(AAStyle.style(AAColor.Black)))
     }
 
     fun advancedTimeLineChart(): AAOptions {
         return AAOptions()
-            .chart(
-                AAChart()
+            .chart(AAChart()
                     .backgroundColor(AAColor.Red)
-                    .events(
-                        AAChartEvents()
-                            .load(
-                                """function () {
+                    .events(AAChartEvents()
+                            .load("""function () {
                         var centerX = 140;
                         var centerY = 110;
                         var path = [];
@@ -495,110 +487,69 @@ object JSFunctionForAAChartEventsComposer {
                             )
                     )
             ) //
-            .xAxis(
-                AAXAxis()
+            .xAxis(AAXAxis()
                     .type(AAChartAxisType.Datetime)
                     .minTickInterval(315360000)
-                    .labels(
-                        AALabels()
-                            .align(AAChartAlignType.Left)
-                    )
-                    .plotBands(
-                        arrayOf(
+                    .labels(AALabels()
+                            .align(AAChartAlignType.Left))
+                    .plotBands(arrayOf(
                             AAPlotBandsElement()
                                 .from(1259280000)
                                 .to(1291161600)
                                 .color("#EFFFFF")
-                                .label(
-                                    AALabel()
+                                .label(AALabel()
                                         .text("办事处:Torstein的地下室")
-                                        .style(
-                                            AAStyle()
-                                                .color("#999999")
-                                        )
-                                        .y(180)
-                                ),
+                                        .style(AAStyle()
+                                                .color("#999999"))
+                                        .y(180)),
                             AAPlotBandsElement()
                                 .from(1291161600)
                                 .to(1380585600)
                                 .color("#FFFFEF")
-                                .label(
-                                    AALabel()
+                                .label(AALabel()
                                         .text("办事处:Tomtebu")
-                                        .style(
-                                            AAStyle()
-                                                .color("#999999")
-                                        )
+                                        .style(AAStyle()
+                                                .color("#999999"))
                                         .y(30)
                                 ),
                             AAPlotBandsElement()
                                 .from(1380585600)
                                 .to(1417046400)
                                 .color("#FFEFFF")
-                                .label(
-                                    AALabel()
+                                .label(AALabel()
                                         .text("办事处:VikØrsta")
-                                        .style(
-                                            AAStyle()
-                                                .color("#999999")
-                                        )
-                                        .y(30)
-                                )
-                        )
-                    )
-            )
-            .title(
-                AATitle()
-                    .text("Highsoft 公司发展历程")
-            )
-            .tooltip(
-                AATooltip()
-                    .style(
-                        AAStyle()
-                            .width(250)
-                    )
-            )
-            .yAxisArray(
-                arrayOf(
+                                        .style(AAStyle()
+                                                .color("#999999"))
+                                        .y(30))
+                    )))
+            .title(AATitle()
+                    .text("Highsoft 公司发展历程"))
+            .tooltip(AATooltip()
+                    .style(AAStyle()
+                            .width(250)))
+            .yAxisArray(arrayOf(
                     AAYAxis()
                         .max(100)
-                        .labels(
-                            AALabels()
-                                .enabled(false)
-                        )
-                        .title(
-                            AATitle()
-                                .text("")
-                        )
+                        .labels(AALabels()
+                                .enabled(false))
+                        .title(AATitle()
+                                .text(""))
                         .gridLineColor("rgba(0, 0, 0, 0.07)"),
                     AAYAxis()
                         .allowDecimals(false)
                         .max(15)
-                        .labels(
-                            AALabels()
-                                .style(
-                                    AAStyle()
-                                        .color("#90ed7d")
-                                )
-                        )
-                        .title(
-                            AATitle()
+                        .labels(AALabels()
+                                .style(AAStyle()
+                                        .color("#90ed7d")))
+                        .title(AATitle()
                                 .text("雇员")
-                                .style(
-                                    AAStyle()
-                                        .color("#90ed7d")
-                                )
-                        )
+                                .style(AAStyle()
+                                        .color("#90ed7d")))
                         .opposite(true)
-                        .gridLineWidth(0)
-                )
-            )
-            .plotOptions(
-                AAPlotOptions()
-                    .series(
-                        AASeries()
-                            .marker(
-                                AAMarker()
+                        .gridLineWidth(0)))
+            .plotOptions(AAPlotOptions()
+                    .series(AASeries()
+                            .marker(AAMarker()
                                     .enabled(false)
                                     .symbol(AAChartSymbolType.Circle.value)
                                     .radius(2)
@@ -607,14 +558,12 @@ object JSFunctionForAAChartEventsComposer {
                 //                .tooltip(new AATooltip()
                 //                    .xDateFormat("%B %e, %Y")))
             )
-            .series(
-                arrayOf(
+            .series(arrayOf(
                     AASeriesElement()
                         .type(AAChartType.Line) //                .id("google-trends")
                         .dashStyle(AAChartLineDashStyleType.LongDashDotDot)
                         .name("Google search for highcharts")
-                        .data(
-                            arrayOf(
+                        .data(arrayOf(
                                 AADataElement().x(1258322400) /* November 2009 */.y(0),
                                 AADataElement().x(1260961200).y(5),
                                 AADataElement().x(1263639600).y(7),
@@ -683,8 +632,7 @@ object JSFunctionForAAChartEventsComposer {
                     AASeriesElement()
                         .name("收入") //                .id("revenue")
                         .type(AAChartType.Area)
-                        .data(
-                            arrayOf(
+                        .data(arrayOf(
                                 AADataElement().x(1257033600).y(2),
                                 AADataElement().x(1259625600).y(3),
                                 AADataElement().x(1262304000).y(2),
@@ -756,14 +704,11 @@ object JSFunctionForAAChartEventsComposer {
                         .name("Highsoft 员工") //                .id("employees")
                         .type(AAChartType.Area)
                         .step("left")
-                        .tooltip(
-                            AATooltip()
+                        .tooltip(AATooltip()
                                 .headerFormat("{point.x:%B %e, %Y}")
                                 .pointFormat("{point.name}{point.y}")
-                                .valueSuffix(" employees")
-                        )
-                        .data(
-                            arrayOf(
+                                .valueSuffix(" employees"))
+                        .data(arrayOf(
                                 AADataElement().x(AADateUTC(2009, 10, 1)).y(1)
                                     .name("Torstein 一个人工作"),
                                 AADataElement().x(AADateUTC(2010, 10, 20)).y(2).name("Grethe 加入"),
@@ -851,12 +796,9 @@ object JSFunctionForAAChartEventsComposer {
         val dataArr: Array<Any> = arrayOf(7.0, 6.9, 2.5, 14.5, 18.2, 21.5, 5.2, 26.5, 23.3, 45.3, 13.9, 9.6)
         val selectedIndex = dataArr.size - 1
         return AAOptions()
-            .chart(
-                AAChart()
-                    .events(
-                        AAChartEvents()
-                            .load(
-                                String.format(
+            .chart(AAChart()
+                    .events(AAChartEvents()
+                            .load(String.format(
                                     Locale.CHINA, "function() {" +
                                             "const chart = this;" +
                                             "const point = chart.series[0].points[%d];" +
@@ -871,22 +813,14 @@ object JSFunctionForAAChartEventsComposer {
                                             "}, 500);" +
                                             "}",
                                     selectedIndex
-                                )
-                            )
-                    )
-            )
-            .series(
-                arrayOf(
+                                ))))
+            .series(arrayOf(
                     AASeriesElement()
                         .data(dataArr)
-                        .marker(
-                            AAMarker()
+                        .marker(AAMarker()
                                 .lineColor(AAColor.Red)
                                 .lineWidth(3f)
-                                .radius(10f)
-                        )
-                )
-            )
+                                .radius(10f))))
     }
 
 
@@ -911,14 +845,11 @@ object JSFunctionForAAChartEventsComposer {
             .marker(aaMarker)
             .y(26.5f)
         return AAOptions()
-            .chart(
-                AAChart()
+            .chart(AAChart()
                     .type(AAChartType.Spline)
                     .backgroundColor("#4b2b7f")
-                    .events(
-                        AAChartEvents()
-                            .load(
-                                """function () {
+                    .events(AAChartEvents()
+                            .load("""function () {
                           const chart = this;
                           const point = chart.series[0].points[11];
                           let big = true;
@@ -933,33 +864,20 @@ object JSFunctionForAAChartEventsComposer {
                                       }
                                  })
                           }, 500)
-                     }"""
-                            )
-                    )
-            )
-            .title(
-                AATitle()
-                    .text("Special style single data element chart")
-            )
-            .tooltip(
-                AATooltip()
-                    .enabled(true)
-            )
-            .xAxis(
-                AAXAxis()
-                    .visible(false)
-            )
-            .yAxis(
-                AAYAxis()
-                    .visible(false)
-            )
-            .series(
-                arrayOf(
+                     }""")))
+            .title(AATitle()
+                    .text("Special style single data element chart"))
+            .tooltip(AATooltip()
+                    .enabled(true))
+            .xAxis(AAXAxis()
+                    .visible(false))
+            .yAxis(AAYAxis()
+                    .visible(false))
+            .series(arrayOf(
                     AASeriesElement()
                         .name("Virtual Data")
                         .lineWidth(6f)
-                        .data(
-                            arrayOf(
+                        .data(arrayOf(
                                 7.0f,
                                 6.9f,
                                 2.5f,
@@ -1052,8 +970,7 @@ object JSFunctionForAAChartEventsComposer {
             ))
         val aaOptions = aaChartModel.aa_toAAOptions()
         aaOptions.chart!!.events(AAChartEvents()
-            .load(
-                """function() {
+            .load("""function() {
                 const chart = this;
                 const blinkScatterPointsArr = chart.series[0].points;
                 const range = blinkScatterPointsArr.length;
@@ -1072,8 +989,7 @@ object JSFunctionForAAChartEventsComposer {
                             })
                     }, 600)
                 }
-            }"""
-            ))
+            }"""))
         return aaOptions
     }
 
@@ -1083,17 +999,12 @@ object JSFunctionForAAChartEventsComposer {
     //    dynamicHeightGridLineAreaChart in Java
     fun dynamicHeightGridLineAreaChart(): AAOptions {
         return AAOptions()
-            .title(
-                AATitle()
-                    .text("dynamicHeightGridLineAreaChart")
-            )
-            .chart(
-                AAChart()
+            .title(AATitle()
+                    .text("dynamicHeightGridLineAreaChart"))
+            .chart(AAChart()
                     .type(AAChartType.Scatter)
-                    .events(
-                        AAChartEvents()
-                            .load(
-                                """function() {
+                    .events(AAChartEvents()
+                            .load("""function() {
    const chart = this;
    const mainSeries = chart.series[0];
    mainSeries.data.forEach((point, i) => {
@@ -1108,39 +1019,25 @@ object JSFunctionForAAChartEventsComposer {
                             )
                     )
             )
-            .plotOptions(
-                AAPlotOptions()
-                    .scatter(
-                        AAScatter()
+            .plotOptions(AAPlotOptions()
+                    .scatter(AAScatter()
                             .lineWidth(2)
                             .lineColor("#dbe751")
                             .dashStyle(AAChartLineDashStyleType.LongDash)
                             .enableMouseTracking(false)
                             .linkedTo("main")
-                            .states(
-                                AAStates()
-                                    .inactive(
-                                        AAInactive()
-                                            .enabled(false)
-                                    )
-                            )
-                            .marker(
-                                AAMarker()
-                                    .enabled(false)
-                            )
-                    )
-            )
-            .yAxis(
-                AAYAxis()
-                    .gridLineWidth(0)
-            )
-            .series(
-                arrayOf(
+                            .states(AAStates()
+                                    .inactive(AAInactive()
+                                            .enabled(false)))
+                            .marker(AAMarker()
+                                    .enabled(false))))
+            .yAxis(AAYAxis()
+                    .gridLineWidth(0))
+            .series(arrayOf(
                     AASeriesElement()
                         .type(AAChartType.Areaspline)
                         .id("main")
-                        .data(
-                            arrayOf<Any>(
+                        .data(arrayOf<Any>(
                                 7.0,
                                 6.9,
                                 2.5,
@@ -1153,29 +1050,21 @@ object JSFunctionForAAChartEventsComposer {
                                 45.3,
                                 13.9,
                                 9.6
-                            )
-                        )
+                            ))
                         .lineWidth(6)
                         .color("#dbe751")
                         .fillOpacity(0.4f)
-                        .marker(
-                            AAMarker()
-                                .enabled(false)
-                        )
-                )
-            )
+                        .marker(AAMarker()
+                                .enabled(false))))
     }
 
     //https://github.com/AAChartModel/AAChartKit-Swift-Pro/issues/3
     //https://www.highcharts.com/forum/viewtopic.php?f=9&t=49492
     fun customizeYAxisPlotLinesLabelBeSpecialStyle(): AAOptions {
         return AAOptions()
-            .chart(
-                AAChart()
-                    .events(
-                        AAChartEvents()
-                            .load(
-                                "function() {\n" +
+            .chart(AAChart()
+                    .events(AAChartEvents()
+                            .load("function() {\n" +
                                         "   const chart = this,\n" +
                                         "   ren = chart.renderer,\n" +
                                         "   plotLineLabel = chart.yAxis[0].plotLinesAndBands[0].label,\n" +
@@ -1197,19 +1086,16 @@ object JSFunctionForAAChartEventsComposer {
                             )
                     )
             )
-            .yAxis(
-                AAYAxis()
+            .yAxis(AAYAxis()
                     .visible(true)
                     .lineWidth(2)
-                    .plotLines(
-                        arrayOf(
+                    .plotLines(arrayOf(
                             AAPlotLinesElement()
                                 .value(6.5f)
                                 .color("#a9a9ff")
                                 .width(2)
                                 .dashStyle(AAChartLineDashStyleType.Dash)
-                                .label(
-                                    AALabel()
+                                .label(AALabel()
                                         .useHTML(true)
                                         .textAlign(AAChartAlignType.Center)
                                         .x(0)
@@ -1217,18 +1103,10 @@ object JSFunctionForAAChartEventsComposer {
                                         .formatter(
                                             ("function () {\n" +
                                                     "               return `<span style=\"padding: 2px 10px; display: block; color: white\">`+this.options.value+`</span>`\n" +
-                                                    "               }")
-                                        )
-                                )
-                        )
-                    )
-            )
-            .series(
-                arrayOf(
+                                                    "               }"))))))
+            .series(arrayOf(
                     AASeriesElement()
-                        .data(arrayOf(2, 5, 2, 3, 6))
-                )
-            )
+                        .data(arrayOf(2, 5, 2, 3, 6))))
     }
 }
 
