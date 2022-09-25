@@ -11,9 +11,6 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme"
             tools:ignore="AllowBackup">
-        <activity
-                android:name=".JSFunctionForAAChartEventsActivity"
-                android:exported="false" />
         <activity android:name=".basiccontent.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -27,6 +24,7 @@
         <activity android:name=".basiccontent.MixedChartActivity" />
         <activity android:name=".basiccontent.BasicChartActivity" />
         <activity android:name=".additionalcontent.JSFormatterFunctionActivity" />
+        <activity android:name=".additionalcontent.JSFunctionForAAChartEventsActivity" />
         <activity android:name=".additionalcontent.DrawChartWithAAOptionsActivity" />
         <activity android:name=".additionalcontent.EvaluateJSStringFunctionActivity" />
         <activity android:name=".additionalcontent.HideOrShowChartSeriesActivity" />
