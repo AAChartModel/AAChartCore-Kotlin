@@ -504,7 +504,7 @@ function () {
             AAItemStyle()
                 .color(AAColor.White)//字体颜色
                 .fontSize(13)//字体大小
-                .fontWeight("thin")//字体为细体字
+                .fontWeight(AAChartFontWeightType.Thin)//字体为细体字
         )}
 
         return aaOptions
