@@ -3,9 +3,10 @@ package com.github.aachartmodel.aainfographics.demo.chartcomposer
 import com.github.aachartmodel.aainfographics.aachartcreator.*
 import com.github.aachartmodel.aainfographics.aaoptionsmodel.*
 import com.github.aachartmodel.aainfographics.aatools.AAColor
+import com.github.aachartmodel.aainfographics.aatools.AADate.AADateUTC
 import java.util.*
 
-class JSFunctionForAAChartEventsComposer {
+object JSFunctionForAAChartEventsComposer {
     //https://github.com/AAChartModel/AAChartKit-Swift/issues/345
     fun setCrosshairAndTooltipToTheDefaultPositionAfterLoadingChart(): AAOptions {
         val aaChartModel: AAChartModel = AAChartModel()
@@ -78,6 +79,712 @@ class JSFunctionForAAChartEventsComposer {
         }
         return aaOptions
     }
+
+    fun generalDrawingChart(): AAOptions? {
+        return AAOptions()
+            .chart(
+                AAChart()
+                    .backgroundColor(AAColor.White)
+                    .events(
+                        AAChartEvents()
+                            .load(
+                                """function () {
+                var ren = this.renderer,
+                    colors = Highcharts.getOptions().colors,
+                    rightArrow = ['M', 0, 0, 'L', 100, 0, 'L', 95, 5, 'M', 100, 0, 'L', 95, -5],
+                    leftArrow = ['M', 100, 0, 'L', 0, 0, 'L', 5, 5, 'M', 0, 0, 'L', 5, -5];
+
+
+                ren.path(['M', 120, 40, 'L', 120, 330])
+                    .attr({
+                        'stroke-width': 2,
+                        stroke: 'silver',
+                        dashstyle: 'dash'
+                    })
+                    .add();
+
+                ren.path(['M', 420, 40, 'L', 420, 330])
+                    .attr({
+                        'stroke-width': 2,
+                        stroke: 'silver',
+                        dashstyle: 'dash'
+                    })
+                    .add();
+
+                ren.label('Web client', 20, 40)
+                    .css({
+                        fontWeight: 'bold'
+                    })
+                    .add();
+                ren.label('Web service / CLI', 220, 40)
+                    .css({
+                        fontWeight: 'bold'
+                    })
+                    .add();
+                ren.label('Command line client', 440, 40)
+                    .css({
+                        fontWeight: 'bold'
+                    })
+                    .add();
+
+                ren.label('SaaS client<br/>(browser or<br/>script)', 10, 82)
+                    .attr({
+                        fill: colors[0],
+                        stroke: 'white',
+                        'stroke-width': 2,
+                        padding: 5,
+                        r: 5
+                    })
+                    .css({
+                        color: 'white'
+                    })
+                    .add()
+                    .shadow(true);
+
+                ren.path(rightArrow)
+                    .attr({
+                        'stroke-width': 2,
+                        stroke: colors[3]
+                    })
+                    .translate(95, 95)
+                    .add();
+
+                ren.label('POST options in JSON', 90, 75)
+                    .css({
+                        fontSize: '10px',
+                        color: colors[3]
+                    })
+                    .add();
+
+                ren.label('PhantomJS', 210, 82)
+                    .attr({
+                        r: 5,
+                        width: 100,
+                        fill: colors[1]
+                    })
+                    .css({
+                        color: 'white',
+                        fontWeight: 'bold'
+                    })
+                    .add();
+
+                ren.path(['M', 250, 110, 'L', 250, 185, 'L', 245, 180, 'M', 250, 185, 'L', 255, 180])
+                    .attr({
+                        'stroke-width': 2,
+                        stroke: colors[3]
+                    })
+                    .add();
+
+                ren.label('SVG', 255, 120)
+                    .css({
+                        color: colors[3],
+                        fontSize: '10px'
+                    })
+                    .add();
+
+                ren.label('Batik', 210, 200)
+                    .attr({
+                        r: 5,
+                        width: 100,
+                        fill: colors[1]
+                    })
+                    .css({
+                        color: 'white',
+                        fontWeight: 'bold'
+                    })
+                    .add();
+
+                ren
+                    .path([
+                        'M', 235, 185,
+                        'L', 235, 155,
+                        'C', 235, 130, 235, 130, 215, 130,
+                        'L', 95, 130,
+                        'L', 100, 125,
+                        'M', 95, 130,
+                        'L', 100, 135
+                    ])
+                    .attr({
+                        'stroke-width': 2,
+                        stroke: colors[3]
+                    })
+                    .add();
+
+                ren.label('Rasterized image', 100, 110)
+                    .css({
+                        color: colors[3],
+                        fontSize: '10px'
+                    })
+                    .add();
+
+                ren.label('Browser<br/>running<br/>Highcharts', 10, 180)
+                    .attr({
+                        fill: colors[0],
+                        stroke: 'white',
+                        'stroke-width': 2,
+                        padding: 5,
+                        r: 5
+                    })
+                    .css({
+                        color: 'white',
+                        width: '100px'
+                    })
+                    .add()
+                    .shadow(true);
+
+
+                ren.path(rightArrow)
+                    .attr({
+                        'stroke-width': 2,
+                        stroke: colors[1]
+                    })
+                    .translate(95, 205)
+                    .add();
+
+                ren.label('POST SVG', 110, 185)
+                    .css({
+                        color: colors[1],
+                        fontSize: '10px'
+                    })
+                    .add();
+
+                ren.path(leftArrow)
+                    .attr({
+                        'stroke-width': 2,
+                        stroke: colors[1]
+                    })
+                    .translate(95, 215)
+                    .add();
+
+                ren.label('Rasterized image', 100, 215)
+                    .css({
+                        color: colors[1],
+                        fontSize: '10px'
+                    })
+                    .add();
+
+                ren.label('Script', 450, 82)
+                    .attr({
+                        fill: colors[2],
+                        stroke: 'white',
+                        'stroke-width': 2,
+                        padding: 5,
+                        r: 5
+                    })
+                    .css({
+                        color: 'white',
+                        width: '100px'
+                    })
+                    .add()
+                    .shadow(true);
+
+                ren.path(leftArrow)
+                    .attr({
+                        'stroke-width': 2,
+                        stroke: colors[2]
+                    })
+                    .translate(330, 90)
+                    .add();
+
+                ren.label('Command', 340, 70)
+                    .css({
+                        color: colors[2],
+                        fontSize: '10px'
+                    })
+                    .add();
+
+                ren.path(rightArrow)
+                    .attr({
+                        'stroke-width': 2,
+                        stroke: colors[2]
+                    })
+                    .translate(330, 100)
+                    .add();
+
+                ren.label('Rasterized image', 330, 100)
+                    .css({
+                        color: colors[2],
+                        fontSize: '10px'
+                    })
+                    .add();
+            }"""
+                            )
+                    )
+            )
+            .title(
+                AATitle()
+                    .text("Highcharts export server overview")
+                    .style(AAStyle.style(AAColor.Black))
+            )
+    }
+
+    fun advancedTimeLineChart(): AAOptions? {
+        return AAOptions()
+            .chart(
+                AAChart()
+                    .backgroundColor(AAColor.Red)
+                    .events(
+                        AAChartEvents()
+                            .load(
+                                """function () {
+                        var centerX = 140;
+                        var centerY = 110;
+                        var path = [];
+                        var angle;
+                        var radius;
+                        var badgeColor = Highcharts.color(Highcharts.getOptions().colors[0]).brighten(-0.2).get();
+                        var spike;
+                        var empImage;
+                        var big5;
+                        var label;
+                        var left;
+                        var right;
+                        var years;
+                        var renderer;
+
+                        if (this.chartWidth < 530) {
+                            return;
+                        }
+
+                        for (angle = 0; angle < 2 * Math.PI; angle += Math.PI / 24) {
+                            radius = spike ? 80 : 70;
+                            path.push(
+                                'L',
+                                centerX + radius * Math.cos(angle),
+                                centerY + radius * Math.sin(angle)
+                            );
+                            spike = !spike;
+                        }
+                        path[0] = 'M';
+                        path.push('z');
+                        this.renderer.path(path)
+                            .attr({
+                                fill: badgeColor,
+                                zIndex: 6
+                            })
+                            .add();
+
+                        empImage = this.renderer.path(path)
+                            .attr({
+                                zIndex: 7,
+                                opacity: 0,
+                                stroke: badgeColor,
+                                'stroke-width': 1
+                            })
+                            .add();
+
+                        big5 = this.renderer.text('5')
+                            .attr({
+                                zIndex: 6
+                            })
+                            .css({
+                                color: 'white',
+                                fontSize: '100px',
+                                fontStyle: 'italic',
+                                fontFamily: '\'Brush Script MT\', sans-serif'
+                            })
+                            .add();
+                        big5.attr({
+                            x: centerX - big5.getBBox().width / 2,
+                            y: centerY + 14
+                        });
+
+                        label = this.renderer.text('Highcharts Anniversary')
+                            .attr({
+                                zIndex: 6
+                            })
+                            .css({
+                                color: '#FFFFFF'
+                            })
+                            .add();
+
+                        left = centerX - label.getBBox().width / 2;
+                        right = centerX + label.getBBox().width / 2;
+
+                        label.attr({
+                            x: left,
+                            y: centerY + 44
+                        });
+
+                        left = centerX - 90;
+                        right = centerX + 90;
+                        this.renderer
+                            .path([
+                                'M', left, centerY + 30,
+                                'L', right, centerY + 30,
+                                right, centerY + 50,
+                                left, centerY + 50,
+                                'z',
+                                'M', left, centerY + 40,
+                                'L', left - 20, centerY + 40,
+                                left - 10, centerY + 50,
+                                left - 20, centerY + 60,
+                                left + 10, centerY + 60,
+                                left, centerY + 50,
+                                left + 10, centerY + 60,
+                                left + 10, centerY + 50,
+                                left, centerY + 50,
+                                'z',
+                                'M', right, centerY + 40,
+                                'L', right + 20, centerY + 40,
+                                right + 10, centerY + 50,
+                                right + 20, centerY + 60,
+                                right - 10, centerY + 60,
+                                right, centerY + 50,
+                                right - 10, centerY + 60,
+                                right - 10, centerY + 50,
+                                right, centerY + 50,
+                                'z'
+                            ])
+                            .attr({
+                                fill: badgeColor,
+                                stroke: '#FFFFFF',
+                                'stroke-width': 1,
+                                zIndex: 5
+                            })
+                            .add();
+
+                        years = this.renderer.text('2009-2014')
+                            .attr({
+                                zIndex: 6
+                            })
+                            .css({
+                                color: '#FFFFFF',
+                                fontStyle: 'italic',
+                                fontSize: '10px'
+                            })
+                            .add();
+                        years.attr({
+                            x: centerX - years.getBBox().width / 2,
+                            y: centerY + 62
+                        });
+
+                        renderer = this.renderer;
+                        if (renderer.defs) {
+                            this.get('employees').points.forEach(point => {
+                                let pattern;
+                                if (point.image) {
+                                    pattern = renderer.createElement('pattern').attr({
+                                        id: 'pattern-' + point.image,
+                                        patternUnits: 'userSpaceOnUse',
+                                        width: 400,
+                                        height: 400
+                                    }).add(renderer.defs);
+                                    renderer.image(
+                                        'https://www.highcharts.com/images/employees2014/' + point.image + '.jpg',
+                                        centerX - 80,
+                                        centerY - 80,
+                                        160,
+                                        213
+                                    ).add(pattern);
+
+                                    Highcharts.addEvent(point, 'mouseOver', function () {
+                                        empImage
+                                            .attr({
+                                                fill: 'url(#pattern-' + point.image + ')'
+                                            })
+                                            .animate({ opacity: 1 }, { duration: 500 });
+                                    });
+                                    Highcharts.addEvent(point, 'mouseOut', function () {
+                                        empImage.animate({ opacity: 0 }, { duration: 500 });
+                                    });
+                                }
+                            });
+                        }
+                    }"""
+                            )
+                    )
+            ) //
+            .xAxis(
+                AAXAxis()
+                    .type(AAChartAxisType.Datetime)
+                    .minTickInterval(315360000)
+                    .labels(
+                        AALabels()
+                            .align(AAChartAlignType.Left)
+                    )
+                    .plotBands(
+                        arrayOf(
+                            AAPlotBandsElement()
+                                .from(1259280000)
+                                .to(1291161600)
+                                .color("#EFFFFF")
+                                .label(
+                                    AALabel()
+                                        .text("办事处:Torstein的地下室")
+                                        .style(
+                                            AAStyle()
+                                                .color("#999999")
+                                        )
+                                        .y(180)
+                                ),
+                            AAPlotBandsElement()
+                                .from(1291161600)
+                                .to(1380585600)
+                                .color("#FFFFEF")
+                                .label(
+                                    AALabel()
+                                        .text("办事处:Tomtebu")
+                                        .style(
+                                            AAStyle()
+                                                .color("#999999")
+                                        )
+                                        .y(30)
+                                ),
+                            AAPlotBandsElement()
+                                .from(1380585600)
+                                .to(1417046400)
+                                .color("#FFEFFF")
+                                .label(
+                                    AALabel()
+                                        .text("办事处:VikØrsta")
+                                        .style(
+                                            AAStyle()
+                                                .color("#999999")
+                                        )
+                                        .y(30)
+                                )
+                        )
+                    )
+            )
+            .title(
+                AATitle()
+                    .text("Highsoft 公司发展历程")
+            )
+            .tooltip(
+                AATooltip()
+                    .style(
+                        AAStyle()
+                            .width(250)
+                    )
+            )
+            .yAxisArray(
+                arrayOf(
+                    AAYAxis()
+                        .max(100)
+                        .labels(
+                            AALabels()
+                                .enabled(false)
+                        )
+                        .title(
+                            AATitle()
+                                .text("")
+                        )
+                        .gridLineColor("rgba(0, 0, 0, 0.07)"),
+                    AAYAxis()
+                        .allowDecimals(false)
+                        .max(15)
+                        .labels(
+                            AALabels()
+                                .style(
+                                    AAStyle()
+                                        .color("#90ed7d")
+                                )
+                        )
+                        .title(
+                            AATitle()
+                                .text("雇员")
+                                .style(
+                                    AAStyle()
+                                        .color("#90ed7d")
+                                )
+                        )
+                        .opposite(true)
+                        .gridLineWidth(0)
+                )
+            )
+            .plotOptions(
+                AAPlotOptions()
+                    .series(
+                        AASeries()
+                            .marker(
+                                AAMarker()
+                                    .enabled(false)
+                                    .symbol(AAChartSymbolType.Circle.value)
+                                    .radius(2)
+                            ) //                .fillOpacity(0.5)
+                    ) //            .flags(AAFlags.new
+                //                .tooltip(new AATooltip()
+                //                    .xDateFormat("%B %e, %Y")))
+            )
+            .series(
+                arrayOf(
+                    AASeriesElement()
+                        .type(AAChartType.Line) //                .id("google-trends")
+                        .dashStyle(AAChartLineDashStyleType.LongDashDotDot)
+                        .name("Google search for highcharts")
+                        .data(
+                            arrayOf(
+                                AADataElement().x(1258322400) /* November 2009 */.y(0),
+                                AADataElement().x(1260961200).y(5),
+                                AADataElement().x(1263639600).y(7),
+                                AADataElement().x(1266188400).y(5),
+                                AADataElement().x(1268740800).y(6),
+                                AADataElement().x(1271368800).y(8),
+                                AADataElement().x(1274004000).y(11),
+                                AADataElement().x(1276639200).y(9),
+                                AADataElement().x(1279274400).y(12),
+                                AADataElement().x(1281952800).y(13),
+                                AADataElement().x(1284588000).y(17),
+                                AADataElement().x(1287223200).y(17),
+                                AADataElement().x(1289858400).y(18),
+                                AADataElement().x(1292497200).y(20),
+                                AADataElement().x(1295175600).y(20),
+                                AADataElement().x(1297724400).y(27),
+                                AADataElement().x(1300276800).y(32),
+                                AADataElement().x(1302904800).y(29),
+                                AADataElement().x(1305540000).y(34),
+                                AADataElement().x(1308175200).y(34),
+                                AADataElement().x(1310810400).y(36),
+                                AADataElement().x(1313488800).y(43),
+                                AADataElement().x(1316124000).y(44),
+                                AADataElement().x(1318759200).y(42),
+                                AADataElement().x(1321394400).y(47),
+                                AADataElement().x(1324033200).y(46),
+                                AADataElement().x(1326711600).y(50),
+                                AADataElement().x(1329303600).y(57),
+                                AADataElement().x(1331899200).y(54),
+                                AADataElement().x(1334527200).y(59),
+                                AADataElement().x(1337162400).y(62),
+                                AADataElement().x(1339797600).y(66),
+                                AADataElement().x(1342432800).y(61),
+                                AADataElement().x(1345111200).y(68),
+                                AADataElement().x(1347746400).y(67),
+                                AADataElement().x(1350381600).y(73),
+                                AADataElement().x(1353016800).y(63),
+                                AADataElement().x(1355655600).y(54),
+                                AADataElement().x(1358334000).y(67),
+                                AADataElement().x(1360882800).y(74),
+                                AADataElement().x(1363435200).y(81),
+                                AADataElement().x(1366063200).y(89),
+                                AADataElement().x(1368698400).y(83),
+                                AADataElement().x(1371333600).y(88),
+                                AADataElement().x(1373968800).y(86),
+                                AADataElement().x(1376647200).y(81),
+                                AADataElement().x(1379282400).y(83),
+                                AADataElement().x(1381917600).y(95),
+                                AADataElement().x(1384552800).y(86),
+                                AADataElement().x(1387191600).y(83),
+                                AADataElement().x(1389870000).y(89),
+                                AADataElement().x(1392418800).y(90),
+                                AADataElement().x(1394971200).y(94),
+                                AADataElement().x(1397599200).y(0),
+                                AADataElement().x(1400234400).y(0),
+                                AADataElement().x(1402869600).y(99),
+                                AADataElement().x(1405504800).y(99),
+                                AADataElement().x(1408183200).y(93),
+                                AADataElement().x(1410818400).y(97),
+                                AADataElement().x(1413453600).y(9)
+                            )
+                        ) //                .tooltip(new AATooltip()
+                    //                    .xDateFormat("%B %Y")
+                    //                    .valueSuffix(" % of best month"))
+                    ,
+                    AASeriesElement()
+                        .name("收入") //                .id("revenue")
+                        .type(AAChartType.Area)
+                        .data(
+                            arrayOf(
+                                AADataElement().x(1257033600).y(2),
+                                AADataElement().x(1259625600).y(3),
+                                AADataElement().x(1262304000).y(2),
+                                AADataElement().x(1264982400).y(3),
+                                AADataElement().x(1267401600).y(4),
+                                AADataElement().x(1270080000).y(4),
+                                AADataElement().x(1272672000).y(4),
+                                AADataElement().x(1275350400).y(4),
+                                AADataElement().x(1277942400).y(5),
+                                AADataElement().x(1280620800).y(7),
+                                AADataElement().x(1283299200).y(6),
+                                AADataElement().x(1285891200).y(9),
+                                AADataElement().x(1288569600).y(10),
+                                AADataElement().x(1291161600).y(8),
+                                AADataElement().x(1293840000).y(10),
+                                AADataElement().x(1296518400).y(13),
+                                AADataElement().x(1298937600).y(15),
+                                AADataElement().x(1301616000).y(14),
+                                AADataElement().x(1304208000).y(15),
+                                AADataElement().x(1306886400).y(16),
+                                AADataElement().x(1309478400).y(22),
+                                AADataElement().x(1312156800).y(19),
+                                AADataElement().x(1314835200).y(20),
+                                AADataElement().x(1317427200).y(32),
+                                AADataElement().x(1320105600).y(34),
+                                AADataElement().x(1322697600).y(36),
+                                AADataElement().x(1325376000).y(34),
+                                AADataElement().x(1328054400).y(40),
+                                AADataElement().x(1330560000).y(37),
+                                AADataElement().x(1333238400).y(35),
+                                AADataElement().x(1335830400).y(40),
+                                AADataElement().x(1338508800).y(38),
+                                AADataElement().x(1341100800).y(39),
+                                AADataElement().x(1343779200).y(43),
+                                AADataElement().x(1346457600).y(49),
+                                AADataElement().x(1349049600).y(43),
+                                AADataElement().x(1351728000).y(54),
+                                AADataElement().x(1354320000).y(44),
+                                AADataElement().x(1356998400).y(43),
+                                AADataElement().x(1359676800).y(43),
+                                AADataElement().x(1362096000).y(52),
+                                AADataElement().x(1364774400).y(52),
+                                AADataElement().x(1367366400).y(56),
+                                AADataElement().x(1370044800).y(62),
+                                AADataElement().x(1372636800).y(66),
+                                AADataElement().x(1375315200).y(62),
+                                AADataElement().x(1377993600).y(63),
+                                AADataElement().x(1380585600).y(60),
+                                AADataElement().x(1383264000).y(60),
+                                AADataElement().x(1385856000).y(58),
+                                AADataElement().x(1388534400).y(65),
+                                AADataElement().x(1391212800).y(52),
+                                AADataElement().x(1393632000).y(72),
+                                AADataElement().x(1396310400).y(57),
+                                AADataElement().x(1398902400).y(70),
+                                AADataElement().x(1401580800).y(63),
+                                AADataElement().x(1404172800).y(65),
+                                AADataElement().x(1406851200).y(65),
+                                AADataElement().x(1409529600).y(89),
+                                AADataElement().x(1412121600).y(0)
+                            )
+                        ) //                .tooltip(new AATooltip()
+                    //                    .xDateFormat("%B %Y")
+                    //                    .valueSuffix(" % of best month")
+                    //            )
+                    ,
+                    AASeriesElement()
+                        .yAxis(1)
+                        .name("Highsoft 员工") //                .id("employees")
+                        .type(AAChartType.Area)
+                        .step("left")
+                        .tooltip(
+                            AATooltip()
+                                .headerFormat("{point.x:%B %e, %Y}")
+                                .pointFormat("{point.name}{point.y}")
+                                .valueSuffix(" employees")
+                        )
+                        .data(
+                            arrayOf(
+                                AADataElement().x(AADateUTC(2009, 10, 1)).y(1)
+                                    .name("Torstein 一个人工作"),
+                                AADataElement().x(AADateUTC(2010, 10, 20)).y(2).name("Grethe 加入"),
+                                AADataElement().x(AADateUTC(2011, 3, 1)).y(3).name("Erik 加入"),
+                                AADataElement().x(AADateUTC(2011, 7, 1)).y(4).name("Gert 加入"),
+                                AADataElement().x(AADateUTC(2011, 7, 15)).y(5).name("Hilde 加入"),
+                                AADataElement().x(AADateUTC(2012, 5, 1)).y(6).name("Guro 加入"),
+                                AADataElement().x(AADateUTC(2012, 8, 1)).y(5).name("Erik left"),
+                                AADataElement().x(AADateUTC(2012, 8, 15)).y(6).name("Anne Jorunn"),
+                                AADataElement().x(AADateUTC(2013, 0, 1)).y(7).name("Hilde T"),
+                                AADataElement().x(AADateUTC(2013, 7, 1)).y(8).name("Jon Arild"),
+                                AADataElement().x(AADateUTC(2013, 7, 20)).y(9).name("Øystein 加入"),
+                                AADataElement().x(AADateUTC(2013, 9, 1)).y(1).name("Stephane 加入"),
+                                AADataElement().x(AADateUTC(2014, 9, 1)).y(1).name("Anita 加入"),
+                                AADataElement().x(AADateUTC(2014, 10, 27)).y(1).name("")
+                            )
+                        )
+                )
+            )
+    }
+
 
     //https://github.com/AAChartModel/AAChartKit/issues/1093
     //https://github.com/highcharts/highcharts-ios/issues/97
