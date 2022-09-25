@@ -275,6 +275,7 @@ class AASeriesElement {
 
 class AADataElement {
     private var name: String? = null
+    private var x: Number? = null
     private var y: Number? = null
     private var color: Any? = null
     private var dataLabels: AADataLabels? = null
@@ -282,6 +283,11 @@ class AADataElement {
 
     fun name(prop: String): AADataElement {
         name = prop
+        return this
+    }
+
+    fun x(prop: Number): AADataElement {
+        x = prop
         return this
     }
 
