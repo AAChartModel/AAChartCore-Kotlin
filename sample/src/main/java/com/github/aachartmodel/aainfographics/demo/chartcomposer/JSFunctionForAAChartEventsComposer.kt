@@ -80,7 +80,7 @@ object JSFunctionForAAChartEventsComposer {
         return aaOptions
     }
 
-    fun generalDrawingChart(): AAOptions? {
+    fun generalDrawingChart(): AAOptions {
         return AAOptions()
             .chart(
                 AAChart()
@@ -318,7 +318,7 @@ object JSFunctionForAAChartEventsComposer {
             )
     }
 
-    fun advancedTimeLineChart(): AAOptions? {
+    fun advancedTimeLineChart(): AAOptions {
         return AAOptions()
             .chart(
                 AAChart()
@@ -788,7 +788,7 @@ object JSFunctionForAAChartEventsComposer {
 
     //https://github.com/AAChartModel/AAChartKit/issues/1093
     //https://github.com/highcharts/highcharts-ios/issues/97
-    fun automaticallyHideTooltipAfterItIsShown(): AAOptions? {
+    fun automaticallyHideTooltipAfterItIsShown(): AAOptions {
         val aaChartModel = AAChartModel()
             .chartType(AAChartType.Areaspline) //图表类型
             .colorsTheme(arrayOf("#04d69f", "#1e90ff", "#ef476f", "#ffd066"))
@@ -847,7 +847,7 @@ object JSFunctionForAAChartEventsComposer {
 
     //https://github.com/AAChartModel/AAChartKit-Swift/issues/394
     //https://www.highcharts.com/forum/viewtopic.php?t=44985
-    fun configureBlinkMarkerChart(): AAOptions? {
+    fun configureBlinkMarkerChart(): AAOptions {
         val dataArr: Array<Any> = arrayOf(7.0, 6.9, 2.5, 14.5, 18.2, 21.5, 5.2, 26.5, 23.3, 45.3, 13.9, 9.6)
         val selectedIndex = dataArr.size - 1
         return AAOptions()
@@ -892,7 +892,7 @@ object JSFunctionForAAChartEventsComposer {
 
     //https://github.com/AAChartModel/AAChartKit-Swift/issues/394
     //https://www.highcharts.com/forum/viewtopic.php?t=44985
-    fun configureSpecialStyleMarkerOfSingleDataElementChartWithBlinkEffect(): AAOptions? {
+    fun configureSpecialStyleMarkerOfSingleDataElementChartWithBlinkEffect(): AAOptions {
         val stopsArr = arrayOf<Any>(
             arrayOf<Any>(0.00f, "#febc0f"),
             arrayOf<Any>(0.25f, "#FF14d4"),
@@ -981,7 +981,7 @@ object JSFunctionForAAChartEventsComposer {
 
     //https://github.com/AAChartModel/AAChartKit-Swift/issues/394
     //https://echarts.apache.org/examples/zh/editor.html?c=scatter-effect
-    fun configureScatterChartWithBlinkEffect(): AAOptions?{
+    fun configureScatterChartWithBlinkEffect(): AAOptions{
         val aaChartModel = AAChartModel()
             .chartType(AAChartType.Scatter)
             .title("Height and weight distribution by sex")
@@ -1081,7 +1081,7 @@ object JSFunctionForAAChartEventsComposer {
     //https://github.com/AAChartModel/AAChartKit/issues/1383
     //https://www.highcharts.com/forum/viewtopic.php?t=49409
     //    dynamicHeightGridLineAreaChart in Java
-    fun dynamicHeightGridLineAreaChart(): AAOptions? {
+    fun dynamicHeightGridLineAreaChart(): AAOptions {
         return AAOptions()
             .title(
                 AATitle()
@@ -1168,7 +1168,7 @@ object JSFunctionForAAChartEventsComposer {
 
     //https://github.com/AAChartModel/AAChartKit-Swift-Pro/issues/3
     //https://www.highcharts.com/forum/viewtopic.php?f=9&t=49492
-    fun customizeYAxisPlotLinesLabelBeSpecialStyle(): AAOptions? {
+    fun customizeYAxisPlotLinesLabelBeSpecialStyle(): AAOptions {
         return AAOptions()
             .chart(
                 AAChart()
