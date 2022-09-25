@@ -9,6 +9,7 @@
 package com.github.aachartmodel.aainfographics.aaoptionsmodel
 
 import com.github.aachartmodel.aainfographics.aachartcreator.AAChartAlignType
+import com.github.aachartmodel.aainfographics.aachartcreator.AAChartFontWeightType
 import com.github.aachartmodel.aainfographics.aachartcreator.AAChartLayoutType
 import com.github.aachartmodel.aainfographics.aachartcreator.AAChartVerticalAlignType
 
@@ -115,8 +116,8 @@ class AAItemStyle {
         return this
     }
 
-    fun fontWeight(prop: String): AAItemStyle {
-        fontWeight = prop
+    fun fontWeight(prop: AAChartFontWeightType?): AAItemStyle {
+        fontWeight = prop?.value
         return this
     }
 
