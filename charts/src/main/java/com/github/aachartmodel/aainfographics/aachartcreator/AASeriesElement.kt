@@ -83,6 +83,7 @@ class AASeriesElement {
     private var showInLegend: Boolean? = null
     private var enableMouseTracking: Boolean? = null
     private var reversed: Boolean? = null
+    private var id: String? = null
 
 
     fun type(prop: AAChartType?): AASeriesElement {
@@ -262,6 +263,11 @@ class AASeriesElement {
 
     fun reversed(prop: Boolean?): AASeriesElement {
         reversed = prop
+        return this
+    }
+
+    fun id(prop: String?): AASeriesElement {
+        id = prop
         return this
     }
 
