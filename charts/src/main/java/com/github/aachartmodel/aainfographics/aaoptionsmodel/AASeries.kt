@@ -10,6 +10,7 @@ package com.github.aachartmodel.aainfographics.aaoptionsmodel
 
 import com.github.aachartmodel.aainfographics.aachartcreator.AAChartStackingType
 import com.github.aachartmodel.aainfographics.aachartcreator.AAShadow
+import com.github.aachartmodel.aainfographics.aatools.AAJSStringPurer
 
 class AASeries {
     var borderColor //The border color, It is only valid for column, bar, pie, columnrange, pyramid and funnel chart types
@@ -28,10 +29,11 @@ class AASeries {
     var keys: Array<String>? = null
     var colorByPoint: Boolean? = null//决定了图表是否给每个数据列或每个点分配一个颜色，默认值是 false， 即默认是给每个数据类分配颜色，
     var connectNulls: Boolean? = null//设置折线是否断点重连
-    var events: Map<*, *>? = null
+    var events: AASeriesEvents? = null
     var shadow: AAShadow? = null
     var dataLabels: AADataLabels? = null
     var states: AAStates? = null
+    var point: AAPoint? = null
     var pointInterval: Int? = null
     var pointIntervalUnit: String? = null
     var pointPlacement: Any? = null
@@ -102,7 +104,7 @@ class AASeries {
         return this
     }
 
-    fun events(prop: Map<*, *>): AASeries {
+    fun events(prop: AASeriesEvents): AASeries {
         events = prop
         return this
     }
@@ -119,6 +121,11 @@ class AASeries {
 
     fun states(prop: AAStates): AASeries {
         states = prop
+        return this
+    }
+
+    fun point(prop: AAPoint): AASeries {
+        point = prop
         return this
     }
 
@@ -139,6 +146,76 @@ class AASeries {
 
     fun pointStart(prop: Number): AASeries {
         pointStart = prop
+        return this
+    }
+}
+
+class AASeriesEvents {
+    var legendItemClick: String? = null
+    fun legendItemClick(prop: String): AASeriesEvents {
+        var pureJSFunctionStr = "($prop)"
+        pureJSFunctionStr = AAJSStringPurer.pureJavaScriptFunctionString(pureJSFunctionStr)
+        legendItemClick = pureJSFunctionStr
+        return this
+    }
+}
+
+class AAPoint {
+    var events: AAPointEvents? = null
+    fun events(prop: AAPointEvents?): AAPoint {
+        events = prop
+        return this
+    }
+}
+
+class AAPointEvents {
+    var click //点击事件
+            : String? = null
+    var mouseOut //鼠标划出
+            : String? = null
+    var mouseOver //鼠标划过
+            : String? = null
+    var remove //删除
+            : String? = null
+    var select //选中
+            : String? = null
+    var unselect //取消选中
+            : String? = null
+    var update //更新
+            : String? = null
+
+    fun click(prop: String?): AAPointEvents {
+        click = prop
+        return this
+    }
+
+    fun mouseOut(prop: String?): AAPointEvents {
+        mouseOut = prop
+        return this
+    }
+
+    fun mouseOver(prop: String?): AAPointEvents {
+        mouseOver = prop
+        return this
+    }
+
+    fun remove(prop: String?): AAPointEvents {
+        remove = prop
+        return this
+    }
+
+    fun select(prop: String?): AAPointEvents {
+        select = prop
+        return this
+    }
+
+    fun unselect(prop: String?): AAPointEvents {
+        unselect = prop
+        return this
+    }
+
+    fun update(prop: String?): AAPointEvents {
+        update = prop
         return this
     }
 }
