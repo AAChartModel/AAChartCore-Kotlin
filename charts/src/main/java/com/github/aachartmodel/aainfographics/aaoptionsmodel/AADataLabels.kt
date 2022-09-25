@@ -10,6 +10,7 @@ package com.github.aachartmodel.aainfographics.aaoptionsmodel
 
 import com.github.aachartmodel.aainfographics.aachartcreator.AAChartAlignType
 import com.github.aachartmodel.aainfographics.aachartcreator.AAChartVerticalAlignType
+import com.github.aachartmodel.aainfographics.aatools.AAJSStringPurer
 
 class AADataLabels {
     var enabled: Boolean? = null
@@ -17,6 +18,7 @@ class AADataLabels {
     var inside: Boolean? = null
     var style: AAStyle? = null
     var format: String? = null
+    var formatter: String? = null
     var rotation: Number? = null
     var allowOverlap: Boolean? = null
     var useHTML: Boolean? = null
@@ -59,6 +61,13 @@ class AADataLabels {
 
     fun format(prop: String?): AADataLabels {
         format = prop
+        return this
+    }
+
+    fun formatter(prop: String?): AADataLabels {
+        var pureJSFunctionStr = "($prop)"
+        pureJSFunctionStr = AAJSStringPurer.pureJavaScriptFunctionString(pureJSFunctionStr)
+        formatter = pureJSFunctionStr
         return this
     }
 
