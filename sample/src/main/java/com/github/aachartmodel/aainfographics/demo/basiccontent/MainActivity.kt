@@ -163,7 +163,18 @@ class MainActivity : AppCompatActivity() {
                 "Step Line Chart---直方折线图",
                 "Line Chart---折线图",
                 "Spline Chart---曲线图"
-            )
+            ),
+                    /*通过 JSFunction 自定义 AAChartEvents 的事件*/
+            arrayOf("setCrosshairAndTooltipToTheDefaultPositionAfterLoadingChart---图表加载完成后设置 crosshair 和 tooltip 到默认位置",
+            "generalDrawingChart---普通绘图",
+            "advancedTimeLineChart---高级时间轴绘图",
+            "configureBlinkMarkerChart---配置闪烁特效的 marker 图表",
+            "configureSpecialStyleMarkerOfSingleDataElementChartWithBlinkEffect---配置闪烁特效的 marker 图表2",
+            "configureScatterChartWithBlinkEffect---配置闪烁特效的散点图",
+            "automaticallyHideTooltipAfterItIsShown---在浮动提示框显示后自动隐藏",
+            "dynamicHeightGridLineAreaChart---动态高度的网格线区域填充图",
+            "customizeYAxisPlotLinesLabelBeSpecialStyle---自定义 Y 轴轴线上面的标签文字特殊样式"
+        )
         )
     private val chartTypeArr =
         arrayOf(
@@ -176,7 +187,8 @@ class MainActivity : AppCompatActivity() {
                 AAChartType.Line.value,
                 AAChartType.Line.value,
                 AAChartType.Spline.value
-            ), arrayOf( /*特殊类型图表*/
+            ), arrayOf(
+                /*特殊类型图表*/
                 AAChartType.Column.value,
                 AAChartType.Bar.value,
                 AAChartType.Line.value,
@@ -194,7 +206,8 @@ class MainActivity : AppCompatActivity() {
                 AAChartType.Funnel.value,
                 AAChartType.Errorbar.value,
                 AAChartType.Gauge.value,
-            ), arrayOf( /*Mixed Chart---混合图*/
+            ), arrayOf(
+                /*Mixed Chart---混合图*/
                 "arearangeMixedLine",
                 "columnrangeMixedLine",
                 "stackingColumnMixedLine",
@@ -320,6 +333,17 @@ class MainActivity : AppCompatActivity() {
                 AAChartType.Line.value,
                 AAChartType.Spline.value
             ),
+            arrayOf( /*通过 JSFunction 自定义 AAChartEvents 的事件*/
+                "setCrosshairAndTooltipToTheDefaultPositionAfterLoadingChart",
+                "generalDrawingChart",
+                "advancedTimeLineChart",
+                "configureBlinkMarkerChart",
+                "configureSpecialStyleMarkerOfSingleDataElementChartWithBlinkEffect",
+                "configureScatterChartWithBlinkEffect",
+                "automaticallyHideTooltipAfterItIsShown",
+                "dynamicHeightGridLineAreaChart",
+                "customizeYAxisPlotLinesLabelBeSpecialStyle"
+            ),
         )
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -341,6 +365,7 @@ class MainActivity : AppCompatActivity() {
             "Double Charts Linked Work---双表联动",
             "Scrollable chart ---可滚动の图表",
             "Chart Options Advanced Updating---图表高级更新",
+            "JS Function For AAChartEvents---通过 JSFunction 自定义 AAChartEvents 的事件",
             )
         val listView = findViewById<ExpandableListView>(R.id.exlist_lol)
         val myAdapter =
@@ -361,7 +386,8 @@ class MainActivity : AppCompatActivity() {
                 7 -> goToEvaluateJSStringFunctionActivity(chartType)
                 8 -> goToDoubleChartsLinkedWorkActivity(chartType)
                 9 -> gotoScrollableChartActivity(chartType, childPosition)
-                10 -> goToAdvancedUpdatingFeatureActivity(chartType,childPosition);
+                10 -> goToAdvancedUpdatingFeatureActivity(chartType,childPosition)
+                11 -> goToJSFunctionForAAChartEventsActivity(chartType,childPosition)
             }
             Toast.makeText(
                 this@MainActivity,
@@ -463,10 +489,20 @@ class MainActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
-    fun goToAdvancedUpdatingFeatureActivity(chartType: String?, position: Int) {
+    private fun goToAdvancedUpdatingFeatureActivity(chartType: String?, position: Int) {
         val intent = Intent(
             this,
             AdvancedUpdatingFeatureActivity::class.java
+        )
+        intent.putExtra(kChartTypeKey, chartType)
+        intent.putExtra("position", position)
+        startActivity(intent)
+    }
+
+    private fun goToJSFunctionForAAChartEventsActivity(chartType: String?, position: Int) {
+        val intent = Intent(
+            this,
+            JSFunctionForAAChartEventsActivity::class.java
         )
         intent.putExtra(kChartTypeKey, chartType)
         intent.putExtra("position", position)
