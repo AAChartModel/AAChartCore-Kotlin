@@ -874,7 +874,7 @@ function () {
     }
 
     // Refer to the issue https://github.com/AAChartModel/AAChartKit/issues/589
-    fun customizeEveryDataLabelSinglelyByDataLabelsFormatter(): AAOptions? {
+    fun customizeEveryDataLabelSinglelyByDataLabelsFormatter(): AAOptions {
         val aaChartModel = AAChartModel()
             .chartType(AAChartType.Areaspline) //图表类型
             .dataLabelsEnabled(true)
@@ -927,7 +927,7 @@ function () {
 
     // Refer to GitHub issue: https://github.com/AAChartModel/AAChartKit/issues/938
     // Refer to online chart sample: https://www.highcharts.com/demo/column-comparison
-    fun customXAxisLabelsBeImages(): AAOptions? {
+    fun customXAxisLabelsBeImages(): AAOptions {
         val nameArr: Array<String> = arrayOf(
             "South Korea",
             "Japan",
@@ -1044,7 +1044,7 @@ function () {
     //显示 --> 隐藏；
     //隐藏 --> 显示；
     //Customized legengItemClick Event online: http://code.hcharts.cn/rencht/hhhhLv/share
-    fun customLegendItemClickEvent(): AAOptions? {
+    fun customLegendItemClickEvent(): AAOptions {
         val aaChartModel = AAChartModel()
             .chartType(AAChartType.Column)
             .stacking(AAChartStackingType.Normal)
@@ -1254,7 +1254,7 @@ function () {
     }
 
     //https://github.com/AAChartModel/AAChartKit/issues/1033
-    fun customPlotAreaOutsideComlicatedTooltipStyle(): AAOptions? {
+    fun customPlotAreaOutsideComlicatedTooltipStyle(): AAOptions {
         val categoriesArr = arrayOf(
             "11 月 01 日",
             "11 月 02 日",
@@ -1387,7 +1387,7 @@ function () {
     }
 
     //https://github.com/AAChartModel/AAChartKit/issues/967
-    fun disableColumnChartUnselectEventEffectBySeriesPointEventClickFunction(): AAOptions? {
+    fun disableColumnChartUnselectEventEffectBySeriesPointEventClickFunction(): AAOptions {
         val aaChartModel = AAChartModel()
             .chartType(AAChartType.Bar)
             .title("Custom Bar Chart select color")
@@ -1432,7 +1432,7 @@ function () {
 
     //https://github.com/AAChartModel/AAChartKit/issues/970
     //通过自定义 div 的 css 样式来自定义复杂效果的 tooltip 浮动提示框
-    fun customAreasplineChartTooltipStyleByDivWithCSS(): AAOptions? {
+    fun customAreasplineChartTooltipStyleByDivWithCSS(): AAOptions {
         val aaChartModel = AAChartModel()
             .chartType(AAChartType.Areaspline) //图表类型
             .colorsTheme(arrayOf("#FFD700" /*(纯金色)*/, "#ffc069")) //设置主体颜色数组
@@ -1782,7 +1782,7 @@ function () {
 
     //https://github.com/AAChartModel/AAChartKit/issues/901
     //https://github.com/AAChartModel/AAChartKit/issues/952
-    fun configureTheAxesLabelsFormattersOfDoubleYAxesChart(): AAOptions? {
+    fun configureTheAxesLabelsFormattersOfDoubleYAxesChart(): AAOptions {
         val aaChart = AAChart()
             .backgroundColor(AAColor.White)
         val aaTitle = AATitle()
@@ -1918,7 +1918,7 @@ function () {
     }
 
     //https://github.com/AAChartModel/AAChartKit/issues/1324
-    fun configureTheAxesLabelsFormattersOfDoubleYAxesChart2(): AAOptions? {
+    fun configureTheAxesLabelsFormattersOfDoubleYAxesChart2(): AAOptions {
         val aaChart = AAChart()
             .backgroundColor(AAColor.White)
         val aaTitle = AATitle()
@@ -2037,7 +2037,7 @@ function () {
 
     //https://github.com/AAChartModel/AAChartKit/issues/1324
     //https://github.com/AAChartModel/AAChartKit/issues/1330
-    fun configureTheAxesLabelsFormattersOfDoubleYAxesChart3(): AAOptions? {
+    fun configureTheAxesLabelsFormattersOfDoubleYAxesChart3(): AAOptions {
         val aaChart = AAChart()
             .backgroundColor(AAColor.White)
         val aaTitle = AATitle()
@@ -2163,7 +2163,7 @@ function () {
     }
 
     //https://github.com/AAChartModel/AAChartKit/issues/1042
-    fun makePieChartShow0Data(): AAOptions? {
+    fun makePieChartShow0Data(): AAOptions {
         val data1: MutableMap<String, Any> = HashMap()
         data1["y"] = 1
         data1["isZero"] = true
@@ -2208,7 +2208,7 @@ function () {
     }
 
     //https://github.com/AAChartModel/AAChartKit/issues/1217
-    fun customColumnChartXAxisLabelsTextByInterceptTheFirstFourCharacters(): AAOptions? {
+    fun customColumnChartXAxisLabelsTextByInterceptTheFirstFourCharacters(): AAOptions {
         val aaChartModel = AAChartModel()
             .chartType(AAChartType.Bar) //图表类型
             .title("春江花月夜") //图表主标题
@@ -2302,7 +2302,7 @@ function () {
     }
 
     //https://github.com/AAChartModel/AAChartKit-Swift/issues/345
-    fun setCrosshairAndTooltipToTheDefaultPositionAfterLoadingChart(): AAOptions? {
+    fun setCrosshairAndTooltipToTheDefaultPositionAfterLoadingChart(): AAOptions {
         val aaChartModel = AAChartModel()
             .chartType(AAChartType.Areaspline) //图表类型
             .colorsTheme(arrayOf("#04d69f", "#1e90ff", "#ef476f", "#ffd066"))
@@ -2489,7 +2489,7 @@ function () {
     //a string should be returned. In case of split tooltips, it should return an array where the first item
     //is the header, and subsequent items are mapped to the points. Return `false` to disable tooltip for a
     //specific point on series.
-    fun customColumnChartBorderStyleAndStatesHoverColor(): AAOptions? {
+    fun customColumnChartBorderStyleAndStatesHoverColor(): AAOptions {
         val aaChartModel = AAChartModel()
             .chartType(AAChartType.Column)
             .stacking(AAChartStackingType.Normal)
