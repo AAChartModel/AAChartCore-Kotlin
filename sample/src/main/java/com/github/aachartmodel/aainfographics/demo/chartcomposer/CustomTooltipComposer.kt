@@ -613,10 +613,10 @@ function () {
     }
 
     fun customLineChartOriginalPointPositionByConfiguringXAxisFormatterAndTooltipFormatter(): AAOptions {
-        val categories = arrayOf(
+        val categories: Array<Any> = arrayOf(
             "Jan", "Feb", "Mar", "Apr", "May", "Jun","Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
         )
-        val categoryJSArrStr = (categories as Array<Any>).aa_toJSArray()
+        val categoryJSArrStr = categories.aa_toJSArray()
 
         val tooltipFormatter = """
 function () {
@@ -761,12 +761,12 @@ function () {
             //‼️以 this.point.index 这种方式获取选中的点的索引必须设置 tooltip 的 shared 为 false
             //‼️共享时是 this.points (由多个 point 组成的 points 数组)
             //‼️非共享时是 this.point 单个 point 对象
-             shared(false)
-            .useHTML(true)
-            .formatter(jsFormatterStr!!)
-            .backgroundColor("#000000") //黑色背景色
-            .borderColor("#FFD700") //边缘颜色纯金色
-            .style(AAStyle()
+            shared(false)
+                .useHTML(true)
+                .formatter(jsFormatterStr!!)
+                .backgroundColor("#000000") //黑色背景色
+                .borderColor("#FFD700") //边缘颜色纯金色
+                .style(AAStyle()
                     .color("#FFD700") //文字颜色纯金色
                     .fontSize(12))
         }
@@ -825,25 +825,25 @@ function () {
             .markerSymbol(AAChartSymbolType.Circle)
             .polar(true)
             .series(arrayOf(
-                    AASeriesElement()
-                        .name("本月得分")
-                        .data(arrayOf(7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, 26.5)),
-                    AASeriesElement()
-                        .name("上月得分")
-                        .data(arrayOf(0.2, 0.8, 5.7, 11.3, 17.0, 22.0, 24.8, 24.1))))
+                AASeriesElement()
+                    .name("本月得分")
+                    .data(arrayOf(7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, 26.5)),
+                AASeriesElement()
+                    .name("上月得分")
+                    .data(arrayOf(0.2, 0.8, 5.7, 11.3, 17.0, 22.0, 24.8, 24.1))))
         val aaOptions = aaChartModel.aa_toAAOptions()
         aaOptions.chart?.apply {
             marginLeft(80)
-            .marginRight(80)
+                .marginRight(80)
         }
         aaOptions.xAxis?.apply {
             lineWidth(0) //避免多边形外环之外有额外套了一层无用的外环
-            .labels!!.style(AAStyle.style(AAColor.Black))
-            .formatter(xAxisLabelsFormatter)
+                .labels!!.style(AAStyle.style(AAColor.Black))
+                .formatter(xAxisLabelsFormatter)
         }
         aaOptions.yAxis?.apply {
             gridLineInterpolation("polygon") //设置蜘蛛网🕸图表的网线为多边形
-            .labels!!.style(AAStyle.style(AAColor.Black))
+                .labels!!.style(AAStyle.style(AAColor.Black))
         }
 
 
@@ -862,10 +862,10 @@ function () {
             .fontWeight(AAChartFontWeightType.Thin) //字体为细体字
         aaOptions.legend?.apply {
             enabled(true)
-            .align(AAChartAlignType.Center) //设置图例位于水平方向上的右侧
-            .layout(AAChartLayoutType.Horizontal) //设置图例排列方式为垂直排布
-            .verticalAlign(AAChartVerticalAlignType.Top) //设置图例位于竖直方向上的顶部
-            .itemStyle(aaItemStyle)
+                .align(AAChartAlignType.Center) //设置图例位于水平方向上的右侧
+                .layout(AAChartLayoutType.Horizontal) //设置图例排列方式为垂直排布
+                .verticalAlign(AAChartVerticalAlignType.Top) //设置图例位于竖直方向上的顶部
+                .itemStyle(aaItemStyle)
         }
         return aaOptions
     }
@@ -880,16 +880,16 @@ function () {
             .markerRadius(0)
             .legendEnabled(false)
             .categories(arrayOf(
-                    "美国🇺🇸",
-                    "欧洲🇪🇺",
-                    "中国🇨🇳",
-                    "日本🇯🇵",
-                    "韩国🇰🇷",
-                    "越南🇻🇳",
-                    "中国香港🇭🇰"))
+                "美国🇺🇸",
+                "欧洲🇪🇺",
+                "中国🇨🇳",
+                "日本🇯🇵",
+                "韩国🇰🇷",
+                "越南🇻🇳",
+                "中国香港🇭🇰"))
             .series(arrayOf(
-                    AASeriesElement()
-                        .data(arrayOf(7.0, 6.9, 2.5, 14.5, 18.2, 21.5, 5.2))))
+                AASeriesElement()
+                    .data(arrayOf(7.0, 6.9, 2.5, 14.5, 18.2, 21.5, 5.2))))
         val aaOptions = aaChartModel.aa_toAAOptions()
         aaOptions.yAxis!!.gridLineDashStyle = AAChartLineDashStyleType.LongDash.value //设置Y轴的网格线样式为 AAChartLineDashStyleType.LongDash
         val unitArr = arrayOf("美元", "欧元", "人民币", "日元", "韩元", "越南盾", "港币")
@@ -902,13 +902,13 @@ function () {
         val aaDatalabels = aaOptions.plotOptions!!.series!!.dataLabels
         aaDatalabels?.apply {
             style(AAStyle.style(AAColor.Red, 10, AAChartFontWeightType.Bold, "1px 1px contrast"))
-            .formatter(dataLabelsFormatter)
-            .backgroundColor(AAColor.White) // white color
-            .borderColor(AAColor.Red) // red color
-            .borderRadius(1.5)
-            .borderWidth(1.3)
-            .x(3).y(-20)
-            .verticalAlign(AAChartVerticalAlignType.Middle)
+                .formatter(dataLabelsFormatter)
+                .backgroundColor(AAColor.White) // white color
+                .borderColor(AAColor.Red) // red color
+                .borderRadius(1.5)
+                .borderWidth(1.3)
+                .x(3).y(-20)
+                .verticalAlign(AAChartVerticalAlignType.Middle)
         }
         return aaOptions
     }
@@ -955,12 +955,12 @@ function () {
             .colorsTheme(colorArr)
             .borderRadius(5)
             .series(arrayOf(
-                    AASeriesElement()
-                        .name("AD 2020")
-                        .data(arrayOf(9.0, 9.9, 9.5, 14.5, 18.2, 21.5, 25.2, 26.5))
-                        .colorByPoint(true)
-                        .borderRadiusTopLeft("50%")
-                        .borderRadiusTopRight("50%")))
+                AASeriesElement()
+                    .name("AD 2020")
+                    .data(arrayOf(9.0, 9.9, 9.5, 14.5, 18.2, 21.5, 25.2, 26.5))
+                    .colorByPoint(true)
+                    .borderRadiusTopLeft("50%")
+                    .borderRadiusTopRight("50%")))
         val imageLinkFlagJSArrStr: String = javaScriptArrayStringWithJavaArray(imageLinkFlagArr)
         val xLabelsFormatter = String.format(
             "function () {\n" +
@@ -1035,74 +1035,74 @@ function () {
             .colorsTheme(arrayOf("#fe117c", "#ffc069", "#06caf4", "#7dffc0")) //设置主题颜色数组
             .markerRadius(0)
             .series(arrayOf(
-                    AASeriesElement()
-                        .name("2017")
-                        .data(arrayOf(
-                                7.0,
-                                6.9,
-                                9.5,
-                                14.5,
-                                18.2,
-                                21.5,
-                                25.2,
-                                26.5,
-                                23.3,
-                                18.3,
-                                13.9,
-                                9.6
-                            )
-                        ),
-                    AASeriesElement()
-                        .name("2018")
-                        .data(arrayOf(
-                                0.2,
-                                0.8,
-                                5.7,
-                                11.3,
-                                17.0,
-                                22.0,
-                                24.8,
-                                24.1,
-                                20.1,
-                                14.1,
-                                8.6,
-                                2.5
-                            )),
-                    AASeriesElement()
-                        .name("2019")
-                        .data(arrayOf(
-                                0.9,
-                                0.6,
-                                3.5,
-                                8.4,
-                                13.5,
-                                17.0,
-                                18.6,
-                                17.9,
-                                14.3,
-                                9.0,
-                                3.9,
-                                1.0
-                            )),
-                    AASeriesElement()
-                        .name("2020")
-                        .data(
-                            arrayOf(
-                                3.9,
-                                4.2,
-                                5.7,
-                                8.5,
-                                11.9,
-                                15.2,
-                                17.0,
-                                16.6,
-                                14.2,
-                                10.3,
-                                6.6,
-                                4.8
-                            )
+                AASeriesElement()
+                    .name("2017")
+                    .data(arrayOf(
+                        7.0,
+                        6.9,
+                        9.5,
+                        14.5,
+                        18.2,
+                        21.5,
+                        25.2,
+                        26.5,
+                        23.3,
+                        18.3,
+                        13.9,
+                        9.6
+                    )
+                    ),
+                AASeriesElement()
+                    .name("2018")
+                    .data(arrayOf(
+                        0.2,
+                        0.8,
+                        5.7,
+                        11.3,
+                        17.0,
+                        22.0,
+                        24.8,
+                        24.1,
+                        20.1,
+                        14.1,
+                        8.6,
+                        2.5
+                    )),
+                AASeriesElement()
+                    .name("2019")
+                    .data(arrayOf(
+                        0.9,
+                        0.6,
+                        3.5,
+                        8.4,
+                        13.5,
+                        17.0,
+                        18.6,
+                        17.9,
+                        14.3,
+                        9.0,
+                        3.9,
+                        1.0
+                    )),
+                AASeriesElement()
+                    .name("2020")
+                    .data(
+                        arrayOf(
+                            3.9,
+                            4.2,
+                            5.7,
+                            8.5,
+                            11.9,
+                            15.2,
+                            17.0,
+                            16.6,
+                            14.2,
+                            10.3,
+                            6.6,
+                            4.8
                         )
-                )
+                    )
+            )
             )
         val aaOptions = aaChartModel.aa_toAAOptions()
         aaOptions.legend!!
@@ -1182,34 +1182,34 @@ function () {
             .chartType(AAChartType.Column)
             .categories(categoriesArr)
             .series(arrayOf(
-                    AASeriesElement()
-                        .name("单机大作")
-                        .color(AAColor.Red)
-                        .data(arrayOf(
-                                7.0,
-                                6.9,
-                                9.5,
-                                14.5,
-                                18.2,
-                                21.5,
-                                25.2,
-                                26.5,
-                                23.3,
-                                18.3,
-                                13.9,
-                                9.6
-                            )
-                        )
-                )
+                AASeriesElement()
+                    .name("单机大作")
+                    .color(AAColor.Red)
+                    .data(arrayOf(
+                        7.0,
+                        6.9,
+                        9.5,
+                        14.5,
+                        18.2,
+                        21.5,
+                        25.2,
+                        26.5,
+                        23.3,
+                        18.3,
+                        13.9,
+                        9.6
+                    )
+                    )
+            )
             )
         val aaOptions = aaChartModel.aa_toAAOptions()
         aaOptions.tooltip!!
             .positioner("function (labelWidth, labelHeight, point) {\n" +
-                        "        let position = {};\n" +
-                        "        position[\"x\"] = point.plotX;\n" +
-                        "        position[\"y\"] = 20;\n" +
-                        "        return position;\n" +
-                        "    }"
+                    "        let position = {};\n" +
+                    "        position[\"x\"] = point.plotX;\n" +
+                    "        position[\"y\"] = 20;\n" +
+                    "        return position;\n" +
+                    "    }"
             )
         return aaOptions
     }
@@ -1218,11 +1218,11 @@ function () {
         val aaOptions: AAOptions = customTooltipPostionerFunction()
         aaOptions.tooltip!!
             .positioner("function () {\n" +
-                        "        let position = {};\n" +
-                        "        position[\"x\"] = 50;\n" +
-                        "        position[\"y\"] = 50;\n" +
-                        "        return position;\n" +
-                        "    }"
+                    "        let position = {};\n" +
+                    "        position[\"x\"] = 50;\n" +
+                    "        position[\"y\"] = 50;\n" +
+                    "        return position;\n" +
+                    "    }"
             )
         return aaOptions
     }
@@ -1296,29 +1296,29 @@ function () {
             .chartType(AAChartType.Column)
             .categories(categoriesArr)
             .series(arrayOf(
-                    AASeriesElement()
-                        .name("个人徒步数据统计")
-                        .color(AARgba(235, 88, 40, 1.0f))
-                        .borderRadiusTopLeft("50%")
-                        .borderRadiusTopRight("50%")
-                        .data(arrayOf(
-                                1300.988, 900.699, 1000.089, 1100.965, 1000.534, 1400.523,
-                                1800.254, 1900.377, 2100.523, 2500.256, 2600.555, 2800.366,
-                                1300.988, 900.699, 1000.089, 1100.965, 1000.534, 1400.523,
-                                1800.254, 1900.377, 2100.523, 2500.256, 2600.555, 2800.366,
-                                1300.988, 900.699, 1000.089, 1100.965, 1000.534, 1400.523,
-                                1800.254, 1900.377, 2100.523, 2500.256, 2600.555, 2800.366,
-                                1300.988, 900.699, 1000.089, 1100.965, 1000.534, 1400.523,
-                                1800.254, 1900.377, 2100.523, 2500.256, 2600.555, 2800.366,
-                                1300.988, 900.699, 1000.089, 1100.965, 1000.534, 1400.523,
-                                1800.254, 1900.377, 2100.523, 2500.256, 2600.555, 2800.366
-                            ))))
+                AASeriesElement()
+                    .name("个人徒步数据统计")
+                    .color(AARgba(235, 88, 40, 1.0f))
+                    .borderRadiusTopLeft("50%")
+                    .borderRadiusTopRight("50%")
+                    .data(arrayOf(
+                        1300.988, 900.699, 1000.089, 1100.965, 1000.534, 1400.523,
+                        1800.254, 1900.377, 2100.523, 2500.256, 2600.555, 2800.366,
+                        1300.988, 900.699, 1000.089, 1100.965, 1000.534, 1400.523,
+                        1800.254, 1900.377, 2100.523, 2500.256, 2600.555, 2800.366,
+                        1300.988, 900.699, 1000.089, 1100.965, 1000.534, 1400.523,
+                        1800.254, 1900.377, 2100.523, 2500.256, 2600.555, 2800.366,
+                        1300.988, 900.699, 1000.089, 1100.965, 1000.534, 1400.523,
+                        1800.254, 1900.377, 2100.523, 2500.256, 2600.555, 2800.366,
+                        1300.988, 900.699, 1000.089, 1100.965, 1000.534, 1400.523,
+                        1800.254, 1900.377, 2100.523, 2500.256, 2600.555, 2800.366
+                    ))))
         val aaOptions = aaChartModel.aa_toAAOptions()
         aaOptions.xAxis!!
             .crosshair(AACrosshair()
-                    .color(AARgba(209, 209, 209, 1.0f))
-                    .dashStyle(AAChartLineDashStyleType.LongDash)
-                    .width(3))
+                .color(AARgba(209, 209, 209, 1.0f))
+                .dashStyle(AAChartLineDashStyleType.LongDash)
+                .width(3))
 
 
 //                aaOptions.yAxis
@@ -1361,25 +1361,25 @@ function () {
             .yAxisReversed(true)
             .xAxisReversed(true)
             .series(arrayOf(
-                    AASeriesElement()
-                        .name("ElementOne")
-                        .data(arrayOf(211, 183, 157, 133, 111, 91, 73, 57, 43, 31, 21, 13, 7, 3))
-                        .allowPointSelect(true)
-                        .states(AAStates()
-                                .hover(AAHover()
-                                        .color(AAColor.Yellow))
-                                .select(AASelect()
-                                        .color(AAColor.Red)))))
+                AASeriesElement()
+                    .name("ElementOne")
+                    .data(arrayOf(211, 183, 157, 133, 111, 91, 73, 57, 43, 31, 21, 13, 7, 3))
+                    .allowPointSelect(true)
+                    .states(AAStates()
+                        .hover(AAHover()
+                            .color(AAColor.Yellow))
+                        .select(AASelect()
+                            .color(AAColor.Red)))))
         val aaOptions = aaChartModel.aa_toAAOptions()
         val aaPoint: AAPoint = AAPoint()
             .events(AAPointEvents()
-                    .click("""function () {
+                .click("""function () {
          if (this.selected == true) {
              this.selected = false;
          }
          return;
      }"""
-                    ))
+                ))
         aaOptions.plotOptions!!.series!!
             .point(aaPoint)
         return aaOptions
@@ -1397,98 +1397,98 @@ function () {
             //                            .yAxisGridLineStyle([AALineStyle styleWithWidth:0})//y轴横向分割线宽度(为0即是隐藏分割线)
             .stacking(AAChartStackingType.Normal)
             .categories(arrayOf(
-                    "10-01",
-                    "10-02",
-                    "10-03",
-                    "10-04",
-                    "10-05",
-                    "10-06",
-                    "10-07",
-                    "10-08",
-                    "10-09",
-                    "10-10",
-                    "10-11",
-                    "10-12",
-                    "10-13",
-                    "10-14",
-                    "10-15",
-                    "10-16",
-                    "10-17",
-                    "10-18",
-                    "10-19",
-                    "10-20",
-                    "10-21",
-                    "10-22",
-                    "10-23",
-                    "10-24",
-                    "10-25",
-                    "10-26",
-                    "10-27",
-                    "10-28",
-                    "10-29",
-                    "10-30",
-                    "10-31",
-                    "11-01",
-                    "11-02",
-                    "11-03",
-                    "11-04",
-                    "11-05",
-                    "11-06",
-                    "11-07",
-                    "11-08",
-                    "11-09",
-                    "11-10",
-                    "11-11",
-                    "11-12",
-                    "11-13",
-                    "11-14",
-                    "11-15",
-                    "11-16",
-                    "11-17",
-                    "11-18",
-                    "11-19",
-                    "11-20",
-                    "11-21",
-                    "11-22",
-                    "11-23",
-                    "11-24",
-                    "11-25",
-                    "11-26",
-                    "11-27",
-                    "11-28",
-                    "11-29",
-                    "11-30",
-                    "12-01",
-                    "12-02",
-                    "12-03",
-                    "12-04",
-                    "12-05",
-                    "12-06",
-                    "12-07",
-                    "12-08",
-                    "12-09",
-                    "12-10",
-                    "12-11",
-                    "12-12",
-                    "12-13",
-                    "12-14",
-                    "12-15",
-                    "12-16",
-                    "12-17",
-                    "12-18",
-                    "12-19",
-                    "12-20",
-                    "12-21",
-                    "12-22",
-                    "12-23",
-                    "12-24",
-                    "12-25",
-                    "12-26",
-                    "12-27",
-                    "12-28",
-                    "12-29",
-                    "12-30"
-                )
+                "10-01",
+                "10-02",
+                "10-03",
+                "10-04",
+                "10-05",
+                "10-06",
+                "10-07",
+                "10-08",
+                "10-09",
+                "10-10",
+                "10-11",
+                "10-12",
+                "10-13",
+                "10-14",
+                "10-15",
+                "10-16",
+                "10-17",
+                "10-18",
+                "10-19",
+                "10-20",
+                "10-21",
+                "10-22",
+                "10-23",
+                "10-24",
+                "10-25",
+                "10-26",
+                "10-27",
+                "10-28",
+                "10-29",
+                "10-30",
+                "10-31",
+                "11-01",
+                "11-02",
+                "11-03",
+                "11-04",
+                "11-05",
+                "11-06",
+                "11-07",
+                "11-08",
+                "11-09",
+                "11-10",
+                "11-11",
+                "11-12",
+                "11-13",
+                "11-14",
+                "11-15",
+                "11-16",
+                "11-17",
+                "11-18",
+                "11-19",
+                "11-20",
+                "11-21",
+                "11-22",
+                "11-23",
+                "11-24",
+                "11-25",
+                "11-26",
+                "11-27",
+                "11-28",
+                "11-29",
+                "11-30",
+                "12-01",
+                "12-02",
+                "12-03",
+                "12-04",
+                "12-05",
+                "12-06",
+                "12-07",
+                "12-08",
+                "12-09",
+                "12-10",
+                "12-11",
+                "12-12",
+                "12-13",
+                "12-14",
+                "12-15",
+                "12-16",
+                "12-17",
+                "12-18",
+                "12-19",
+                "12-20",
+                "12-21",
+                "12-22",
+                "12-23",
+                "12-24",
+                "12-25",
+                "12-26",
+                "12-27",
+                "12-28",
+                "12-29",
+                "12-30"
+            )
             )
             .series(
                 arrayOf(
@@ -1752,22 +1752,22 @@ function () {
             )
         val aaPlotOptions = AAPlotOptions()
             .series(AASeries()
-                    .marker(AAMarker()
-                            .radius(7) //曲线连接点半径，默认是4
-                            .symbol(AAChartSymbolType.Circle.value) //曲线点类型："circle", "square", "diamond", "triangle","triangle-down"，默认是"circle"
-                            .fillColor(AAColor.White) //点的填充色(用来设置折线连接点的填充色)
-                            .lineWidth(3) //外沿线的宽度(用来设置折线连接点的轮廓描边的宽度)
-                            .lineColor("") //外沿线的颜色(用来设置折线连接点的轮廓描边颜色，当值为空字符串时，默认取数据点或数据列的颜色)
-                    ))
+                .marker(AAMarker()
+                    .radius(7) //曲线连接点半径，默认是4
+                    .symbol(AAChartSymbolType.Circle.value) //曲线点类型："circle", "square", "diamond", "triangle","triangle-down"，默认是"circle"
+                    .fillColor(AAColor.White) //点的填充色(用来设置折线连接点的填充色)
+                    .lineWidth(3) //外沿线的宽度(用来设置折线连接点的轮廓描边的宽度)
+                    .lineColor("") //外沿线的颜色(用来设置折线连接点的轮廓描边颜色，当值为空字符串时，默认取数据点或数据列的颜色)
+                ))
         val yAxis1 = AAYAxis()
             .visible(true)
             .lineWidth(1)
             .tickPositions(arrayOf(0, 50, 100, 150, 200))
             .labels(AALabels()
-                    .enabled(true)
-                    .style(AAStyle()
-                            .color("DodgerBlue"))
-                    .formatter("""function () {
+                .enabled(true)
+                .style(AAStyle()
+                    .color("DodgerBlue"))
+                .formatter("""function () {
         let yValue = this.value;
         if (yValue >= 200) {
             return "极佳";
@@ -1781,21 +1781,21 @@ function () {
             return "一般";
         }
     }"""
-                    )
+                )
             )
             .gridLineWidth(0)
             .title(AATitle()
-                    .text("中文")
-                    .style(AAStyle.style("DodgerBlue", 14, AAChartFontWeightType.Bold)))
+                .text("中文")
+                .style(AAStyle.style("DodgerBlue", 14, AAChartFontWeightType.Bold)))
         val yAxis2 = AAYAxis()
             .visible(true)
             .lineWidth(1)
             .tickPositions(arrayOf(0, 50, 100, 150, 200))
             .labels(AALabels()
-                    .enabled(true)
-                    .style(AAStyle()
-                            .color(AAColor.Red))
-                    .formatter("""function () {
+                .enabled(true)
+                .style(AAStyle()
+                    .color(AAColor.Red))
+                .formatter("""function () {
         let yValue = this.value;
         if (yValue >= 200) {
             return "Awesome";
@@ -1811,8 +1811,8 @@ function () {
     }"""))
             .gridLineWidth(0)
             .title(AATitle()
-                    .text("ENGLISH")
-                    .style(AAStyle.style(AAColor.Red, 14, AAChartFontWeightType.Bold)))
+                .text("ENGLISH")
+                .style(AAStyle.style(AAColor.Red, 14, AAChartFontWeightType.Bold)))
             .opposite(true)
         val aaTooltip = AATooltip()
             .enabled(true)
@@ -1826,8 +1826,8 @@ function () {
                 .borderRadius(4)
                 .yAxis(1)
                 .data(arrayOf(
-                        0, 71.5, 106.4, 129.2, 144.0, 176.0,
-                        135.6, 148.5, 216.4, 194.1, 95.6, 54.4)),
+                    0, 71.5, 106.4, 129.2, 144.0, 176.0,
+                    135.6, 148.5, 216.4, 194.1, 95.6, 54.4)),
             AASeriesElement()
                 .name("2021")
                 .type(AAChartType.Spline)
@@ -1835,8 +1835,8 @@ function () {
                 .color(AAGradientColor.Sanguine)
                 .yAxis(0)
                 .data(arrayOf(
-                        135.6, 148.5, 216.4, 194.1, 95.6, 54.4,
-                        0, 71.5, 106.4, 129.2, 144.0, 176.0))
+                    135.6, 148.5, 216.4, 194.1, 95.6, 54.4,
+                    0, 71.5, 106.4, 129.2, 144.0, 176.0))
         )
         return AAOptions()
             .chart(aaChart)
@@ -1858,54 +1858,54 @@ function () {
             .visible(true)
             .min(0)
             .categories(arrayOf(
-                    "Java", "Swift", "Python", "Ruby", "PHP", "Go", "C",
-                    "C#", "C++", "Perl", "R", "MATLAB", "SQL"))
+                "Java", "Swift", "Python", "Ruby", "PHP", "Go", "C",
+                "C#", "C++", "Perl", "R", "MATLAB", "SQL"))
         val aaPlotOptions = AAPlotOptions()
             .series(AASeries()
-                    .marker(AAMarker()
-                            .radius(7) //曲线连接点半径，默认是4
-                            .symbol(AAChartSymbolType.Circle.value) //曲线点类型："circle", "square", "diamond", "triangle","triangle-down"，默认是"circle"
-                            .fillColor(AAColor.White) //点的填充色(用来设置折线连接点的填充色)
-                            .lineWidth(3) //外沿线的宽度(用来设置折线连接点的轮廓描边的宽度)
-                            .lineColor("") //外沿线的颜色(用来设置折线连接点的轮廓描边颜色，当值为空字符串时，默认取数据点或数据列的颜色)
-                    ))
+                .marker(AAMarker()
+                    .radius(7) //曲线连接点半径，默认是4
+                    .symbol(AAChartSymbolType.Circle.value) //曲线点类型："circle", "square", "diamond", "triangle","triangle-down"，默认是"circle"
+                    .fillColor(AAColor.White) //点的填充色(用来设置折线连接点的填充色)
+                    .lineWidth(3) //外沿线的宽度(用来设置折线连接点的轮廓描边的宽度)
+                    .lineColor("") //外沿线的颜色(用来设置折线连接点的轮廓描边颜色，当值为空字符串时，默认取数据点或数据列的颜色)
+                ))
         val yAxis1 = AAYAxis()
             .visible(true)
             .lineWidth(1)
             .tickPositions(arrayOf(0, 50, 100, 150, 200))
             .labels(AALabels()
-                    .enabled(true)
-                    .style(AAStyle()
-                            .color("DodgerBlue"))
-                    .formatter("""function () {
+                .enabled(true)
+                .style(AAStyle()
+                    .color("DodgerBlue"))
+                .formatter("""function () {
        var yValue = this.value;
        var formattedYValue = (yValue / 1000).toFixed(3) + '千';
        return formattedYValue;
    }"""
-                    ))
+                ))
             .gridLineWidth(0)
             .title(AATitle()
-                    .text("以「千」为单位")
-                    .style(AAStyle.style("DodgerBlue", 14, AAChartFontWeightType.Bold)))
+                .text("以「千」为单位")
+                .style(AAStyle.style("DodgerBlue", 14, AAChartFontWeightType.Bold)))
         val yAxis2 = AAYAxis()
             .visible(true)
             .lineWidth(1)
             .tickPositions(arrayOf(0, 50, 100, 150, 200))
             .labels(AALabels()
-                    .enabled(true)
-                    .style(AAStyle()
-                            .color(AAColor.Red))
-                    .formatter("""function () {
+                .enabled(true)
+                .style(AAStyle()
+                    .color(AAColor.Red))
+                .formatter("""function () {
        var yValue = this.value;
        var formattedYValue = (yValue / 10000).toFixed(4) + '万';
        return formattedYValue;
    }"""
-                    )
+                )
             )
             .gridLineWidth(0)
             .title(AATitle()
-                    .text("以『万』为单位")
-                    .style(AAStyle.style(AAColor.Red, 14, AAChartFontWeightType.Bold)))
+                .text("以『万』为单位")
+                .style(AAStyle.style(AAColor.Red, 14, AAChartFontWeightType.Bold)))
             .opposite(true)
         val aaTooltip = AATooltip()
             .enabled(true)
@@ -1919,8 +1919,8 @@ function () {
                 .borderRadius(4)
                 .yAxis(1)
                 .data(arrayOf(
-                        0, 71.5, 106.4, 129.2, 144.0, 176.0,
-                        135.6, 148.5, 216.4, 194.1, 95.6, 54.4)),
+                    0, 71.5, 106.4, 129.2, 144.0, 176.0,
+                    135.6, 148.5, 216.4, 194.1, 95.6, 54.4)),
             AASeriesElement()
                 .name("2021")
                 .type(AAChartType.Spline)
@@ -1928,8 +1928,8 @@ function () {
                 .color(AAGradientColor.Sanguine)
                 .yAxis(0)
                 .data(arrayOf(
-                        135.6, 148.5, 216.4, 194.1, 95.6, 54.4,
-                        0, 71.5, 106.4, 129.2, 144.0, 176.0))
+                    135.6, 148.5, 216.4, 194.1, 95.6, 54.4,
+                    0, 71.5, 106.4, 129.2, 144.0, 176.0))
         )
         return AAOptions()
             .chart(aaChart)
@@ -1952,27 +1952,27 @@ function () {
             .visible(true)
             .min(0)
             .categories(arrayOf(
-                    "Java", "Swift", "Python", "Ruby", "PHP", "Go", "C",
-                    "C#", "C++", "Perl", "R", "MATLAB", "SQL"
-                ))
+                "Java", "Swift", "Python", "Ruby", "PHP", "Go", "C",
+                "C#", "C++", "Perl", "R", "MATLAB", "SQL"
+            ))
         val aaPlotOptions = AAPlotOptions()
             .series(AASeries()
-                    .marker(AAMarker()
-                            .radius(7) //曲线连接点半径，默认是4
-                            .symbol(AAChartSymbolType.Circle.value) //曲线点类型："circle", "square", "diamond", "triangle","triangle-down"，默认是"circle"
-                            .fillColor(AAColor.White) //点的填充色(用来设置折线连接点的填充色)
-                            .lineWidth(3) //外沿线的宽度(用来设置折线连接点的轮廓描边的宽度)
-                            .lineColor("") //外沿线的颜色(用来设置折线连接点的轮廓描边颜色，当值为空字符串时，默认取数据点或数据列的颜色)
-                    ))
+                .marker(AAMarker()
+                    .radius(7) //曲线连接点半径，默认是4
+                    .symbol(AAChartSymbolType.Circle.value) //曲线点类型："circle", "square", "diamond", "triangle","triangle-down"，默认是"circle"
+                    .fillColor(AAColor.White) //点的填充色(用来设置折线连接点的填充色)
+                    .lineWidth(3) //外沿线的宽度(用来设置折线连接点的轮廓描边的宽度)
+                    .lineColor("") //外沿线的颜色(用来设置折线连接点的轮廓描边颜色，当值为空字符串时，默认取数据点或数据列的颜色)
+                ))
         val yAxis1 = AAYAxis()
             .visible(true)
             .lineWidth(1)
             .tickPositions(arrayOf(0, 50, 100, 150, 200))
             .labels(AALabels()
-                    .enabled(true)
-                    .style(AAStyle()
-                            .color("DodgerBlue"))
-                    .formatter("""function () {
+                .enabled(true)
+                .style(AAStyle()
+                    .color("DodgerBlue"))
+                .formatter("""function () {
        var yValue = this.value;
        var unitStr = "千";
        if (yValue == 0) {
@@ -1983,17 +1983,17 @@ function () {
    }""")) //Y轴文字数值为 0 的时候, 不显示单位
             .gridLineWidth(0)
             .title(AATitle()
-                    .text("以「千」为单位")
-                    .style(AAStyle.style("DodgerBlue", 14, AAChartFontWeightType.Bold)))
+                .text("以「千」为单位")
+                .style(AAStyle.style("DodgerBlue", 14, AAChartFontWeightType.Bold)))
         val yAxis2 = AAYAxis()
             .visible(true)
             .lineWidth(1)
             .tickPositions(arrayOf(0, 50, 100, 150, 200))
             .labels(AALabels()
-                    .enabled(true)
-                    .style(AAStyle()
-                            .color(AAColor.Red))
-                    .formatter("""function () {
+                .enabled(true)
+                .style(AAStyle()
+                    .color(AAColor.Red))
+                .formatter("""function () {
        var yValue = this.value;
        var unitStr = "万";
        if (yValue == 0) {
@@ -2004,8 +2004,8 @@ function () {
    }""")) //Y轴文字数值为 0 的时候, 不显示单位
             .gridLineWidth(0)
             .title(AATitle()
-                    .text("以『万』为单位")
-                    .style(AAStyle.style(AAColor.Red, 14, AAChartFontWeightType.Bold)))
+                .text("以『万』为单位")
+                .style(AAStyle.style(AAColor.Red, 14, AAChartFontWeightType.Bold)))
             .opposite(true)
         val aaTooltip = AATooltip()
             .enabled(true)
@@ -2019,8 +2019,8 @@ function () {
                 .borderRadius(4)
                 .yAxis(1)
                 .data(arrayOf(
-                        0, 71.5, 106.4, 129.2, 144.0, 176.0,
-                        135.6, 148.5, 216.4, 194.1, 95.6, 54.4)),
+                    0, 71.5, 106.4, 129.2, 144.0, 176.0,
+                    135.6, 148.5, 216.4, 194.1, 95.6, 54.4)),
             AASeriesElement()
                 .name("2021")
                 .type(AAChartType.Spline)
@@ -2028,8 +2028,8 @@ function () {
                 .color(AAGradientColor.Sanguine)
                 .yAxis(0)
                 .data(arrayOf(
-                        135.6, 148.5, 216.4, 194.1, 95.6, 54.4,
-                        0, 71.5, 106.4, 129.2, 144.0, 176.0)))
+                    135.6, 148.5, 216.4, 194.1, 95.6, 54.4,
+                    0, 71.5, 106.4, 129.2, 144.0, 176.0)))
         return AAOptions()
             .chart(aaChart)
             .title(aaTitle)
@@ -2056,20 +2056,20 @@ function () {
         data3["name"] = "One"
         return AAOptions() //        .title((id)NSNull.null)
             .chart(AAChart()
-                    .type(AAChartType.Pie))
+                .type(AAChartType.Pie))
             .series(arrayOf(
-                    AASeriesElement()
-                        .name("ZeroDataPie")
-                        .data(arrayOf(data1, data2, data3))
-                        .tooltip(AATooltip()
-                                .shared(false)
-                                .pointFormatter("function() {\n" +
-                                            "            return \"<span style=\\'color:\" + this.color + \"\\'> ◉ </span>\"\n" +
-                                            "            + this.series.name\n" +
-                                            "            + \": <b>\"\n" +
-                                            "            + (this.options.isZero ? 0 : this.y)\n" +
-                                            "            + \"</b><br/>\";\n" +
-                                            "        }"))))
+                AASeriesElement()
+                    .name("ZeroDataPie")
+                    .data(arrayOf(data1, data2, data3))
+                    .tooltip(AATooltip()
+                        .shared(false)
+                        .pointFormatter("function() {\n" +
+                                "            return \"<span style=\\'color:\" + this.color + \"\\'> ◉ </span>\"\n" +
+                                "            + this.series.name\n" +
+                                "            + \": <b>\"\n" +
+                                "            + (this.options.isZero ? 0 : this.y)\n" +
+                                "            + \"</b><br/>\";\n" +
+                                "        }"))))
     }
 
     //https://github.com/AAChartModel/AAChartKit/issues/1217
@@ -2082,76 +2082,76 @@ function () {
             .xAxisReversed(true) //        .xAxisLabelsStyle(AAStyle.style(AAColor.Black))
             .legendEnabled(false)
             .categories(arrayOf(
-                    "春江潮水连海平", "海上明月共潮生",
-                    "滟滟随波千万里", "何处春江无月明",
-                    "江流宛转绕芳甸", "月照花林皆似霰",
-                    "空里流霜不觉飞", "汀上白沙看不见",
-                    "江天一色无纤尘", "皎皎空中孤月轮",
-                    "江畔何人初见月", "江月何年初照人",
-                    "人生代代无穷已", "江月年年望相似",
-                    "不知江月待何人", "但见长江送流水",
-                    "白云一片去悠悠", "青枫浦上不胜愁",
-                    "谁家今夜扁舟子", "何处相思明月楼",
-                    "可怜楼上月裴回", "应照离人妆镜台",
-                    "玉户帘中卷不去", "捣衣砧上拂还来",
-                    "此时相望不相闻", "愿逐月华流照君",
-                    "鸿雁长飞光不度", "鱼龙潜跃水成文",
-                    "昨夜闲潭梦落花", "可怜春半不还家",
-                    "江水流春去欲尽", "江潭落月复西斜",
-                    "斜月沉沉藏海雾", "碣石潇湘无限路",
-                    "不知乘月几人归", "落月摇情满江树"))
+                "春江潮水连海平", "海上明月共潮生",
+                "滟滟随波千万里", "何处春江无月明",
+                "江流宛转绕芳甸", "月照花林皆似霰",
+                "空里流霜不觉飞", "汀上白沙看不见",
+                "江天一色无纤尘", "皎皎空中孤月轮",
+                "江畔何人初见月", "江月何年初照人",
+                "人生代代无穷已", "江月年年望相似",
+                "不知江月待何人", "但见长江送流水",
+                "白云一片去悠悠", "青枫浦上不胜愁",
+                "谁家今夜扁舟子", "何处相思明月楼",
+                "可怜楼上月裴回", "应照离人妆镜台",
+                "玉户帘中卷不去", "捣衣砧上拂还来",
+                "此时相望不相闻", "愿逐月华流照君",
+                "鸿雁长飞光不度", "鱼龙潜跃水成文",
+                "昨夜闲潭梦落花", "可怜春半不还家",
+                "江水流春去欲尽", "江潭落月复西斜",
+                "斜月沉沉藏海雾", "碣石潇湘无限路",
+                "不知乘月几人归", "落月摇情满江树"))
             .series(arrayOf(
-                    AASeriesElement()
-                        .lineWidth(1.5)
-                        .color(AAGradientColor.DeepSea)
-                        .name("2018")
-                        .data(arrayOf(
-                                1.51,
-                                3.7,
-                                0.94,
-                                1.44,
-                                1.6,
-                                1.63,
-                                1.56,
-                                1.91,
-                                2.45,
-                                3.87,
-                                3.24,
-                                4.90,
-                                4.61,
-                                4.10,
-                                4.17,
-                                3.85,
-                                4.17,
-                                3.46,
-                                3.46,
-                                3.55,
-                                3.50,
-                                4.13,
-                                2.58,
-                                2.28,
-                                1.51,
-                                2.7,
-                                0.94,
-                                1.44,
-                                3.6,
-                                1.63,
-                                1.56,
-                                1.91,
-                                2.45,
-                                3.87,
-                                3.24,
-                                4.90))))
+                AASeriesElement()
+                    .lineWidth(1.5)
+                    .color(AAGradientColor.DeepSea)
+                    .name("2018")
+                    .data(arrayOf(
+                        1.51,
+                        3.7,
+                        0.94,
+                        1.44,
+                        1.6,
+                        1.63,
+                        1.56,
+                        1.91,
+                        2.45,
+                        3.87,
+                        3.24,
+                        4.90,
+                        4.61,
+                        4.10,
+                        4.17,
+                        3.85,
+                        4.17,
+                        3.46,
+                        3.46,
+                        3.55,
+                        3.50,
+                        4.13,
+                        2.58,
+                        2.28,
+                        1.51,
+                        2.7,
+                        0.94,
+                        1.44,
+                        3.6,
+                        1.63,
+                        1.56,
+                        1.91,
+                        2.45,
+                        3.87,
+                        3.24,
+                        4.90))))
         val aaOptions = aaChartModel.aa_toAAOptions()
         aaOptions.xAxis!!.labels!!
             .formatter("function () {\n" +
-                        "        let xAxisCategory = this.value;\n" +
-                        "        if (xAxisCategory.length > 4) {\n" +
-                        "            return xAxisCategory.substr(0, 4);\n" +
-                        "        } else {\n" +
-                        "            return xAxisCategory;\n" +
-                        "        }\n" +
-                        "    }")
+                    "        let xAxisCategory = this.value;\n" +
+                    "        if (xAxisCategory.length > 4) {\n" +
+                    "            return xAxisCategory.substr(0, 4);\n" +
+                    "        } else {\n" +
+                    "            return xAxisCategory;\n" +
+                    "        }\n" +
+                    "    }")
         return aaOptions
     }
 
@@ -2164,135 +2164,135 @@ function () {
             .yAxisVisible(false)
             .markerRadius(0)
             .series(arrayOf(
-                    AASeriesElement()
-                        .name("Tokyo Hot")
-                        .lineWidth(5.0)
-                        .fillOpacity(0.4f)
-                        .data(
-                            arrayOf(
-                                0.45,
-                                0.43,
-                                0.50,
-                                0.55,
-                                0.58,
-                                0.62,
-                                0.83,
-                                0.39,
-                                0.56,
-                                0.67,
-                                0.50,
-                                0.34,
-                                0.50,
-                                0.67,
-                                0.58,
-                                0.29,
-                                0.46,
-                                0.23,
-                                0.47,
-                                0.46,
-                                0.38,
-                                0.56,
-                                0.48,
-                                0.36
-                            )
-                        ),
-                    AASeriesElement()
-                        .name("Berlin Hot")
-                        .lineWidth(5.0)
-                        .fillOpacity(0.4f)
-                        .data(
-                            arrayOf(
-                                0.38,
-                                0.31,
-                                0.32,
-                                0.32,
-                                0.64,
-                                0.66,
-                                0.86,
-                                0.47,
-                                0.52,
-                                0.75,
-                                0.52,
-                                0.56,
-                                0.54,
-                                0.60,
-                                0.46,
-                                0.63,
-                                0.54,
-                                0.51,
-                                0.58,
-                                0.64,
-                                0.60,
-                                0.45,
-                                0.36,
-                                0.67
-                            )
-                        ),
-                    AASeriesElement()
-                        .name("London Hot")
-                        .lineWidth(5.0)
-                        .fillOpacity(0.4f)
-                        .data(
-                            arrayOf(
-                                0.46,
-                                0.32,
-                                0.53,
-                                0.58,
-                                0.86,
-                                0.68,
-                                0.85,
-                                0.73,
-                                0.69,
-                                0.71,
-                                0.91,
-                                0.74,
-                                0.60,
-                                0.50,
-                                0.39,
-                                0.67,
-                                0.55,
-                                0.49,
-                                0.65,
-                                0.45,
-                                0.64,
-                                0.47,
-                                0.63,
-                                0.64
-                            )
-                        ),
-                    AASeriesElement()
-                        .name("NewYork Hot")
-                        .lineWidth(5.0)
-                        .fillOpacity(0.4f)
-                        .data(
-                            arrayOf(
-                                0.60,
-                                0.51,
-                                0.52,
-                                0.53,
-                                0.64,
-                                0.84,
-                                0.65,
-                                0.68,
-                                0.63,
-                                0.47,
-                                0.72,
-                                0.60,
-                                0.65,
-                                0.74,
-                                0.66,
-                                0.65,
-                                0.71,
-                                0.59,
-                                0.65,
-                                0.77,
-                                0.52,
-                                0.53,
-                                0.58,
-                                0.53
-                            )
+                AASeriesElement()
+                    .name("Tokyo Hot")
+                    .lineWidth(5.0)
+                    .fillOpacity(0.4f)
+                    .data(
+                        arrayOf(
+                            0.45,
+                            0.43,
+                            0.50,
+                            0.55,
+                            0.58,
+                            0.62,
+                            0.83,
+                            0.39,
+                            0.56,
+                            0.67,
+                            0.50,
+                            0.34,
+                            0.50,
+                            0.67,
+                            0.58,
+                            0.29,
+                            0.46,
+                            0.23,
+                            0.47,
+                            0.46,
+                            0.38,
+                            0.56,
+                            0.48,
+                            0.36
                         )
-                )
+                    ),
+                AASeriesElement()
+                    .name("Berlin Hot")
+                    .lineWidth(5.0)
+                    .fillOpacity(0.4f)
+                    .data(
+                        arrayOf(
+                            0.38,
+                            0.31,
+                            0.32,
+                            0.32,
+                            0.64,
+                            0.66,
+                            0.86,
+                            0.47,
+                            0.52,
+                            0.75,
+                            0.52,
+                            0.56,
+                            0.54,
+                            0.60,
+                            0.46,
+                            0.63,
+                            0.54,
+                            0.51,
+                            0.58,
+                            0.64,
+                            0.60,
+                            0.45,
+                            0.36,
+                            0.67
+                        )
+                    ),
+                AASeriesElement()
+                    .name("London Hot")
+                    .lineWidth(5.0)
+                    .fillOpacity(0.4f)
+                    .data(
+                        arrayOf(
+                            0.46,
+                            0.32,
+                            0.53,
+                            0.58,
+                            0.86,
+                            0.68,
+                            0.85,
+                            0.73,
+                            0.69,
+                            0.71,
+                            0.91,
+                            0.74,
+                            0.60,
+                            0.50,
+                            0.39,
+                            0.67,
+                            0.55,
+                            0.49,
+                            0.65,
+                            0.45,
+                            0.64,
+                            0.47,
+                            0.63,
+                            0.64
+                        )
+                    ),
+                AASeriesElement()
+                    .name("NewYork Hot")
+                    .lineWidth(5.0)
+                    .fillOpacity(0.4f)
+                    .data(
+                        arrayOf(
+                            0.60,
+                            0.51,
+                            0.52,
+                            0.53,
+                            0.64,
+                            0.84,
+                            0.65,
+                            0.68,
+                            0.63,
+                            0.47,
+                            0.72,
+                            0.60,
+                            0.65,
+                            0.74,
+                            0.66,
+                            0.65,
+                            0.71,
+                            0.59,
+                            0.65,
+                            0.77,
+                            0.52,
+                            0.53,
+                            0.58,
+                            0.53
+                        )
+                    )
+            )
             )
         val aaOptions = aaChartModel.aa_toAAOptions()
         aaOptions.tooltip!!
@@ -2314,19 +2314,19 @@ function () {
         //https://www.highcharts.com/forum/viewtopic.php?t=36508
         aaOptions.chart!!
             .events(AAChartEvents()
-                    .load(String.format("function() {\n" +
-                                    "                let points = [];\n" +
-                                    "                let chart = this;\n" +
-                                    "                let series = chart.series;\n" +
-                                    "                let length = series.length;\n" +
-                                    "                           \n" +
-                                    "                for (let i = 0; i < length; i++) {\n" +
-                                    "                    let pointElement = series[i].data[%s];\n" +
-                                    "                    points.push(pointElement);\n" +
-                                    "                }\n" +
-                                    "                chart.xAxis[0].drawCrosshair(null, points[0]);\n" +
-                                    "                chart.tooltip.refresh(points);\n" +
-                                    "                       }", defaultSelectedIndex)))
+                .load(String.format("function() {\n" +
+                        "                let points = [];\n" +
+                        "                let chart = this;\n" +
+                        "                let series = chart.series;\n" +
+                        "                let length = series.length;\n" +
+                        "                           \n" +
+                        "                for (let i = 0; i < length; i++) {\n" +
+                        "                    let pointElement = series[i].data[%s];\n" +
+                        "                    points.push(pointElement);\n" +
+                        "                }\n" +
+                        "                chart.xAxis[0].drawCrosshair(null, points[0]);\n" +
+                        "                chart.tooltip.refresh(points);\n" +
+                        "                       }", defaultSelectedIndex)))
         return aaOptions
     }
 
@@ -2342,53 +2342,53 @@ function () {
             .stacking(AAChartStackingType.Normal)
             .colorsTheme(arrayOf(AAColor.DarkGray, AAColor.LightGray)) //Colors theme
             .categories(arrayOf(
-                    "January", "February", "March", "April", "May", "June",
-                    "July", "August", "September", "October", "November", "December"))
+                "January", "February", "March", "April", "May", "June",
+                "July", "August", "September", "October", "November", "December"))
             .series(arrayOf(
-                    AASeriesElement()
-                        .name("Berlin Hot")
-                        .borderColor(AAColor.White)
-                        .borderWidth(3)
-                        .borderRadius(10)
-                        .states(AAStates()
-                                .hover(AAHover()
-                                        .color(AAColor.Red)))
-                        .data(arrayOf(
-                                7.0,
-                                6.9,
-                                9.5,
-                                14.5,
-                                18.2,
-                                21.5,
-                                25.2,
-                                26.5,
-                                23.3,
-                                18.3,
-                                13.9,
-                                9.6
-                            )
-                        ),
-                    AASeriesElement()
-                        .name("Beijing Hot")
-                        .borderColor(AAColor.White)
-                        .borderWidth(3)
-                        .borderRadius(10)
-                        .states(AAStates()
-                                .hover(AAHover()
-                                        .color("dodgerblue"))) // Dodgerblue／道奇藍／#1e90ff十六进制颜色代码
-                        .data(arrayOf(
-                                0.2,
-                                0.8,
-                                5.7,
-                                11.3,
-                                17.0,
-                                22.0,
-                                24.8,
-                                24.1,
-                                20.1,
-                                14.1,
-                                8.6,
-                                2.5))))
+                AASeriesElement()
+                    .name("Berlin Hot")
+                    .borderColor(AAColor.White)
+                    .borderWidth(3)
+                    .borderRadius(10)
+                    .states(AAStates()
+                        .hover(AAHover()
+                            .color(AAColor.Red)))
+                    .data(arrayOf(
+                        7.0,
+                        6.9,
+                        9.5,
+                        14.5,
+                        18.2,
+                        21.5,
+                        25.2,
+                        26.5,
+                        23.3,
+                        18.3,
+                        13.9,
+                        9.6
+                    )
+                    ),
+                AASeriesElement()
+                    .name("Beijing Hot")
+                    .borderColor(AAColor.White)
+                    .borderWidth(3)
+                    .borderRadius(10)
+                    .states(AAStates()
+                        .hover(AAHover()
+                            .color("dodgerblue"))) // Dodgerblue／道奇藍／#1e90ff十六进制颜色代码
+                    .data(arrayOf(
+                        0.2,
+                        0.8,
+                        5.7,
+                        11.3,
+                        17.0,
+                        22.0,
+                        24.8,
+                        24.1,
+                        20.1,
+                        14.1,
+                        8.6,
+                        2.5))))
         val aaOptions = aaChartModel.aa_toAAOptions()
         aaOptions.tooltip!!
             .formatter(
