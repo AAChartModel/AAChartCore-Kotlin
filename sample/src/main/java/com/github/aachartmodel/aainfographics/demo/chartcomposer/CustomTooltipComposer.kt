@@ -824,16 +824,13 @@ function () {
             .markerRadius(5)
             .markerSymbol(AAChartSymbolType.Circle)
             .polar(true)
-            .series(
-                arrayOf(
+            .series(arrayOf(
                     AASeriesElement()
                         .name("本月得分")
                         .data(arrayOf(7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, 26.5)),
                     AASeriesElement()
                         .name("上月得分")
-                        .data(arrayOf(0.2, 0.8, 5.7, 11.3, 17.0, 22.0, 24.8, 24.1))
-                )
-            )
+                        .data(arrayOf(0.2, 0.8, 5.7, 11.3, 17.0, 22.0, 24.8, 24.1))))
         val aaOptions = aaChartModel.aa_toAAOptions()
         aaOptions.chart?.apply {
             marginLeft(80)
@@ -882,29 +879,21 @@ function () {
             .colorsTheme(arrayOf(AAGradientColor.FizzyPeach))
             .markerRadius(0)
             .legendEnabled(false)
-            .categories(
-                arrayOf(
+            .categories(arrayOf(
                     "美国🇺🇸",
                     "欧洲🇪🇺",
                     "中国🇨🇳",
                     "日本🇯🇵",
                     "韩国🇰🇷",
                     "越南🇻🇳",
-                    "中国香港🇭🇰"
-                )
-            )
-            .series(
-                arrayOf(
+                    "中国香港🇭🇰"))
+            .series(arrayOf(
                     AASeriesElement()
-                        .data(arrayOf(7.0, 6.9, 2.5, 14.5, 18.2, 21.5, 5.2))
-                )
-            )
+                        .data(arrayOf(7.0, 6.9, 2.5, 14.5, 18.2, 21.5, 5.2))))
         val aaOptions = aaChartModel.aa_toAAOptions()
         aaOptions.yAxis!!.gridLineDashStyle = AAChartLineDashStyleType.LongDash.value //设置Y轴的网格线样式为 AAChartLineDashStyleType.LongDash
         val unitArr = arrayOf("美元", "欧元", "人民币", "日元", "韩元", "越南盾", "港币")
-        val unitJSArrStr: String = javaScriptArrayStringWithJavaArray(
-                unitArr
-            )
+        val unitJSArrStr: String = javaScriptArrayStringWithJavaArray(unitArr)
         val dataLabelsFormatter = String.format(
             "function () {\n" +
                     "        return this.y + %s[this.point.index];  \n" +  //单组 series 图表, 获取选中的点的索引是 this.point.index ,多组并且共享提示框,则是this.points[0].index
@@ -965,19 +954,14 @@ function () {
             .categories(nameArr)
             .colorsTheme(colorArr)
             .borderRadius(5)
-            .series(
-                arrayOf(
+            .series(arrayOf(
                     AASeriesElement()
                         .name("AD 2020")
                         .data(arrayOf(9.0, 9.9, 9.5, 14.5, 18.2, 21.5, 25.2, 26.5))
                         .colorByPoint(true)
                         .borderRadiusTopLeft("50%")
-                        .borderRadiusTopRight("50%")
-                )
-            )
-        val imageLinkFlagJSArrStr: String = javaScriptArrayStringWithJavaArray(
-                imageLinkFlagArr
-            )
+                        .borderRadiusTopRight("50%")))
+        val imageLinkFlagJSArrStr: String = javaScriptArrayStringWithJavaArray(imageLinkFlagArr)
         val xLabelsFormatter = String.format(
             "function () {\n" +
                     "        let imageFlag = %s[this.pos];\n" +
@@ -1050,12 +1034,10 @@ function () {
             .stacking(AAChartStackingType.Normal)
             .colorsTheme(arrayOf("#fe117c", "#ffc069", "#06caf4", "#7dffc0")) //设置主题颜色数组
             .markerRadius(0)
-            .series(
-                arrayOf(
+            .series(arrayOf(
                     AASeriesElement()
                         .name("2017")
-                        .data(
-                            arrayOf(
+                        .data(arrayOf(
                                 7.0,
                                 6.9,
                                 9.5,
@@ -1072,8 +1054,7 @@ function () {
                         ),
                     AASeriesElement()
                         .name("2018")
-                        .data(
-                            arrayOf(
+                        .data(arrayOf(
                                 0.2,
                                 0.8,
                                 5.7,
@@ -1086,12 +1067,10 @@ function () {
                                 14.1,
                                 8.6,
                                 2.5
-                            )
-                        ),
+                            )),
                     AASeriesElement()
                         .name("2019")
-                        .data(
-                            arrayOf(
+                        .data(arrayOf(
                                 0.9,
                                 0.6,
                                 3.5,
@@ -1104,8 +1083,7 @@ function () {
                                 9.0,
                                 3.9,
                                 1.0
-                            )
-                        ),
+                            )),
                     AASeriesElement()
                         .name("2020")
                         .data(
@@ -1203,13 +1181,11 @@ function () {
         val aaChartModel = AAChartModel()
             .chartType(AAChartType.Column)
             .categories(categoriesArr)
-            .series(
-                arrayOf(
+            .series(arrayOf(
                     AASeriesElement()
                         .name("单机大作")
                         .color(AAColor.Red)
-                        .data(
-                            arrayOf(
+                        .data(arrayOf(
                                 7.0,
                                 6.9,
                                 9.5,
@@ -1228,8 +1204,7 @@ function () {
             )
         val aaOptions = aaChartModel.aa_toAAOptions()
         aaOptions.tooltip!!
-            .positioner(
-                "function (labelWidth, labelHeight, point) {\n" +
+            .positioner("function (labelWidth, labelHeight, point) {\n" +
                         "        let position = {};\n" +
                         "        position[\"x\"] = point.plotX;\n" +
                         "        position[\"y\"] = 20;\n" +
@@ -1242,8 +1217,7 @@ function () {
     fun fixedTooltipPositionByCustomPositionerFunction(): AAOptions {
         val aaOptions: AAOptions = customTooltipPostionerFunction()
         aaOptions.tooltip!!
-            .positioner(
-                "function () {\n" +
+            .positioner("function () {\n" +
                         "        let position = {};\n" +
                         "        position[\"x\"] = 50;\n" +
                         "        position[\"y\"] = 50;\n" +
@@ -1321,15 +1295,13 @@ function () {
         val aaChartModel = AAChartModel()
             .chartType(AAChartType.Column)
             .categories(categoriesArr)
-            .series(
-                arrayOf(
+            .series(arrayOf(
                     AASeriesElement()
                         .name("个人徒步数据统计")
                         .color(AARgba(235, 88, 40, 1.0f))
                         .borderRadiusTopLeft("50%")
                         .borderRadiusTopRight("50%")
-                        .data(
-                            arrayOf(
+                        .data(arrayOf(
                                 1300.988, 900.699, 1000.089, 1100.965, 1000.534, 1400.523,
                                 1800.254, 1900.377, 2100.523, 2500.256, 2600.555, 2800.366,
                                 1300.988, 900.699, 1000.089, 1100.965, 1000.534, 1400.523,
@@ -1340,18 +1312,13 @@ function () {
                                 1800.254, 1900.377, 2100.523, 2500.256, 2600.555, 2800.366,
                                 1300.988, 900.699, 1000.089, 1100.965, 1000.534, 1400.523,
                                 1800.254, 1900.377, 2100.523, 2500.256, 2600.555, 2800.366
-                            )
-                        )
-                )
-            )
+                            ))))
         val aaOptions = aaChartModel.aa_toAAOptions()
         aaOptions.xAxis!!
-            .crosshair(
-                AACrosshair()
+            .crosshair(AACrosshair()
                     .color(AARgba(209, 209, 209, 1.0f))
                     .dashStyle(AAChartLineDashStyleType.LongDash)
-                    .width(3)
-            )
+                    .width(3))
 
 
 //                aaOptions.yAxis
@@ -1393,38 +1360,26 @@ function () {
             .title("Custom Bar Chart select color")
             .yAxisReversed(true)
             .xAxisReversed(true)
-            .series(
-                arrayOf(
+            .series(arrayOf(
                     AASeriesElement()
                         .name("ElementOne")
                         .data(arrayOf(211, 183, 157, 133, 111, 91, 73, 57, 43, 31, 21, 13, 7, 3))
                         .allowPointSelect(true)
-                        .states(
-                            AAStates()
-                                .hover(
-                                    AAHover()
-                                        .color(AAColor.Yellow)
-                                )
-                                .select(
-                                    AASelect()
-                                        .color(AAColor.Red)
-                                )
-                        )
-                )
-            )
+                        .states(AAStates()
+                                .hover(AAHover()
+                                        .color(AAColor.Yellow))
+                                .select(AASelect()
+                                        .color(AAColor.Red)))))
         val aaOptions = aaChartModel.aa_toAAOptions()
         val aaPoint: AAPoint = AAPoint()
-            .events(
-                AAPointEvents()
-                    .click(
-                        """function () {
+            .events(AAPointEvents()
+                    .click("""function () {
          if (this.selected == true) {
              this.selected = false;
          }
          return;
      }"""
-                    )
-            )
+                    ))
         aaOptions.plotOptions!!.series!!
             .point(aaPoint)
         return aaOptions
@@ -1441,8 +1396,7 @@ function () {
             .xAxisTickInterval(3) //x轴刻度点间隔数(设置每隔几个点显示一个 X轴的内容)
             //                            .yAxisGridLineStyle([AALineStyle styleWithWidth:0})//y轴横向分割线宽度(为0即是隐藏分割线)
             .stacking(AAChartStackingType.Normal)
-            .categories(
-                arrayOf(
+            .categories(arrayOf(
                     "10-01",
                     "10-02",
                     "10-03",
@@ -1797,30 +1751,23 @@ function () {
                 )
             )
         val aaPlotOptions = AAPlotOptions()
-            .series(
-                AASeries()
-                    .marker(
-                        AAMarker()
+            .series(AASeries()
+                    .marker(AAMarker()
                             .radius(7) //曲线连接点半径，默认是4
                             .symbol(AAChartSymbolType.Circle.value) //曲线点类型："circle", "square", "diamond", "triangle","triangle-down"，默认是"circle"
                             .fillColor(AAColor.White) //点的填充色(用来设置折线连接点的填充色)
                             .lineWidth(3) //外沿线的宽度(用来设置折线连接点的轮廓描边的宽度)
                             .lineColor("") //外沿线的颜色(用来设置折线连接点的轮廓描边颜色，当值为空字符串时，默认取数据点或数据列的颜色)
-                    )
-            )
+                    ))
         val yAxis1 = AAYAxis()
             .visible(true)
             .lineWidth(1)
             .tickPositions(arrayOf(0, 50, 100, 150, 200))
-            .labels(
-                AALabels()
+            .labels(AALabels()
                     .enabled(true)
-                    .style(
-                        AAStyle()
-                            .color("DodgerBlue")
-                    )
-                    .formatter(
-                        """function () {
+                    .style(AAStyle()
+                            .color("DodgerBlue"))
+                    .formatter("""function () {
         let yValue = this.value;
         if (yValue >= 200) {
             return "极佳";
@@ -1837,24 +1784,18 @@ function () {
                     )
             )
             .gridLineWidth(0)
-            .title(
-                AATitle()
+            .title(AATitle()
                     .text("中文")
-                    .style(AAStyle.style("DodgerBlue", 14, AAChartFontWeightType.Bold))
-            )
+                    .style(AAStyle.style("DodgerBlue", 14, AAChartFontWeightType.Bold)))
         val yAxis2 = AAYAxis()
             .visible(true)
             .lineWidth(1)
             .tickPositions(arrayOf(0, 50, 100, 150, 200))
-            .labels(
-                AALabels()
+            .labels(AALabels()
                     .enabled(true)
-                    .style(
-                        AAStyle()
-                            .color(AAColor.Red)
-                    )
-                    .formatter(
-                        """function () {
+                    .style(AAStyle()
+                            .color(AAColor.Red))
+                    .formatter("""function () {
         let yValue = this.value;
         if (yValue >= 200) {
             return "Awesome";
@@ -1867,15 +1808,11 @@ function () {
         } else {
             return "Just So So";
         }
-    }"""
-                    )
-            )
+    }"""))
             .gridLineWidth(0)
-            .title(
-                AATitle()
+            .title(AATitle()
                     .text("ENGLISH")
-                    .style(AAStyle.style(AAColor.Red, 14, AAChartFontWeightType.Bold))
-            )
+                    .style(AAStyle.style(AAColor.Red, 14, AAChartFontWeightType.Bold)))
             .opposite(true)
         val aaTooltip = AATooltip()
             .enabled(true)
@@ -1888,24 +1825,18 @@ function () {
                 .color(AAGradientColor.DeepSea)
                 .borderRadius(4)
                 .yAxis(1)
-                .data(
-                    arrayOf(
+                .data(arrayOf(
                         0, 71.5, 106.4, 129.2, 144.0, 176.0,
-                        135.6, 148.5, 216.4, 194.1, 95.6, 54.4
-                    )
-                ),
+                        135.6, 148.5, 216.4, 194.1, 95.6, 54.4)),
             AASeriesElement()
                 .name("2021")
                 .type(AAChartType.Spline)
                 .lineWidth(7)
                 .color(AAGradientColor.Sanguine)
                 .yAxis(0)
-                .data(
-                    arrayOf(
+                .data(arrayOf(
                         135.6, 148.5, 216.4, 194.1, 95.6, 54.4,
-                        0, 71.5, 106.4, 129.2, 144.0, 176.0
-                    )
-                )
+                        0, 71.5, 106.4, 129.2, 144.0, 176.0))
         )
         return AAOptions()
             .chart(aaChart)
@@ -1926,62 +1857,45 @@ function () {
         val aaXAxis = AAXAxis()
             .visible(true)
             .min(0)
-            .categories(
-                arrayOf(
+            .categories(arrayOf(
                     "Java", "Swift", "Python", "Ruby", "PHP", "Go", "C",
-                    "C#", "C++", "Perl", "R", "MATLAB", "SQL"
-                )
-            )
+                    "C#", "C++", "Perl", "R", "MATLAB", "SQL"))
         val aaPlotOptions = AAPlotOptions()
-            .series(
-                AASeries()
-                    .marker(
-                        AAMarker()
+            .series(AASeries()
+                    .marker(AAMarker()
                             .radius(7) //曲线连接点半径，默认是4
                             .symbol(AAChartSymbolType.Circle.value) //曲线点类型："circle", "square", "diamond", "triangle","triangle-down"，默认是"circle"
                             .fillColor(AAColor.White) //点的填充色(用来设置折线连接点的填充色)
                             .lineWidth(3) //外沿线的宽度(用来设置折线连接点的轮廓描边的宽度)
                             .lineColor("") //外沿线的颜色(用来设置折线连接点的轮廓描边颜色，当值为空字符串时，默认取数据点或数据列的颜色)
-                    )
-            )
+                    ))
         val yAxis1 = AAYAxis()
             .visible(true)
             .lineWidth(1)
             .tickPositions(arrayOf(0, 50, 100, 150, 200))
-            .labels(
-                AALabels()
+            .labels(AALabels()
                     .enabled(true)
-                    .style(
-                        AAStyle()
-                            .color("DodgerBlue")
-                    )
-                    .formatter(
-                        """function () {
+                    .style(AAStyle()
+                            .color("DodgerBlue"))
+                    .formatter("""function () {
        var yValue = this.value;
        var formattedYValue = (yValue / 1000).toFixed(3) + '千';
        return formattedYValue;
    }"""
-                    )
-            )
+                    ))
             .gridLineWidth(0)
-            .title(
-                AATitle()
+            .title(AATitle()
                     .text("以「千」为单位")
-                    .style(AAStyle.style("DodgerBlue", 14, AAChartFontWeightType.Bold))
-            )
+                    .style(AAStyle.style("DodgerBlue", 14, AAChartFontWeightType.Bold)))
         val yAxis2 = AAYAxis()
             .visible(true)
             .lineWidth(1)
             .tickPositions(arrayOf(0, 50, 100, 150, 200))
-            .labels(
-                AALabels()
+            .labels(AALabels()
                     .enabled(true)
-                    .style(
-                        AAStyle()
-                            .color(AAColor.Red)
-                    )
-                    .formatter(
-                        """function () {
+                    .style(AAStyle()
+                            .color(AAColor.Red))
+                    .formatter("""function () {
        var yValue = this.value;
        var formattedYValue = (yValue / 10000).toFixed(4) + '万';
        return formattedYValue;
@@ -1989,11 +1903,9 @@ function () {
                     )
             )
             .gridLineWidth(0)
-            .title(
-                AATitle()
+            .title(AATitle()
                     .text("以『万』为单位")
-                    .style(AAStyle.style(AAColor.Red, 14, AAChartFontWeightType.Bold))
-            )
+                    .style(AAStyle.style(AAColor.Red, 14, AAChartFontWeightType.Bold)))
             .opposite(true)
         val aaTooltip = AATooltip()
             .enabled(true)
@@ -2006,24 +1918,18 @@ function () {
                 .color(AAGradientColor.DeepSea)
                 .borderRadius(4)
                 .yAxis(1)
-                .data(
-                    arrayOf(
+                .data(arrayOf(
                         0, 71.5, 106.4, 129.2, 144.0, 176.0,
-                        135.6, 148.5, 216.4, 194.1, 95.6, 54.4
-                    )
-                ),
+                        135.6, 148.5, 216.4, 194.1, 95.6, 54.4)),
             AASeriesElement()
                 .name("2021")
                 .type(AAChartType.Spline)
                 .lineWidth(7)
                 .color(AAGradientColor.Sanguine)
                 .yAxis(0)
-                .data(
-                    arrayOf(
+                .data(arrayOf(
                         135.6, 148.5, 216.4, 194.1, 95.6, 54.4,
-                        0, 71.5, 106.4, 129.2, 144.0, 176.0
-                    )
-                )
+                        0, 71.5, 106.4, 129.2, 144.0, 176.0))
         )
         return AAOptions()
             .chart(aaChart)
@@ -2045,37 +1951,28 @@ function () {
         val aaXAxis = AAXAxis()
             .visible(true)
             .min(0)
-            .categories(
-                arrayOf(
+            .categories(arrayOf(
                     "Java", "Swift", "Python", "Ruby", "PHP", "Go", "C",
                     "C#", "C++", "Perl", "R", "MATLAB", "SQL"
-                )
-            )
+                ))
         val aaPlotOptions = AAPlotOptions()
-            .series(
-                AASeries()
-                    .marker(
-                        AAMarker()
+            .series(AASeries()
+                    .marker(AAMarker()
                             .radius(7) //曲线连接点半径，默认是4
                             .symbol(AAChartSymbolType.Circle.value) //曲线点类型："circle", "square", "diamond", "triangle","triangle-down"，默认是"circle"
                             .fillColor(AAColor.White) //点的填充色(用来设置折线连接点的填充色)
                             .lineWidth(3) //外沿线的宽度(用来设置折线连接点的轮廓描边的宽度)
                             .lineColor("") //外沿线的颜色(用来设置折线连接点的轮廓描边颜色，当值为空字符串时，默认取数据点或数据列的颜色)
-                    )
-            )
+                    ))
         val yAxis1 = AAYAxis()
             .visible(true)
             .lineWidth(1)
             .tickPositions(arrayOf(0, 50, 100, 150, 200))
-            .labels(
-                AALabels()
+            .labels(AALabels()
                     .enabled(true)
-                    .style(
-                        AAStyle()
-                            .color("DodgerBlue")
-                    )
-                    .formatter(
-                        """function () {
+                    .style(AAStyle()
+                            .color("DodgerBlue"))
+                    .formatter("""function () {
        var yValue = this.value;
        var unitStr = "千";
        if (yValue == 0) {
@@ -2083,28 +1980,20 @@ function () {
        }
        var formattedYValue = (yValue / 1000).toFixed(3) + unitStr;
        return formattedYValue;
-   }"""
-                    )
-            ) //Y轴文字数值为 0 的时候, 不显示单位
+   }""")) //Y轴文字数值为 0 的时候, 不显示单位
             .gridLineWidth(0)
-            .title(
-                AATitle()
+            .title(AATitle()
                     .text("以「千」为单位")
-                    .style(AAStyle.style("DodgerBlue", 14, AAChartFontWeightType.Bold))
-            )
+                    .style(AAStyle.style("DodgerBlue", 14, AAChartFontWeightType.Bold)))
         val yAxis2 = AAYAxis()
             .visible(true)
             .lineWidth(1)
             .tickPositions(arrayOf(0, 50, 100, 150, 200))
-            .labels(
-                AALabels()
+            .labels(AALabels()
                     .enabled(true)
-                    .style(
-                        AAStyle()
-                            .color(AAColor.Red)
-                    )
-                    .formatter(
-                        """function () {
+                    .style(AAStyle()
+                            .color(AAColor.Red))
+                    .formatter("""function () {
        var yValue = this.value;
        var unitStr = "万";
        if (yValue == 0) {
@@ -2112,15 +2001,11 @@ function () {
        }
        var formattedYValue = (yValue / 10000).toFixed(4) + unitStr;
        return formattedYValue;
-   }"""
-                    )
-            ) //Y轴文字数值为 0 的时候, 不显示单位
+   }""")) //Y轴文字数值为 0 的时候, 不显示单位
             .gridLineWidth(0)
-            .title(
-                AATitle()
+            .title(AATitle()
                     .text("以『万』为单位")
-                    .style(AAStyle.style(AAColor.Red, 14, AAChartFontWeightType.Bold))
-            )
+                    .style(AAStyle.style(AAColor.Red, 14, AAChartFontWeightType.Bold)))
             .opposite(true)
         val aaTooltip = AATooltip()
             .enabled(true)
@@ -2133,25 +2018,18 @@ function () {
                 .color(AAGradientColor.DeepSea)
                 .borderRadius(4)
                 .yAxis(1)
-                .data(
-                    arrayOf(
+                .data(arrayOf(
                         0, 71.5, 106.4, 129.2, 144.0, 176.0,
-                        135.6, 148.5, 216.4, 194.1, 95.6, 54.4
-                    )
-                ),
+                        135.6, 148.5, 216.4, 194.1, 95.6, 54.4)),
             AASeriesElement()
                 .name("2021")
                 .type(AAChartType.Spline)
                 .lineWidth(7)
                 .color(AAGradientColor.Sanguine)
                 .yAxis(0)
-                .data(
-                    arrayOf(
+                .data(arrayOf(
                         135.6, 148.5, 216.4, 194.1, 95.6, 54.4,
-                        0, 71.5, 106.4, 129.2, 144.0, 176.0
-                    )
-                )
-        )
+                        0, 71.5, 106.4, 129.2, 144.0, 176.0)))
         return AAOptions()
             .chart(aaChart)
             .title(aaTitle)
@@ -2177,34 +2055,21 @@ function () {
         data3["isZero"] = true
         data3["name"] = "One"
         return AAOptions() //        .title((id)NSNull.null)
-            .chart(
-                AAChart()
-                    .type(AAChartType.Pie)
-            )
-            .series(
-                arrayOf(
+            .chart(AAChart()
+                    .type(AAChartType.Pie))
+            .series(arrayOf(
                     AASeriesElement()
                         .name("ZeroDataPie")
-                        .data(
-                            arrayOf(
-                                data1, data2, data3
-                            )
-                        )
-                        .tooltip(
-                            AATooltip()
+                        .data(arrayOf(data1, data2, data3))
+                        .tooltip(AATooltip()
                                 .shared(false)
-                                .pointFormatter(
-                                    "function() {\n" +
+                                .pointFormatter("function() {\n" +
                                             "            return \"<span style=\\'color:\" + this.color + \"\\'> ◉ </span>\"\n" +
                                             "            + this.series.name\n" +
                                             "            + \": <b>\"\n" +
                                             "            + (this.options.isZero ? 0 : this.y)\n" +
                                             "            + \"</b><br/>\";\n" +
-                                            "        }"
-                                )
-                        )
-                )
-            )
+                                            "        }"))))
     }
 
     //https://github.com/AAChartModel/AAChartKit/issues/1217
@@ -2216,8 +2081,7 @@ function () {
             //        .yAxisGridLineStyle([AALineStyle styleWithWidth:0})//y轴横向分割线宽度(为0即是隐藏分割线)
             .xAxisReversed(true) //        .xAxisLabelsStyle(AAStyle.style(AAColor.Black))
             .legendEnabled(false)
-            .categories(
-                arrayOf(
+            .categories(arrayOf(
                     "春江潮水连海平", "海上明月共潮生",
                     "滟滟随波千万里", "何处春江无月明",
                     "江流宛转绕芳甸", "月照花林皆似霰",
@@ -2235,17 +2099,13 @@ function () {
                     "昨夜闲潭梦落花", "可怜春半不还家",
                     "江水流春去欲尽", "江潭落月复西斜",
                     "斜月沉沉藏海雾", "碣石潇湘无限路",
-                    "不知乘月几人归", "落月摇情满江树"
-                )
-            )
-            .series(
-                arrayOf(
+                    "不知乘月几人归", "落月摇情满江树"))
+            .series(arrayOf(
                     AASeriesElement()
                         .lineWidth(1.5)
                         .color(AAGradientColor.DeepSea)
                         .name("2018")
-                        .data(
-                            arrayOf(
+                        .data(arrayOf(
                                 1.51,
                                 3.7,
                                 0.94,
@@ -2281,15 +2141,10 @@ function () {
                                 2.45,
                                 3.87,
                                 3.24,
-                                4.90
-                            )
-                        )
-                )
-            )
+                                4.90))))
         val aaOptions = aaChartModel.aa_toAAOptions()
         aaOptions.xAxis!!.labels!!
-            .formatter(
-                ("function () {\n" +
+            .formatter("function () {\n" +
                         "        let xAxisCategory = this.value;\n" +
                         "        if (xAxisCategory.length > 4) {\n" +
                         "            return xAxisCategory.substr(0, 4);\n" +
@@ -2297,7 +2152,6 @@ function () {
                         "            return xAxisCategory;\n" +
                         "        }\n" +
                         "    }")
-            )
         return aaOptions
     }
 
@@ -2309,8 +2163,7 @@ function () {
             .stacking(AAChartStackingType.Normal)
             .yAxisVisible(false)
             .markerRadius(0)
-            .series(
-                arrayOf(
+            .series(arrayOf(
                     AASeriesElement()
                         .name("Tokyo Hot")
                         .lineWidth(5.0)
@@ -2460,11 +2313,8 @@ function () {
         //https://api.highcharts.com/highcharts/chart.events.load
         //https://www.highcharts.com/forum/viewtopic.php?t=36508
         aaOptions.chart!!
-            .events(
-                AAChartEvents()
-                    .load(
-                        String.format(
-                            ("function() {\n" +
+            .events(AAChartEvents()
+                    .load(String.format("function() {\n" +
                                     "                let points = [];\n" +
                                     "                let chart = this;\n" +
                                     "                let series = chart.series;\n" +
@@ -2476,10 +2326,7 @@ function () {
                                     "                }\n" +
                                     "                chart.xAxis[0].drawCrosshair(null, points[0]);\n" +
                                     "                chart.tooltip.refresh(points);\n" +
-                                    "                       }"), defaultSelectedIndex
-                        )
-                    )
-            )
+                                    "                       }", defaultSelectedIndex)))
         return aaOptions
     }
 
@@ -2494,28 +2341,19 @@ function () {
             .chartType(AAChartType.Column)
             .stacking(AAChartStackingType.Normal)
             .colorsTheme(arrayOf(AAColor.DarkGray, AAColor.LightGray)) //Colors theme
-            .categories(
-                arrayOf(
+            .categories(arrayOf(
                     "January", "February", "March", "April", "May", "June",
-                    "July", "August", "September", "October", "November", "December"
-                )
-            )
-            .series(
-                arrayOf(
+                    "July", "August", "September", "October", "November", "December"))
+            .series(arrayOf(
                     AASeriesElement()
                         .name("Berlin Hot")
                         .borderColor(AAColor.White)
                         .borderWidth(3)
                         .borderRadius(10)
-                        .states(
-                            AAStates()
-                                .hover(
-                                    AAHover()
-                                        .color(AAColor.Red)
-                                )
-                        )
-                        .data(
-                            arrayOf(
+                        .states(AAStates()
+                                .hover(AAHover()
+                                        .color(AAColor.Red)))
+                        .data(arrayOf(
                                 7.0,
                                 6.9,
                                 9.5,
@@ -2535,15 +2373,10 @@ function () {
                         .borderColor(AAColor.White)
                         .borderWidth(3)
                         .borderRadius(10)
-                        .states(
-                            AAStates()
-                                .hover(
-                                    AAHover()
-                                        .color("dodgerblue")
-                                )
-                        ) // Dodgerblue／道奇藍／#1e90ff十六进制颜色代码
-                        .data(
-                            arrayOf(
+                        .states(AAStates()
+                                .hover(AAHover()
+                                        .color("dodgerblue"))) // Dodgerblue／道奇藍／#1e90ff十六进制颜色代码
+                        .data(arrayOf(
                                 0.2,
                                 0.8,
                                 5.7,
@@ -2555,11 +2388,7 @@ function () {
                                 20.1,
                                 14.1,
                                 8.6,
-                                2.5
-                            )
-                        )
-                )
-            )
+                                2.5))))
         val aaOptions = aaChartModel.aa_toAAOptions()
         aaOptions.tooltip!!
             .formatter(
