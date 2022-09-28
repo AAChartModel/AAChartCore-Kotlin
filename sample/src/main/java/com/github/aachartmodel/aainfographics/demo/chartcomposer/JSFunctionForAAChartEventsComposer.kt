@@ -625,12 +625,14 @@ object JSFunctionForAAChartEventsComposer {
                                 AADataElement().x(1410818400).y(97),
                                 AADataElement().x(1413453600).y(9)
                             )
-                        ) //                .tooltip(new AATooltip()
-                    //                    .xDateFormat("%B %Y")
-                    //                    .valueSuffix(" % of best month"))
+                        )
+                                .tooltip(AATooltip()
+//                                        .xDateFormat("%B %Y")
+                                        .valueSuffix(" % of best month"))
                     ,
                     AASeriesElement()
-                        .name("收入") //                .id("revenue")
+                        .name("收入")
+                        .id("revenue")
                         .type(AAChartType.Area)
                         .data(arrayOf(
                                 AADataElement().x(1257033600).y(2),
@@ -694,14 +696,16 @@ object JSFunctionForAAChartEventsComposer {
                                 AADataElement().x(1409529600).y(89),
                                 AADataElement().x(1412121600).y(0)
                             )
-                        ) //                .tooltip(new AATooltip()
-                    //                    .xDateFormat("%B %Y")
-                    //                    .valueSuffix(" % of best month")
-                    //            )
+                        )
+                                .tooltip( AATooltip()
+//                                        .xDateFormat("%B %Y")
+                                        .valueSuffix(" % of best month")
+                                )
                     ,
                     AASeriesElement()
                         .yAxis(1)
-                        .name("Highsoft 员工") //                .id("employees")
+                        .name("Highsoft 员工")
+                        .id("employees")
                         .type(AAChartType.Area)
                         .step("left")
                         .tooltip(AATooltip()
@@ -1098,8 +1102,7 @@ object JSFunctionForAAChartEventsComposer {
                                 .label(AALabel()
                                         .useHTML(true)
                                         .textAlign(AAChartAlignType.Center)
-                                        .x(0)
-                                        .y(2)
+                                        .x(0).y(2)
                                         .formatter(
                                             ("function () {\n" +
                                                     "               return `<span style=\"padding: 2px 10px; display: block; color: white\">`+this.options.value+`</span>`\n" +
