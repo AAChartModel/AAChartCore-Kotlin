@@ -2042,25 +2042,17 @@ function () {
 
     //https://github.com/AAChartModel/AAChartKit/issues/1042
     fun makePieChartShow0Data(): AAOptions {
-        val data1: MutableMap<String, Any> = HashMap()
-        data1["y"] = 1
-        data1["isZero"] = true
-        data1["name"] = "One"
-        val data2: MutableMap<String, Any> = HashMap()
-        data2["y"] = 1
-        data2["isZero"] = true
-        data2["name"] = "One"
-        val data3: MutableMap<String, Any> = HashMap()
-        data3["y"] = 1
-        data3["isZero"] = true
-        data3["name"] = "One"
         return AAOptions() //        .title((id)NSNull.null)
             .chart(AAChart()
                 .type(AAChartType.Pie))
             .series(arrayOf(
                 AASeriesElement()
                     .name("ZeroDataPie")
-                    .data(arrayOf(data1, data2, data3))
+                    .data(arrayOf(
+                        mapOf("y" to 1, "isZero" to true, "name" to "One"),
+                        mapOf("y" to 1, "isZero" to true, "name" to "Two"),
+                        mapOf("y" to 1, "isZero" to true, "name" to "Three")
+                    ))
                     .tooltip(AATooltip()
                         .shared(false)
                         .pointFormatter("function() {\n" +
