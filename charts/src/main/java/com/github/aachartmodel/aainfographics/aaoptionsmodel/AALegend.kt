@@ -27,6 +27,7 @@ class AALegend {
     var x: Number? = null
     var y: Number? = null
     var floating: Boolean? = null
+    var labelFormat: String? = null
 
     fun layout(prop: AAChartLayoutType): AALegend {
         layout = prop.value
@@ -78,8 +79,13 @@ class AALegend {
         return this
     }
 
-    fun floating(prop: Boolean): AALegend {
+    fun floating(prop: Boolean?): AALegend {
         floating = prop
+        return this
+    }
+
+    fun labelFormat(prop: String?): AALegend {
+        labelFormat = prop
         return this
     }
 
