@@ -183,6 +183,9 @@ class AAPointEvents {
             : String? = null
     var update //更新
             : String? = null
+    var legendItemClick //图例点击事件
+            : String? = null
+
 
     fun click(prop: String?): AAPointEvents {
         click = prop
@@ -216,6 +219,11 @@ class AAPointEvents {
 
     fun update(prop: String?): AAPointEvents {
         update = prop
+        return this
+    }
+
+    fun legendItemClick(prop: String?): AAPointEvents {
+        legendItemClick = prop
         return this
     }
 }
