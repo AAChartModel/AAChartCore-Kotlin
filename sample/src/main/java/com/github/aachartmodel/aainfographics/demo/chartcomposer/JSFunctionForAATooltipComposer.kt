@@ -43,7 +43,7 @@ import com.github.aachartmodel.aainfographics.aatools.AAGradientColor
 import com.github.aachartmodel.aainfographics.aatools.AALinearGradientDirection
 import com.github.aachartmodel.aainfographics.aatools.AARgba
 
-object CustomTooltipComposer {
+object JSFunctionForAATooltipComposer {
 
     fun customAreaChartTooltipStyleWithSimpleFormatString(): AAOptions {
         val aaChartModel = AAChartModel()
