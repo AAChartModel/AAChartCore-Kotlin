@@ -185,6 +185,49 @@ function () {
         return aaOptions
     }
 
+    //https://github.com/AAChartModel/AAChartKit-Swift/issues/404
+    fun configureColorfulDataLabelsForPieChart(): AAOptions {
+        return AAOptions()
+            .title(AATitle()
+                .text("Colorful DataLabels For Pie Chart"))
+            .colors(arrayOf(
+                "#0c9674", "#7dffc0", "#ff3333", "#facd32", "#ffffa0",
+                "#EA007B", "#fe117c", "#ffc069", "#06caf4", "#7dffc0"))
+            .series(arrayOf(
+                AASeriesElement()
+                    .type(AAChartType.Pie)
+                    .name("语言热度值")
+                    .innerSize("20%") //内部圆环半径大小占比
+                    .borderWidth(0) //描边的宽度
+                    .allowPointSelect(true) //是否允许在点击数据点标记(扇形图点击选中的块发生位移)
+                    .states(AAStates()
+                        .hover(AAHover()
+                            .enabled(false))) //禁用点击区块之后出现的半透明遮罩层
+                    .dataLabels(AADataLabels()
+                        .allowOverlap(true) //允许字符重叠
+                        .useHTML(true)
+                        .formatter("""
+                            function () {
+                                const point = this.point;
+                                return '<span style=\"color: ' + point.color + '\">' +
+                                point.name + ': ' + point.y + '%</span>';
+                            }"""))
+                    .data(arrayOf(
+                        arrayOf("Firefox", 3336.2),
+                        arrayOf("IE", 26.8),
+                        arrayOf("Chrome", 666.8),
+                        arrayOf("Safari", 88.5),
+                        arrayOf("Opera", 46.0),
+                        arrayOf("Others", 223.0),
+                        arrayOf("Firefox", 3336.2),
+                        arrayOf("IE", 26.8),
+                        arrayOf("Chrome", 666.8),
+                        arrayOf("Safari", 88.5),
+                        arrayOf("Opera", 46.0),
+                        arrayOf("Others", 223.0)
+                    ))))
+    }
+
 
     private fun javaScriptArrayStringWithJavaArray(javaArray: Array<String>): String {
         val originalJsArrStr = StringBuilder()
