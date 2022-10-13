@@ -103,8 +103,8 @@ function () {
         val aaOptions = aaChartModel.aa_toAAOptions()
         aaOptions.tooltip(aaTooltip)
 
-        aaOptions.chart!!
-            .resetZoomButton(AAResetZoomButton()
+        aaOptions.chart
+            ?.resetZoomButton(AAResetZoomButton()
                 .theme(mapOf(("display" to "none"))) //隐藏图表缩放后的默认显示的缩放按钮
             )
 
@@ -381,14 +381,15 @@ function () {
             )
 
         val aaOptions = aaChartModel.aa_toAAOptions()
-        aaOptions.yAxis!!
-            .opposite(true)
+        aaOptions.yAxis?.apply {
+            opposite(true)
             .tickWidth(2)
             .lineWidth(1.5)//Y轴轴线颜色
             .lineColor(AAColor.LightGray)//Y轴轴线颜色
             .gridLineWidth(0)//Y轴网格线宽度
             .tickPositions(arrayOf(0, 2500, 5000, 7500, 10000))
             .labels(aaYAxisLabels)
+        }
 
         return aaOptions
     }
@@ -586,9 +587,10 @@ function () {
             )
         val aaOptions = aaChartModel.aa_toAAOptions()
 
-        aaOptions.tooltip!!
-            .useHTML(true)
-            .formatter("""
+        aaOptions.tooltip?.apply {
+             useHTML(true)
+            .formatter(
+                """
 function () {
             var myPointOptions = this.points[0].point.options;
             var xValue = myPointOptions.x;
@@ -606,8 +608,10 @@ function () {
             .backgroundColor("#000000")
             .borderColor("#000000")
             .style(AAStyle()
-                .color("#FFD700")
-                .fontSize(12))
+                    .color("#FFD700")
+                    .fontSize(12)
+            )
+        }
 
         return aaOptions
     }
@@ -728,7 +732,7 @@ function () {
         val 停止次数JS数组 = (停止次数数组).aa_toJSArray()
         val 干预次数JS数组 = (干预次数数组).aa_toJSArray()
 
-        var jsFormatterStr: String? = """
+        val jsFormatterStr = """
 function () {
         let 总时长数组 = $总时长JS数组;
         let 有效时长数组 = $有效时长JS数组;
@@ -763,7 +767,7 @@ function () {
             //‼️非共享时是 this.point 单个 point 对象
             shared(false)
                 .useHTML(true)
-                .formatter(jsFormatterStr!!)
+                .formatter(jsFormatterStr)
                 .backgroundColor("#000000") //黑色背景色
                 .borderColor("#FFD700") //边缘颜色纯金色
                 .style(AAStyle()
@@ -838,12 +842,13 @@ function () {
         }
         aaOptions.xAxis?.apply {
             lineWidth(0) //避免多边形外环之外有额外套了一层无用的外环
-                .labels!!.style(AAStyle.style(AAColor.Black))
-                .formatter(xAxisLabelsFormatter)
+                .labels
+                ?.style(AAStyle.style(AAColor.Black))
+                ?.formatter(xAxisLabelsFormatter)
         }
         aaOptions.yAxis?.apply {
             gridLineInterpolation("polygon") //设置蜘蛛网🕸图表的网线为多边形
-                .labels!!.style(AAStyle.style(AAColor.Black))
+                .labels?.style(AAStyle.style(AAColor.Black))
         }
 
 
@@ -891,7 +896,7 @@ function () {
                 AASeriesElement()
                     .data(arrayOf(7.0, 6.9, 2.5, 14.5, 18.2, 21.5, 5.2))))
         val aaOptions = aaChartModel.aa_toAAOptions()
-        aaOptions.yAxis!!.gridLineDashStyle = AAChartLineDashStyleType.LongDash.value //设置Y轴的网格线样式为 AAChartLineDashStyleType.LongDash
+        aaOptions.yAxis?.gridLineDashStyle = AAChartLineDashStyleType.LongDash.value //设置Y轴的网格线样式为 AAChartLineDashStyleType.LongDash
         val unitArr = arrayOf("美元", "欧元", "人民币", "日元", "韩元", "越南盾", "港币")
         val unitJSArrStr: String = javaScriptArrayStringWithJavaArray(unitArr)
         val dataLabelsFormatter = String.format(
@@ -899,7 +904,7 @@ function () {
                     "        return this.y + %s[this.point.index];  \n" +  //单组 series 图表, 获取选中的点的索引是 this.point.index ,多组并且共享提示框,则是this.points[0].index
                     "    }", unitJSArrStr
         )
-        val aaDatalabels = aaOptions.plotOptions!!.series!!.dataLabels
+        val aaDatalabels = aaOptions.plotOptions?.series?.dataLabels
         aaDatalabels?.apply {
             style(AAStyle.style(AAColor.Red, 10, AAChartFontWeightType.Bold, "1px 1px contrast"))
                 .formatter(dataLabelsFormatter)
@@ -972,10 +977,11 @@ function () {
 
         //    https://api.highcharts.com.cn/highcharts#xAxis.labels.formatter
         val aaOptions = aaChartModel.aa_toAAOptions()
-        aaOptions.xAxis!!.labels!!
-            .useHTML(true)
+        aaOptions.xAxis?.labels?.apply {
+             useHTML(true)
             .formatter(xLabelsFormatter)
-        aaOptions.plotOptions!!.column!!.groupPadding(0.005f)
+        }
+        aaOptions.plotOptions?.column?.groupPadding(0.005f)
 
 //    /Custom tooltip style/
 //                String tooltipFormatter ={String stringWithFormat:(AAJSFunc(function () {
@@ -1007,10 +1013,11 @@ function () {
                     "        + \" </b> Dollars \";\n" +
                     "    }"), imageLinkFlagJSArrStr
         )
-        aaOptions.tooltip!!
-            .shared(false)
+        aaOptions.tooltip?.apply {
+             shared(false)
             .useHTML(true)
             .formatter(tooltipFormatter)
+        }
         return aaOptions
     }
 
@@ -1105,15 +1112,15 @@ function () {
             )
             )
         val aaOptions = aaChartModel.aa_toAAOptions()
-        aaOptions.legend!!
-            .enabled(true)
+        aaOptions.legend?.apply {
+             enabled(true)
             .align(AAChartAlignType.Right) //设置图例位于水平方向上的右侧
             .layout(AAChartLayoutType.Vertical) //设置图例排列方式为垂直排布
             .verticalAlign(AAChartVerticalAlignType.Top) //设置图例位于竖直方向上的顶部
-
+        }
 
         //自定义图例点击事件
-        aaOptions.plotOptions!!.series!!.events = AASeriesEvents()
+        aaOptions.plotOptions?.series?.events = AASeriesEvents()
             .legendItemClick(
                 """function(event) {
         function getVisibleMode(series, serieName) {
@@ -1203,8 +1210,8 @@ function () {
             )
             )
         val aaOptions = aaChartModel.aa_toAAOptions()
-        aaOptions.tooltip!!
-            .positioner("function (labelWidth, labelHeight, point) {\n" +
+        aaOptions.tooltip
+            ?.positioner("function (labelWidth, labelHeight, point) {\n" +
                     "        let position = {};\n" +
                     "        position[\"x\"] = point.plotX;\n" +
                     "        position[\"y\"] = 20;\n" +
@@ -1216,8 +1223,8 @@ function () {
 
     fun fixedTooltipPositionByCustomPositionerFunction(): AAOptions {
         val aaOptions: AAOptions = customTooltipPostionerFunction()
-        aaOptions.tooltip!!
-            .positioner("function () {\n" +
+        aaOptions.tooltip
+            ?.positioner("function () {\n" +
                     "        let position = {};\n" +
                     "        position[\"x\"] = 50;\n" +
                     "        position[\"y\"] = 50;\n" +
@@ -1314,11 +1321,12 @@ function () {
                         1800.254, 1900.377, 2100.523, 2500.256, 2600.555, 2800.366
                     ))))
         val aaOptions = aaChartModel.aa_toAAOptions()
-        aaOptions.xAxis!!
-            .crosshair(AACrosshair()
+        aaOptions.xAxis
+            ?.crosshair(AACrosshair()
                 .color(AARgba(209, 209, 209, 1.0f))
                 .dashStyle(AAChartLineDashStyleType.LongDash)
                 .width(3))
+
 
 
 //                aaOptions.yAxis
@@ -1339,8 +1347,8 @@ function () {
         return position;
     }""", screenWidth
         )
-        aaOptions.tooltip!!
-            .useHTML(true)
+        aaOptions.tooltip?.apply {
+             useHTML(true)
             .headerFormat("总计 ")
             .pointFormat("{point.y}  步")
             .footerFormat("2020 年 {point.x} ")
@@ -1350,6 +1358,7 @@ function () {
             .shape("square")
             .style(AAStyle.style(AARgba(132, 132, 132, 1.0f), 28))
             .positioner(positionerStr)
+        }
         return aaOptions
     }
 
@@ -1380,8 +1389,8 @@ function () {
          return;
      }"""
                 ))
-        aaOptions.plotOptions!!.series!!
-            .point(aaPoint)
+        aaOptions.plotOptions?.series
+            ?.point(aaPoint)
         return aaOptions
     }
 
@@ -1396,46 +1405,48 @@ function () {
             .xAxisTickInterval(3) //x轴刻度点间隔数(设置每隔几个点显示一个 X轴的内容)
             //                            .yAxisGridLineStyle([AALineStyle styleWithWidth:0})//y轴横向分割线宽度(为0即是隐藏分割线)
             .stacking(AAChartStackingType.Normal)
-            .categories(arrayOf( "10-01", "10-02", "10-03", "10-04", "10-05", "10-06", "10-07", "10-08", "10-09", "10-10", "10-11",
-                    "10-12", "10-13", "10-14", "10-15", "10-16", "10-17", "10-18", "10-19", "10-20", "10-21", "10-22",
-                    "10-23", "10-24", "10-25", "10-26", "10-27", "10-28", "10-29", "10-30", "10-31", "11-01", "11-02",
-                    "11-03", "11-04", "11-05", "11-06", "11-07", "11-08", "11-09", "11-10", "11-11", "11-12", "11-13",
-                    "11-14", "11-15", "11-16", "11-17", "11-18", "11-19", "11-20", "11-21", "11-22", "11-23", "11-24",
-                    "11-25", "11-26", "11-27", "11-28", "11-29", "11-30", "12-01", "12-02", "12-03", "12-04", "12-05",
-                    "12-06", "12-07", "12-08", "12-09", "12-10", "12-11", "12-12", "12-13", "12-14", "12-15", "12-16",
-                    "12-17", "12-18", "12-19", "12-20", "12-21", "12-22", "12-23", "12-24" ,"12-25" ,"12-26" ,"12-27",
-                    "12-28", "12-29", "12-30"))
-            .series(
-                arrayOf(
-                    AASeriesElement()
-                        .lineWidth(1.5)
-                        .fillOpacity(0.4f)
-                        .name("黄金上涨")
-                        .data(arrayOf( 1.51, 6.70, 0.94, 1.44, 1.60, 1.63, 1.56, 1.91, 2.45, 3.87, 3.24, 4.90, 4.61, 4.10,
-                                4.17, 3.85, 4.17, 3.46, 3.46, 3.55, 3.50, 4.13, 2.58, 2.28, 1.51, 12.7, 0.94, 1.44,
-                                18.6, 1.63, 1.56, 1.91, 2.45, 3.87, 3.24, 4.90, 4.61, 4.10, 4.17, 3.85, 4.17, 3.46,
-                                3.46, 3.55, 3.50, 4.13, 2.58, 2.28, 1.33, 4.68, 1.31, 1.10, 13.9, 1.10, 1.16, 1.67,
-                                2.64, 2.86, 3.00, 3.21, 4.14, 4.07, 3.68, 3.11, 3.41, 3.25, 3.32, 3.07, 3.92, 3.05,
-                                2.18, 3.24, 3.23, 3.15, 2.90, 1.81, 2.11, 2.43, 5.59, 3.09, 4.09, 6.14, 5.33, 6.05,
-                                5.71, 6.22, 6.56, 4.75, 5.27, 6.02, 5.48)),
-                    AASeriesElement()
-                        .lineWidth(1.5)
-                        .fillOpacity(0.4f)
-                        .name("房价下跌")
-                        .data(arrayOf(1.51, 6.70, 0.94, 1.44, 1.60, 1.63, 1.56, 1.91, 2.45, 3.87, 3.24, 4.90, 4.61, 4.10,
-                                4.17, 3.85, 4.17, 3.46, 3.46, 3.55, 3.50, 4.13, 2.58, 2.28, 1.51, 12.7, 0.94, 1.44,
-                                18.6, 1.63, 1.56, 1.91, 2.45, 3.87, 3.24, 4.90, 4.61, 4.10, 4.17, 3.85, 4.17, 3.46,
-                                3.46, 3.55, 3.50, 4.13, 2.58, 2.28, 1.33, 4.68, 1.31, 1.10, 13.9, 1.10, 1.16, 1.67,
-                                2.64, 2.86, 3.00, 3.21, 4.14, 4.07, 3.68, 3.11, 3.41, 3.25, 3.32, 3.07, 3.92, 3.05,
-                                2.18, 3.24, 3.23, 3.15, 2.90, 1.81, 2.11, 2.43, 5.59, 3.09, 4.09, 6.14, 5.33, 6.05,
-                                5.71, 6.22, 6.56, 4.75, 5.27, 6.02, 5.48))))
+            .categories(arrayOf(
+                "10-01", "10-02", "10-03", "10-04", "10-05", "10-06", "10-07", "10-08", "10-09", "10-10", "10-11",
+                "10-12", "10-13", "10-14", "10-15", "10-16", "10-17", "10-18", "10-19", "10-20", "10-21", "10-22",
+                "10-23", "10-24", "10-25", "10-26", "10-27", "10-28", "10-29", "10-30", "10-31", "11-01", "11-02",
+                "11-03", "11-04", "11-05", "11-06", "11-07", "11-08", "11-09", "11-10", "11-11", "11-12", "11-13",
+                "11-14", "11-15", "11-16", "11-17", "11-18", "11-19", "11-20", "11-21", "11-22", "11-23", "11-24",
+                "11-25", "11-26", "11-27", "11-28", "11-29", "11-30", "12-01", "12-02", "12-03", "12-04", "12-05",
+                "12-06", "12-07", "12-08", "12-09", "12-10", "12-11", "12-12", "12-13", "12-14", "12-15", "12-16",
+                "12-17", "12-18", "12-19", "12-20", "12-21", "12-22", "12-23", "12-24" ,"12-25" ,"12-26" ,"12-27",
+                "12-28", "12-29", "12-30"))
+            .series(arrayOf(
+                AASeriesElement()
+                    .lineWidth(1.5)
+                    .fillOpacity(0.4f)
+                    .name("黄金上涨")
+                    .data(arrayOf(
+                        1.51, 6.70, 0.94, 1.44, 1.60, 1.63, 1.56, 1.91, 2.45, 3.87, 3.24, 4.90, 4.61, 4.10,
+                        4.17, 3.85, 4.17, 3.46, 3.46, 3.55, 3.50, 4.13, 2.58, 2.28, 1.51, 12.7, 0.94, 1.44,
+                        18.6, 1.63, 1.56, 1.91, 2.45, 3.87, 3.24, 4.90, 4.61, 4.10, 4.17, 3.85, 4.17, 3.46,
+                        3.46, 3.55, 3.50, 4.13, 2.58, 2.28, 1.33, 4.68, 1.31, 1.10, 13.9, 1.10, 1.16, 1.67,
+                        2.64, 2.86, 3.00, 3.21, 4.14, 4.07, 3.68, 3.11, 3.41, 3.25, 3.32, 3.07, 3.92, 3.05,
+                        2.18, 3.24, 3.23, 3.15, 2.90, 1.81, 2.11, 2.43, 5.59, 3.09, 4.09, 6.14, 5.33, 6.05,
+                        5.71, 6.22, 6.56, 4.75, 5.27, 6.02, 5.48)),
+                AASeriesElement()
+                    .lineWidth(1.5)
+                    .fillOpacity(0.4f)
+                    .name("房价下跌")
+                    .data(arrayOf(
+                        1.51, 6.70, 0.94, 1.44, 1.60, 1.63, 1.56, 1.91, 2.45, 3.87, 3.24, 4.90, 4.61, 4.10,
+                        4.17, 3.85, 4.17, 3.46, 3.46, 3.55, 3.50, 4.13, 2.58, 2.28, 1.51, 12.7, 0.94, 1.44,
+                        18.6, 1.63, 1.56, 1.91, 2.45, 3.87, 3.24, 4.90, 4.61, 4.10, 4.17, 3.85, 4.17, 3.46,
+                        3.46, 3.55, 3.50, 4.13, 2.58, 2.28, 1.33, 4.68, 1.31, 1.10, 13.9, 1.10, 1.16, 1.67,
+                        2.64, 2.86, 3.00, 3.21, 4.14, 4.07, 3.68, 3.11, 3.41, 3.25, 3.32, 3.07, 3.92, 3.05,
+                        2.18, 3.24, 3.23, 3.15, 2.90, 1.81, 2.11, 2.43, 5.59, 3.09, 4.09, 6.14, 5.33, 6.05,
+                        5.71, 6.22, 6.56, 4.75, 5.27, 6.02, 5.48))))
 
 
         //https://zhidao.baidu.com/question/301691908.html
         //https://jshare.com.cn/highcharts/hhhhGc
         val aaOptions = aaChartModel.aa_toAAOptions()
-        aaOptions.tooltip!!
-            .shared(true)
+        aaOptions.tooltip?.apply {
+             shared(true)
             .useHTML(true)
             .padding(0)
             .borderWidth(0)
@@ -1459,9 +1470,10 @@ function () {
                         "        '</div>';\n" +
                         "    }"
             )
+        }
 
         //禁用图例点击事件
-        aaOptions.plotOptions!!.series!!.events = AASeriesEvents()
+        aaOptions.plotOptions?.series?.events = AASeriesEvents()
             .legendItemClick(
                 ("function() {\n" +
                         "         return false;\n" +
@@ -1835,8 +1847,8 @@ function () {
                         4.17, 3.85, 4.17, 3.46, 3.46, 3.55, 3.50, 4.13, 2.58, 2.28,1.51, 2.7, 0.94, 1.44,
                         3.6, 1.63, 1.56, 1.91, 2.45, 3.87, 3.24, 4.90,))))
         val aaOptions = aaChartModel.aa_toAAOptions()
-        aaOptions.xAxis!!.labels!!
-            .formatter("function () {\n" +
+        aaOptions.xAxis?.labels
+            ?.formatter("function () {\n" +
                     "        let xAxisCategory = this.value;\n" +
                     "        if (xAxisCategory.length > 4) {\n" +
                     "            return xAxisCategory.substr(0, 4);\n" +
@@ -1878,25 +1890,24 @@ function () {
                     .data(arrayOf(0.60, 0.51, 0.52, 0.53, 0.64, 0.84, 0.65, 0.68, 0.63, 0.47, 0.72, 0.60, 0.65, 0.74, 0.66, 0.65, 0.71, 0.59, 0.65, 0.77, 0.52, 0.53, 0.58, 0.53))
             ))
         val aaOptions = aaChartModel.aa_toAAOptions()
-        aaOptions.tooltip!!
-            .style(AAStyle.style(AAColor.White))
+        aaOptions.tooltip?.apply {
+             style(AAStyle.style(AAColor.White))
             .backgroundColor("#050505")
             .borderColor("#050505")
-        aaOptions.xAxis!!
-            .crosshair(
-                AACrosshair()
-                    .color(AAColor.DarkGray)
-                    .dashStyle(AAChartLineDashStyleType.LongDashDotDot)
-                    .width(2)
-            )
+        }
+        aaOptions.xAxis
+            ?.crosshair(AACrosshair()
+                .color(AAColor.DarkGray)
+                .dashStyle(AAChartLineDashStyleType.LongDashDotDot)
+                .width(2))
 
         //默认选中的位置索引
         val defaultSelectedIndex = 5
 
         //https://api.highcharts.com/highcharts/chart.events.load
         //https://www.highcharts.com/forum/viewtopic.php?t=36508
-        aaOptions.chart!!
-            .events(AAChartEvents()
+        aaOptions.chart
+            ?.events(AAChartEvents()
                 .load(String.format("function() {\n" +
                         "                let points = [];\n" +
                         "                let chart = this;\n" +
@@ -1947,8 +1958,8 @@ function () {
                             .color("dodgerblue"))) // Dodgerblue／道奇藍／#1e90ff十六进制颜色代码
                     .data(arrayOf(0.2, 0.8, 5.7, 11.3, 17.0, 22.0, 24.8, 24.1, 20.1, 14.1, 8.6, 2.5))))
         val aaOptions = aaChartModel.aa_toAAOptions()
-        aaOptions.tooltip!!
-            .formatter(
+        aaOptions.tooltip
+            ?.formatter(
                 """function () {
                return false;
         }"""
