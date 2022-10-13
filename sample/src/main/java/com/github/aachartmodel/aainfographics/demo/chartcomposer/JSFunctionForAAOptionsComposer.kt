@@ -137,8 +137,8 @@ function () {
          return;
      }"""
                 ))
-        aaOptions.plotOptions!!.series!!
-            .point(aaPoint)
+        aaOptions.plotOptions?.series
+            ?.point(aaPoint)
         return aaOptions
     }
 
@@ -163,7 +163,7 @@ function () {
                 AASeriesElement()
                     .data(arrayOf(7.0, 6.9, 2.5, 14.5, 18.2, 21.5, 5.2))))
         val aaOptions = aaChartModel.aa_toAAOptions()
-        aaOptions.yAxis!!.gridLineDashStyle = AAChartLineDashStyleType.LongDash.value //设置Y轴的网格线样式为 AAChartLineDashStyleType.LongDash
+        aaOptions.yAxis?.gridLineDashStyle = AAChartLineDashStyleType.LongDash.value //设置Y轴的网格线样式为 AAChartLineDashStyleType.LongDash
         val unitArr = arrayOf("美元", "欧元", "人民币", "日元", "韩元", "越南盾", "港币")
         val unitJSArrStr: String = javaScriptArrayStringWithJavaArray(unitArr)
         val dataLabelsFormatter = String.format(
@@ -171,7 +171,7 @@ function () {
                     "        return this.y + %s[this.point.index];  \n" +  //单组 series 图表, 获取选中的点的索引是 this.point.index ,多组并且共享提示框,则是this.points[0].index
                     "    }", unitJSArrStr
         )
-        val aaDatalabels = aaOptions.plotOptions!!.series!!.dataLabels
+        val aaDatalabels = aaOptions.plotOptions?.series?.dataLabels
         aaDatalabels?.apply {
             style(AAStyle.style(AAColor.Red, 10, AAChartFontWeightType.Bold, "1px 1px contrast"))
                 .formatter(dataLabelsFormatter)
