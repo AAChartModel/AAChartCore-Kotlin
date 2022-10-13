@@ -106,14 +106,15 @@ function () {
             )
 
         val aaOptions = aaChartModel.aa_toAAOptions()
-        aaOptions.yAxis!!
-            .opposite(true)
+        aaOptions.yAxis?.apply {
+             opposite(true)
             .tickWidth(2)
             .lineWidth(1.5)//Y轴轴线颜色
             .lineColor(AAColor.LightGray)//Y轴轴线颜色
             .gridLineWidth(0)//Y轴网格线宽度
             .tickPositions(arrayOf(0, 2500, 5000, 7500, 10000))
             .labels(aaYAxisLabels)
+        }
 
         return aaOptions
     }
@@ -470,8 +471,8 @@ function () {
                         4.17, 3.85, 4.17, 3.46, 3.46, 3.55, 3.50, 4.13, 2.58, 2.28,1.51, 2.7, 0.94, 1.44,
                         3.6, 1.63, 1.56, 1.91, 2.45, 3.87, 3.24, 4.90,))))
         val aaOptions = aaChartModel.aa_toAAOptions()
-        aaOptions.xAxis!!.labels!!
-            .formatter("function () {\n" +
+        aaOptions.xAxis?.labels
+            ?.formatter("function () {\n" +
                     "        let xAxisCategory = this.value;\n" +
                     "        if (xAxisCategory.length > 4) {\n" +
                     "            return xAxisCategory.substr(0, 4);\n" +
@@ -530,12 +531,12 @@ function () {
         }
         aaOptions.xAxis?.apply {
             lineWidth(0) //避免多边形外环之外有额外套了一层无用的外环
-                .labels!!.style(AAStyle.style(AAColor.Black))
-                .formatter(xAxisLabelsFormatter)
+                .labels?.style(AAStyle.style(AAColor.Black))
+                ?.formatter(xAxisLabelsFormatter)
         }
         aaOptions.yAxis?.apply {
             gridLineInterpolation("polygon") //设置蜘蛛网🕸图表的网线为多边形
-                .labels!!.style(AAStyle.style(AAColor.Black))
+                .labels?.style(AAStyle.style(AAColor.Black))
         }
 
 
@@ -620,10 +621,11 @@ function () {
 
         //    https://api.highcharts.com.cn/highcharts#xAxis.labels.formatter
         val aaOptions = aaChartModel.aa_toAAOptions()
-        aaOptions.xAxis!!.labels!!
-            .useHTML(true)
+        aaOptions.xAxis?.labels?.apply {
+            useHTML(true)
             .formatter(xLabelsFormatter)
-        aaOptions.plotOptions!!.column!!.groupPadding(0.005f)
+        }
+        aaOptions.plotOptions?.column?.groupPadding(0.005f)
 
 //    /Custom tooltip style/
 //                String tooltipFormatter ={String stringWithFormat:(AAJSFunc(function () {
@@ -655,10 +657,11 @@ function () {
                     "        + \" </b> Dollars \";\n" +
                     "    }"), imageLinkFlagJSArrStr
         )
-        aaOptions.tooltip!!
-            .shared(false)
+        aaOptions.tooltip?.apply {
+             shared(false)
             .useHTML(true)
             .formatter(tooltipFormatter)
+        }
         return aaOptions
     }
 
