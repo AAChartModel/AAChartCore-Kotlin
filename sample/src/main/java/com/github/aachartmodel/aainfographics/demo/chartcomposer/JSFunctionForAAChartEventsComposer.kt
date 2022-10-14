@@ -957,7 +957,7 @@ object JSFunctionForAAChartEventsComposer {
                         arrayOf(176.5, 71.8), arrayOf(164.4, 55.5), arrayOf(160.7, 48.6), arrayOf(174.0, 66.4), arrayOf(163.8, 67.3)))
             ))
         val aaOptions = aaChartModel.aa_toAAOptions()
-        aaOptions.chart!!.events(AAChartEvents()
+        aaOptions.chart?.events(AAChartEvents()
             .load("""function() {
                 const chart = this;
                 const blinkScatterPointsArr = chart.series[0].points;
