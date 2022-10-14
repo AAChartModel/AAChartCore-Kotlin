@@ -93,31 +93,31 @@ object JSFunctionForAALegendComposer {
             .dataLabelsEnabled(true) //是否直接显示扇形图数据
             .yAxisTitle("℃")
             .series(arrayOf(
-                    AASeriesElement()
-                        .name("Language market shares")
-                        .innerSize("20%") //内部圆环半径大小占比(内部圆环半径/扇形图半径),
-                        .allowPointSelect(true)
-                        .states(AAStates()
-                                .hover(AAHover()
-                                        .enabled(false))) //禁用点击区块之后出现的半透明遮罩层
-                        .data(arrayOf(
-                                arrayOf("Java", 67),
-                                arrayOf("Swift", 999),
-                                arrayOf("Python", 83),
-                                arrayOf("OC", 11),
-                                arrayOf("Go", 30)))))
+                AASeriesElement()
+                    .name("Language market shares")
+                    .innerSize("20%") //内部圆环半径大小占比(内部圆环半径/扇形图半径),
+                    .allowPointSelect(true)
+                    .states(AAStates()
+                        .hover(AAHover()
+                            .enabled(false))) //禁用点击区块之后出现的半透明遮罩层
+                    .data(arrayOf(
+                        arrayOf("Java", 67),
+                        arrayOf("Swift", 999),
+                        arrayOf("Python", 83),
+                        arrayOf("OC", 11),
+                        arrayOf("Go", 30)))))
         val aaOptions = aaChartModel.aa_toAAOptions()
         aaOptions.legend?.labelFormat("{name} {percentage:.2f}%")
 
         //禁用饼图图例点击事件
         aaOptions.plotOptions?.series
             ?.point(AAPoint()
-                    .events(AAPointEvents()
-                            .legendItemClick(
-                                "" +
-                                        "function() { " +
-                                        "return false; " +
-                                        "}")))
+                .events(AAPointEvents()
+                    .legendItemClick(
+                        "" +
+                                "function() { " +
+                                "return false; " +
+                                "}")))
         return aaOptions
     }
 
@@ -144,8 +144,8 @@ object JSFunctionForAALegendComposer {
             .markerRadius(0)
             .series(arrayOf(
                 AASeriesElement()
-                .name("Tokyo")
-                .data(arrayOf(7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6)),
+                    .name("Tokyo")
+                    .data(arrayOf(7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6)),
                 AASeriesElement()
                     .name("NewYork")
                     .data(arrayOf(0.2, 0.8, 5.7, 11.3, 17.0, 22.0, 24.8, 24.1, 20.1, 14.1, 8.6, 2.5)),
