@@ -25,8 +25,7 @@ object JSFunctionForAAOptionsComposer {
 
         val aaTitle = AATitle()
             .text("2015 年德国人口金字塔")
-            .style(
-                AAStyle()
+            .style(AAStyle()
                 .color("#000000")
                 .fontSize(12.0))
 
@@ -37,8 +36,7 @@ object JSFunctionForAAOptionsComposer {
         val aaXAxis1 = AAXAxis()
             .reversed(true)
             .categories(aaCategories)
-            .labels(
-                AALabels()
+            .labels(AALabels()
                 .step(1))
 
         val aaXAxis2 = AAXAxis()
@@ -46,17 +44,14 @@ object JSFunctionForAAOptionsComposer {
             .opposite(true)
             .categories(aaCategories)
             .linkedTo(0)
-            .labels(
-                AALabels()
+            .labels(AALabels()
                 .step(1))
 
         val aaYAxis = AAYAxis()
             .gridLineWidth(0)// Y 轴网格线宽度
-            .title(
-                AATitle()
+            .title(AATitle()
                 .text(""))//Y 轴标题
-            .labels(
-                AALabels()
+            .labels(AALabels()
                 .formatter("""
 function () {
     return (Math.abs(this.value) / 1000000) + 'M';
@@ -67,10 +62,8 @@ function () {
             .max(4000000)
 
         val aaPlotOptions = AAPlotOptions()
-            .series(
-                AASeries()
-                .animation(
-                    AAAnimation()
+            .series(AASeries()
+                .animation(AAAnimation()
                     .duration(800)
                     .easing(AAChartAnimationType.Bounce))
                 .stacking(AAChartStackingType.Normal))
