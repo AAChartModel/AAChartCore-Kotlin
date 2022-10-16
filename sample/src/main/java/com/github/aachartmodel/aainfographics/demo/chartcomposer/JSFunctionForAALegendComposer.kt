@@ -7,7 +7,7 @@ import com.github.aachartmodel.aainfographics.aatools.AAGradientColor
 
 object JSFunctionForAALegendComposer {
 
-    fun customChartLegendStyle(): AAOptions {
+    fun disableLegendClickEventForNormalChart(): AAOptions {
         val element1 = AASeriesElement()
             .name("Predefined symbol")
             .data(arrayOf(0.45, 0.43, 0.50, 0.55, 0.58, 0.62, 0.83, 0.39, 0.56, 0.67, 0.50, 0.34, 0.50, 0.67, 0.58, 0.29, 0.46, 0.23, 0.47, 0.46, 0.38, 0.56, 0.48, 0.36))
