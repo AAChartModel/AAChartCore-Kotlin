@@ -204,7 +204,7 @@ function () {
                             function () {
                                 const point = this.point;
                                 return '<span style=\"color: ' + point.color + '\">' +
-                                point.name + ': ' + point.y + '%</span>';
+                                    point.name + ': ' + point.y + '%</span>';
                             }
                             """))
                     .data(arrayOf(
