@@ -48,7 +48,7 @@ object AAJSStringPurer {
     }
 
     //https://stackoverflow.com/questions/34334232/why-does-function-not-work-but-function-does-chrome-devtools-node
-    fun pureAnonymousJSFunctionString(JSStr: String): String? {
+    fun pureAnonymousJSFunctionString(JSStr: String?): String? {
         var pureJSStr = "($JSStr)"
         pureJSStr = pureJavaScriptFunctionString(pureJSStr)
         return pureJSStr

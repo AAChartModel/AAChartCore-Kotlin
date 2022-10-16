@@ -152,16 +152,16 @@ class AASeries {
 
 class AASeriesEvents {
     var legendItemClick: String? = null
+
     fun legendItemClick(prop: String): AASeriesEvents {
-        var pureJSFunctionStr = "($prop)"
-        pureJSFunctionStr = AAJSStringPurer.pureJavaScriptFunctionString(pureJSFunctionStr)
-        legendItemClick = pureJSFunctionStr
+        legendItemClick = AAJSStringPurer.pureAnonymousJSFunctionString(prop)
         return this
     }
 }
 
 class AAPoint {
-    var events: AAPointEvents = null
+    var events: AAPointEvents? = null
+
     fun events(prop: AAPointEvents): AAPoint {
         events = prop
         return this
@@ -188,42 +188,42 @@ class AAPointEvents {
 
 
     fun click(prop: String?): AAPointEvents {
-        click = AAJSStringPurer.pureAnonymousJSFunctionString(prop!!)
+        click = AAJSStringPurer.pureAnonymousJSFunctionString(prop)
         return this
     }
 
     fun mouseOut(prop: String?): AAPointEvents {
-        mouseOut = AAJSStringPurer.pureAnonymousJSFunctionString(prop!!)
+        mouseOut = AAJSStringPurer.pureAnonymousJSFunctionString(prop)
         return this
     }
 
     fun mouseOver(prop: String?): AAPointEvents {
-        mouseOver = AAJSStringPurer.pureAnonymousJSFunctionString(prop!!)
+        mouseOver = AAJSStringPurer.pureAnonymousJSFunctionString(prop)
         return this
     }
 
     fun remove(prop: String?): AAPointEvents {
-        remove = AAJSStringPurer.pureAnonymousJSFunctionString(prop!!)
+        remove = AAJSStringPurer.pureAnonymousJSFunctionString(prop)
         return this
     }
 
     fun select(prop: String?): AAPointEvents {
-        select = AAJSStringPurer.pureAnonymousJSFunctionString(prop!!)
+        select = AAJSStringPurer.pureAnonymousJSFunctionString(prop)
         return this
     }
 
     fun unselect(prop: String?): AAPointEvents {
-        unselect = AAJSStringPurer.pureAnonymousJSFunctionString(prop!!)
+        unselect = AAJSStringPurer.pureAnonymousJSFunctionString(prop)
         return this
     }
 
     fun update(prop: String?): AAPointEvents {
-        update = AAJSStringPurer.pureAnonymousJSFunctionString(prop!!)
+        update = AAJSStringPurer.pureAnonymousJSFunctionString(prop)
         return this
     }
 
     fun legendItemClick(prop: String?): AAPointEvents {
-        legendItemClick = AAJSStringPurer.pureAnonymousJSFunctionString(prop!!)
+        legendItemClick = AAJSStringPurer.pureAnonymousJSFunctionString(prop)
         return this
     }
 
