@@ -102,9 +102,7 @@ class AATooltip {
     }
 
     fun formatter(prop: String): AATooltip {
-        var pureJSFunctionStr = "($prop)"
-        pureJSFunctionStr = AAJSStringPurer.pureJavaScriptFunctionString(pureJSFunctionStr)
-        formatter = pureJSFunctionStr
+        formatter = AAJSStringPurer.pureAnonymousJSFunctionString(prop)
         return this
     }
 
@@ -154,12 +152,12 @@ class AATooltip {
     }
 
     fun pointFormatter(prop: String): AATooltip {
-        pointFormatter = prop
+        pointFormatter = AAJSStringPurer.pureAnonymousJSFunctionString(prop)
         return this
     }
 
     fun positioner(prop: String): AATooltip {
-        positioner = prop
+        positioner = AAJSStringPurer.pureAnonymousJSFunctionString(prop)
         return this
     }
 
