@@ -163,30 +163,22 @@ class AAChartEvents {
     var selection: String? = null
 
     fun load(prop: String): AAChartEvents {
-        var pureJSFunctionStr = "($prop)"
-        pureJSFunctionStr = AAJSStringPurer.pureJavaScriptFunctionString(pureJSFunctionStr)
-        load = pureJSFunctionStr
+        load = AAJSStringPurer.pureAnonymousJSFunctionString(prop)
         return this
     }
 
     fun redraw(prop: String): AAChartEvents {
-        var pureJSFunctionStr = "($prop)"
-        pureJSFunctionStr = AAJSStringPurer.pureJavaScriptFunctionString(pureJSFunctionStr)
-        redraw = pureJSFunctionStr
+        redraw = AAJSStringPurer.pureAnonymousJSFunctionString(prop)
         return this
     }
 
     fun render(prop: String): AAChartEvents {
-        var pureJSFunctionStr = "($prop)"
-        pureJSFunctionStr = AAJSStringPurer.pureJavaScriptFunctionString(pureJSFunctionStr)
-        render = pureJSFunctionStr
+        render = AAJSStringPurer.pureAnonymousJSFunctionString(prop)
         return this
     }
 
     fun selection(prop: String): AAChartEvents {
-        var pureJSFunctionStr = "($prop)"
-        pureJSFunctionStr = AAJSStringPurer.pureJavaScriptFunctionString(pureJSFunctionStr)
-        selection = pureJSFunctionStr
+        selection = AAJSStringPurer.pureAnonymousJSFunctionString(prop)
         return this
     }
 
