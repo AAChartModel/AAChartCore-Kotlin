@@ -123,13 +123,14 @@ function () {
         val aaOptions = aaChartModel.aa_toAAOptions()
         val aaPoint: AAPoint = AAPoint()
             .events(AAPointEvents()
-                .click("""function () {
+                .click("""
+     function () {
          if (this.selected == true) {
              this.selected = false;
          }
          return;
-     }"""
-                ))
+     }
+     """))
         aaOptions.plotOptions?.series
             ?.point(aaPoint)
         return aaOptions
@@ -204,7 +205,8 @@ function () {
                                 const point = this.point;
                                 return '<span style=\"color: ' + point.color + '\">' +
                                 point.name + ': ' + point.y + '%</span>';
-                            }"""))
+                            }
+                            """))
                     .data(arrayOf(
                         arrayOf("Firefox", 3336.2),
                         arrayOf("IE", 26.8),
