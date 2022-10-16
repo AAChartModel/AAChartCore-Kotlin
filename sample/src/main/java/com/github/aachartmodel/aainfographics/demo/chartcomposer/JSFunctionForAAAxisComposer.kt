@@ -544,6 +544,51 @@ function () {
         return aaOptions
     }
 
+    // Refer to the issue https://github.com/AAChartModel/AAChartKit/issues/589
+    fun customizeEveryDataLabelSinglelyByDataLabelsFormatter(): AAOptions {
+        val aaChartModel = AAChartModel()
+            .chartType(AAChartType.Areaspline) //图表类型
+            .dataLabelsEnabled(true)
+            .tooltipEnabled(false)
+            .colorsTheme(arrayOf(AAGradientColor.FizzyPeach))
+            .markerRadius(0)
+            .legendEnabled(false)
+            .categories(arrayOf(
+                "美国🇺🇸",
+                "欧洲🇪🇺",
+                "中国🇨🇳",
+                "日本🇯🇵",
+                "韩国🇰🇷",
+                "越南🇻🇳",
+                "中国香港🇭🇰"))
+            .series(arrayOf(
+                AASeriesElement()
+                    .data(arrayOf(7.0, 6.9, 2.5, 14.5, 18.2, 21.5, 5.2))))
+        val aaOptions = aaChartModel.aa_toAAOptions()
+        aaOptions.yAxis?.gridLineDashStyle = AAChartLineDashStyleType.LongDash.value //设置Y轴的网格线样式为 AAChartLineDashStyleType.LongDash
+        val unitArr = arrayOf("美元", "欧元", "人民币", "日元", "韩元", "越南盾", "港币")
+        val unitJSArrStr: String =
+            JSFunctionForAAOptionsComposer.javaScriptArrayStringWithJavaArray(unitArr)
+        val dataLabelsFormatter = String.format(
+            "function () {\n" +
+                    "        return this.y + %s[this.point.index];  \n" +  //单组 series 图表, 获取选中的点的索引是 this.point.index ,多组并且共享提示框,则是this.points[0].index
+                    "    }", unitJSArrStr
+        )
+        val aaDatalabels = aaOptions.plotOptions?.series?.dataLabels
+        aaDatalabels?.apply {
+            style(AAStyle.style(AAColor.Red, 10, AAChartFontWeightType.Bold, "1px 1px contrast"))
+                .formatter(dataLabelsFormatter)
+                .backgroundColor(AAColor.White) // white color
+                .borderColor(AAColor.Red) // red color
+                .borderRadius(1.5)
+                .borderWidth(1.3)
+                .x(3).y(-20)
+                .verticalAlign(AAChartVerticalAlignType.Middle)
+        }
+        return aaOptions
+    }
+
+
     // Refer to GitHub issue: https://github.com/AAChartModel/AAChartKit/issues/938
     // Refer to online chart sample: https://www.highcharts.com/demo/column-comparison
     fun customXAxisLabelsBeImages(): AAOptions {
