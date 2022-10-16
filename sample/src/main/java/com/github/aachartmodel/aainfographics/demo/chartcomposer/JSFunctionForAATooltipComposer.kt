@@ -786,7 +786,7 @@ function () {
         return "[$originalJsArrStr]"
     }
 
-    private fun javaScriptArrayStringWithJavaArray(javaArray: Array<String>): String {
+    fun javaScriptArrayStringWithJavaArray(javaArray: Array<String>): String {
         val originalJsArrStr = StringBuilder()
         for (element: Any in javaArray) {
             originalJsArrStr.append("'").append(element.toString()).append("',")
