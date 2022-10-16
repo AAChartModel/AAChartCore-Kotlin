@@ -76,9 +76,7 @@ class AALabel {
     }
 
     fun formatter(prop: String?): AALabel {
-        var pureJSFunctionStr = "($prop)"
-        pureJSFunctionStr = AAJSStringPurer.pureJavaScriptFunctionString(pureJSFunctionStr)
-        formatter = pureJSFunctionStr
+        formatter = AAJSStringPurer.pureAnonymousJSFunctionString(prop)
         return this
     }
 
