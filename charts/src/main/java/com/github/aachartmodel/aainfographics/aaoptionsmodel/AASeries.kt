@@ -161,8 +161,8 @@ class AASeriesEvents {
 }
 
 class AAPoint {
-    var events: AAPointEvents? = null
-    fun events(prop: AAPointEvents?): AAPoint {
+    var events: AAPointEvents = null
+    fun events(prop: AAPointEvents): AAPoint {
         events = prop
         return this
     }
@@ -188,44 +188,43 @@ class AAPointEvents {
 
 
     fun click(prop: String?): AAPointEvents {
-        var pureJSFunctionStr = "($prop)"
-        pureJSFunctionStr = AAJSStringPurer.pureJavaScriptFunctionString(pureJSFunctionStr)
-        click = pureJSFunctionStr
+        click = AAJSStringPurer.pureAnonymousJSFunctionString(prop!!)
         return this
     }
 
     fun mouseOut(prop: String?): AAPointEvents {
-        mouseOut = prop
+        mouseOut = AAJSStringPurer.pureAnonymousJSFunctionString(prop!!)
         return this
     }
 
     fun mouseOver(prop: String?): AAPointEvents {
-        mouseOver = prop
+        mouseOver = AAJSStringPurer.pureAnonymousJSFunctionString(prop!!)
         return this
     }
 
     fun remove(prop: String?): AAPointEvents {
-        remove = prop
+        remove = AAJSStringPurer.pureAnonymousJSFunctionString(prop!!)
         return this
     }
 
     fun select(prop: String?): AAPointEvents {
-        select = prop
+        select = AAJSStringPurer.pureAnonymousJSFunctionString(prop!!)
         return this
     }
 
     fun unselect(prop: String?): AAPointEvents {
-        unselect = prop
+        unselect = AAJSStringPurer.pureAnonymousJSFunctionString(prop!!)
         return this
     }
 
     fun update(prop: String?): AAPointEvents {
-        update = prop
+        update = AAJSStringPurer.pureAnonymousJSFunctionString(prop!!)
         return this
     }
 
     fun legendItemClick(prop: String?): AAPointEvents {
-        legendItemClick = prop
+        legendItemClick = AAJSStringPurer.pureAnonymousJSFunctionString(prop!!)
         return this
     }
+
 }
