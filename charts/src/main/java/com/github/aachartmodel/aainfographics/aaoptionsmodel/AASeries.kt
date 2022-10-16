@@ -188,7 +188,9 @@ class AAPointEvents {
 
 
     fun click(prop: String?): AAPointEvents {
-        click = prop
+        var pureJSFunctionStr = "($prop)"
+        pureJSFunctionStr = AAJSStringPurer.pureJavaScriptFunctionString(pureJSFunctionStr)
+        click = pureJSFunctionStr
         return this
     }
 
