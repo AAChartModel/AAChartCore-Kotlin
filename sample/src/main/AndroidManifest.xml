@@ -24,7 +24,10 @@
         <activity android:name=".basiccontent.MixedChartActivity" />
         <activity android:name=".basiccontent.BasicChartActivity" />
         <activity android:name=".additionalcontent.JSFormatterFunctionActivity" />
+        <activity android:name=".additionalcontent.JSFunctionForAAAxisActivity" />
+        <activity android:name=".additionalcontent.JSFunctionForAALegendActivity" />
         <activity android:name=".additionalcontent.JSFunctionForAAChartEventsActivity" />
+        <activity android:name=".additionalcontent.JSFunctionForAAOptionsActivity" />
         <activity android:name=".additionalcontent.DrawChartWithAAOptionsActivity" />
         <activity android:name=".additionalcontent.EvaluateJSStringFunctionActivity" />
         <activity android:name=".additionalcontent.HideOrShowChartSeriesActivity" />
