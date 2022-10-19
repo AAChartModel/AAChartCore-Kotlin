@@ -127,6 +127,11 @@ class CustomStyleChartActivity : AppCompatActivity() {
                 return CustomStyleChartComposer.drawLineChartWithPointsCoordinates()
             "configureSpecialStyleColumnForNegativeDataMixedPositiveData" ->
                 return CustomStyleChartComposer.configureSpecialStyleColumnForNegativeDataMixedPositiveData()
+            "configureMultiLevelStopsArrGradientColorAreasplineMixedLineChart" ->
+                return CustomStyleChartComposer.configureMultiLevelStopsArrGradientColorAreasplineMixedLineChart()
+            "connectNullsForSingleAASeriesElement" ->
+            return CustomStyleChartComposer.connectNullsForSingleAASeriesElement()
+
 
         }
         return CustomStyleChartComposer.configureColorfulChart()
