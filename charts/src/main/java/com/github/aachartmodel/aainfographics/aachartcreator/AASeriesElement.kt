@@ -84,6 +84,7 @@ class AASeriesElement {
     private var enableMouseTracking: Boolean? = null
     private var reversed: Boolean? = null
     private var id: String? = null
+    private var connectNulls: Boolean? = null
 
 
     fun type(prop: AAChartType?): AASeriesElement {
@@ -268,6 +269,11 @@ class AASeriesElement {
 
     fun id(prop: String?): AASeriesElement {
         id = prop
+        return this
+    }
+
+    fun connectNulls(prop: Boolean?): AASeriesElement {
+        connectNulls = prop
         return this
     }
 
