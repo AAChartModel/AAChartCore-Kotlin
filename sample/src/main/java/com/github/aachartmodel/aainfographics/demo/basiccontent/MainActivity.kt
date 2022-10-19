@@ -95,7 +95,9 @@ class MainActivity : AppCompatActivity() {
                 "customLineChartWithColorfulMarkersAndLines---彩色连接点和连接线的折线图📈",
                 "customLineChartWithColorfulMarkersAndLines2---彩色连接点和连接线的多组折线的折线图📈",
                 "drawLineChartWithPointsCoordinates---通过点坐标来绘制折线图",
-                "configureSpecialStyleColumnForNegativeDataMixedPositiveData---为正负数混合的柱形图自定义特殊样式效果"
+                "configureSpecialStyleColumnForNegativeDataMixedPositiveData---为正负数混合的柱形图自定义特殊样式效果",
+                "configureMultiLevelStopsArrGradientColorAreasplineMixedLineChart---多层次半透明渐变效果的曲线填充图混合折线图📈",
+                "connectNullsForSingleAASeriesElement---为单个 AASeriesElement 单独设置是否断点重连",
                 ), arrayOf(
                 "customLegendStyle",
                 "drawChartWithOptionsOne",
@@ -293,6 +295,8 @@ class MainActivity : AppCompatActivity() {
                 "customLineChartWithColorfulMarkersAndLines2",
                 "drawLineChartWithPointsCoordinates",
                 "configureSpecialStyleColumnForNegativeDataMixedPositiveData",
+                "configureMultiLevelStopsArrGradientColorAreasplineMixedLineChart",
+                "connectNullsForSingleAASeriesElement",
             ), arrayOf( /*使用AAOptions绘制图表*/
                 "customLegendStyle",
                 "AAPlotBandsForChart",
