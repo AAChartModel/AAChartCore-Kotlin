@@ -1582,4 +1582,106 @@ object CustomStyleChartComposer  {
     }
 
 
+    //https://github.com/AAChartModel/AAChartKit-Swift/issues/389
+    fun configureMultiLevelStopsArrGradientColorAreasplineMixedLineChart(): AAChartModel {
+        val randomNumArrA = java.util.ArrayList<Any>()
+        val randomNumArrB = java.util.ArrayList<Any>()
+        var y1: Double
+        var y2: Double
+        val Q = (Math.random() * 50).toInt()
+        val range = 129
+        for (x in 0 until range) {
+            y1 = Math.sin(Q * (x * Math.PI / 180)) + x * 2.0 * 0.01
+            y2 = Math.cos(Q * (x * Math.PI / 180)) + x * 3.0 * 0.01
+            randomNumArrA.add(y1)
+            randomNumArrB.add(y2)
+        }
+        val redStopsArr: Array<Any> = arrayOf(
+            arrayOf(0.0, AARgba(255, 0, 0, 1.0f)),
+            arrayOf(0.2, AARgba(255, 0, 0, 0.2f)),
+            arrayOf(0.4, AARgba(255, 0, 0, 0.1f)),
+            arrayOf(0.6, AARgba(255, 0, 0, 0.05f)),
+            arrayOf(0.8, AARgba(255, 0, 0, 0.01f)),
+            arrayOf(1.0, AAColor.Clear)
+        )
+        val gradientRedColorDic: Map<String, Any> = AAGradientColor.linearGradient(
+            AALinearGradientDirection.ToBottom,
+            redStopsArr
+        )
+        return AAChartModel()
+            .chartType(AAChartType.Areaspline)
+            .stacking(AAChartStackingType.Normal)
+            .backgroundColor(AAColor.Black)
+            .colorsTheme(arrayOf("#1e90ff", "#04d69f", "#ef476f", "#ffd066"))
+            .dataLabelsEnabled(false)
+            .markerSymbol(AAChartSymbolType.Circle)
+            .markerRadius(5)
+            .markerSymbolStyle(AAChartSymbolStyleType.InnerBlank)
+            .yAxisGridLineWidth(0.5f)
+            .xAxisGridLineWidth(0.5f)
+            .series(arrayOf(
+                AASeriesElement()
+                    .name("2017")
+                    .type(AAChartType.Spline)
+                    .lineWidth(6f)
+                    .data(randomNumArrA.toTypedArray()),
+                AASeriesElement()
+                    .name("2018")
+                    .type(AAChartType.Spline)
+                    .lineWidth(6f)
+                    .data(randomNumArrB.toTypedArray()),
+                AASeriesElement()
+                    .name("2020")
+                    .fillColor(gradientRedColorDic)
+                    .lineWidth(6f)
+                    .threshold(-4f)
+                    .data(randomNumArrA.toTypedArray())
+            ))
+    }
+
+    //https://github.com/AAChartModel/AAChartKit/issues/1401
+    fun connectNullsForSingleAASeriesElement(): AAChartModel {
+        val dataArr = arrayOf<Any>(
+            0.45, "null", "null",
+            0.55, 0.58, 0.62, "null", "null",
+            0.56, 0.67, 0.50, 0.34, 0.50, "null", "null", "null", "null",
+            0.23, 0.47, 0.46, 0.38, 0.56, 0.48, 0.36, "null", "null", "null", "null", "null", "null", "null", "null",
+            0.74, 0.66, 0.65, 0.71, 0.59, 0.65, 0.77, 0.52, 0.53, 0.58, 0.53,
+        )
+
+        return AAChartModel()
+            .chartType(AAChartType.Spline)
+            .subtitle("虚拟数据")
+            .colorsTheme(arrayOf("#1e90ff", "#ef476f", "#ffd066", "#04d69f"))
+            .yAxisTitle("摄氏度")
+            .dataLabelsEnabled(false)
+            .yAxisGridLineWidth(0f)
+            .stacking(AAChartStackingType.Normal)
+            .markerRadius(8f)
+            .markerSymbolStyle(AAChartSymbolStyleType.BorderBlank)
+            .series(arrayOf(
+                AASeriesElement()
+                    .name("Do NOT Connect Nulls")
+                    .lineWidth(5f)
+                    .connectNulls(false)
+                    .data(dataArr),
+                AASeriesElement()
+                    .name("Connect Nulls")
+                    .lineWidth(5f)
+                    .connectNulls(true)
+                    .data(dataArr),
+                AASeriesElement()
+                    .name("Do NOT Connect Nulls")
+                    .lineWidth(5f)
+                    .connectNulls(false)
+                    .data(dataArr),
+                AASeriesElement()
+                    .name("Connect Nulls")
+                    .lineWidth(5f)
+                    .connectNulls(true)
+                    .data(dataArr)
+            ))
+    }
+
+
 }
