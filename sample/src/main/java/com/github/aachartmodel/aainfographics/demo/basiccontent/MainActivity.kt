@@ -565,14 +565,14 @@ class MainActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
-    fun goToJSFunctionForAAAxisActivity(chartType: String?, position: Int) {
+    private fun goToJSFunctionForAAAxisActivity(chartType: String?, position: Int) {
         val intent = Intent(this, JSFunctionForAAAxisActivity::class.java)
         intent.putExtra(kChartTypeKey, chartType)
         intent.putExtra("position", position)
         startActivity(intent)
     }
 
-    fun goToJSFunctionForAALegendActivity(chartType: String?, position: Int) {
+    private fun goToJSFunctionForAALegendActivity(chartType: String?, position: Int) {
         val intent = Intent(
             this,
             JSFunctionForAALegendActivity::class.java
@@ -582,7 +582,7 @@ class MainActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
-    fun goToJSFunctionForAAChartEventsActivity(chartType: String?, position: Int) {
+    private fun goToJSFunctionForAAChartEventsActivity(chartType: String?, position: Int) {
         val intent = Intent(
             this,
             JSFunctionForAAChartEventsActivity::class.java
@@ -592,7 +592,7 @@ class MainActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
-    fun goToJSFunctionForAAOptionsActivity(chartType: String?, position: Int) {
+    private fun goToJSFunctionForAAOptionsActivity(chartType: String?, position: Int) {
         val intent = Intent(
             this,
             JSFunctionForAAOptionsActivity::class.java
