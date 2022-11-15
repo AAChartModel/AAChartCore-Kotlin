@@ -122,6 +122,7 @@ class AAChartView : WebView {
 
     @SuppressLint("SetJavaScriptEnabled")
     private fun setupBasicContent() { // Do some initialize work.
+        if (isInEditMode) return
         contentWidth = 420f
         contentHeight = 580f
         isClearBackgroundColor = false
@@ -333,6 +334,7 @@ class AAChartView : WebView {
     }
 
     private fun safeEvaluateJavaScriptString(javaScriptString: String) {
+        if (isInEditMode) return
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             evaluateJavascript("javascript:$javaScriptString") { 
                 //Log.i("call back information","输出打印查看回调的结果"+ it);
