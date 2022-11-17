@@ -15,7 +15,7 @@
 [![Percentage of issues still open](http://isitmaintained.com/badge/open/AAChartModel/AAChartCore-Kotlin.svg)](http://isitmaintained.com/project/AAChartModel/AAChartCore-Kotlin "Percentage of issues still open")
 
 
-## [ **English Document 🇬🇧** ](https://github.com/AAChartModel/AAChartCore-Kotlin)  |  [ **简体中文文档 🇨🇳** ](https://github.com/AAChartModel/AAChartCore-Kotlin/blob/master/CHINESE-README.md)| [ **繁體中文文檔 🇭🇰** ](https://github.com/AAChartModel/AAChartCore-Kotlin/blob/master/TRADITIONAL-CHINESE-README.md)
+## [ **English Document 🇬🇧** ](https://github.com/AAChartModel/AAChartCore-Kotlin)  |  [ **简体中文文档 🇨🇳** ](https://github.com/AAChartModel/AAChartCore-Kotlin/blob/master/CHINESE-README.md)
 
 ### 您所喜爱的`AAInfographics`开源图表框架同时更有`Java`版本可供使用,详情请点击以下链接
 ### 传送门
