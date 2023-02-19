@@ -1082,5 +1082,58 @@ object JSFunctionForAAChartEventsComposer {
                     AASeriesElement()
                         .data(arrayOf(2, 5, 2, 3, 6))))
     }
+
+    //https://stackoverflow.com/questions/47392848/set-ecg-paper-like-grid-intervals-highcharts-js
+    fun configureECGStyleChart(): AAOptions {
+        return AAOptions()
+            .chart(
+                AAChart()
+                    .events(
+                        AAChartEvents()
+                            .render(
+                                """
+   function () {
+       const chart = this;
+       const axes = chart.axes;
+       let showMinorTicks = true;
+
+       axes.forEach((a) => {
+               if (Object.keys(a.minorTicks).length === 0) {
+                   showMinorTicks = false;
+               }
+       });
+
+       axes.forEach((a) => {
+               for (var key in a.minorTicks) {
+                   var mt = a.minorTicks[key].gridLine;
+                   showMinorTicks ? mt.show() : mt.hide();
+               }
+       });
+   }"""
+                            )
+                    )
+            )
+            .xAxis(
+                AAXAxis()
+                    .tickInterval(0.5f)
+                    .minorTicks(true)
+                    .minorTickInterval(0.1f)
+                    .gridLineWidth(1)
+                    .gridLineColor("#ff0000")
+            )
+            .yAxis(
+                AAYAxis()
+                    .tickInterval(0.5f)
+                    .minorTicks(true)
+                    .minorTickInterval(0.1f)
+                    .gridLineWidth(1)
+                    .gridLineColor("#ff0000")
+            )
+            .series(arrayOf(
+                    AASeriesElement()
+                        .data(arrayOf(1, 3, 4, 6, 1, 2, 2, 6, 1, 1, 1, 4, 6))
+                )
+            )
+    }
 }
 

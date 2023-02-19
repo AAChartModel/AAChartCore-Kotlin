@@ -9,6 +9,7 @@ import com.github.aachartmodel.aainfographics.demo.chartcomposer.JSFunctionForAA
 import com.github.aachartmodel.aainfographics.demo.chartcomposer.JSFunctionForAAChartEventsComposer.advancedTimeLineChart
 import com.github.aachartmodel.aainfographics.demo.chartcomposer.JSFunctionForAAChartEventsComposer.automaticallyHideTooltipAfterItIsShown
 import com.github.aachartmodel.aainfographics.demo.chartcomposer.JSFunctionForAAChartEventsComposer.configureBlinkMarkerChart
+import com.github.aachartmodel.aainfographics.demo.chartcomposer.JSFunctionForAAChartEventsComposer.configureECGStyleChart
 import com.github.aachartmodel.aainfographics.demo.chartcomposer.JSFunctionForAAChartEventsComposer.configureScatterChartWithBlinkEffect
 import com.github.aachartmodel.aainfographics.demo.chartcomposer.JSFunctionForAAChartEventsComposer.configureSpecialStyleMarkerOfSingleDataElementChartWithBlinkEffect
 import com.github.aachartmodel.aainfographics.demo.chartcomposer.JSFunctionForAAChartEventsComposer.customizeYAxisPlotLinesLabelBeSpecialStyle
@@ -39,6 +40,7 @@ class JSFunctionForAAChartEventsActivity : AppCompatActivity() {
             "automaticallyHideTooltipAfterItIsShown" -> return automaticallyHideTooltipAfterItIsShown() //图表加载完成后,自动隐藏浮动提示框
             "dynamicHeightGridLineAreaChart" -> return dynamicHeightGridLineAreaChart() //动态高度网格线的区域填充图
             "customizeYAxisPlotLinesLabelBeSpecialStyle" -> return customizeYAxisPlotLinesLabelBeSpecialStyle() //自定义 Y 轴轴线上面的标签文字特殊样式
+            "configureECGStyleChart" -> return configureECGStyleChart() //配置 ECG 样式的图表
         }
         return setCrosshairAndTooltipToTheDefaultPositionAfterLoadingChart()
     }

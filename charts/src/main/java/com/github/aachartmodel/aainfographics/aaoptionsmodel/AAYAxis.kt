@@ -131,6 +131,11 @@ class AAYAxis: AAAxis() {
         return this
     }
 
+    fun minorTicks(prop: Boolean?): AAYAxis {
+        minorTicks = prop
+        return this
+    }
+
     fun minorGridLineColor(prop: String?): AAYAxis {
         minorGridLineColor = prop
         return this
@@ -196,7 +201,7 @@ class AAYAxis: AAAxis() {
         return this
     }
 
-    fun tickInterval(prop: Int?): AAYAxis {
+    fun tickInterval(prop: Number?): AAYAxis {
         tickInterval = prop
         return this
     }
