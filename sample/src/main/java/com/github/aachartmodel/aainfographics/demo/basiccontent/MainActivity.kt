@@ -98,6 +98,8 @@ class MainActivity : AppCompatActivity() {
                 "configureSpecialStyleColumnForNegativeDataMixedPositiveData---为正负数混合的柱形图自定义特殊样式效果",
                 "configureMultiLevelStopsArrGradientColorAreasplineMixedLineChart---多层次半透明渐变效果的曲线填充图混合折线图📈",
                 "connectNullsForSingleAASeriesElement---为单个 AASeriesElement 单独设置是否断点重连",
+                "lineChartsWithLargeDifferencesInTheNumberOfDataInDifferentSeriesElement---不同数据列数据量差异较大的折线图",
+                "customAreasplineChartWithColorfulGradientColorZones---彩色渐变填充区域曲线图",
                 ), arrayOf(
                 "customLegendStyle",
                 "drawChartWithOptionsOne",
@@ -297,6 +299,8 @@ class MainActivity : AppCompatActivity() {
                 "configureSpecialStyleColumnForNegativeDataMixedPositiveData",
                 "configureMultiLevelStopsArrGradientColorAreasplineMixedLineChart",
                 "connectNullsForSingleAASeriesElement",
+                "lineChartsWithLargeDifferencesInTheNumberOfDataInDifferentSeriesElement",
+                "customAreasplineChartWithColorfulGradientColorZones",
             ), arrayOf( /*使用AAOptions绘制图表*/
                 "customLegendStyle",
                 "AAPlotBandsForChart",

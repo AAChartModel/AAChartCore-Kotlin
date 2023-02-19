@@ -131,6 +131,10 @@ class CustomStyleChartActivity : AppCompatActivity() {
                 return CustomStyleChartComposer.configureMultiLevelStopsArrGradientColorAreasplineMixedLineChart()
             "connectNullsForSingleAASeriesElement" ->
             return CustomStyleChartComposer.connectNullsForSingleAASeriesElement()
+            "lineChartsWithLargeDifferencesInTheNumberOfDataInDifferentSeriesElement" ->
+                return CustomStyleChartComposer.lineChartsWithLargeDifferencesInTheNumberOfDataInDifferentSeriesElement()
+            "customAreasplineChartWithColorfulGradientColorZones" ->
+                return CustomStyleChartComposer.customAreasplineChartWithColorfulGradientColorZones()
 
 
         }

@@ -27,6 +27,7 @@
  */
 package com.github.aachartmodel.aainfographics.demo.chartcomposer
 
+import android.graphics.PointF.length
 import com.github.aachartmodel.aainfographics.aachartcreator.*
 import com.github.aachartmodel.aainfographics.aachartcreator.AAShadow
 import com.github.aachartmodel.aainfographics.aaoptionsmodel.*
@@ -1684,4 +1685,304 @@ object CustomStyleChartComposer  {
     }
 
 
+//    - (NSArray *)generateRandomNumberArrayWithLength:(NSUInteger)length
+//    randomRange:(NSUInteger)randomRange
+//    minNum:(NSUInteger)minNum {
+//        NSMutableArray *randomNumArrA = [NSMutableArray array];
+//        for (NSUInteger x = 0; x < length; x++) {
+//            NSUInteger randomNum = arc4random() % randomRange + minNum;
+//            [randomNumArrA addObject:@(randomNum)];
+//        }
+//        return randomNumArrA;
+//    }
+//
+//
+//    - (NSArray *)generateRandomNumberMixedNullArrayWithLength:(NSUInteger)length
+//    randomRange:(NSUInteger)randomRange
+//    minNum:(NSUInteger)minNum {
+//        NSMutableArray *randomNumArrA = [NSMutableArray array];
+//        for (NSUInteger x = 0; x < length; x++) {
+//            if ((100 < x && x < 150) || (300 < x && x < 350)) {
+//                NSUInteger randomNum = arc4random() % randomRange + minNum;
+//                [randomNumArrA addObject:@(randomNum)];
+//            } else {
+//                [randomNumArrA addObject:NSNull.null];
+//            }
+//        }
+//        return randomNumArrA;
+//    }
+//
+////https://github.com/AAChartModel/AAChartKit/issues/1419
+//    - (AAChartModel *)lineChartsWithLargeDifferencesInTheNumberOfDataInDifferentSeriesElement {
+//        return AAChartModel.new
+//            .chartTypeSet(AAChartTypeLine)
+//            .backgroundColorSet(AAColor.blackColor)
+//            .colorsThemeSet(@[@"#1e90ff",@"#04d69f",@"#ef476f",@"#ffd066",])
+//        .dataLabelsEnabledSet(false)
+//            .markerRadiusSet(@0)
+//            .seriesSet(@[
+//            AASeriesElement.new
+//            .nameSet(@"2017")
+//            .lineWidthSet(@6)
+//                .dataSet([self generateRandomNumberMixedNullArrayWithLength:3550 randomRange:5 minNum:100]),
+//        AASeriesElement.new
+//            .nameSet(@"2018")
+//            .lineWidthSet(@6)
+//            .dataSet([self generateRandomNumberArrayWithLength:3550 randomRange:100 minNum:200]),
+//        AASeriesElement.new
+//            .nameSet(@"2019")
+//            .lineWidthSet(@6)
+//            .dataSet([self generateRandomNumberArrayWithLength:3550 randomRange:150 minNum:400]),
+//        AASeriesElement.new
+//            .nameSet(@"2020")
+//            .lineWidthSet(@6)
+//            .dataSet([self generateRandomNumberArrayWithLength:3550 randomRange:150 minNum:600]),
+//        ]);
+//    }
+
+//kotlin
+
+
+
+////https://github.com/AAChartModel/AAChartKit/issues/1419
+fun lineChartsWithLargeDifferencesInTheNumberOfDataInDifferentSeriesElement(): AAChartModel {
+    fun generateRandomNumberArrayWithLength(length: Int, randomRange: Int, minNum: Int): Array<Any> {
+        val randomNumArrA = mutableListOf<Int>()
+        for (x in 0 until length) {
+            val randomNum = (Math.random() * randomRange + minNum).toInt()
+            randomNumArrA.add(randomNum)
+        }
+        return randomNumArrA.toTypedArray()
+    }
+
+    fun generateRandomNumberMixedNullArrayWithLength(length: Int, randomRange: Int, minNum: Int): Array<Any> {
+        val randomNumArrA = mutableListOf<Any>()
+        for (x in 0 until length) {
+            if ((100 < x && x < 150) || (300 < x && x < 350)) {
+                val randomNum = (Math.random() * randomRange + minNum).toInt()
+                randomNumArrA.add(randomNum)
+            } else {
+                randomNumArrA.add("null")
+            }
+        }
+        return randomNumArrA.toTypedArray()
+    }
+
+    val randomNumArrA = generateRandomNumberMixedNullArrayWithLength(3550, 5, 100)
+    val randomNumArrB = generateRandomNumberArrayWithLength(3550, 100, 200)
+    val randomNumArrC = generateRandomNumberArrayWithLength(3550, 150, 400)
+    val randomNumArrD = generateRandomNumberArrayWithLength(3550, 150, 600)
+
+    return AAChartModel()
+        .chartType(AAChartType.Line)
+        .backgroundColor("#000000")
+        .colorsTheme(arrayOf("#1e90ff", "#04d69f", "#ef476f", "#ffd066"))
+        .dataLabelsEnabled(false)
+        .markerRadius(0f)
+        .series(arrayOf(
+                AASeriesElement()
+                    .name("2017")
+                    .lineWidth(6f)
+                    .data(randomNumArrA),
+                AASeriesElement()
+                    .name("2018")
+                    .lineWidth(6f)
+                    .data(randomNumArrB),
+                AASeriesElement()
+                    .name("2019")
+                    .lineWidth(6f)
+                    .data(randomNumArrC),
+                AASeriesElement()
+                    .name("2020")
+                    .lineWidth(6f)
+                    .data(randomNumArrD)
+            ))
+
+}
+
+//
+//https://github.com/AAChartModel/AAChartCore-Kotlin/issues/149
+//    - (AAChartModel *)customAreasplineChartWithColorfulGradientColorZones {
+//        NSArray *redStopsArr = @[
+//        @[@0.0, AARgbaColor(255, 0, 0, 1.0)],//颜色字符串设置支持十六进制类型和 rgba 类型
+//        @[@1.0, AAColor.clearColor]
+//        ];
+//
+//        NSArray *greenStopsArr = @[
+//        @[@0.0, AARgbaColor(0, 255, 0, 1.0)],//颜色字符串设置支持十六进制类型和 rgba 类型
+//        @[@1.0, AAColor.clearColor]
+//        ];
+//
+//        NSArray *blueStopsArr = @[
+//        @[@0.0, AARgbaColor(0, 0, 255, 1.0)],//颜色字符串设置支持十六进制类型和 rgba 类型
+//        @[@1.0, AAColor.clearColor]
+//        ];
+//
+//        NSDictionary *redGradientColorDic = [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToBottom stopsArray:redStopsArr];
+//        NSDictionary *greenGradientColorDic = [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToBottom stopsArray:greenStopsArr];
+//        NSDictionary *blueGradientColorDic = [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToBottom stopsArray:blueStopsArr];
+//
+//        AADataElement *singleSpecialData = AADataElement.new
+//            .markerSet(AAMarker.new
+//                .radiusSet(@8)//曲线连接点半径
+//                .symbolSet(AAChartSymbolTypeCircle)//曲线点类型："circle", "square", "diamond", "triangle","triangle-down"，默认是"circle"
+//                .fillColorSet(AAColor.whiteColor)//点的填充色(用来设置折线连接点的填充色)
+//                .lineWidthSet(@5)//外沿线的宽度(用来设置折线连接点的轮廓描边的宽度)
+//                //外沿线的颜色(用来设置折线连接点的轮廓描边颜色，当值为空字符串时，默认取数据点或数据列的颜色)
+//                .lineColorSet(@"#1E90FF")//道奇蓝
+//            )
+//            .dataLabelsSet(AADataLabels.new
+//                .enabledSet(true)
+//                .allowOverlapSet(true)
+//                .useHTMLSet(true)
+//                .backgroundColorSet(AARgbaColor(65, 111, 166, 1.0))
+//                .borderRadiusSet(@10)
+//                .shapeSet(@"callout")
+//                .formatSet(@"{point.category}<br>{series.name}: {point.y} %")
+//                .styleSet(AAStyleColorSizeWeight(AAColor.whiteColor, 12, AAChartFontWeightTypeBold))
+//                .xSet(@-80).ySet(@(5))
+//                .alignSet(AAChartAlignTypeCenter)
+//                .verticalAlignSet(AAChartVerticalAlignTypeTop)
+//                .overflowSet(@"none")
+//                .cropSet(false)
+//            )
+//            .ySet(@85.3);
+//
+//        AAStyle *axisLabelsStyle = AAStyleColorSizeWeight(AAColor.whiteColor, 12, AAChartFontWeightTypeBold);
+//
+//        return AAChartModel.new
+//            .chartTypeSet(AAChartTypeAreaspline)
+//            .backgroundColorSet(AAColor.blackColor)
+//            .categoriesSet(@[
+//            @"Jan", @"Feb", @"Mar", @"Apr", @"May", @"Jun",
+//                @"Jul", @"Aug", @"Sep", @"Oct", @"Nov", @"Dec"
+//        ])
+//        .dataLabelsEnabledSet(false)
+//            .legendEnabledSet(false)
+//            .markerRadiusSet(@0)
+//            .xAxisLabelsStyleSet(axisLabelsStyle)
+//            .yAxisLabelsStyleSet(axisLabelsStyle)
+//            .xAxisGridLineStyleSet([AALineStyle styleWithColor:AAColor.whiteColor dashStyle:AAChartLineDashStyleTypeLongDashDotDot width:@0.5])
+//        .yAxisGridLineStyleSet([AALineStyle styleWithWidth:@0])
+//        .seriesSet(@[
+//        AASeriesElement.new
+//        .nameSet(@"空气湿度")
+//        .lineWidthSet(@6)
+//            .zoneAxisSet(@"x")
+//            .zonesSet(@[
+//            AAZonesElement.new
+//            .valueSet(@2)
+//            .colorSet(AAColor.redColor)
+//                .fillColorSet((id)redGradientColorDic ),
+//                AAZonesElement.new
+//                    .valueSet(@5)
+//                    .colorSet(AAColor.greenColor)
+//                    .fillColorSet((id)greenGradientColorDic),
+//                AAZonesElement.new
+//                    .colorSet(AAColor.blueColor)
+//                    .fillColorSet((id)blueGradientColorDic),
+//        ])
+//        .dataSet(@[@56.5, @33.3, @85.3, @23.9, @29.6, @34.5, @28.2, @26.5, @15.2, @56.5, @33.3, singleSpecialData]),
+//        ]);
+//    }
+
+
+    //https://github.com/AAChartModel/AAChartCore-Kotlin/issues/149
+    fun customAreasplineChartWithColorfulGradientColorZones() :AAChartModel {
+        val redStopsArr: Array<Any> = arrayOf(
+            arrayOf(0.0, "#FF0000"),//颜色字符串设置支持十六进制类型和 rgba 类型
+            arrayOf(1.0, AAColor.Clear)
+        )
+
+        val greenStopsArr: Array<Any> = arrayOf(
+            arrayOf(0.0, "#00FF00"),//颜色字符串设置支持十六进制类型和 rgba 类型
+            arrayOf(1.0, AAColor.Clear)
+        )
+
+        val blueStopsArr: Array<Any> = arrayOf(
+            arrayOf(0.0, "#0000FF"),//颜色字符串设置支持十六进制类型和 rgba 类型
+            arrayOf(1.0, AAColor.Clear)
+        )
+
+        val redGradientColorDic = AAGradientColor.linearGradient(
+            AALinearGradientDirection.ToBottom,
+            redStopsArr
+        )
+
+        val greenGradientColorDic = AAGradientColor.linearGradient(
+            AALinearGradientDirection.ToBottom,
+            greenStopsArr
+        )
+
+        val blueGradientColorDic = AAGradientColor.linearGradient(
+            AALinearGradientDirection.ToBottom,
+            blueStopsArr
+        )
+
+        val singleSpecialData = AADataElement()
+            .marker(AAMarker()
+                .radius(10f)//曲线连接点半径，默认是4
+                .symbol(AAChartSymbolType.Circle.value)//曲线点类型："circle", "square", "diamond", "triangle","triangle-down"，默认是"circle"
+                .fillColor(AAColor.White)//点的填充色(用来设置折线连接点的填充色)
+                .lineWidth(5f)//外沿线的宽度(用来设置折线连接点的轮廓描边的宽度)
+                //外沿线的颜色(用来设置折线连接点的轮廓描边的颜色, 当值为空字符串时，默认取数据点或数据列的颜色)
+                .lineColor("#1E90FF")//道奇蓝
+            )
+//            .dataLabels(AADataLabels()
+//                .enabled(true)
+//                .useHTML(true)
+//                .style(AAStyle()
+//                    .color("#1E90FF")//字体颜色
+//                    .fontSize(12f)//字体大小
+//                    .fontWeight(AAChartFontWeightType.Bold)//字体为加粗体
+//
+//                )
+////                .format("<div style=\"text-align:center; color:#1E90FF; font-size:12px; font-weight: bold\">{y}</div>")
+//                .y(85.3f)
+//                .align(AAChartAlignType.Center)
+//                .verticalAlign(AAChartVerticalAlignType.Top)
+//                .overflow("none")
+//                .crop(false)
+//            )
+            .y(85.3f)
+
+               val axisLabelsStyle = AAStyle()
+            .color(AAColor.White)//字体颜色
+            .fontSize(12f)//字体大小
+            .fontWeight(AAChartFontWeightType.Bold)//字体为加粗体
+
+        return AAChartModel()
+            .chartType(AAChartType.Areaspline)
+            .backgroundColor(AAColor.Black)
+            .categories(arrayOf("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"))
+            .title("Colorful Gradient Color Zones")
+            .subtitle("custom areaspline chart with colorful gradient color zones")
+            .dataLabelsEnabled(false)
+            .legendEnabled(false)
+            .markerRadius(0f)
+            .yAxisGridLineWidth(0f)
+            .yAxisTitle("")
+            .series(arrayOf(
+                AASeriesElement()
+                    .name("空气湿度")
+                    .lineWidth(6f)
+                    .zoneAxis("x")
+                    .zones(arrayOf(
+                        AAZonesElement()
+                            .value(2)
+                            .color(AAColor.Red)
+                            .fillColor(redGradientColorDic),
+                        AAZonesElement()
+                            .value(5)
+                            .color(AAColor.Green)
+                            .fillColor(greenGradientColorDic),
+                        AAZonesElement()
+                            .color(AAColor.Blue)
+                            .fillColor(blueGradientColorDic),
+                    ))
+                    .data(arrayOf(56.5, 33.3, 85.3, 23.9, 29.6, 34.5, 28.2, 26.5, 15.2, 56.5, 33.3, singleSpecialData))
+            ))
+
+
+    }
 }
