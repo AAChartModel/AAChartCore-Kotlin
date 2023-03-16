@@ -71,7 +71,7 @@ class ScrollableChartActivity : AppCompatActivity() {
         position: Int
     ) {
         if ((chartType == AAChartType.Area || chartType == AAChartType.Line)
-            && (position == 93 || position == 94)
+            && (position == 4 || position == 5)
         ) {
             configureStepAreaChartAndStepLineChart()
         } else if (chartType == AAChartType.Column || chartType == AAChartType.Bar) {
