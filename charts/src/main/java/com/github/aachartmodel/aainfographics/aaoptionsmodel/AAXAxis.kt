@@ -100,8 +100,8 @@ class AAXAxis: AAAxis() {
         return this
     }
 
-    fun off(prop: Number?): AAXAxis {
-        off = prop
+    fun offset(prop: Number?): AAXAxis {
+        offset = prop
         return this
     }
 

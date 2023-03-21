@@ -43,7 +43,7 @@ enum class AAChartAxisType(val value: String) {
     var gridLineColor: String? = null //坐标轴网格线颜色
     var gridLineDashStyle: String? = null //坐标轴网格线样式
     var gridLineInterpolation: String? = null
-    var off: Number? = null //坐标轴垂直偏移
+    var offset: Number? = null //坐标轴垂直偏移
     var labels: AALabels? = null //用于设置坐标轴文字相关的
     var visible: Boolean? = null //用于设置坐标轴以及坐标轴文字是否显示
     var startOnTick: Boolean? = null //Whether to force the axis to start on a tick. Use this option with the minPadding option to control the axis start. 默认是：false.
