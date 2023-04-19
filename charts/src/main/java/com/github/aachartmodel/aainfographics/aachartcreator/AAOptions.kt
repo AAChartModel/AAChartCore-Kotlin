@@ -212,7 +212,10 @@ object AAOptionsConstructor {
             AAChartType.Areaspline,
             AAChartType.Line,
             AAChartType.Spline,
-            AAChartType.Scatter -> {
+            AAChartType.Scatter,
+            AAChartType.Arearange,
+            AAChartType.Areasplinerange,
+            AAChartType.Polygon -> {
                 val aaMarker = AAMarker()
                     .radius(aaChartModel.markerRadius) //曲线连接点半径，默认是4
                     .symbol(aaChartModel.markerSymbol?.value) //曲线点类型："circle", "square", "diamond", "triangle","triangle-down"，默认是"circle"
