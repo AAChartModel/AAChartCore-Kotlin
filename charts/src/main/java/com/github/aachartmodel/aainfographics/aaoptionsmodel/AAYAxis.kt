@@ -8,7 +8,7 @@
  */
 package com.github.aachartmodel.aainfographics.aaoptionsmodel
 
-class AAYAxis: AAAxis() {
+open class AAYAxis: AAAxis() {
     var stackLabels: Any? = null
     fun stackLabels(prop: Any?): AAYAxis {
         stackLabels = prop
