@@ -23,7 +23,7 @@
 
 ## 前言
 
- ***AAInfographics***,是 [AAChartKit](https://github.com/AAChartModel/AAChartKit) 的 `Kotlin`语言版本,是在流行的开源前端图表框架[hcharts](https://www.hcharts.cn/)的基础上,封装的面向对象的,一组简单易用,极其精美的图表绘制组件.可能是这个星球上 UI 最精致的第三方 Android 开源图表框架了(✟我以无神论者的名义向上帝起誓🖐,我真的没有在说鬼话✟)
+ ***AAInfographics***,是 [AAChartKit](https://github.com/AAChartModel/AAChartKit) 的 `Kotlin`语言版本,是在流行的开源前端图表框架 [Highcharts](https://www.hcharts.cn) 的基础上,封装的面向对象的,一组简单易用,极其精美的图表绘制组件.可能是这个星球上 UI 最精致的第三方 Android 开源图表框架了(✟我以无神论者的名义向上帝起誓🖐,我真的没有在说鬼话✟)
 
 ***
 ## 功能特性
