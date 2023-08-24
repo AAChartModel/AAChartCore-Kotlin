@@ -11,7 +11,7 @@ package com.github.aachartmodel.aainfographics.aaoptionsmodel
 import com.github.aachartmodel.aainfographics.aachartcreator.AAChartLineDashStyleType
 import com.github.aachartmodel.aainfographics.aachartcreator.AAChartType
 
-class AAPlotOptions {
+open class AAPlotOptions {
     var column: AAColumn? = null
     var bar: AABar? = null
     var line: AALine? = null
@@ -81,7 +81,7 @@ class AAPlotOptions {
 
 }
 
-class AAColumn {
+open class AAColumn {
     var name: String? = null
     var data: Array<Any>? = null
     var color: String? = null
@@ -168,7 +168,7 @@ class AAColumn {
 
 }
 
-class AABar {
+open class AABar {
     var name: String? = null
     var data: Array<Any>? = null
     var color: String? = null
@@ -255,7 +255,7 @@ class AABar {
 }
 
 
-class AALine {
+open class AALine {
     var dataLabels: AADataLabels? = null
 
     fun dataLabels(prop: AADataLabels): AALine {
@@ -264,7 +264,7 @@ class AALine {
     }
 }
 
-class AASpline {
+open class AASpline {
     var dataLabels: AADataLabels? = null
 
     fun dataLabels(prop: AADataLabels): AASpline {
@@ -273,7 +273,7 @@ class AASpline {
     }
 }
 
-class AAArea {
+open class AAArea {
     var dataLabels: AADataLabels? = null
 
     fun dataLabels(prop: AADataLabels): AAArea {
@@ -282,7 +282,7 @@ class AAArea {
     }
 }
 
-class AAAreaspline {
+open class AAAreaspline {
     var dataLabels: AADataLabels? = null
 
     fun dataLabels(prop: AADataLabels): AAAreaspline {
@@ -291,7 +291,7 @@ class AAAreaspline {
     }
 }
 
-class AAPie {
+open class AAPie {
     var type: String? = null
     var dataLabels: AADataLabels? = null
     var size: Number? = null
@@ -362,7 +362,7 @@ class AAPie {
 
 }
 
-class AAColumnrange {
+open class AAColumnrange {
     var borderRadius: Number? = null
     var borderWidth: Number? = null
     var dataLabels: AADataLabels? = null
@@ -383,7 +383,7 @@ class AAColumnrange {
     }
 }
 
-class AAArearange {
+open class AAArearange {
     var dataLabels: AADataLabels? = null
 
     fun dataLabels(prop: AADataLabels): AAArearange {
@@ -393,7 +393,7 @@ class AAArearange {
 }
 
 
-class AAScatter {
+open class AAScatter {
     var lineWidth: Number? = null
     var lineColor: String? = null
     var dashStyle: String? = null
