@@ -8,7 +8,7 @@
  */
 package com.github.aachartmodel.aainfographics.aaoptionsmodel
 
-class AAMarker {
+open class AAMarker {
     var enabled: Boolean? = null
     var radius: Number? = null
     var symbol: String? = null
@@ -53,7 +53,7 @@ class AAMarker {
     }
 }
 
-class AAMarkerStates {
+open class AAMarkerStates {
     var hover: AAMarkerHover? = null
 
     fun hover(prop: AAMarkerHover?): AAMarkerStates {
@@ -62,7 +62,7 @@ class AAMarkerStates {
     }
 }
 
-class AAMarkerHover {
+open class AAMarkerHover {
     var enabled: Boolean? = null
     var fillColor: String? = null
     var lineColor: String? = null
