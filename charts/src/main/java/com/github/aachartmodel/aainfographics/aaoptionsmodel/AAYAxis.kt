@@ -71,6 +71,11 @@ open class AAYAxis: AAAxis() {
         return this
     }
 
+    fun reversedStacks(prop: Boolean?): AAYAxis {
+        reversedStacks = prop
+        return this
+    }
+
     fun gridLineWidth(prop: Number?): AAYAxis {
         gridLineWidth = prop
         return this

@@ -20,6 +20,7 @@ enum class AAChartAxisType(val value: String) {
     var categories: Array<String>? = null
     var linkedTo: Int? = null
     var reversed: Boolean? = null
+    var reversedStacks: Boolean? = null
     var opposite: Boolean? = null
     var lineWidth: Number? = null //坐标轴轴线宽度
     var lineColor: String? = null //坐标轴轴线线颜色
