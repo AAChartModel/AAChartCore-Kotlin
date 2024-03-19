@@ -25,7 +25,7 @@ class ScrollableChartActivity : AppCompatActivity() {
     }
 
     private fun configureChartModel(): AAChartModel {
-        val chartType = intent.getStringExtra("chartType")
+        val chartType = intent.getStringExtra("chartType").toString()
         val position = intent.getIntExtra("position", 0)
         val chartTypeEnum = convertStringToEnum(chartType)
 
