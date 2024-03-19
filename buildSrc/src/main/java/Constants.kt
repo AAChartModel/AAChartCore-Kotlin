@@ -9,8 +9,8 @@ object AndroidConstants {
 }
 
 object Versions {
-    const val build_gradle_version = "4.0.1"
-    const val kotlin_gradle_plugin_version = "1.4.10"
+    const val build_gradle_version = "7.4.1"
+    const val kotlin_gradle_plugin_version = "1.9.23"
     const val bintray_plugin_version = "1.8.5"
 
     const val bintray_version = "1.8.5"

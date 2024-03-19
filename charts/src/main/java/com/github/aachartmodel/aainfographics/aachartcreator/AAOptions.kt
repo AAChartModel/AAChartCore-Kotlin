@@ -230,7 +230,9 @@ object AAOptionsConstructor {
                 val aaSeries = aaPlotOptions.series
                 aaSeries?.marker(aaMarker)
             }
-            else -> {}
+            else -> {
+
+            }
         }
     }
 
@@ -357,6 +359,10 @@ object AAOptionsConstructor {
                     .visible(aaChartModel.yAxisVisible)
 
                 aaOptions.yAxis(aaYAxis)
+            }
+
+            else -> {
+                
             }
         }
     }
