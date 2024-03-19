@@ -67,7 +67,7 @@ open class BasicChartActivity : AppCompatActivity(), RadioGroup.OnCheckedChangeL
 
     private fun configureAAChartModel(): AAChartModel {
         val intent = intent
-        chartType = intent.getStringExtra("chartType")
+        chartType = intent.getStringExtra("chartType").toString()
         val position = intent.getIntExtra("position", 0)
         val chartTypeEnum = convertStringToEnum(chartType)
 
