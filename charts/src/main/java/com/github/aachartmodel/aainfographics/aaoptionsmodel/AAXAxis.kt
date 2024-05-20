@@ -185,6 +185,11 @@ open class AAXAxis: AAAxis() {
         return this
     }
 
+    fun endOnTick(prop: Boolean?): AAXAxis {
+        endOnTick = prop
+        return this
+    }
+
     fun opposite(prop: Boolean?): AAXAxis {
         opposite = prop
         return this

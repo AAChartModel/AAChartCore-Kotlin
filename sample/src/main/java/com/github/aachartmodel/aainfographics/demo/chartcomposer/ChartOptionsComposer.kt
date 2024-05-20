@@ -1274,4 +1274,49 @@ function () {
         return aaOptions
     }
 
+    //https://github.com/AAChartModel/AAChartCore-Kotlin/issues/205
+    fun forceMaxAndMinValue() : AAOptions {
+        val aaChartModel = AAChartModel()
+            .chartType(AAChartType.Column)
+            .dataLabelsEnabled(false)
+            .borderRadius(4F)
+            .legendEnabled(false)
+            .touchEventEnabled(true)
+            .series(arrayOf(
+                AASeriesElement()
+                    .name("")
+                    .data(arrayOf(149.9, 154, 106.4, 129.2, 144.0, 154, 135.6, 154, 154, 154, 95.6, 54.4)) //里面最大值是154
+                    .color(AAGradientColor.linearGradient("rgba(242,82,70,0.2)","rgba(242,82,70,1.0)"))   //柱状图渐变色
+                    .borderWidth(2F)
+                    .dataLabels(AADataLabels()
+                        .enabled(true)
+                        .verticalAlign(AAChartVerticalAlignType.Middle)
+                        .x(0)
+                        .y(-10)
+                        .style(AAStyle.style("#333333",12,AAChartFontWeightType.Thin)))  //柱状图上面表示大小的文字
+            ))
+            .yAxisTitle("")
+            .yAxisMax(210 as Number)
+
+        val aaOptions = aaChartModel.aa_toAAOptions()
+
+        val aaLabels = AALabels()
+            .autoRotation(false)
+            .style(AAStyle().fontSize(12).color("#999999"))  //坐标轴上文字颜色
+
+        aaOptions.xAxis?.apply {
+            labels(aaLabels)
+                .lineColor("#EEEEEE")
+                .lineWidth(0.5)
+        }
+        aaOptions.yAxis?.apply {
+            minorGridLineColor("#EEEEEE")
+                .minorGridLineWidth(0.5)
+                .labels(aaLabels)
+                .startOnTick(false)
+                .endOnTick(false)
+        }
+        return aaOptions
+    }
+
 }

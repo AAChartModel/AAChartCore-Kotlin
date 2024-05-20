@@ -47,7 +47,8 @@ enum class AAChartAxisType(val value: String) {
     var offset: Number? = null //坐标轴垂直偏移
     var labels: AALabels? = null //用于设置坐标轴文字相关的
     var visible: Boolean? = null //用于设置坐标轴以及坐标轴文字是否显示
-    var startOnTick: Boolean? = null //Whether to force the axis to start on a tick. Use this option with the minPadding option to control the axis start. 默认是：false.
+    var startOnTick: Boolean? = null //Whether to force the axis to start on a tick. Use this option with the maxPadding option to control the axis start.This option is always disabled, when panning type is either y or xy. Defaults to true.
+    var endOnTick: Boolean? = null //Whether to force the axis to end on a tick. Use this option with the maxPadding option to control the axis end. This option is always disabled, when panning type is either y or xy. Defaults to true.
     var tickColor: String? = null //坐标轴轴线下方刻度线颜色
     var tickInterval: Number? = null //坐标轴刻度点间隔数(设置每隔几个点显示一个 坐标轴的内容:
     var tickmarkPlacement: String? = null //本参数只对分类轴有效。 当值为 on 时刻度线将在分类上方显示；当值为 between 时，刻度线将在两个分类中间显示。当 tickInterval 为 1 时，默认是 between，其他情况默认是 on。 默认是：null.
