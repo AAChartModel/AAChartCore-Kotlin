@@ -18,8 +18,62 @@ class DoubleChartsLinkedWorkActivity : AppCompatActivity(),
     private var selectedGradientColor: Any = AAColor.Red
     private var aaChartView1: AAChartView? = null
     private var aaChartView2: AAChartView? = null
-    private var gradientColorsArr: Array<Any>? = null
-    private var gradientColorNamesArr: Array<String>? = null
+    private var gradientColorNamesArr: Array<String> = arrayOf(
+        "oceanBlue",
+        "sanguine",
+        "lusciousLime",
+        "purpleLake",
+        "freshPapaya",
+        "ultramarine",
+        "pinkSugar",
+        "lemonDrizzle",
+        "victoriaPurple",
+        "springGreens",
+        "mysticMauve",
+        "reflexSilver",
+        "neonGlowColor",
+        "berrySmoothieColor",
+        "newLeaf",
+        "cottonCandy",
+        "pixieDust",
+        "fizzyPeach",
+        "sweetDream",
+        "firebrick",
+        "wroughtIron",
+        "deepSea",
+        "coastalBreeze",
+        "eveningDelight",
+        "neonGlowColor",
+        "berrySmoothieColor"
+    )
+
+    private var gradientColorsArr: Array<Any> = arrayOf(
+        AAGradientColor.OceanBlue,
+        AAGradientColor.Sanguine,
+        AAGradientColor.LusciousLime,
+        AAGradientColor.PurpleLake,
+        AAGradientColor.FreshPapaya,
+        AAGradientColor.Ultramarine,
+        AAGradientColor.PinkSugar,
+        AAGradientColor.LemonDrizzle,
+        AAGradientColor.VictoriaPurple,
+        AAGradientColor.SpringGreens,
+        AAGradientColor.MysticMauve,
+        AAGradientColor.ReflexSilver,
+        AAGradientColor.NewLeaf,
+        AAGradientColor.CottonCandy,
+        AAGradientColor.PixieDust,
+        AAGradientColor.FizzyPeach,
+        AAGradientColor.SweetDream,
+        AAGradientColor.Firebrick,
+        AAGradientColor.WroughtIron,
+        AAGradientColor.DeepSea,
+        AAGradientColor.CoastalBreeze,
+        AAGradientColor.EveningDelight,
+        AAGradientColor.NeonGlow,
+        AAGradientColor.BerrySmoothie
+    )
+
     private var selectedColorName: String? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,88 +86,33 @@ class DoubleChartsLinkedWorkActivity : AppCompatActivity(),
     }
 
     private fun configureChartOptions1(): AAOptions {
-        gradientColorNamesArr = arrayOf(
-            "oceanBlue",
-            "sanguine",
-            "lusciousLime",
-            "purpleLake",
-            "freshPapaya",
-            "ultramarine",
-            "pinkSugar",
-            "lemonDrizzle",
-            "victoriaPurple",
-            "springGreens",
-            "mysticMauve",
-            "reflexSilver",
-            "neonGlowColor",
-            "berrySmoothieColor",
-            "newLeaf",
-            "cottonCandy",
-            "pixieDust",
-            "fizzyPeach",
-            "sweetDream",
-            "firebrick",
-            "wroughtIron",
-            "deepSea",
-            "coastalBreeze",
-            "eveningDelight",
-            "neonGlowColor",
-            "berrySmoothieColor"
-        )
-
-        val gradientColorArr = arrayOf(
-            AAGradientColor.OceanBlue,
-            AAGradientColor.Sanguine,
-            AAGradientColor.LusciousLime,
-            AAGradientColor.PurpleLake,
-            AAGradientColor.FreshPapaya,
-            AAGradientColor.Ultramarine,
-            AAGradientColor.PinkSugar,
-            AAGradientColor.LemonDrizzle,
-            AAGradientColor.VictoriaPurple,
-            AAGradientColor.SpringGreens,
-            AAGradientColor.MysticMauve,
-            AAGradientColor.ReflexSilver,
-            AAGradientColor.NewLeaf,
-            AAGradientColor.CottonCandy,
-            AAGradientColor.PixieDust,
-            AAGradientColor.FizzyPeach,
-            AAGradientColor.SweetDream,
-            AAGradientColor.Firebrick,
-            AAGradientColor.WroughtIron,
-            AAGradientColor.DeepSea,
-            AAGradientColor.CoastalBreeze,
-            AAGradientColor.EveningDelight,
-            AAGradientColor.NeonGlow,
-            AAGradientColor.BerrySmoothie
-        )
-        gradientColorsArr = gradientColorArr as Array<Any>
-        val aaChartModel = AAChartModel.Builder(this)
-            .setChartType(AAChartType.Column)
-            .setDataLabelsEnabled(false)
-            .setBorderRadius(4F)
-            .setLegendEnabled(false)
-            .setColorsTheme(gradientColorArr)
-            .setTouchEventEnabled(true)
-            .setSeries(
+        val aaChartModel = AAChartModel()
+            .chartType(AAChartType.Column)
+            .dataLabelsEnabled(false)
+            .categories(gradientColorNamesArr)
+            .borderRadius(4f)
+            .legendEnabled(false)
+            .colorsTheme(gradientColorsArr)
+            .touchEventEnabled(true)
+            .yAxisTitle("Random Number")
+            .yAxisMax(210)
+            .series(arrayOf(
                 AASeriesElement()
                     .name("")
                     .data(arrayOf(149.9, 154, 106.4, 129.2, 144.0, 154, 135.6, 154, 154, 154, 95.6, 54.4))
                     .colorByPoint(true)
-                    //里面最大值是154
-                    .borderWidth(2F)
-                    .dataLabels(
-                        AADataLabels()
-                            .enabled(true)
-                            .verticalAlign(AAChartVerticalAlignType.Middle)
-                            .x(0)
-                            .y(-10)
-                            .style(AAStyle.style("#333333",12,AAChartFontWeightType.Thin)))  //柱状图上面表示大小的文字
-            )
-            .setYAxisTitle("")
-            .setYAxisMax(210 as Number)
-            .build()
-
+                    .borderWidth(2f)
+                    .dataLabels(AADataLabels()
+                        .enabled(true)
+                        .verticalAlign(AAChartVerticalAlignType.Middle)
+                        .x(0f)
+                        .y(-10f)
+                        .style(AAStyle()
+                            .color(AAColor.Red)
+                            .fontSize(12f)
+                            .fontWeight(AAChartFontWeightType.Thin))
+                    )
+            ))
 
         val aaOptions = aaChartModel.aa_toAAOptions()
 
@@ -189,8 +188,8 @@ class DoubleChartsLinkedWorkActivity : AppCompatActivity(),
         aaChartView: AAChartView,
         messageModel: AAMoveOverEventMessageModel
     ) {
-        selectedGradientColor = gradientColorsArr?.get(messageModel.index!!)!!
-        selectedColorName = gradientColorNamesArr?.get(messageModel.index!!)!!
+        selectedGradientColor = gradientColorsArr[messageModel.index!!]
+        selectedColorName = gradientColorNamesArr[messageModel.index!!]
 
         val mainHandler = Handler(Looper.getMainLooper())
         mainHandler.post {
