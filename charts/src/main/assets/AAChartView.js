@@ -73,18 +73,14 @@ function configureChartTouchEvent(aaPlotOptions) {
 }
 
 function onlyRefreshTheChartDataWithSeries(receivedSeries, animation) {
-    var receivedSeriesArr = JSON.parse(receivedSeries);
-    var seriesArrLength = receivedSeriesArr.length;
-    for (var i = 0; i < seriesArrLength; i++) {
-        var receivedSeriesElementData = receivedSeriesArr[i].data;
-        // 获取series
-        var seriesElement = aaGlobalChart.series[i];
-        // 执行只刷新数据的函数
-        seriesElement.setData(receivedSeriesElementData, false);
-    }
+    let receivedSeriesArr = JSON.parse(receivedSeries);
+    let animationBool = (animation === "true");
 
-    var animationBool = (animation == "true") ? true:false;
-    aaGlobalChart.redraw(animationBool);
+    aaGlobalChart.update({
+            series: receivedSeriesArr
+        },
+        true, false, animationBool
+    );
 }
 
 function updateChart(optionsStr, redraw) {

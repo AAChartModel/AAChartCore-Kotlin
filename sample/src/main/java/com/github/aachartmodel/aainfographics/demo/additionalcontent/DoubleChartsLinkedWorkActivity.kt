@@ -93,13 +93,15 @@ class DoubleChartsLinkedWorkActivity : AppCompatActivity(),
             .setDataLabelsEnabled(false)
             .setBorderRadius(4F)
             .setLegendEnabled(false)
+            .setColorsTheme(gradientColorArr)
             .setTouchEventEnabled(true)
             .setSeries(
                 AASeriesElement()
                     .name("")
                     .data(arrayOf(149.9, 154, 106.4, 129.2, 144.0, 154, 135.6, 154, 154, 154, 95.6, 54.4))
+                    .colorByPoint(true)
                     //里面最大值是154
-                    .color(AAGradientColor.linearGradient("rgba(242,82,70,0.2)","rgba(242,82,70,1.0)"))   //柱状图渐变色
+//                    .color(AAGradientColor.linearGradient("rgba(242,82,70,0.2)","rgba(242,82,70,1.0)"))   //柱状图渐变色
                     .borderWidth(2F)
                     .dataLabels(
                         AADataLabels().enabled(true).verticalAlign(AAChartVerticalAlignType.Middle)
@@ -208,7 +210,8 @@ class DoubleChartsLinkedWorkActivity : AppCompatActivity(),
             aaChartView2?.aa_updateXAxisCategories(configureXAxisCategoresDataArray(), false)
 
             aaChartView2?.aa_onlyRefreshTheChartDataWithChartOptionsSeriesArray(
-                aaSeriesElementsArr
+                aaSeriesElementsArr,
+                false
             )
         }
     }
