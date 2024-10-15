@@ -101,13 +101,14 @@ class DoubleChartsLinkedWorkActivity : AppCompatActivity(),
                     .data(arrayOf(149.9, 154, 106.4, 129.2, 144.0, 154, 135.6, 154, 154, 154, 95.6, 54.4))
                     .colorByPoint(true)
                     //里面最大值是154
-//                    .color(AAGradientColor.linearGradient("rgba(242,82,70,0.2)","rgba(242,82,70,1.0)"))   //柱状图渐变色
                     .borderWidth(2F)
                     .dataLabels(
-                        AADataLabels().enabled(true).verticalAlign(AAChartVerticalAlignType.Middle)
-                        .x(0)
-                        .y(-10)
-                        .style(AAStyle.style("#333333",12,AAChartFontWeightType.Thin)))  //柱状图上面表示大小的文字
+                        AADataLabels()
+                            .enabled(true)
+                            .verticalAlign(AAChartVerticalAlignType.Middle)
+                            .x(0)
+                            .y(-10)
+                            .style(AAStyle.style("#333333",12,AAChartFontWeightType.Thin)))  //柱状图上面表示大小的文字
             )
             .setYAxisTitle("")
             .setYAxisMax(210 as Number)
@@ -170,15 +171,6 @@ class DoubleChartsLinkedWorkActivity : AppCompatActivity(),
         }
         return numberArr1 as Array<AADataElement>
     }
-
-    //    private func configureXAxisCategoresDataArray() -> [String] {
-    //        let randomNumArrA = NSMutableArray()
-    //        for  x in 0 ..< 40 {
-    //            let prefixStr = "第\(selectedCategoryIndex ?? 0)组\(x)"
-    //            randomNumArrA.add(prefixStr)
-    //        }
-    //        return randomNumArrA as! [String]
-    //    }
 
     private fun configureXAxisCategoresDataArray(): Array<String> {
         val randomNumArrA = ArrayList<String>()
