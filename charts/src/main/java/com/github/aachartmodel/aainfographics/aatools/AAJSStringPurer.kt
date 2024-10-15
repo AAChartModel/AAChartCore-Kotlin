@@ -55,3 +55,12 @@ object AAJSStringPurer {
     }
 
 }
+
+fun Array<String>.aa_toJSArray(): String {
+    var originalJsArrStr = ""
+    for (i in this.indices) {
+        val element = this[i]
+        originalJsArrStr = "$originalJsArrStr'$element',"
+    }
+    return "[$originalJsArrStr]"
+}

@@ -42,6 +42,7 @@ import android.os.Build
 import android.util.AttributeSet
 import android.webkit.*
 import com.github.aachartmodel.aainfographics.aatools.AAJSStringPurer
+import com.github.aachartmodel.aainfographics.aatools.aa_toJSArray
 import com.google.gson.Gson
 import com.google.gson.internal.LinkedTreeMap
 import java.util.*
@@ -277,32 +278,9 @@ class AAChartView : WebView {
         safeEvaluateJavaScriptString(jsFunctionNameStr)
     }
 
-    //  /// Update the X axis categories of chart
-    //    /// Refer to https://api.highcharts.com/class-reference/Highcharts.Axis#setCategories
-    //    ///
-    //    /// - Parameters:
-    //    ///   - categories: The X axis categories array
-    //    ///   - redraw: Redraw whole chart or not
-    //    public func aa_updateXAxisCategories(_ categories: [String], redraw: Bool = true) {
-    //        let finalJSArrStr = categories.aa_toJSArray()
-    //        let jsFunctionStr = "aaGlobalChart.xAxis[0].setCategories(\(finalJSArrStr),\(redraw));"
-    //        safeEvaluateJavaScriptString(jsFunctionStr)
-    //    }
-    //
-    //    /// Update the X axis Extremes
-    //    /// Refer to https://api.highcharts.com/class-reference/Highcharts.Axis#setExtremes
-    //    ///
-    //    /// - Parameters:
-    //    ///   - min: X axis minimum
-    //    ///   - max: X axis maximum
-    //    public func aa_updateXAxisExtremes(min: Int, max: Int) {
-    //        let jsStr = "aaGlobalChart.xAxis[0].setExtremes(\(min), \(max))"
-    //        safeEvaluateJavaScriptString(jsStr)
-    //    }
-
+    // Refer to https://api.highcharts.com/class-reference/Highcharts.Axis#setCategories
     /**
      * Update the X axis categories of chart
-     * Refer to https://api.highcharts.com/class-reference/Highcharts.Axis#setCategories
      *
      * @param categories The X axis categories array
      * @param redraw Redraw whole chart or not
@@ -317,9 +295,10 @@ class AAChartView : WebView {
     }
 
 
+    // Refer to https://api.highcharts.com/class-reference/Highcharts.Axis#setExtremes
     /**
      * Update the X axis Extremes
-     * Refer to https://api.highcharts.com/class-reference/Highcharts.Axis#setExtremes
+     *
      * @param min X axis minimum
      * @param max X axis maximum
      */
@@ -401,11 +380,4 @@ class AAChartView : WebView {
     }
 }
 
-private fun Array<String>.aa_toJSArray(): String {
-    var originalJsArrStr = ""
-    for (i in this.indices) {
-        val element = this[i]
-        originalJsArrStr = "$originalJsArrStr'$element',"
-    }
-    return "[$originalJsArrStr]"
-}
+
