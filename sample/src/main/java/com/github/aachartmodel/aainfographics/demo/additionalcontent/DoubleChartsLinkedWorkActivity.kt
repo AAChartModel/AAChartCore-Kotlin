@@ -6,6 +6,9 @@ import android.os.Looper
 import androidx.appcompat.app.AppCompatActivity
 import com.github.aachartmodel.aainfographics.aachartcreator.*
 import com.github.aachartmodel.aainfographics.aachartcreator.AAOptions
+import com.github.aachartmodel.aainfographics.aaoptionsmodel.AADataLabels
+import com.github.aachartmodel.aainfographics.aaoptionsmodel.AALabels
+import com.github.aachartmodel.aainfographics.aaoptionsmodel.AAStyle
 import com.github.aachartmodel.aainfographics.aatools.AAColor
 import com.github.aachartmodel.aainfographics.aatools.AAGradientColor
 import com.github.aachartmodel.aainfographics.demo.R
@@ -16,6 +19,8 @@ class DoubleChartsLinkedWorkActivity : AppCompatActivity(),
     private var aaChartView1: AAChartView? = null
     private var aaChartView2: AAChartView? = null
     private var gradientColorsArr: Array<Any>? = null
+    private var gradientColorNamesArr: Array<String>? = null
+    private var selectedColorName: String? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_double_charts_linked_work)
@@ -27,7 +32,7 @@ class DoubleChartsLinkedWorkActivity : AppCompatActivity(),
     }
 
     private fun configureChartOptions1(): AAOptions {
-        val gradientColorNamesArr = arrayOf(
+        gradientColorNamesArr = arrayOf(
             "oceanBlue",
             "sanguine",
             "lusciousLime",
@@ -83,26 +88,48 @@ class DoubleChartsLinkedWorkActivity : AppCompatActivity(),
             AAGradientColor.BerrySmoothie
         )
         gradientColorsArr = gradientColorArr as Array<Any>
-        val aaChartModel: AAChartModel = AAChartModel.Builder(this)
+        val aaChartModel = AAChartModel.Builder(this)
             .setChartType(AAChartType.Column)
-            .setTitle("")
-            .setYAxisTitle("")
-            .setCategories(*gradientColorNamesArr)
-            .setColorsTheme(gradientColorArr)
-            .setXAxisReversed(true)
-            .setYAxisReversed(true)
-            .setInverted(true)
+            .setDataLabelsEnabled(false)
+            .setBorderRadius(4F)
             .setLegendEnabled(false)
             .setTouchEventEnabled(true)
-            .setSeries(AASeriesElement()
-                .name("Tokyo")
-                .data(arrayOf(
-                    211, 183, 157, 133, 111, 91, 73, 57, 43, 31, 21, 13,
-                    211, 183, 157, 133, 111, 91, 73, 57, 43, 31, 21, 13
-                ))
-                .colorByPoint(true)).build()
-        val aaOptions: AAOptions = aaChartModel.aa_toAAOptions()
-        aaOptions.plotOptions?.column?.groupPadding = 0f
+            .setSeries(
+                AASeriesElement()
+                    .name("")
+                    .data(arrayOf(149.9, 154, 106.4, 129.2, 144.0, 154, 135.6, 154, 154, 154, 95.6, 54.4))
+                    //里面最大值是154
+                    .color(AAGradientColor.linearGradient("rgba(242,82,70,0.2)","rgba(242,82,70,1.0)"))   //柱状图渐变色
+                    .borderWidth(2F)
+                    .dataLabels(
+                        AADataLabels().enabled(true).verticalAlign(AAChartVerticalAlignType.Middle)
+                        .x(0)
+                        .y(-10)
+                        .style(AAStyle.style("#333333",12,AAChartFontWeightType.Thin)))  //柱状图上面表示大小的文字
+            )
+            .setYAxisTitle("")
+            .setYAxisMax(210 as Number)
+            .build()
+
+
+        val aaOptions = aaChartModel.aa_toAAOptions()
+
+        val aaLabels = AALabels()
+            .autoRotation(false)
+            .style(AAStyle().fontSize(12).color("#999999"))  //坐标轴上文字颜色
+
+        aaOptions.xAxis?.apply {
+            labels(aaLabels)
+                .lineColor("#EEEEEE")
+                .lineWidth(0.5)
+        }
+        aaOptions.yAxis?.apply {
+            minorGridLineColor("#EEEEEE")
+                .minorGridLineWidth(0.5)
+                .labels(aaLabels)
+                .startOnTick(false)
+                .endOnTick(false)
+        }
         return aaOptions
     }
 
@@ -142,6 +169,24 @@ class DoubleChartsLinkedWorkActivity : AppCompatActivity(),
         return numberArr1 as Array<AADataElement>
     }
 
+    //    private func configureXAxisCategoresDataArray() -> [String] {
+    //        let randomNumArrA = NSMutableArray()
+    //        for  x in 0 ..< 40 {
+    //            let prefixStr = "第\(selectedCategoryIndex ?? 0)组\(x)"
+    //            randomNumArrA.add(prefixStr)
+    //        }
+    //        return randomNumArrA as! [String]
+    //    }
+
+    private fun configureXAxisCategoresDataArray(): Array<String> {
+        val randomNumArrA = ArrayList<String>()
+        for (x in 0 until 40) {
+            val prefixStr = "${selectedColorName}$x"
+            randomNumArrA.add(prefixStr)
+        }
+        return randomNumArrA.toTypedArray()
+    }
+
     override fun chartViewDidFinishLoad(aaChartView: AAChartView) {
 
     }
@@ -151,6 +196,7 @@ class DoubleChartsLinkedWorkActivity : AppCompatActivity(),
         messageModel: AAMoveOverEventMessageModel
     ) {
         selectedGradientColor = gradientColorsArr?.get(messageModel.index!!)!!
+        selectedColorName = gradientColorNamesArr?.get(messageModel.index!!)!!
 
         val mainHandler = Handler(Looper.getMainLooper())
         mainHandler.post {
@@ -159,6 +205,8 @@ class DoubleChartsLinkedWorkActivity : AppCompatActivity(),
                 AASeriesElement()
                     .data(configureSeriesDataArray() as Array<Any>)
             )
+            aaChartView2?.aa_updateXAxisCategories(configureXAxisCategoresDataArray(), false)
+
             aaChartView2?.aa_onlyRefreshTheChartDataWithChartOptionsSeriesArray(
                 aaSeriesElementsArr
             )
