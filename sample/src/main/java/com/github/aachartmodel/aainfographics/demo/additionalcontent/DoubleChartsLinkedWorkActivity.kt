@@ -12,6 +12,7 @@ import com.github.aachartmodel.aainfographics.aaoptionsmodel.AAStyle
 import com.github.aachartmodel.aainfographics.aatools.AAColor
 import com.github.aachartmodel.aainfographics.aatools.AAGradientColor
 import com.github.aachartmodel.aainfographics.demo.R
+import kotlin.math.sin
 
 class DoubleChartsLinkedWorkActivity : AppCompatActivity(),
     AAChartView.AAChartViewCallBack {
@@ -162,7 +163,7 @@ class DoubleChartsLinkedWorkActivity : AppCompatActivity(),
         val min = 1
         val random = (Math.random() * (max - min) + min).toInt()
         for (i in 0 until maxRange) {
-            y1 = Math.sin(random * (i * Math.PI / 180)) + i * 2 * 0.01
+            y1 = sin(random * (i * Math.PI / 180)) + i * 2 * 0.01
             val aaDataElement: AADataElement = AADataElement()
                 .color(selectedGradientColor)
                 .y(y1.toFloat())
@@ -194,7 +195,7 @@ class DoubleChartsLinkedWorkActivity : AppCompatActivity(),
         val mainHandler = Handler(Looper.getMainLooper())
         mainHandler.post {
             //已在主线程中，可以更新UI
-            val aaSeriesElementsArr: Array<AASeriesElement> = arrayOf<AASeriesElement>(
+            val aaSeriesElementsArr: Array<AASeriesElement> = arrayOf(
                 AASeriesElement()
                     .data(configureSeriesDataArray() as Array<Any>)
             )
