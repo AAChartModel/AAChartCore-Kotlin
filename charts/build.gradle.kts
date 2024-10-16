@@ -8,9 +8,6 @@ buildscript {
         mavenCentral()
     }
 
-    dependencies {
-        classpath(Libs.com_jfrog_bintray_gradle_bintray_plugin)
-    }
 }
 apply(plugin = Libs.maven_publish)
 
