@@ -1,14 +1,13 @@
 plugins {
     id("com.android.library")
     kotlin("android")
-    id(Libs.maven_publish)
+    id("maven-publish")
 }
 
 buildscript {
     repositories {
         mavenCentral()
     }
-
 }
 
 android {
@@ -59,7 +58,6 @@ afterEvaluate {
                     }
                     withXml {
                         val dependenciesNode = asNode().appendNode("dependencies")
-                        // note: replace with the desired configuration (ex: api, testImplementation, etc...)
                         configurations.getByName("implementation") {
                             dependencies.forEach {
                                 val dependencyNode = dependenciesNode.appendNode("dependency")
