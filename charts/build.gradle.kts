@@ -1,6 +1,7 @@
 plugins {
     id("com.android.library")
     kotlin("android")
+    id(Libs.maven_publish)
 }
 
 buildscript {
@@ -9,7 +10,6 @@ buildscript {
     }
 
 }
-apply(plugin = Libs.maven_publish)
 
 android {
     compileSdkVersion(AndroidConstants.compileSdkVersions)
