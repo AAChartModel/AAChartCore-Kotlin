@@ -5,7 +5,10 @@ buildscript {
     }
 
     dependencies {
+        // 将 Android Gradle 插件添加到 classpath，这是构建 Android 项目所必需的。
         classpath(Libs.com_android_tools_build_gradle)
+
+        // 将 Kotlin Gradle 插件添加到 classpath，这是构建 Kotlin 项目所必需的。
         classpath(Libs.org_jetbrains_kotlin_kotlin_gradle_plugin)
     }
 }
