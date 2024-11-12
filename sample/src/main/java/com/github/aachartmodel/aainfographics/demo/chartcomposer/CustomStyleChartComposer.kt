@@ -773,7 +773,7 @@ object CustomStyleChartComposer  {
     }
 
     //Issue: https://github.com/AAChartModel/AAChartKit-Swift/issues/190
-    //API Doc: https://api.highcharts.com.cn/highcharts#series%3Cpyramid%3E.reversed
+    //API Doc: https://api.highcharts.com/highcharts/plotOptions.pyramid.reversed
     fun upsideDownPyramidChart(): AAChartModel {
         return AAChartModel()
             .chartType(AAChartType.Pyramid)
@@ -783,7 +783,7 @@ object CustomStyleChartComposer  {
             .series(arrayOf(
                 AASeriesElement()
                     .name("2020")
-                    .reversed(true)
+                    .reversed(false)
                     .data(arrayOf(
                         arrayOf("Swift",      15654),
                         arrayOf("Objective-C", 4064),
