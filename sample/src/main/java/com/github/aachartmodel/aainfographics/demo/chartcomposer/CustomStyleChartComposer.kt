@@ -778,7 +778,6 @@ object CustomStyleChartComposer  {
         return AAChartModel()
             .chartType(AAChartType.Pyramid)
             .yAxisTitle("摄氏度")
-            .inverted(true)
             .legendEnabled(true)
             .series(arrayOf(
                 AASeriesElement()
