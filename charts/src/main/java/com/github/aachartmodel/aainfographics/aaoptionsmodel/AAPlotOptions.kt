@@ -100,6 +100,12 @@ open class AAColumn {
     var stacking: String? = null
     var borderRadius: Number? = null
     var yAxis: Int? = null
+   //AAPropStatementAndPropSetFuncStatement(strong, AAColumn, NSNumber *,     pointWidth) //柱形条的宽度
+    //AAPropStatementAndPropSetFuncStatement(strong, AAColumn, NSNumber *,     maxPointWidth) //柱形条的最大宽度
+    //AAPropStatementAndPropSetFuncStatement(strong, AAColumn, NSNumber *,     minPointLength) //柱形条的最小高度
+    var pointWith: Number? = null //柱形条的宽度
+    var maxPointWidth: Number? = null //柱形条的最大宽度
+    var minPointLength: Number? = null //柱形条的最小高度
 
     fun name(prop: String): AAColumn {
         name = prop
@@ -163,6 +169,22 @@ open class AAColumn {
 
     fun yAxis(prop: Int?): AAColumn {
         yAxis = prop
+        return this
+    }
+
+
+    fun pointWidth(prop: Number?): AAColumn {
+        pointWith = prop
+        return this
+    }
+
+    fun maxPointWidth(prop: Number?): AAColumn {
+        maxPointWidth = prop
+        return this
+    }
+
+    fun minPointLength(prop: Number?): AAColumn {
+        minPointLength = prop
         return this
     }
 
