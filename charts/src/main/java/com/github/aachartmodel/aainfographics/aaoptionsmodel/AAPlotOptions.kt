@@ -81,7 +81,7 @@ open class AAPlotOptions {
 
 }
 
-open class AAColumn {
+open class AABaseColumn {
     var name: String? = null
     var data: Array<Any>? = null
     var color: String? = null
@@ -100,13 +100,12 @@ open class AAColumn {
     var stacking: String? = null
     var borderRadius: Number? = null
     var yAxis: Int? = null
-   //AAPropStatementAndPropSetFuncStatement(strong, AAColumn, NSNumber *,     pointWidth) //柱形条的宽度
-    //AAPropStatementAndPropSetFuncStatement(strong, AAColumn, NSNumber *,     maxPointWidth) //柱形条的最大宽度
-    //AAPropStatementAndPropSetFuncStatement(strong, AAColumn, NSNumber *,     minPointLength) //柱形条的最小高度
     var pointWith: Number? = null //柱形条的宽度
     var maxPointWidth: Number? = null //柱形条的最大宽度
     var minPointLength: Number? = null //柱形条的最小高度
+}
 
+open class AAColumn: AABaseColumn() {
     fun name(prop: String): AAColumn {
         name = prop
         return this
@@ -190,26 +189,7 @@ open class AAColumn {
 
 }
 
-open class AABar {
-    var name: String? = null
-    var data: Array<Any>? = null
-    var color: String? = null
-    var grouping: Boolean? =
-        null//Whether to group non-stacked columns or to let them render independent of each other. Non-grouped columns will be laid out individually and overlap each other. 默认是：true.
-    var pointPadding: Float? =
-        null//Padding between each column or bar, in x axis units. 默认是：0.1.
-    var pointPlacement: Float? =
-        null//Padding between each column or bar, in x axis units. 默认是：0.1.
-    var groupPadding: Float? =
-        null//Padding between each value groups, in x axis units. 默认是：0.2.
-    var borderWidth: Number? = null
-    var colorByPoint: Boolean? =
-        null//对每个不同的点设置颜色(当图表类型为 AABar 时,设置为 AABar 对象的属性,当图表类型为 bar 时,应该设置为 bar 对象的属性才有效)
-    var dataLabels: AADataLabels? = null
-    var stacking: String? = null
-    var borderRadius: Number? = null
-    var yAxis: Int? = null
-
+open class AABar: AABaseColumn() {
     fun name(prop: String): AABar {
         name = prop
         return this
@@ -274,6 +254,22 @@ open class AABar {
         yAxis = prop
         return this
     }
+
+
+    fun pointWidth(prop: Number?): AABar {
+        pointWith = prop
+        return this
+    }
+
+    fun maxPointWidth(prop: Number?): AABar {
+        maxPointWidth = prop
+        return this
+    }
+
+    fun minPointLength(prop: Number?): AABar {
+        minPointLength = prop
+        return this
+    }
 }
 
 
@@ -286,6 +282,7 @@ open class AALine {
     }
 }
 
+
 open class AASpline {
     var dataLabels: AADataLabels? = null
 
@@ -294,6 +291,7 @@ open class AASpline {
         return this
     }
 }
+
 
 open class AAArea {
     var dataLabels: AADataLabels? = null
@@ -304,6 +302,7 @@ open class AAArea {
     }
 }
 
+
 open class AAAreaspline {
     var dataLabels: AADataLabels? = null
 
@@ -312,6 +311,7 @@ open class AAAreaspline {
         return this
     }
 }
+
 
 open class AAPie {
     var type: String? = null
@@ -384,6 +384,7 @@ open class AAPie {
 
 }
 
+
 open class AAColumnrange {
     var borderRadius: Number? = null
     var borderWidth: Number? = null
@@ -404,6 +405,7 @@ open class AAColumnrange {
         return this
     }
 }
+
 
 open class AAArearange {
     var dataLabels: AADataLabels? = null
