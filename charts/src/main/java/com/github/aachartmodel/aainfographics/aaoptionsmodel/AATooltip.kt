@@ -39,6 +39,7 @@ import com.github.aachartmodel.aainfographics.aatools.AAJSStringPurer
 
 
 class AATooltip {
+    var animation: Any? = null
     var backgroundColor: Any? = null
     var borderColor: String? = null
     var borderRadius: Number? = null
@@ -60,6 +61,16 @@ class AATooltip {
     var pointFormatter: String? = null
     var positioner: String? = null
     var dateTimeLabelFormats: AADateTimeLabelFormats? = null
+
+    fun animation(prop: AAAnimation): AATooltip {
+        animation = prop
+        return this
+    }
+
+    fun animation(prop: Boolean): AATooltip {
+        animation = prop
+        return this
+    }
 
     fun backgroundColor(prop: Any): AATooltip {
         backgroundColor = prop
