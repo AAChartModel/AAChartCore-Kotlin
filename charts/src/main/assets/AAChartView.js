@@ -52,14 +52,14 @@ function configurePlotOptions(aaOptions) {
 function configureEventMessageBody(selectedPoint) {
     return {
         name: selectedPoint.series.name,
-        y: selectedPoint.y,
         x: selectedPoint.x,
+        y: selectedPoint.y,
         category: selectedPoint.category,
+        index: selectedPoint.index,
         offset: {
             plotX: selectedPoint.plotX,
             plotY: selectedPoint.plotY
         },
-        index: selectedPoint.index,
     };
 }
 

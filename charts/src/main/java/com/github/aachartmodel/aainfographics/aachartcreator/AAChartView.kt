@@ -415,8 +415,8 @@ class AAChartView : WebView {
             x = messageBody["x"] as Double?
             y = messageBody["y"] as Double?
             category = messageBody["category"].toString()
-            offset = messageBody["offset"] as LinkedTreeMap<*, *>?
             index = (messageBody["index"] as Double?)?.toInt()
+            offset = messageBody["offset"] as LinkedTreeMap<*, *>?
         }
     } catch (e: Exception) {
         throw RuntimeException("Failed to create instance of $eventType", e)
