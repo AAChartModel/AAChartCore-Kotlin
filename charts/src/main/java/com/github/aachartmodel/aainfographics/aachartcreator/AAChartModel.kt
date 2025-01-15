@@ -200,7 +200,8 @@ enum class AAChartFontWeightType(val value: String) {
  * @param backgroundColor 图表背景色
  * @param borderRadius 柱状图长条图头部圆角半径(可用于设置头部的形状,仅对条形图,柱状图有效,设置为1000时,柱形图或者条形图头部为楔形)
  * @param series
- * @param touchEventEnabled 是否支持用户触摸事件
+ * @param clickEventEnabled 是否支持用户点击事件
+ * @param touchEventEnabled 是否支持用户触摸(手指掠过)事件
  * @param scrollablePlotArea
  */
 class AAChartModel(
