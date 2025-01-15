@@ -165,40 +165,18 @@ class AAChartView : WebView {
     //js调用安卓，必须加@JavascriptInterface注释的方法才可以被js调用
     @JavascriptInterface
     fun clickEventAndroidMethod(message: String?): String {
-        val gson = Gson()
-        var messageBody: Map<String, Any> = java.util.HashMap()
-        messageBody = gson.fromJson(message, messageBody.javaClass)
-        // 调用泛型方法并传递 MyEventMessage.class 作为 eventType 参数
-        val clickEventMessageModel = this.getEventMessageModel(
-            messageBody,
-            AAClickEventMessageModel::class.java
-        )
-        if (callBack != null) {
-            if (clickEventMessageModel != null) {
-                callBack!!.chartViewClickEventMessage(this, clickEventMessageModel)
-            }
-        }
-        //       Log.i("androidMethod","++++++++++++++++显示总共调用了几次");
+        val messageBody = Gson().fromJson<Map<String, Any>>(message, Map::class.java)
+        val clickEventMessageModel = getEventMessageModel(messageBody, AAClickEventMessageModel::class.java)
+        clickEventMessageModel?.let { callBack?.chartViewClickEventMessage(this, it) }
         return ""
     }
 
     //js调用安卓，必须加@JavascriptInterface注释的方法才可以被js调用
     @JavascriptInterface
     fun moveOverEventAndroidMethod(message: String?): String {
-        val gson = Gson()
-        var messageBody: Map<String, Any> = java.util.HashMap()
-        messageBody = gson.fromJson(message, messageBody.javaClass)
-        // 调用泛型方法并传递 MyEventMessage.class 作为 eventType 参数
-        val moveOverEventMessageModel = this.getEventMessageModel(
-            messageBody,
-            AAMoveOverEventMessageModel::class.java
-        )
-        if (callBack != null) {
-            if (moveOverEventMessageModel != null) {
-                callBack!!.chartViewMoveOverEventMessage(this, moveOverEventMessageModel)
-            }
-        }
-        //       Log.i("androidMethod","++++++++++++++++显示总共调用了几次");
+        val messageBody = Gson().fromJson<Map<String, Any>>(message, Map::class.java)
+        val moveOverEventMessageModel = getEventMessageModel(messageBody, AAMoveOverEventMessageModel::class.java)
+        moveOverEventMessageModel?.let { callBack?.chartViewMoveOverEventMessage(this, it) }
         return ""
     }
 
