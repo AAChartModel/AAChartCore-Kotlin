@@ -185,6 +185,32 @@ class DoubleChartsLinkedWorkActivity : AppCompatActivity(),
 
     }
 
+    override fun chartViewClickEventMessage(
+        aaChartView: AAChartView,
+        clickEventMessage: AAClickEventMessageModel
+    ) {
+        //打印点击事件信息
+        println("🖱🖱🖱获取点击事件 clickMessageModel = $clickEventMessage")
+
+        selectedGradientColor = gradientColorsArr[clickEventMessage.index!!]
+        selectedColorName = gradientColorNamesArr[clickEventMessage.index!!]
+
+        val mainHandler = Handler(Looper.getMainLooper())
+        mainHandler.post {
+            //已在主线程中，可以更新UI
+            val aaSeriesElementsArr: Array<AASeriesElement> = arrayOf(
+                AASeriesElement()
+                    .data(configureSeriesDataArray() as Array<Any>)
+            )
+            aaChartView2?.aa_updateXAxisCategories(configureXAxisCategoresDataArray(), false)
+
+            aaChartView2?.aa_onlyRefreshTheChartDataWithChartOptionsSeriesArray(
+                aaSeriesElementsArr,
+                false
+            )
+        }
+    }
+
     override fun chartViewMoveOverEventMessage(
         aaChartView: AAChartView,
         moveOverEventMessage: AAMoveOverEventMessageModel
@@ -212,29 +238,5 @@ class DoubleChartsLinkedWorkActivity : AppCompatActivity(),
         }
     }
 
-    override fun chartViewClickEventMessage(
-        aaChartView: AAChartView,
-        clickEventMessage: AAClickEventMessageModel
-    ) {
-        //打印点击事件信息
-        println("🖱🖱🖱获取点击事件 clickMessageModel = $clickEventMessage")
 
-        selectedGradientColor = gradientColorsArr[clickEventMessage.index!!]
-        selectedColorName = gradientColorNamesArr[clickEventMessage.index!!]
-
-        val mainHandler = Handler(Looper.getMainLooper())
-        mainHandler.post {
-            //已在主线程中，可以更新UI
-            val aaSeriesElementsArr: Array<AASeriesElement> = arrayOf(
-                AASeriesElement()
-                    .data(configureSeriesDataArray() as Array<Any>)
-            )
-            aaChartView2?.aa_updateXAxisCategories(configureXAxisCategoresDataArray(), false)
-
-            aaChartView2?.aa_onlyRefreshTheChartDataWithChartOptionsSeriesArray(
-                aaSeriesElementsArr,
-                false
-            )
-        }
-    }
 }
