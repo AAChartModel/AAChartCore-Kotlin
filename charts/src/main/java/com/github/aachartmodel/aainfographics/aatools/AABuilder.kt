@@ -56,6 +56,7 @@ class AABuilder(context: Context) {
     private var backgroundColor: Any? = "#ffffff"
     private var borderRadius: Number? = 0f
     private var series: Array<Any>? = null
+    private var clickEventEnabled: Boolean? = null
     private var touchEventEnabled: Boolean? = null
     private var scrollablePlotArea: AAScrollablePlotArea? = null
 
@@ -123,6 +124,7 @@ class AABuilder(context: Context) {
         backgroundColor = prop.backgroundColor
         borderRadius = prop.borderRadius
         series = prop.series
+        clickEventEnabled = prop.clickEventEnabled
         touchEventEnabled = prop.touchEventEnabled
         scrollablePlotArea = prop.scrollablePlotArea
         return this
@@ -402,6 +404,11 @@ class AABuilder(context: Context) {
         return this
     }
 
+    fun setClickEventEnabled(prop: Boolean): AABuilder {
+        clickEventEnabled = prop
+        return this
+    }
+
     fun setTouchEventEnabled(prop: Boolean): AABuilder {
         touchEventEnabled = prop
         return this
@@ -455,6 +462,7 @@ class AABuilder(context: Context) {
         backgroundColor = backgroundColor,
         borderRadius = borderRadius,
         series = series,
+        clickEventEnabled = clickEventEnabled,
         touchEventEnabled = touchEventEnabled,
         scrollablePlotArea = scrollablePlotArea,
     )
