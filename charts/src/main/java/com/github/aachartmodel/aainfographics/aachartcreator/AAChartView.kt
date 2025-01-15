@@ -40,33 +40,57 @@ import android.app.AlertDialog
 import android.content.Context
 import android.os.Build
 import android.util.AttributeSet
-import android.webkit.*
+import android.webkit.JavascriptInterface
+import android.webkit.JsResult
+import android.webkit.WebChromeClient
+import android.webkit.WebView
+import android.webkit.WebViewClient
+import com.github.aachartmodel.aainfographics.aaoptionsmodel.AAPlotOptions
+import com.github.aachartmodel.aainfographics.aaoptionsmodel.AAPoint
+import com.github.aachartmodel.aainfographics.aaoptionsmodel.AAPointEvents
+import com.github.aachartmodel.aainfographics.aaoptionsmodel.AASeries
+import com.github.aachartmodel.aainfographics.aatools.AAColor
 import com.github.aachartmodel.aainfographics.aatools.AAJSStringPurer
 import com.github.aachartmodel.aainfographics.aatools.aa_toJSArray
 import com.google.gson.Gson
 import com.google.gson.internal.LinkedTreeMap
-import java.util.*
-import kotlin.collections.HashMap
+import java.util.Locale
 
 
-class AAMoveOverEventMessageModel {
+open class AAEventMessageModel {
     var name: String? = null
     var x: Double? = null
     var y: Double? = null
     var category: String? = null
-    var offset: LinkedTreeMap<String, Any>? = null
+    var offset: LinkedTreeMap<*, *>? = null
     var index: Int? = null
 }
 
+class AAClickEventMessageModel : AAEventMessageModel()
+
+class AAMoveOverEventMessageModel : AAEventMessageModel()
 
 class AAChartView : WebView {
+
     interface AAChartViewCallBack {
-        fun chartViewDidFinishLoad(aaChartView: AAChartView)
+        fun chartViewDidFinishLoad(
+            aaChartView: AAChartView
+        ) {
+        }
+
+        fun chartViewClickEventMessage(
+            aaChartView: AAChartView,
+            clickEventMessage: AAClickEventMessageModel
+        ) {
+        }
+
         fun chartViewMoveOverEventMessage(
             aaChartView: AAChartView,
-            messageModel: AAMoveOverEventMessageModel
-        )
+            moveOverEventMessage: AAMoveOverEventMessageModel
+        ) {
+        }
     }
+
 
     var contentWidth: Number? = null
         set(value) {
@@ -140,12 +164,37 @@ class AAChartView : WebView {
 
     //js调用安卓，必须加@JavascriptInterface注释的方法才可以被js调用
     @JavascriptInterface
-    fun androidMethod(message: String?): String {
-        var messageBody = HashMap<String, Any>()
-        messageBody = Gson().fromJson(message, messageBody.javaClass)
-        val eventMessageModel: AAMoveOverEventMessageModel = getEventMessageModel(messageBody)
-        callBack?.chartViewMoveOverEventMessage(this, eventMessageModel)
-        //Log.i("androidMethod","++++++++++++++++显示总共调用了几次");
+    fun clickEventAndroidMethod(message: String?): String {
+        val gson = Gson()
+        var messageBody: Map<String, Any> = java.util.HashMap()
+        messageBody = gson.fromJson(message, messageBody.javaClass)
+        // 调用泛型方法并传递 MyEventMessage.class 作为 eventType 参数
+        val clickEventMessageModel: AAClickEventMessageModel = this.getEventMessageModel(
+            messageBody,
+            AAClickEventMessageModel::class.java
+        )
+        if (callBack != null) {
+            callBack!!.chartViewClickEventMessage(this, clickEventMessageModel)
+        }
+        //       Log.i("androidMethod","++++++++++++++++显示总共调用了几次");
+        return ""
+    }
+
+    //js调用安卓，必须加@JavascriptInterface注释的方法才可以被js调用
+    @JavascriptInterface
+    fun moveOverEventAndroidMethod(message: String?): String {
+        val gson = Gson()
+        var messageBody: Map<String, Any> = java.util.HashMap()
+        messageBody = gson.fromJson(message, messageBody.javaClass)
+        // 调用泛型方法并传递 MyEventMessage.class 作为 eventType 参数
+        val moveOverEventMessageModel = this.getEventMessageModel(
+            messageBody,
+            AAMoveOverEventMessageModel::class.java
+        )
+        if (callBack != null) {
+            callBack!!.chartViewMoveOverEventMessage(this, moveOverEventMessageModel)
+        }
+        //       Log.i("androidMethod","++++++++++++++++显示总共调用了几次");
         return ""
     }
 
@@ -323,11 +372,37 @@ class AAChartView : WebView {
         }
     }
 
-    private fun configureChartOptionsAndDrawChart(chartOptions: AAOptions) {
-        if (isClearBackgroundColor!!) {
-            chartOptions.chart!!.backgroundColor("rgba(0,0,0,0)")
+    private fun configurePlotOptionsSeriesPointEvents(aaOptions: AAOptions) {
+        if (aaOptions.plotOptions == null) {
+            aaOptions.plotOptions = AAPlotOptions().series(AASeries().point(AAPoint().events(AAPointEvents())))
+        } else if (aaOptions.plotOptions!!.series == null) {
+            aaOptions.plotOptions!!.series = AASeries().point(AAPoint().events(AAPointEvents()))
+        } else if (aaOptions.plotOptions!!.series!!.point == null) {
+            aaOptions.plotOptions!!.series!!.point = AAPoint().events(AAPointEvents())
+        } else if (aaOptions.plotOptions!!.series!!.point!!.events == null) {
+            aaOptions.plotOptions!!.series!!.point!!.events = AAPointEvents()
         }
-        val aaOptionsJsonStr = Gson().toJson(chartOptions)
+    }
+
+    private fun configureChartOptionsAndDrawChart(aaOptions: AAOptions) {
+        if (isClearBackgroundColor!!) {
+            aaOptions.chart!!.backgroundColor(AAColor.Clear)
+        }
+
+
+        // 提取布尔表达式以提高可读性，并防止 NullPointerException
+        val isClickEventEnabled =
+            (aaOptions.clickEventEnabled != null && aaOptions.clickEventEnabled == true)
+        val isTouchEventEnabled =
+            (aaOptions.touchEventEnabled != null && aaOptions.touchEventEnabled == true)
+
+        val isAnyEventEnabled = isClickEventEnabled || isTouchEventEnabled
+
+        if (isAnyEventEnabled) {
+            configurePlotOptionsSeriesPointEvents(aaOptions)
+        }
+
+        val aaOptionsJsonStr = Gson().toJson(aaOptions)
         optionsJson = aaOptionsJsonStr
         val javaScriptStr = "loadTheHighChartView('$aaOptionsJsonStr','$contentWidth','$contentHeight')"
         safeEvaluateJavaScriptString(javaScriptStr)
@@ -356,15 +431,26 @@ class AAChartView : WebView {
         }
     }
 
-    private fun getEventMessageModel(messageBody: Map<String, Any>): AAMoveOverEventMessageModel {
-        val eventMessageModel = AAMoveOverEventMessageModel()
-        eventMessageModel.name = messageBody["name"].toString()
-        eventMessageModel.x = messageBody["x"] as Double?
-        eventMessageModel.y = messageBody["y"] as Double?
-        eventMessageModel.category = messageBody["category"].toString()
-        eventMessageModel.offset = messageBody["offset"] as LinkedTreeMap<String, Any>?
+    private fun <T : AAEventMessageModel?> getEventMessageModel(
+        messageBody: Map<String, Any>,
+        eventType: Class<T>
+    ): T {
+        val eventMessageModel: T
+        try {
+            // 通过反射实例化泛型类型
+            eventMessageModel = eventType.getDeclaredConstructor().newInstance()
+        } catch (e: Exception) {
+            throw RuntimeException("Failed to create instance of $eventType", e)
+        }
+
+        eventMessageModel!!.name = messageBody["name"].toString()
+        eventMessageModel!!.x = messageBody["x"] as Double?
+        eventMessageModel!!.y = messageBody["y"] as Double?
+        eventMessageModel!!.category = messageBody["category"].toString()
+        eventMessageModel!!.offset = messageBody["offset"] as LinkedTreeMap<*, *>?
         val index = messageBody["index"] as Double?
-        eventMessageModel.index = index?.toInt()
+        eventMessageModel!!.index = index!!.toInt()
+
         return eventMessageModel
     }
 

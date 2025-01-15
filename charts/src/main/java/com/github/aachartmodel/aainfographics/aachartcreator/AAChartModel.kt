@@ -246,6 +246,7 @@ class AAChartModel(
     var backgroundColor: Any? = "#ffffff",
     var borderRadius: Number? = 0f,
     var series: Array<Any>? = null,
+    var clickEventEnabled: Boolean? = null,
     var touchEventEnabled: Boolean? = null,
     var scrollablePlotArea: AAScrollablePlotArea? = null
 ) {
@@ -457,6 +458,11 @@ class AAChartModel(
 
     fun series(prop: Array<Any>): AAChartModel {
         series = prop
+        return this
+    }
+
+    fun clickEventEnabled(prop: Boolean): AAChartModel {
+        clickEventEnabled = prop
         return this
     }
 

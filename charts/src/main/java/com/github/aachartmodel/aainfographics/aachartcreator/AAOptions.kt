@@ -27,7 +27,28 @@
  */
 package com.github.aachartmodel.aainfographics.aachartcreator
 
-import com.github.aachartmodel.aainfographics.aaoptionsmodel.*
+import com.github.aachartmodel.aainfographics.aaoptionsmodel.AAAnimation
+import com.github.aachartmodel.aainfographics.aaoptionsmodel.AABar
+import com.github.aachartmodel.aainfographics.aaoptionsmodel.AAChart
+import com.github.aachartmodel.aainfographics.aaoptionsmodel.AAColumn
+import com.github.aachartmodel.aainfographics.aaoptionsmodel.AAColumnrange
+import com.github.aachartmodel.aainfographics.aaoptionsmodel.AACredits
+import com.github.aachartmodel.aainfographics.aaoptionsmodel.AADataLabels
+import com.github.aachartmodel.aainfographics.aaoptionsmodel.AAItemStyle
+import com.github.aachartmodel.aainfographics.aaoptionsmodel.AALabels
+import com.github.aachartmodel.aainfographics.aaoptionsmodel.AALang
+import com.github.aachartmodel.aainfographics.aaoptionsmodel.AALegend
+import com.github.aachartmodel.aainfographics.aaoptionsmodel.AAMarker
+import com.github.aachartmodel.aainfographics.aaoptionsmodel.AAPane
+import com.github.aachartmodel.aainfographics.aaoptionsmodel.AAPie
+import com.github.aachartmodel.aainfographics.aaoptionsmodel.AAPlotOptions
+import com.github.aachartmodel.aainfographics.aaoptionsmodel.AASeries
+import com.github.aachartmodel.aainfographics.aaoptionsmodel.AAStyle
+import com.github.aachartmodel.aainfographics.aaoptionsmodel.AASubtitle
+import com.github.aachartmodel.aainfographics.aaoptionsmodel.AATitle
+import com.github.aachartmodel.aainfographics.aaoptionsmodel.AATooltip
+import com.github.aachartmodel.aainfographics.aaoptionsmodel.AAXAxis
+import com.github.aachartmodel.aainfographics.aaoptionsmodel.AAYAxis
 import com.github.aachartmodel.aainfographics.aatools.AAColor
 
 class AAOptions {
@@ -46,6 +67,7 @@ class AAOptions {
     var colors: Array<Any>? = null
     var credits: AACredits? = null
     var defaultOptions: AALang? = null
+    var clickEventEnabled: Boolean? = null
     var touchEventEnabled: Boolean? = null
 
     fun chart(prop: AAChart): AAOptions {
@@ -123,6 +145,11 @@ class AAOptions {
         return this
     }
 
+    fun clickEventEnabled(prop: Boolean?): AAOptions {
+        clickEventEnabled = prop
+        return this
+    }
+
     fun touchEventEnabled(prop: Boolean?): AAOptions {
         touchEventEnabled = prop
         return this
@@ -195,7 +222,8 @@ object AAOptionsConstructor {
             .legend(aaLegend)
             .series(aaChartModel.series)
             .colors(aaChartModel.colorsTheme) //设置颜色主题
-            .touchEventEnabled(aaChartModel.touchEventEnabled) //是否支持点击事件
+            .clickEventEnabled(aaChartModel.clickEventEnabled) //是否支持点击事件
+            .touchEventEnabled(aaChartModel.touchEventEnabled) //是否支持触摸事件
 
         configureAxisContentAndStyle(aaOptions, aaChartModel)
 

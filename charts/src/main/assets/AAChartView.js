@@ -39,37 +39,48 @@ function configurePlotOptions(aaOptions) {
         var animationEasingType = animation.easing;
         animation.easing = configureTheChartAnimationEasingType(animationEasingType);
     }
-    // 添加鼠标事件
-    if (aaOptions.touchEventEnabled == true && aaPlotOptions.series) {
+
+    if (aaOptions.clickEventEnabled == true) {
+        configureChartClickEvent(aaPlotOptions);
+    }
+
+    if (aaOptions.touchEventEnabled == true) {
         configureChartTouchEvent(aaPlotOptions);
     }
 }
 
-function configureChartTouchEvent(aaPlotOptions) {
-    var mouseOverFunc = function(){
-        var message = {
-            name: this.series.name,
-            y :this.y,
-            x: this.x,
-            category: this.category,
-            offset: {plotX:this.plotX,plotY:this.plotY},
-            index: this.index,
-        };
+function configureEventMessageBody(selectedPoint) {
+    return {
+        name: selectedPoint.series.name,
+        y: selectedPoint.y,
+        x: selectedPoint.x,
+        category: selectedPoint.category,
+        offset: {
+            plotX: selectedPoint.plotX,
+            plotY: selectedPoint.plotY
+        },
+        index: selectedPoint.index,
+    };
+}
 
+function configureChartClickEvent(aaPlotOptions) {
+    var clickEventFunc = function() {
+        var message = configureEventMessageBody(this);
         var messageStr = JSON.stringify(message);
-        window.androidObject.androidMethod(messageStr);
+        window.androidObject.clickEventAndroidMethod(messageStr);
     };
 
-    if (aaPlotOptions.series.point) {// set property directly for series point
-        aaPlotOptions.series.point.events.mouseOver = mouseOverFunc;
-    } else {// create a new series point object instance
-        var seriesPoint = {
-            events:{
-                mouseOver: mouseOverFunc,
-            }
-        };
-        aaPlotOptions.series.point = seriesPoint;
-    }
+    aaPlotOptions.series.point.events.click = clickEventFunc;
+}
+
+function configureChartTouchEvent(aaPlotOptions) {
+    var mouseOverEventFunc = function() {
+        var message = configureEventMessageBody(this);
+        var messageStr = JSON.stringify(message);
+        window.androidObject.moveOverEventAndroidMethod(messageStr);
+    };
+
+    aaPlotOptions.series.point.events.mouseOver = mouseOverEventFunc;
 }
 
 function onlyRefreshTheChartDataWithSeries(receivedSeries, animation) {

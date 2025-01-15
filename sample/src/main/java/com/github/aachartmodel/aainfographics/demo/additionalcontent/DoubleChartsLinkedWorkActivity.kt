@@ -5,7 +5,6 @@ import android.os.Handler
 import android.os.Looper
 import androidx.appcompat.app.AppCompatActivity
 import com.github.aachartmodel.aainfographics.aachartcreator.*
-import com.github.aachartmodel.aainfographics.aachartcreator.AAOptions
 import com.github.aachartmodel.aainfographics.aaoptionsmodel.AADataLabels
 import com.github.aachartmodel.aainfographics.aaoptionsmodel.AALabels
 import com.github.aachartmodel.aainfographics.aaoptionsmodel.AAStyle
@@ -94,6 +93,7 @@ class DoubleChartsLinkedWorkActivity : AppCompatActivity(),
             .borderRadius(4f)
             .legendEnabled(false)
             .colorsTheme(gradientColorsArr)
+            .clickEventEnabled(true)
             .touchEventEnabled(true)
             .yAxisTitle("Random Number")
             .yAxisMax(210)
@@ -187,10 +187,40 @@ class DoubleChartsLinkedWorkActivity : AppCompatActivity(),
 
     override fun chartViewMoveOverEventMessage(
         aaChartView: AAChartView,
-        messageModel: AAMoveOverEventMessageModel
+        moveOverEventMessage: AAMoveOverEventMessageModel
     ) {
-        selectedGradientColor = gradientColorsArr[messageModel.index!!]
-        selectedColorName = gradientColorNamesArr[messageModel.index!!]
+
+
+        //打印触摸(手指掠过)事件信息
+        println("👋👋👋获取触摸(手指掠过)事件 moveOverEventMessage  $moveOverEventMessage")
+        selectedGradientColor = gradientColorsArr[moveOverEventMessage.index!!]
+        selectedColorName = gradientColorNamesArr[moveOverEventMessage.index!!]
+
+        val mainHandler = Handler(Looper.getMainLooper())
+        mainHandler.post {
+            //已在主线程中，可以更新UI
+            val aaSeriesElementsArr: Array<AASeriesElement> = arrayOf(
+                AASeriesElement()
+                    .data(configureSeriesDataArray() as Array<Any>)
+            )
+            aaChartView2?.aa_updateXAxisCategories(configureXAxisCategoresDataArray(), false)
+
+            aaChartView2?.aa_onlyRefreshTheChartDataWithChartOptionsSeriesArray(
+                aaSeriesElementsArr,
+                false
+            )
+        }
+    }
+
+    override fun chartViewClickEventMessage(
+        aaChartView: AAChartView,
+        clickEventMessage: AAClickEventMessageModel
+    ) {
+        //打印点击事件信息
+        println("🖱🖱🖱获取点击事件 clickMessageModel = $clickEventMessage")
+
+        selectedGradientColor = gradientColorsArr[clickEventMessage.index!!]
+        selectedColorName = gradientColorNamesArr[clickEventMessage.index!!]
 
         val mainHandler = Handler(Looper.getMainLooper())
         mainHandler.post {
