@@ -33,12 +33,17 @@ import androidx.appcompat.app.AppCompatActivity
 import com.github.aachartmodel.aainfographics.aachartcreator.AAChartModel
 import com.github.aachartmodel.aainfographics.aachartcreator.AAChartType
 import com.github.aachartmodel.aainfographics.aachartcreator.AAChartView
+import com.github.aachartmodel.aainfographics.aachartcreator.AAClickEventMessageModel
+import com.github.aachartmodel.aainfographics.aachartcreator.AAMoveOverEventMessageModel
 import com.github.aachartmodel.aainfographics.demo.R
 import com.github.aachartmodel.aainfographics.demo.chartcomposer.SpecialChartComposer
+import com.google.gson.Gson
+import com.google.gson.GsonBuilder
 
-class SpecialChartActivity : AppCompatActivity() {
+class SpecialChartActivity : AppCompatActivity(),
+    AAChartView.AAChartViewCallBack {
 
-    private var aaChartModel: AAChartModel? = null
+//    private var aaChartModel: AAChartModel? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,12 +52,16 @@ class SpecialChartActivity : AppCompatActivity() {
         val intent = intent
         val chartType = intent.getStringExtra("chartType")
 
-        aaChartModel = configureChartModelWithChartType(chartType!!)
+        val aaChartModel = configureChartModelWithChartType(chartType!!)
+        aaChartModel.clickEventEnabled(true)
+            .touchEventEnabled(true)
+
         val aaChartView: AAChartView = findViewById(R.id.AAChartView)
-        aaChartView.aa_drawChartWithChartModel(aaChartModel!!)
+        aaChartView.callBack = this
+        aaChartView.aa_drawChartWithChartModel(aaChartModel)
     }
 
-    private fun configureChartModelWithChartType(chartType: String): AAChartModel? {
+    private fun configureChartModelWithChartType(chartType: String): AAChartModel {
         when (chartType) {
             AAChartType.Column.value -> return SpecialChartComposer.configurePolarColumnChart()
             AAChartType.Bar.value -> return SpecialChartComposer.configurePolarBarChart()
@@ -76,6 +85,31 @@ class SpecialChartActivity : AppCompatActivity() {
         }
 
         return SpecialChartComposer.configurePolarColumnChart()
+
     }
+
+    override fun chartViewDidFinishLoad(aaChartView: AAChartView) {
+        //do nothing
+    }
+
+    override fun chartViewClickEventMessage(
+        aaChartView: AAChartView,
+        clickEventMessage: AAClickEventMessageModel
+    ) {
+        val gson = GsonBuilder().setPrettyPrinting().create()
+        val clickEventMessageModelJson = gson.toJson(clickEventMessage)
+
+        // 打印点击事件信息
+        println("🖱🖱🖱获取点击事件 clickMessageModel = $clickEventMessageModelJson")
+    }
+
+
+    override fun chartViewMoveOverEventMessage(
+        aaChartView: AAChartView,
+        messageModel: AAMoveOverEventMessageModel
+    ) {
+        //do nothing
+    }
+
 
 }

@@ -54,7 +54,7 @@ function configureEventMessageBody(selectedPoint) {
         name: selectedPoint.series.name,
         x: selectedPoint.x,
         y: selectedPoint.y,
-        category: selectedPoint.category,
+        category: selectedPoint.category ? selectedPoint.category : selectedPoint.name,
         index: selectedPoint.index,
         offset: {
             plotX: selectedPoint.plotX,
