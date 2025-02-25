@@ -15,7 +15,7 @@ object Versions {
 
     const val bintray_version = "1.8.5"
     const val kotlin_stdlib_version = "1.4.10"
-    const val gson_version = "2.8.6"
+    const val gson_version = "2.10.1"
 }
 
 object Libs {
