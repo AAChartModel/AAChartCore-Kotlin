@@ -248,6 +248,87 @@ function () {
     }
 
 
+    //https://github.com/AAChartModel/AAChartCore/issues/208
+    fun doublePointsSplineChart(): AAOptions {
+        fun createSplineDataWithCurve(point1: DoubleArray, point2: DoubleArray, curveOffset: Double): Array<Any> {
+            val x0 = point1[0]
+            val y0 = point1[1]
+            val x2 = point2[0]
+            val y2 = point2[1]
+
+            val x1 = (x0 + x2) / 2
+            val y1 = (y0 + y2) / 2 + curveOffset
+
+            return arrayOf(
+                mapOf("x" to x0, "y" to y0),
+                mapOf(
+                    "x" to x1,
+                    "y" to y1,
+                    "marker" to mapOf(
+                        "enabled" to false,
+                        "states" to mapOf(
+                            "hover" to mapOf(
+                                "enabled" to false
+                            )
+                        )
+                    ),
+                    "dataLabels" to mapOf(
+                        "enabled" to false
+                    ),
+                    "isVirtual" to true
+                ),
+                mapOf("x" to x2, "y" to y2)
+            )
+        }
+
+        val dataPoint1 = doubleArrayOf(1.0, 5.0)
+        val dataPoint2 = doubleArrayOf(8.0, 15.0)
+        val splineData = createSplineDataWithCurve(dataPoint1, dataPoint2, 2.0)
+
+        val options = AAOptions()
+            .chart(AAChart()
+                .type(AAChartType.Spline)) // Use AAChartType enum
+            .title(AATitle()
+                .text("两点间的曲线 (中间点无交互)"))
+            .tooltip(AATooltip()
+                .useHTML(true)
+                .formatter("""
+         function() {
+            if (!this.points || this.points.length === 0) {
+                return false;
+            }
+            
+            let wholeContentStr = this.points[0].x + '<br/>';
+            let length = this.points.length;
+            
+            for (let i = 0; i < length; i++) {
+                let thisPoint = this.points[i];
+                
+                if (thisPoint.point && thisPoint.point.isVirtual) {
+                    return false;
+                }
+                
+                let yValue = thisPoint.y;
+                if (yValue != 0) {
+                    let prefixStr = '<span style=\"' + 'color:'+ thisPoint.color + '; font-size:13px\"' + '>◉ ';
+                    wholeContentStr += prefixStr + thisPoint.series.name + ': ' + yValue + '<br/>';
+                }
+            }
+            return wholeContentStr;
+        }
+            """.trimIndent())) // Use triple quotes for multiline strings and trimIndent
+            .series(arrayOf( // Use arrayOf for Kotlin arrays
+                AASeriesElement()
+                    .name("Curved Line")
+                    .data(splineData) // Convert Kotlin List/Collection to Array
+                    .marker(AAMarker()
+                        .enabled(true)
+                        .radius(5))
+            ))
+
+        return options
+    }
+
     fun javaScriptArrayStringWithJavaArray(javaArray: Array<String>): String {
         val originalJsArrStr = StringBuilder()
         for (element: Any in javaArray) {
