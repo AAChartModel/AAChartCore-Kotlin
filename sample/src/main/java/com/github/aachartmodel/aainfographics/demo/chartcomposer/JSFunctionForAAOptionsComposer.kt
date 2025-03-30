@@ -179,6 +179,30 @@ function () {
         return aaOptions
     }
 
+    //https://github.com/AAChartModel/AAChartCore-Kotlin/issues/246
+    //自定义x坐标轴上标题的宽度
+    fun customizeXAxisCategoriesLabelsWidth(): AAOptions {
+        return AAOptions()
+            .chart(AAChart().type(AAChartType.Column))
+            .xAxis(AAXAxis()
+                .categories(arrayOf("很长的标题1三国演义", "很长的标题2水浒传", "很长的标题3红楼梦", "很长的标题4西游记", "很长的标题5金瓶梅"))
+                .labels(AALabels()
+                    .useHTML(true)
+                    .autoRotation(false)
+                    .formatter("""
+   function() {
+                      return '<div style=\"width:50px; text-align:left; word-wrap:break-word; overflow-wrap:break-word; white-space:normal;\">' + this.value + '</div>';
+                    }
+                    """.trimIndent())
+
+                )
+            )
+            .series(arrayOf(
+                AASeriesElement()
+                    .data(arrayOf(29.9, 71.5, 106.4, 129.2, 144.0))
+            ))
+    }
+
     //https://github.com/AAChartModel/AAChartKit-Swift/issues/404
     fun configureColorfulDataLabelsForPieChart(): AAOptions {
         return AAOptions()
