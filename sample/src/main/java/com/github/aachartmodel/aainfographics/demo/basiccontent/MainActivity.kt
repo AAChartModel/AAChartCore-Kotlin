@@ -1,12 +1,22 @@
 package com.github.aachartmodel.aainfographics.demo.basiccontent
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
+import android.util.Log
+import android.view.View
+import android.view.WindowInsetsController
+import android.view.WindowManager
 import android.widget.ExpandableListView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.updatePadding
 import com.github.aachartmodel.aainfographics.aachartcreator.AAChartType
 import com.github.aachartmodel.aainfographics.demo.R
 import com.github.aachartmodel.aainfographics.demo.additionalcontent.*
+import androidx.core.view.WindowInsetsControllerCompat
 
 class MainActivity : AppCompatActivity() {
     private val chartTypeNameArr =
@@ -416,10 +426,90 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        enableEdgeToEdgeUI()
+        setupWindowInsets()
         setupExpandableListView()
     }
 
-   private fun setupExpandableListView() {
+    private fun enableEdgeToEdgeUI() {
+        WindowCompat.setDecorFitsSystemWindows(window, false)
+        val white = android.graphics.Color.WHITE
+        window.statusBarColor = android.graphics.Color.TRANSPARENT
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            window.navigationBarColor = android.graphics.Color.TRANSPARENT
+        }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
+            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
+            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION)
+        }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+            window.attributes.layoutInDisplayCutoutMode =
+                WindowManager.LayoutParams.LAYOUT_IN_DISPLAY_CUTOUT_MODE_SHORT_EDGES
+        }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            window.isNavigationBarContrastEnforced = false
+            window.isStatusBarContrastEnforced = false
+        }
+        val controller = WindowInsetsControllerCompat(window, window.decorView)
+        controller.isAppearanceLightStatusBars = true
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            controller.isAppearanceLightNavigationBars = true
+        }
+        // 为 R 以下版本补齐旧式 flag 以真正让内容延伸到导航栏后面
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.R) {
+            @Suppress("DEPRECATION")
+            window.decorView.systemUiVisibility = (
+                View.SYSTEM_UI_FLAG_LAYOUT_STABLE or
+                        View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN or
+                        View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+            )
+        }
+    }
+
+    private fun setupWindowInsets() {
+        val rootView = findViewById<View>(android.R.id.content)
+        val bottomSpacer = rootView.findViewById<View>(R.id.nav_inset_spacer)
+        val listView = findViewById<ExpandableListView>(R.id.exlist_lol)
+        rootView.setBackgroundColor(android.graphics.Color.WHITE)
+
+        ViewCompat.setOnApplyWindowInsetsListener(rootView) { _, insets ->
+            val sysBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            listView.updatePadding(top = sysBars.top)
+            bottomSpacer?.let { spacer ->
+                spacer.layoutParams = spacer.layoutParams.apply { height = sysBars.bottom }
+                spacer.visibility = if (sysBars.bottom > 0) View.VISIBLE else View.GONE
+            }
+            listView.updatePadding(bottom = sysBars.bottom)
+            adjustNavBarColorByMode(sysBars.bottom)
+            Log.d("EdgeToEdge", "topInset=${sysBars.top}, bottomInset=${sysBars.bottom}")
+            insets
+        }
+    }
+
+    private fun adjustNavBarColorByMode(bottomInset: Int) {
+        // 粗略判断: 如果 bottomInset 很大(>= 80px) 说明是传统三键或导航条高度区域, 此时透明在部分 ROM 会退回黑色, 用白色与内容融合
+        // 如果很小(0~40) 多半是手势导航, 可以保持透明达到真正边到边
+        val isLikelyThreeButton = bottomInset >= 80
+        if (isLikelyThreeButton) {
+            // 使用与内容相同的白色, 避免设备强制绘制黑背景
+            if (window.navigationBarColor != android.graphics.Color.WHITE) {
+                window.navigationBarColor = android.graphics.Color.WHITE
+            }
+        } else {
+            // 手势模式保持透明
+            if (window.navigationBarColor != android.graphics.Color.TRANSPARENT && Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                window.navigationBarColor = android.graphics.Color.TRANSPARENT
+            }
+        }
+    }
+
+    private fun setupExpandableListView() {
+        val expandableListView = findViewById<ExpandableListView>(R.id.exlist_lol)
+
+        // 为ExpandableListView设置背景色，确保覆盖整个区域
+        expandableListView.setBackgroundColor(android.graphics.Color.WHITE)
+
         val groupTitleArr = arrayOf(
             "Basic Type Chart ---基础类型图表",
             "Special Type Chart ---特殊类型图表",
@@ -613,3 +703,4 @@ class MainActivity : AppCompatActivity() {
         private const val kChartTypeKey = "chartType"
     }
 }
+
