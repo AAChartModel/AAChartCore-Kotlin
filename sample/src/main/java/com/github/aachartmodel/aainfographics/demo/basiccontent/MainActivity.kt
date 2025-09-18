@@ -537,7 +537,10 @@ class MainActivity : AppCompatActivity() {
             val chartType = chartTypeArr[groupPosition][childPosition] as String
             when (groupPosition) {
                 0 -> goToCommonChartActivity(chartType, childPosition)
-                1 -> goToSpecialChartActivity(chartType)
+                1 -> {
+                    val intent = Intent(this, SpecialChartListActivity::class.java)
+                    startActivity(intent)
+                }
                 2 -> goToMixedChartActivity(chartType)
                 3 -> goToCustomStyleChartActivity(chartType)
                 4 -> goToDrawChartWithAAOptionsActivity(chartType)
