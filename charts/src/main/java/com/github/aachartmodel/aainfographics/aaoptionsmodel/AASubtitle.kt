@@ -13,13 +13,13 @@ import com.github.aachartmodel.aainfographics.aachartcreator.AAChartVerticalAlig
 
 
 class AASubtitle {
-    private var text: String? = null
-    private var style: AAStyle? = null
-    private var align: String? = null
-    private var verticalAlign: String? = null
-    private var x: Number? = null
-    private var y: Number? = null
-    private var userHTML: Boolean? = null
+    var text: String? = null
+    var style: AAStyle? = null
+    var align: String? = null
+    var verticalAlign: String? = null
+    var x: Number? = null
+    var y: Number? = null
+    var userHTML: Boolean? = null
 
     fun text(prop: String?): AASubtitle {
         text = prop
