@@ -19,6 +19,7 @@ class SpecialChartAdapter(
 ) : RecyclerView.Adapter<SpecialChartAdapter.ViewHolder>() {
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+        val indexTextView: TextView = view.findViewById(R.id.tv_chart_index)
         val nameTextView: TextView = view.findViewById(R.id.tv_chart_name)
         val aaChartView: AAChartView = view.findViewById(R.id.aa_chart_view)
     }
@@ -30,6 +31,7 @@ class SpecialChartAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = chartItems[position]
+        holder.indexTextView.text = "${position + 1}."
         holder.nameTextView.text = item.name
         val aaChartModel = getChartModel(item.chartType)
         holder.aaChartView.aa_drawChartWithChartModel(aaChartModel)
