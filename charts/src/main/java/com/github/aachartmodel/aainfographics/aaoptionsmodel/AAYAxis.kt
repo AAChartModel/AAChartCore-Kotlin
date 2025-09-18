@@ -36,7 +36,6 @@ open class AAYAxis: AAAxis() {
         return this
     }
 
-
     // 为了保持向后兼容性，添加对 AATitle 的支持
     // 同时添加方法废弃警告⚠️, 提示用户使用新的 AAAxisTitle 类型
     @Deprecated("Use `fun title(prop: AAAxisTitle): AAYAxis` instead. AATitle is deprecated for axis titles.")
