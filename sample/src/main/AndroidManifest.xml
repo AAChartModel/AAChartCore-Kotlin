@@ -10,6 +10,7 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme"
+            android:resizeableActivity="true"
             tools:ignore="AllowBackup">
         <activity android:name=".basiccontent.MainActivity">
             <intent-filter>
