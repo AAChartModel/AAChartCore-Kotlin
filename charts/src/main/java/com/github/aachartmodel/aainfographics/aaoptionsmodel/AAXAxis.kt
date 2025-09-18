@@ -36,18 +36,13 @@ open class AAXAxis: AAAxis() {
     @Deprecated("Use `fun title(prop: AAAxisTitle): AAXAxis` instead. AATitle is deprecated for axis titles.")
     fun title(prop: AATitle?): AAXAxis {
         if (prop != null) {
-            // 将AATitle转换为AAAxisTitle
+            // 将 AATitle 转换为 AAAxisTitle
             val axisTitle = AAAxisTitle()
                 .text(prop.text)
                 .style(prop.style)
-
-            // 如果AATitle有x和y属性, 也将它们设置到AAAxisTitle中
-            prop.x?.let { x ->
-                axisTitle.x(x)
-            }
-            prop.y?.let { y ->
-                axisTitle.y(y)
-            }
+                .x(prop.x)
+                .y(prop.y)
+                .useHTML(prop.useHTML)
 
             title = axisTitle
         } else {

@@ -18,7 +18,7 @@ class AATitle {
     var verticalAlign: String? = null
     var x: Number? = null
     var y: Number? = null
-    var userHTML: Boolean? = null
+    var useHTML: Boolean? = null
 
     fun text(prop: String?): AATitle {
         text = prop
@@ -50,8 +50,8 @@ class AATitle {
         return this
     }
 
-    fun userHTML(prop: Boolean?): AATitle {
-        userHTML = prop
+    fun useHTML(prop: Boolean?): AATitle {
+        useHTML = prop
         return this
     }
 }
