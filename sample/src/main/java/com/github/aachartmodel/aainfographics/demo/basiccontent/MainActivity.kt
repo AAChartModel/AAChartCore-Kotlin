@@ -545,7 +545,10 @@ class MainActivity : AppCompatActivity() {
                     val intent = Intent(this, MixedChartListActivity::class.java)
                     startActivity(intent)
                 }
-                3 -> goToCustomStyleChartActivity(chartType)
+                3 -> {
+                    val intent = Intent(this, CustomStyleChartListActivity::class.java)
+                    startActivity(intent)
+                }
                 4 -> goToDrawChartWithAAOptionsActivity(chartType)
                 5 -> goToOnlyRefreshChartDataActivity(chartType)
                 6 -> goToCustomTooltipWithJSFunctionActivity(chartType)

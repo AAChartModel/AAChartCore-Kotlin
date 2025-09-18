@@ -43,6 +43,7 @@
         <activity android:name=".additionalcontent.AdvancedUpdatingFeatureActivity" />
         <activity android:name=".basiccontent.SpecialChartListActivity" />
         <activity android:name=".basiccontent.MixedChartListActivity" />
+        <activity android:name=".basiccontent.CustomStyleChartListActivity" />
     </application>
 
 </manifest>
