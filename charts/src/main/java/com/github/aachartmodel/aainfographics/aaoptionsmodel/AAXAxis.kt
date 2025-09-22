@@ -25,8 +25,28 @@ open class AAXAxis: AAAxis() {
         return this
     }
 
-    fun title(prop: AATitle): AAXAxis {
+    fun title(prop: AAAxisTitle): AAXAxis {
         title = prop
+        return this
+    }
+
+    // 为了保持向后兼容性，添加对 AATitle 的支持
+    // 同时添加方法废弃警告⚠️, 提示用户使用新的 AAAxisTitle 类型
+    @Deprecated("Use `fun title(prop: AAAxisTitle): AAXAxis` instead. AATitle is deprecated for axis titles.")
+    fun title(prop: AATitle?): AAXAxis {
+        if (prop != null) {
+            // 将 AATitle 转换为 AAAxisTitle
+            val axisTitle = AAAxisTitle()
+                .text(prop.text)
+                .style(prop.style)
+                .x(prop.x)
+                .y(prop.y)
+                .useHTML(prop.useHTML)
+
+            title = axisTitle
+        } else {
+            title = null
+        }
         return this
     }
 

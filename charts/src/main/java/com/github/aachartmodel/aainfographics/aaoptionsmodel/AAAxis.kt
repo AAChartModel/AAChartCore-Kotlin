@@ -12,7 +12,7 @@ enum class AAChartAxisType(val value: String) {
     var allowDecimals: Boolean? = null
     var alternateGridColor: Any? = null
     var crosshair: AACrosshair? = null //准星线样式设置
-    var title: AATitle? = null
+    var title: AAAxisTitle? = null
     var type: String? = null
     var dateTimeLabelFormats: AADateTimeLabelFormats? = null
     var plotBands: Array<AAPlotBandsElement>? = null

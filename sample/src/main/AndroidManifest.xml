@@ -1,17 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        package="com.github.aachartmodel.aainfographics.demo">
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.github.aachartmodel.aainfographics.demo">
 
     <application
-            android:allowBackup="true"
-            android:icon="@mipmap/ic_launcher"
-            android:label="@string/app_name"
-            android:roundIcon="@mipmap/ic_launcher_round"
-            android:supportsRtl="true"
-            android:theme="@style/AppTheme"
-            tools:ignore="AllowBackup">
-        <activity android:name=".basiccontent.MainActivity">
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme.EdgeToEdge.Material"
+        android:resizeableActivity="true"
+        tools:ignore="AllowBackup">
+
+        <!-- 解决旧版系统(如 Android 8.x)可能出现的宽高比 letterboxing 黑边问题 -->
+        <meta-data android:name="android.max_aspect" android:value="2.6" />
+
+        <activity android:name=".basiccontent.MainActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -35,6 +41,9 @@
         <activity android:name=".additionalcontent.DoubleChartsLinkedWorkActivity" />
         <activity android:name=".additionalcontent.ScrollableChartActivity" />
         <activity android:name=".additionalcontent.AdvancedUpdatingFeatureActivity" />
+        <activity android:name=".basiccontent.SpecialChartListActivity" />
+        <activity android:name=".basiccontent.MixedChartListActivity" />
+        <activity android:name=".basiccontent.CustomStyleChartListActivity" />
     </application>
 
 </manifest>
