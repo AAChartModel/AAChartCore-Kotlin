@@ -31,9 +31,9 @@
                         android:layout_width="36dp"
                         android:layout_height="36dp"
                         android:gravity="center"
-                        android:text="●"
-                        android:textColor="#FF5722"
-                        android:textSize="18sp"
+                                android:text="01"
+                                android:textColor="@android:color/white"
+                                android:textSize="15sp"
                         android:background="@drawable/bg_chart_color_dot"
                         android:fontFamily="sans-serif-medium" />
 

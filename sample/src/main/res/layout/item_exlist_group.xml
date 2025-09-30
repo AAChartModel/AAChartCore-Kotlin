@@ -26,10 +26,22 @@
         android:paddingBottom="16dp">
 
         <TextView
+            android:id="@+id/tv_group_index"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:gravity="center"
+            android:text="01"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:fontFamily="sans-serif-medium"
+            android:background="@drawable/bg_chart_color_dot" />
+
+        <TextView
             android:id="@+id/tv_group_name"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:layout_marginStart="16dp"
             android:text="Charts"
             android:textColor="@android:color/black"
             android:textSize="18sp"

@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">AAInfographics</string>
+    <string name="chart_list_item_subtitle">示例 %1$s · %2$s</string>
 </resources>

@@ -82,6 +82,7 @@ class MyBaseExpandableListAdapter(
             )
             groupHolder = ViewHolderGroup()
             groupHolder.tv_group_name = convertView.findViewById<View>(R.id.tv_group_name) as TextView
+            groupHolder.tv_group_index = convertView.findViewById(R.id.tv_group_index) as TextView
             groupHolder.iv_indicator = convertView.findViewById(R.id.iv_group_indicator) as ImageView
             groupHolder.cardContainer = convertView.findViewById(R.id.card_group_container) as MaterialCardView
             convertView.tag = groupHolder
@@ -92,10 +93,19 @@ class MyBaseExpandableListAdapter(
         groupHolder.tv_group_name?.text = gData[groupPosition]
         groupHolder.tv_group_name?.setTextColor(ColorUtils.setAlphaComponent(accentColor, 230))
 
+        groupHolder.tv_group_index?.text = formatIndex(groupPosition)
+        groupHolder.tv_group_index?.setTextColor(Color.WHITE)
+        groupHolder.tv_group_index?.let {
+            ViewCompat.setBackgroundTintList(
+                it,
+                ColorStateList.valueOf(ColorUtils.setAlphaComponent(accentColor, 210))
+            )
+        }
+
         groupHolder.cardContainer?.strokeColor = ColorUtils.setAlphaComponent(accentColor, 60)
         groupHolder.cardContainer?.rippleColor = ColorStateList.valueOf(ColorUtils.setAlphaComponent(accentColor, 80))
         groupHolder.cardContainer?.setCardBackgroundColor(
-            if (isExpanded) ColorUtils.setAlphaComponent(accentColor, 24) else Color.WHITE
+            if (isExpanded) ColorUtils.setAlphaComponent(accentColor, 28) else Color.WHITE
         )
 
         groupHolder.iv_indicator?.let { indicator ->
@@ -140,19 +150,25 @@ class MyBaseExpandableListAdapter(
                 convertView.tag as ViewHolderItem
         }
         val accentColor = parseGroupColor(groupPosition)
-        itemHolder.tv_color_dot?.setTextColor(accentColor)
+        itemHolder.tv_color_dot?.text = formatIndex(childPosition)
+        itemHolder.tv_color_dot?.setTextColor(Color.WHITE)
         itemHolder.tv_color_dot?.let {
             ViewCompat.setBackgroundTintList(
                 it,
-                ColorStateList.valueOf(ColorUtils.setAlphaComponent(accentColor, 60))
+                ColorStateList.valueOf(ColorUtils.setAlphaComponent(accentColor, 210))
             )
         }
 
         itemHolder.tv_name?.text = iData[groupPosition][childPosition]
-    itemHolder.tv_subtitle?.setTextColor(ColorUtils.setAlphaComponent(accentColor, 170))
+        itemHolder.tv_subtitle?.text = mContext.getString(
+            R.string.chart_list_item_subtitle,
+            formatIndex(childPosition),
+            gData[groupPosition]
+        )
+        itemHolder.tv_subtitle?.setTextColor(ColorUtils.setAlphaComponent(accentColor, 170))
 
-    itemHolder.cardContainer?.strokeColor = ColorUtils.setAlphaComponent(accentColor, 45)
-    itemHolder.cardContainer?.setCardBackgroundColor(ColorUtils.setAlphaComponent(accentColor, 16))
+        itemHolder.cardContainer?.strokeColor = ColorUtils.setAlphaComponent(accentColor, 45)
+        itemHolder.cardContainer?.setCardBackgroundColor(ColorUtils.setAlphaComponent(accentColor, 24))
         itemHolder.cardContainer?.rippleColor = ColorStateList.valueOf(ColorUtils.setAlphaComponent(accentColor, 90))
         itemHolder.ivChevron?.rotation = -90f
         itemHolder.ivChevron?.imageTintList = ColorStateList.valueOf(ColorUtils.setAlphaComponent(accentColor, 200))
@@ -169,8 +185,13 @@ class MyBaseExpandableListAdapter(
         return Color.parseColor(colorStr)
     }
 
+    private fun formatIndex(position: Int): String {
+        return String.format("%02d", position + 1)
+    }
+
     private class ViewHolderGroup {
         var tv_group_name: TextView? = null
+        var tv_group_index: TextView? = null
         var iv_indicator: ImageView? = null
         var cardContainer: MaterialCardView? = null
     }
