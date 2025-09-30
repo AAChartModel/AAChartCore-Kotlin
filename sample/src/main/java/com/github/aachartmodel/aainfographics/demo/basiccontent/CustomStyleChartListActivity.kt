@@ -15,7 +15,7 @@ class CustomStyleChartListActivity : AppCompatActivity() {
         val recyclerView = findViewById<RecyclerView>(R.id.recycler_view)
         val chartItems = getChartItems()
         recyclerView.layoutManager = LinearLayoutManager(this)
-        recyclerView.adapter = CustomStyleChartAdapter(this, chartItems)
+    recyclerView.adapter = CustomStyleChartAdapter(chartItems)
     }
 
     private fun getChartItems(): List<ChartItem> {
