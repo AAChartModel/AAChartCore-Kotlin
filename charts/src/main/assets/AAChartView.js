@@ -7,6 +7,11 @@ function loadTheHighChartView (sender,receivedWidth, receivedHeight) {
             && value.indexOf('function') != -1) {
             return eval(value)
         }
+
+        //判断 key 如果是 lineColor , 并且 value 为 "AANull", 则将其转换为 null
+        if (key === 'lineColor' && value === 'AANull') {
+            return null;
+        }
         return value;
     });
 

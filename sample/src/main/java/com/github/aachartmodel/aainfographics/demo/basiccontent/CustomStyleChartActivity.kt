@@ -34,6 +34,7 @@ import com.github.aachartmodel.aainfographics.aachartcreator.AAChartModel
 import com.github.aachartmodel.aainfographics.aachartcreator.AAChartView
 import com.github.aachartmodel.aainfographics.demo.R
 import com.github.aachartmodel.aainfographics.demo.chartcomposer.CustomStyleChartComposer
+import com.github.aachartmodel.aainfographics.demo.chartcomposer.CustomStyleChartComposer2
 
 class CustomStyleChartActivity : AppCompatActivity() {
 
@@ -137,6 +138,8 @@ class CustomStyleChartActivity : AppCompatActivity() {
                 return CustomStyleChartComposer.customAreasplineChartWithColorfulGradientColorZones()
 
 
+            "colorfulMarkerWithZonesChart" ->
+                return CustomStyleChartComposer2.colorfulMarkerWithZonesChart()
         }
         return CustomStyleChartComposer.configureColorfulChart()
     }

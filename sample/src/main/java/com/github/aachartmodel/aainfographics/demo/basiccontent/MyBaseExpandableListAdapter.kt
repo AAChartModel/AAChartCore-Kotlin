@@ -1,13 +1,18 @@
 package com.github.aachartmodel.aainfographics.demo.basiccontent
 
 import android.content.Context
+import android.content.res.ColorStateList
 import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseExpandableListAdapter
+import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.graphics.ColorUtils
+import androidx.core.view.ViewCompat
 import com.github.aachartmodel.aainfographics.demo.R
+import com.google.android.material.card.MaterialCardView
 
 class MyBaseExpandableListAdapter(
     private val gData: Array<String>,
@@ -77,11 +82,45 @@ class MyBaseExpandableListAdapter(
             )
             groupHolder = ViewHolderGroup()
             groupHolder.tv_group_name = convertView.findViewById<View>(R.id.tv_group_name) as TextView
+            groupHolder.tv_group_index = convertView.findViewById(R.id.tv_group_index) as TextView
+            groupHolder.iv_indicator = convertView.findViewById(R.id.iv_group_indicator) as ImageView
+            groupHolder.cardContainer = convertView.findViewById(R.id.card_group_container) as MaterialCardView
             convertView.tag = groupHolder
         } else {
             groupHolder = convertView.tag as ViewHolderGroup
         }
-        groupHolder.tv_group_name!!.text = gData[groupPosition]
+        val accentColor = parseGroupColor(groupPosition)
+        groupHolder.tv_group_name?.text = gData[groupPosition]
+        groupHolder.tv_group_name?.setTextColor(ColorUtils.setAlphaComponent(accentColor, 230))
+
+        groupHolder.tv_group_index?.text = formatIndex(groupPosition)
+        groupHolder.tv_group_index?.setTextColor(Color.WHITE)
+        groupHolder.tv_group_index?.let {
+            ViewCompat.setBackgroundTintList(
+                it,
+                ColorStateList.valueOf(ColorUtils.setAlphaComponent(accentColor, 210))
+            )
+        }
+
+        groupHolder.cardContainer?.strokeColor = ColorUtils.setAlphaComponent(accentColor, 60)
+        groupHolder.cardContainer?.rippleColor = ColorStateList.valueOf(ColorUtils.setAlphaComponent(accentColor, 80))
+        groupHolder.cardContainer?.setCardBackgroundColor(
+            if (isExpanded) ColorUtils.setAlphaComponent(accentColor, 28) else Color.WHITE
+        )
+
+        groupHolder.iv_indicator?.let { indicator ->
+            val targetRotation = if (isExpanded) 180f else 0f
+            if (indicator.rotation != targetRotation) {
+                indicator.animate()?.cancel()
+                indicator.animate()
+                    ?.rotation(targetRotation)
+                    ?.setDuration(200L)
+                    ?.start()
+            } else {
+                indicator.animate()?.cancel()
+                indicator.rotation = targetRotation
+            }
+        }
         return convertView
     }
 
@@ -100,16 +139,39 @@ class MyBaseExpandableListAdapter(
                 R.layout.item_exlist_item, parent, false
             )
             itemHolder = ViewHolderItem()
-            itemHolder.tv_color_dot = convertView.findViewById<View>(R.id.tv_color_dot) as TextView
-            itemHolder.tv_name = convertView.findViewById<View>(R.id.tv_name) as TextView
+            itemHolder.cardContainer = convertView.findViewById(R.id.card_item_container) as MaterialCardView
+            itemHolder.tv_color_dot = convertView.findViewById(R.id.tv_color_dot) as TextView
+            itemHolder.tv_name = convertView.findViewById(R.id.tv_name) as TextView
+            itemHolder.tv_subtitle = convertView.findViewById(R.id.tv_subtitle) as TextView
+            itemHolder.ivChevron = convertView.findViewById(R.id.iv_item_chevron) as ImageView
             convertView.tag = itemHolder
         } else {
             itemHolder =
                 convertView.tag as ViewHolderItem
         }
-        val colorStr = colorsArr[groupPosition]
-        itemHolder.tv_color_dot?.setTextColor(Color.parseColor(colorStr))
+        val accentColor = parseGroupColor(groupPosition)
+        itemHolder.tv_color_dot?.text = formatIndex(childPosition)
+        itemHolder.tv_color_dot?.setTextColor(Color.WHITE)
+        itemHolder.tv_color_dot?.let {
+            ViewCompat.setBackgroundTintList(
+                it,
+                ColorStateList.valueOf(ColorUtils.setAlphaComponent(accentColor, 210))
+            )
+        }
+
         itemHolder.tv_name?.text = iData[groupPosition][childPosition]
+        itemHolder.tv_subtitle?.text = mContext.getString(
+            R.string.chart_list_item_subtitle,
+            formatIndex(childPosition),
+            gData[groupPosition]
+        )
+        itemHolder.tv_subtitle?.setTextColor(ColorUtils.setAlphaComponent(accentColor, 170))
+
+        itemHolder.cardContainer?.strokeColor = ColorUtils.setAlphaComponent(accentColor, 45)
+        itemHolder.cardContainer?.setCardBackgroundColor(ColorUtils.setAlphaComponent(accentColor, 24))
+        itemHolder.cardContainer?.rippleColor = ColorStateList.valueOf(ColorUtils.setAlphaComponent(accentColor, 90))
+        itemHolder.ivChevron?.rotation = -90f
+        itemHolder.ivChevron?.imageTintList = ColorStateList.valueOf(ColorUtils.setAlphaComponent(accentColor, 200))
         return convertView
     }
 
@@ -118,13 +180,28 @@ class MyBaseExpandableListAdapter(
         return true
     }
 
+    private fun parseGroupColor(groupPosition: Int): Int {
+        val colorStr = colorsArr[groupPosition % colorsArr.size]
+        return Color.parseColor(colorStr)
+    }
+
+    private fun formatIndex(position: Int): String {
+        return String.format("%02d", position + 1)
+    }
+
     private class ViewHolderGroup {
         var tv_group_name: TextView? = null
+        var tv_group_index: TextView? = null
+        var iv_indicator: ImageView? = null
+        var cardContainer: MaterialCardView? = null
     }
 
     private class ViewHolderItem {
+        var cardContainer: MaterialCardView? = null
         var tv_color_dot: TextView? = null
         var tv_name: TextView? = null
+        var tv_subtitle: TextView? = null
+        var ivChevron: ImageView? = null
     }
 
 }

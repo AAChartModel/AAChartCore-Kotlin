@@ -110,6 +110,8 @@ class MainActivity : AppCompatActivity() {
                 "connectNullsForSingleAASeriesElement---为单个 AASeriesElement 单独设置是否断点重连",
                 "lineChartsWithLargeDifferencesInTheNumberOfDataInDifferentSeriesElement---不同数据列数据量差异较大的折线图",
                 "customAreasplineChartWithColorfulGradientColorZones---彩色渐变填充区域曲线图",
+
+                "colorfulMarkerWithZonesChart---高饱和度波浪图 — 实心与空心 Marker 对比"
                 ), arrayOf(
                 "customLegendStyle",
                 "drawChartWithOptionsOne",
@@ -313,6 +315,8 @@ class MainActivity : AppCompatActivity() {
                 "connectNullsForSingleAASeriesElement",
                 "lineChartsWithLargeDifferencesInTheNumberOfDataInDifferentSeriesElement",
                 "customAreasplineChartWithColorfulGradientColorZones",
+
+                "colorfulMarkerWithZonesChart"
             ), arrayOf( /*使用AAOptions绘制图表*/
                 "customLegendStyle",
                 "AAPlotBandsForChart",
@@ -546,8 +550,10 @@ class MainActivity : AppCompatActivity() {
                     startActivity(intent)
                 }
                 3 -> {
-                    val intent = Intent(this, CustomStyleChartListActivity::class.java)
-                    startActivity(intent)
+//                    val intent = Intent(this, CustomStyleChartListActivity::class.java)
+//                    startActivity(intent)
+                    goToCustomStyleChartActivity(chartType)
+
                 }
                 4 -> goToDrawChartWithAAOptionsActivity(chartType)
                 5 -> goToOnlyRefreshChartDataActivity(chartType)

@@ -1,32 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:orientation="horizontal"
-              android:padding="5dp"
-              android:background="#ffffff">
-    <TextView
-            android:id="@+id/tv_color_dot"
-            android:layout_width="48dp"
-            android:layout_height="match_parent"
-            android:textSize="28dp"
-            android:text="◉"
-            android:gravity="center_vertical|center"
-    ></TextView>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/card_item_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="6dp"
+        android:foreground="?attr/selectableItemBackground"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="0dp"
+        app:cardUseCompatPadding="false"
+        app:strokeColor="@android:color/transparent"
+        app:strokeWidth="1dp"
+        app:rippleColor="?attr/colorControlHighlight">
 
-    <TextView
-            android:id="@+id/tv_name"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
-            android:focusable="false"
-            android:text="图表名称"
-            android:gravity="center_vertical|left"
-            android:textSize="18sp"
-            android:textColor="#123456"
-    />
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingStart="20dp"
+                android:paddingTop="14dp"
+                android:paddingEnd="16dp"
+                android:paddingBottom="14dp">
 
-</LinearLayout>
+                <TextView
+                        android:id="@+id/tv_color_dot"
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        android:gravity="center"
+                                android:text="01"
+                                android:textColor="@android:color/white"
+                                android:textSize="15sp"
+                        android:background="@drawable/bg_chart_color_dot"
+                        android:fontFamily="sans-serif-medium" />
+
+                <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                                android:id="@+id/tv_name"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:ellipsize="end"
+                                android:fontFamily="sans-serif-medium"
+                                android:maxLines="1"
+                                android:text="图表名称"
+                                android:textColor="@android:color/black"
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
+
+                        <TextView
+                                android:id="@+id/tv_subtitle"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:ellipsize="end"
+                                android:maxLines="1"
+                                android:text="点击查看示例"
+                                android:textColor="@android:color/darker_gray"
+                                android:textSize="13sp" />
+
+                </LinearLayout>
+
+                <ImageView
+                        android:id="@+id/iv_item_chevron"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_marginStart="8dp"
+                        android:contentDescription="@string/abc_action_bar_home_description"
+                        android:src="@drawable/ic_chevron_down"
+                        android:tint="@android:color/darker_gray"
+                        android:rotation="-90" />
+
+        </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>
