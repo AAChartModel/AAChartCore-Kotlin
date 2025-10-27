@@ -110,6 +110,8 @@ class MainActivity : AppCompatActivity() {
                 "connectNullsForSingleAASeriesElement---为单个 AASeriesElement 单独设置是否断点重连",
                 "lineChartsWithLargeDifferencesInTheNumberOfDataInDifferentSeriesElement---不同数据列数据量差异较大的折线图",
                 "customAreasplineChartWithColorfulGradientColorZones---彩色渐变填充区域曲线图",
+
+                "colorfulMarkerWithZonesChart---高饱和度波浪图 — 实心与空心 Marker 对比"
                 ), arrayOf(
                 "customLegendStyle",
                 "drawChartWithOptionsOne",
