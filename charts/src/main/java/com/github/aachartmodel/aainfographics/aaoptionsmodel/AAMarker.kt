@@ -8,6 +8,8 @@
  */
 package com.github.aachartmodel.aainfographics.aaoptionsmodel
 
+import com.github.aachartmodel.aainfographics.aatools.AANull
+
 open class AAMarker {
     var enabled: Boolean? = null
     var radius: Number? = null
@@ -43,6 +45,12 @@ open class AAMarker {
     }
 
     fun lineColor(prop: Any?): AAMarker {
+        //如果传入的参数是自定义的 AANull 类型, 则将 lineColor 设为 "AANull"
+        if (prop is AANull) {
+            lineColor = "AANull"
+            return this
+        }
+
         lineColor = prop
         return this
     }

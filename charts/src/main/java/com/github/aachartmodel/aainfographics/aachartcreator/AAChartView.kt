@@ -51,8 +51,12 @@ import com.github.aachartmodel.aainfographics.aaoptionsmodel.AAPointEvents
 import com.github.aachartmodel.aainfographics.aaoptionsmodel.AASeries
 import com.github.aachartmodel.aainfographics.aatools.AAColor
 import com.github.aachartmodel.aainfographics.aatools.AAJSStringPurer
+//import com.github.aachartmodel.aainfographics.aatools.AANull
+//import com.github.aachartmodel.aainfographics.aatools.AANullAdapter
+//import com.github.aachartmodel.aainfographics.aatools.AANullObjectAdapter
 import com.github.aachartmodel.aainfographics.aatools.aa_toJSArray
 import com.google.gson.Gson
+import com.google.gson.GsonBuilder
 import com.google.gson.internal.LinkedTreeMap
 import java.util.Locale
 
@@ -125,6 +129,15 @@ class AAChartView : WebView {
 
 
     private var optionsJson: String? = null
+
+    // Centralized Gson configured to handle AANull and keep null fields
+    private val aaGson: Gson by lazy {
+        GsonBuilder()
+//            .registerTypeAdapter(String::class.java, AANullAdapter())
+//            .registerTypeAdapter(AANull::class.java, AANullObjectAdapter())
+//            .serializeNulls()
+            .create()
+    }
 
     constructor(
         context: Context
@@ -213,7 +226,7 @@ class AAChartView : WebView {
         seriesElementsArr: Array<AASeriesElement>,
         animation: Boolean
     ) {
-        val seriesArr = Gson().toJson(seriesElementsArr)
+        val seriesArr = aaGson.toJson(seriesElementsArr)
         val javaScriptStr = "onlyRefreshTheChartDataWithSeries('$seriesArr','$animation')"
         safeEvaluateJavaScriptString(javaScriptStr)
     }
@@ -225,7 +238,7 @@ class AAChartView : WebView {
         val isAAOptionsClass = options is AAOptions
         val finalOptionsMapStr: String
         if (isAAOptionsClass) {
-            val aaOptionsMapStr = Gson().toJson(options)
+            val aaOptionsMapStr = aaGson.toJson(options)
             finalOptionsMapStr = aaOptionsMapStr
         } else {
             var classNameStr = options.javaClass.simpleName
@@ -238,7 +251,7 @@ class AAChartView : WebView {
             val finalClassName = lowercaseFirstStr + classNameStr
             val finalOptionsMap = HashMap<String, Any>()
             finalOptionsMap[finalClassName] = options
-            val optionsStr = Gson().toJson(finalOptionsMap)
+            val optionsStr = aaGson.toJson(finalOptionsMap)
             finalOptionsMapStr = optionsStr
         }
         val javaScriptStr = "updateChart('$finalOptionsMapStr','$redraw')"
@@ -275,7 +288,7 @@ class AAChartView : WebView {
         ) {
             options.toString()
         } else {
-            Gson().toJson(options)
+            aaGson.toJson(options)
         }
         val javaScriptStr = "addPointToChartSeries('$elementIndex','$optionsStr','$redraw','$shift','$animation')"
         safeEvaluateJavaScriptString(javaScriptStr)
@@ -292,7 +305,7 @@ class AAChartView : WebView {
     }
 
     fun aa_addElementToChartSeries(aaSeriesElement: AASeriesElement) {
-        val pureElementJsonStr = Gson().toJson(aaSeriesElement)
+        val pureElementJsonStr = aaGson.toJson(aaSeriesElement)
         val javaScriptStr = "addElementToChartSeriesWithElement('$pureElementJsonStr')"
         safeEvaluateJavaScriptString(javaScriptStr)
     }
@@ -367,20 +380,21 @@ class AAChartView : WebView {
     }
 
     private fun configureChartOptionsAndDrawChart(aaOptions: AAOptions) {
-    if (isClearBackgroundColor == true) {
-        aaOptions.chart?.backgroundColor(AAColor.Clear)
+        if (isClearBackgroundColor == true) {
+            aaOptions.chart?.backgroundColor(AAColor.Clear)
+        }
+
+        val isAnyEventEnabled = aaOptions.clickEventEnabled == true || aaOptions.touchEventEnabled == true
+
+        if (isAnyEventEnabled) {
+            configurePlotOptionsSeriesPointEvents(aaOptions)
+        }
+
+        // Use centralized Gson for options serialization
+        optionsJson = aaGson.toJson(aaOptions)
+        val javaScriptStr = "loadTheHighChartView('$optionsJson','$contentWidth','$contentHeight')"
+        safeEvaluateJavaScriptString(javaScriptStr)
     }
-
-    val isAnyEventEnabled = aaOptions.clickEventEnabled == true || aaOptions.touchEventEnabled == true
-
-    if (isAnyEventEnabled) {
-        configurePlotOptionsSeriesPointEvents(aaOptions)
-    }
-
-    optionsJson = Gson().toJson(aaOptions)
-    val javaScriptStr = "loadTheHighChartView('$optionsJson','$contentWidth','$contentHeight')"
-    safeEvaluateJavaScriptString(javaScriptStr)
-}
 
     private fun showJavaScriptAlertView() {
         webChromeClient = object : WebChromeClient() {
@@ -434,5 +448,3 @@ class AAChartView : WebView {
         }
     }
 }
-
-

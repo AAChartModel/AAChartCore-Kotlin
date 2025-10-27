@@ -313,6 +313,8 @@ class MainActivity : AppCompatActivity() {
                 "connectNullsForSingleAASeriesElement",
                 "lineChartsWithLargeDifferencesInTheNumberOfDataInDifferentSeriesElement",
                 "customAreasplineChartWithColorfulGradientColorZones",
+
+                "colorfulMarkerWithZonesChart"
             ), arrayOf( /*使用AAOptions绘制图表*/
                 "customLegendStyle",
                 "AAPlotBandsForChart",
@@ -546,8 +548,10 @@ class MainActivity : AppCompatActivity() {
                     startActivity(intent)
                 }
                 3 -> {
-                    val intent = Intent(this, CustomStyleChartListActivity::class.java)
-                    startActivity(intent)
+//                    val intent = Intent(this, CustomStyleChartListActivity::class.java)
+//                    startActivity(intent)
+                    goToCustomStyleChartActivity(chartType)
+
                 }
                 4 -> goToDrawChartWithAAOptionsActivity(chartType)
                 5 -> goToOnlyRefreshChartDataActivity(chartType)
