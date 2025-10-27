@@ -51,9 +51,6 @@ import com.github.aachartmodel.aainfographics.aaoptionsmodel.AAPointEvents
 import com.github.aachartmodel.aainfographics.aaoptionsmodel.AASeries
 import com.github.aachartmodel.aainfographics.aatools.AAColor
 import com.github.aachartmodel.aainfographics.aatools.AAJSStringPurer
-//import com.github.aachartmodel.aainfographics.aatools.AANull
-//import com.github.aachartmodel.aainfographics.aatools.AANullAdapter
-//import com.github.aachartmodel.aainfographics.aatools.AANullObjectAdapter
 import com.github.aachartmodel.aainfographics.aatools.aa_toJSArray
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
@@ -130,12 +127,8 @@ class AAChartView : WebView {
 
     private var optionsJson: String? = null
 
-    // Centralized Gson configured to handle AANull and keep null fields
     private val aaGson: Gson by lazy {
         GsonBuilder()
-//            .registerTypeAdapter(String::class.java, AANullAdapter())
-//            .registerTypeAdapter(AANull::class.java, AANullObjectAdapter())
-//            .serializeNulls()
             .create()
     }
 
