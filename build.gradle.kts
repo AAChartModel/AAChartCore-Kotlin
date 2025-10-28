@@ -1,9 +1,12 @@
 buildscript {
     repositories {
-        maven { url = uri("https://maven.aliyun.com/repository/google") }
-        maven { url = uri("https://maven.aliyun.com/repository/central") }
-        maven { url = uri("https://maven.aliyun.com/repository/gradle-plugin") }
+        // 阿里云镜像在 JitPack 环境不稳定,已注释
+        // maven { url = uri("https://maven.aliyun.com/repository/google") }
+        // maven { url = uri("https://maven.aliyun.com/repository/central") }
+        // maven { url = uri("https://maven.aliyun.com/repository/gradle-plugin") }
+        google()
         mavenCentral()
+        gradlePluginPortal()
     }
 
     dependencies {
@@ -21,9 +24,11 @@ plugins {
 
 allprojects {
     repositories {
-        maven { url = uri("https://maven.aliyun.com/repository/google") }
-        maven { url = uri("https://maven.aliyun.com/repository/central") }
-        maven { url = uri("https://maven.aliyun.com/repository/jcenter") }
+        // 阿里云镜像在 JitPack 环境不稳定,已注释
+        // maven { url = uri("https://maven.aliyun.com/repository/google") }
+        // maven { url = uri("https://maven.aliyun.com/repository/central") }
+        // maven { url = uri("https://maven.aliyun.com/repository/jcenter") }
+        google()
         mavenCentral()
         maven(url = "https://jitpack.io")
     }
