@@ -9,7 +9,7 @@ object AndroidConstants {
 }
 
 object Versions {
-    const val build_gradle_version = "7.3.1"
+    const val build_gradle_version = "7.4.2"
     const val kotlin_gradle_plugin_version = "1.9.23"
     const val bintray_plugin_version = "1.8.5"
 

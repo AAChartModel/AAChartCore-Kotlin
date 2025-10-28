@@ -2,7 +2,7 @@ buildscript {
     repositories {
         maven { url = uri("https://maven.aliyun.com/repository/google") }
         maven { url = uri("https://maven.aliyun.com/repository/central") }
-        google()
+        maven { url = uri("https://maven.aliyun.com/repository/gradle-plugin") }
         mavenCentral()
     }
 
@@ -23,7 +23,7 @@ allprojects {
     repositories {
         maven { url = uri("https://maven.aliyun.com/repository/google") }
         maven { url = uri("https://maven.aliyun.com/repository/central") }
-        google()
+        maven { url = uri("https://maven.aliyun.com/repository/jcenter") }
         mavenCentral()
         maven(url = "https://jitpack.io")
     }
