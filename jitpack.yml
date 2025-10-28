@@ -1,7 +1,7 @@
 jdk:
   - openjdk17
 before_install:
-  - sdk install java 17.0.2-open || true
-  - sdk use java 17.0.2-open || sdk use java 17.0.1-open
+  - export GRADLE_USER_HOME=$HOME/.gradle
+  - mkdir -p $GRADLE_USER_HOME
 install:
-  - ./gradlew clean assemble publishToMavenLocal --no-daemon --stacktrace
+  - ./gradlew clean assemble publishToMavenLocal --no-daemon --stacktrace --build-cache -Dorg.gradle.jvmargs="-Xmx2048m"
