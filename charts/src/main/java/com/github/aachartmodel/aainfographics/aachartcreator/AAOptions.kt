@@ -172,11 +172,16 @@ object AAOptionsConstructor {
             .type(aaChartModel.chartType) //绘图类型
             .inverted(aaChartModel.inverted) //设置是否反转坐标轴，使X轴垂直，Y轴水平。 如果值为 true，则 x 轴默认是 倒置 的。 如果图表中出现条形图系列，则会自动反转
             .backgroundColor(aaChartModel.backgroundColor) //设置图表的背景色(包含透明度的设置)
-            .pinchType(aaChartModel.zoomType) //设置手势缩放方向
             .panning(true) //设置手势缩放后是否可平移
             .polar(aaChartModel.polar) //是否极化图表(开启极坐标模式)
             .margin(aaChartModel.margin)
             .scrollablePlotArea(aaChartModel.scrollablePlotArea)
+
+        if (aaChartModel.zooming == null) {
+            aaChart.pinchType(aaChartModel.zoomType) //设置手势缩放方向
+        } else {
+            aaChart.zooming(aaChartModel.zooming) //设置手势缩放方向
+        }
 
         val aaTitle = AATitle()
             .text(aaChartModel.title) //标题文本内容

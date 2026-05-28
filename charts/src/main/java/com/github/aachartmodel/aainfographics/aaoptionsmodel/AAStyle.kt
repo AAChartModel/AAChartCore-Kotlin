@@ -35,6 +35,7 @@ class AAStyle {
     var transition: String? = null
     var whiteSpace: String? = null
     var width: Number? = null
+    var zIndex: Number? = null
 
 
     fun background(prop: String?): AAStyle {
@@ -155,6 +156,11 @@ class AAStyle {
 
     fun width(prop: Number?): AAStyle {
         width = prop
+        return this
+    }
+
+    fun zIndex(prop: Number?): AAStyle {
+        zIndex = prop
         return this
     }
 

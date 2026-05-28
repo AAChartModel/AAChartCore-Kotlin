@@ -275,8 +275,8 @@ object AAGradientColor {
             endColor: String
     ): Map<String, Any> {
         return linearGradient(direction, arrayOf<Any>(
-                arrayOf(0, startColor),
-                arrayOf(1, endColor)
+                arrayOf<Any>(0, startColor),
+                arrayOf<Any>(1, endColor)
         ))
     }
 

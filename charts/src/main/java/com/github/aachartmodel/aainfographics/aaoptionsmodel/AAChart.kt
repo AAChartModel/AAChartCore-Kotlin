@@ -35,6 +35,7 @@ class AAChart {
     var zoomType: String? = null
     var events: AAChartEvents? = null
     var height: Number? = null
+    var zooming: AAZooming? = null
     
 
     fun type(prop: AAChartType?): AAChart {
@@ -129,6 +130,11 @@ class AAChart {
 
     fun height(height: Number?): AAChart {
         this.height = height
+        return this
+    }
+
+    fun zooming(zooming: AAZooming?): AAChart {
+        this.zooming = zooming
         return this
     }
 

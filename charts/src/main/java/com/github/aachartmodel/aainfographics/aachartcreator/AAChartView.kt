@@ -239,7 +239,7 @@ class AAChartView : WebView {
 
             //convert fist character to be lowercase string
             val firstChar = classNameStr.substring(0, 1)
-            val lowercaseFirstStr = firstChar.toLowerCase(Locale.ROOT)
+            val lowercaseFirstStr = firstChar.lowercase(Locale.ROOT)
             classNameStr = classNameStr.substring(1)
             val finalClassName = lowercaseFirstStr + classNameStr
             val finalOptionsMap = HashMap<String, Any>()

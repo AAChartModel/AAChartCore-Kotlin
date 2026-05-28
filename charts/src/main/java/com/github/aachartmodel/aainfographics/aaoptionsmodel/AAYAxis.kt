@@ -256,4 +256,9 @@ open class AAYAxis: AAAxis() {
         return this
     }
 
+    fun tickAmount(prop: Int?): AAYAxis {
+        tickAmount = prop
+        return this
+    }
+
 }

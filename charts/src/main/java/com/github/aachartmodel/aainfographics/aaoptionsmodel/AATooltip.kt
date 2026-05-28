@@ -61,6 +61,7 @@ class AATooltip {
     var pointFormatter: String? = null
     var positioner: String? = null
     var dateTimeLabelFormats: AADateTimeLabelFormats? = null
+    var outside: Boolean? = null
 
     fun animation(prop: AAAnimation): AATooltip {
         animation = prop
@@ -177,6 +178,11 @@ class AATooltip {
         return this
     }
 
+    fun outside(prop: Boolean?): AATooltip {
+        outside = prop
+        return this
+    }
+
     init {
         shared = true
         enabled = true
@@ -184,6 +190,5 @@ class AATooltip {
     }
 
 }
-
 
 

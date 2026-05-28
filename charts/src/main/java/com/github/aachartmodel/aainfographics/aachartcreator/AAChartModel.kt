@@ -31,6 +31,7 @@ package com.github.aachartmodel.aainfographics.aachartcreator
 import android.content.Context
 import com.github.aachartmodel.aainfographics.aaoptionsmodel.AAScrollablePlotArea
 import com.github.aachartmodel.aainfographics.aaoptionsmodel.AAStyle
+import com.github.aachartmodel.aainfographics.aaoptionsmodel.AAZooming
 import com.github.aachartmodel.aainfographics.aatools.AABuilder
 
 enum class AAChartAnimationType(val value: String) {
@@ -249,7 +250,8 @@ class AAChartModel(
     var series: Array<Any>? = null,
     var clickEventEnabled: Boolean? = null,
     var touchEventEnabled: Boolean? = null,
-    var scrollablePlotArea: AAScrollablePlotArea? = null
+    var scrollablePlotArea: AAScrollablePlotArea? = null,
+    var zooming: AAZooming? = null
 ) {
 
     fun animationType(prop: AAChartAnimationType): AAChartModel {
@@ -474,6 +476,11 @@ class AAChartModel(
 
     fun scrollablePlotArea(prop: AAScrollablePlotArea): AAChartModel {
         scrollablePlotArea = prop
+        return this
+    }
+
+    fun zooming(prop: AAZooming?): AAChartModel {
+        zooming = prop
         return this
     }
 
