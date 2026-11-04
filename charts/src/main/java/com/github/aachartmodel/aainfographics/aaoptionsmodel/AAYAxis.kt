@@ -261,4 +261,14 @@ open class AAYAxis: AAAxis() {
         return this
     }
 
+    fun top(prop: Any?): AAYAxis {
+        top = prop
+        return this
+    }
+
+    fun height(prop: Any?): AAYAxis {
+        height = prop
+        return this
+    }
+
 }
