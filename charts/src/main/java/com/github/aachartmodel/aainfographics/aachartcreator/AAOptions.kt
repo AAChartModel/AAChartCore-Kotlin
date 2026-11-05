@@ -45,6 +45,7 @@ import com.github.aachartmodel.aainfographics.aaoptionsmodel.AAPlotOptions
 import com.github.aachartmodel.aainfographics.aaoptionsmodel.AASeries
 import com.github.aachartmodel.aainfographics.aaoptionsmodel.AAStyle
 import com.github.aachartmodel.aainfographics.aaoptionsmodel.AASubtitle
+import com.github.aachartmodel.aainfographics.aaoptionsmodel.AATime
 import com.github.aachartmodel.aainfographics.aaoptionsmodel.AATitle
 import com.github.aachartmodel.aainfographics.aaoptionsmodel.AATooltip
 import com.github.aachartmodel.aainfographics.aaoptionsmodel.AAXAxis
@@ -60,6 +61,7 @@ class AAOptions {
     var xAxisArray: Array<AAXAxis>? = null
     var yAxisArray: Array<AAYAxis>? = null
     var tooltip: AATooltip? = null
+    var time: AATime? = null
     var plotOptions: AAPlotOptions? = null
     var series: Array<Any>? = null
     var legend: AALegend? = null
@@ -107,6 +109,11 @@ class AAOptions {
 
     fun tooltip(prop: AATooltip): AAOptions {
         tooltip = prop
+        return this
+    }
+
+    fun time(prop: AATime): AAOptions {
+        time = prop
         return this
     }
 
